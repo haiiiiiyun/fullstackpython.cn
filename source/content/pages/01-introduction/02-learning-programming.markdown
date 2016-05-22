@@ -6,7 +6,7 @@ toc: False
 sidebartitle: 学习编程
 meta: 想要学习写代码但又不知道如果开始吗？来Full Stack Python掌握如何学习编程的方法吧。
 translators: haiiiiiyun.github.io
-updated: 2016-05-22 15:24
+updated: 2016-05-22 23:10
 
 
 # 学习编程
@@ -26,51 +26,36 @@ updated: 2016-05-22 15:24
 
 
 ## 我怎样才能学好编程呢？
-There are several schools of thought on how a person should start learning
-to program. One school of thought is that a lower-level programming
-language such as Assembly or C are the most appropriate languages to start
-with because they force new developers to write their own data structures, 
-learn about pointers and generally work their way through the hard problems 
-in computer science.
+关于应该如何开始学习编程存在好几种思想学派。
+有一种思想学派认为像汇编语言或 C 语言等低级编程语言最适合作为启蒙语言，因为它们要求
+新手们编写他们自己的数据结构，学习指针，并且经常要求自行解决计算机科学中的难题。
 
-There's certainly wisdom in this "low-level first" philosophy because it 
-forces a beginner to gain a strong foundation before moving on to higher
-level topics such as web and mobile application development. This philosophy 
-is the one most commonly used in university computer science programs.
+当然这种“低层优先”的哲学存在些许合理性，因为它迫使初学者在移到像 Web 和移动应用开发等
+更高级的主题前先牢固掌握好基础知识。这种哲学理念通常在大学计算机科学教学计划中使用。
 
-The atomic units of progress in the "low-level first" method of learning are 
+“低层优先“型方法的学习过程分为
 
-1. aspects of programming language understood (type systems, syntax)
-1. number of data structures coded and able to be used (stacks, queues)
-1. algorithms in a developer's toolbelt (quicksort, binary search)
+1. 理解编程语言的各个特性（类型系统、语法）
+1. 编写并且能够使用多种数据结构（堆栈、队列）
+1. 掌握常用算法（快速排序、二分查找）
 
-Another school of thought is that new developers should bootstrap
-themselves through working on projects in whatever programming language 
-interests them enough to keep working through the frustrations that will
-undoubtably occur.
+另一种思想学派认为新手们应该通过参与实际项目来提升自己，项目可以是
+用任何编程语言编写的，关键是要能足够引起他们的兴趣以使他们能坚持
+解决那些不可避免会出现的难题。
 
-In this "project-based" line of thinking, the number of projects completed 
-that expand a programmer's abilities are the units of progress. Extra value 
-is placed on making the projects open source and working with experienced 
-mentors to learn what he or she can improve on in their programs. 
+在这种”基于项目“的思想流派中，完成的项目数量是进步的基本单元，这些项目扩展了程序员的能力。
+要想实现额外的提升，可以通过参与开源项目，和经验丰富的导师一起工作来学习他们如何改善他们自己的项目等途径获得。
 
-## Should I learn Python first?
-Python is good choice in the project-based approach because of the extensive 
-availability of 
-[free and low cost introductory resources](/best-python-resources.html),
-many of which provide example projects to build upon.
+## 我应该先学 Python 吗？
+在基于项目的方法中，Python 是个不错的选择，因为它有大量 [免费和低成本的入门资料](/best-python-resources.html)，
+并且很多资料中都能找到可用作进一步开发的例子项目。
 
-Note that this question of whether or not Python is a good first language
-for an aspiring programmer is highly subjective and these approaches are
-not mutually exclusive. Python is also widely taught in universities to 
-explain the fundamental concepts in computer science, which is in line 
-with the "low-level first" philosophy than the projects-first method.
+需要注意的是，对于一个有抱负的程序员来说， Python 是否是一门不错的首选语言这个问题
+是非常主观的，并且这些方法并不相互排斥。Python 在大学中也被广泛用于教学，以便
+解译计算机科学中的基本概念，这相较与项目优先的方法，似乎更符合”低层优先“的哲学了。
 
-In a nutshell, whether Python is the right first programming language to 
-learn is up to your own learning style and what feels right. If Ruby or Java
-seem like they are easier to learn than Python, go for those languages.
-Programming languages, and the ecosystems around them, are human-made 
-constructs. Find one that appears to match your personal style and give it a
-try, knowing that whatever you choose you'll need to put in many long days and
-nights to really get comfortable as a software developer.
-
+总之，Python 作为学习编程的首选语言是否适合，取决于你自己的学习风格和感觉。
+如果你觉得 Ruby 或者 Java 看起来比 Python 更容易学习，那就选它们吧。 
+编程语言，以及围绕它们的生态系统，都是人造结构。找到一门看起来符合你个人
+风格的语言然后尝试下，要知道无论你选择哪种语言，你都需要投入很多个日日夜夜才能
+成为一个合格的软件开发人员。
