@@ -16,8 +16,9 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 ## 项目进度
 
-- [x] content/pages/01-introduction/01-introduction.markdown (2016-05-21)
-    + 贡献者：[某某某](github.com)
+### 一、简介
+
+- [x] content/pages/01-introduction/01-introduction.markdown (2016-05-22)
 - [ ] content/pages/01-introduction/02-learning-programming.markdown
 - [ ] content/pages/01-introduction/03-why-use-python.markdown
 - [ ] content/pages/01-introduction/04-python-2-or-3.markdown
@@ -25,13 +26,19 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [ ] content/pages/01-introduction/11-best-python-resources.markdown
 - [ ] content/pages/01-introduction/12-best-python-videos.markdown
 
+### 二、开发环境
+
 - [ ] content/pages/02-development-environments/01-development-environments.markdown
 - [ ] content/pages/02-development-environments/03-vim.markdown
 - [ ] content/pages/02-development-environments/04-emacs.markdown
 
+### 三、编程语言
+
 - [ ] content/pages/03-programming-language/01-programming-language.markdown
 - [ ] content/pages/03-programming-language/08-generators.markdown
 - [ ] content/pages/03-programming-language/09-comprehensions.markdown
+
+### 四、Web 开发
 
 - [ ] content/pages/04-web-development/01-web-development.markdown
 - [ ] content/pages/04-web-development/02-web-frameworks.markdown
@@ -50,6 +57,8 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [ ] content/pages/04-web-development/16-static-site-generator.markdown
 - [ ] content/pages/04-web-development/17-jinja2.markdown
 
+### 五、数据部分
+
 - [ ] content/pages/05-data/01-data.markdown
 - [ ] content/pages/05-data/02-databases.markdown
 - [ ] content/pages/05-data/03-nosql.markdown
@@ -58,9 +67,13 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [ ] content/pages/05-data/06-mysql.markdown
 - [ ] content/pages/05-data/07-sqlite.markdown
 
+### 六、Web API
+
 - [ ] content/pages/06-web-apis/01-application-programming-interfaces.markdown
 - [ ] content/pages/06-web-apis/02-api-integration.markdown
 - [ ] content/pages/06-web-apis/03-api-creation.markdown
+
+### 七、Web 应用开发
 
 - [ ] content/pages/07-web-app-deployment/01-deployment.markdown
 - [ ] content/pages/07-web-app-deployment/02-servers.markdown
@@ -86,13 +99,19 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [ ] content/pages/07-web-app-deployment/23-caddy.markdown
 - [ ] content/pages/07-web-app-deployment/24-gunicorn.markdown
 
+### 八、测试
+
 - [ ] content/pages/08-testing/01-testing.markdown
 - [ ] content/pages/08-testing/02-unit-testing.markdown
 - [ ] content/pages/08-testing/03-integration-testing.markdown
 - [ ] content/pages/08-testing/05-code-metrics.markdown
 - [ ] content/pages/08-testing/08-debugging.markdown
 
+### 九、Python 机器人
+
 - [ ] content/pages/09-bots/01-bots.markdown
+
+### 十、Blog 文章
 
 - [ ] content/posts/160508-full-stack-python-blog.markdown
 - [ ] content/posts/160509-django-gunicorn-ubuntu-1604.markdown
@@ -107,8 +126,8 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 1. [新建一个 issue](https://github.com/haiiiiiyun/fullstackpython.cn/issues/new)，说明要贡献哪篇文档，注意翻译之前先看看 issues 里面有没有人已经认领了
 2. fork 之后，修改 `/content/` 中的对应文档进行翻译，并在本地预览，如果不知道如何在本地启动，可以参考[如何在本地启动](https://github.com/haiiiiiyun/fullstackpython.cn#如何在本地启动)
-3. 注意在 File metadata 中将自己加入到 `Translators` 字段，若无此字段，则添加一个
-4. 注意在 File metadata 中更新 `Updated`，若无此字段，则添加一个
+3. 注意在 File metadata 中将自己加入到 `translators` 字段，若无此字段，则添加一个
+4. 注意在 File metadata 中更新 `updated`，若无此字段，则添加一个
 5. 提交一个 pull-request，等待审核
 
 ## 如何在本地启动

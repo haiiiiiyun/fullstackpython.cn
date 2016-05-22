@@ -4,18 +4,14 @@ slug: introduction
 sortorder: 0101
 toc: True
 sidebartitle: 1. Introduction
-meta: Full Stack Python helps you learn Python programming through plain language explanations along with links to other great resources.
+translators: haiiiiiyun.github.io
+updated: 2016-05-22 14:28
+meta: Full Stack Python 通过使用朴实的语言阐释概念并提供丰富的资源来帮助你学习 Python 编程。
 
 
-# Introduction
-You're knee deep in learning the [Python](http://www.python.org/)
-programming language. The syntax is starting to make sense. The first
-few "*ahh-ha*!" moments hit you as you learning conditional
-statements, `for` loops and classes while playing around with the open source 
-libraries that make Python such an amazing language.
+# 简介
+你想深入学习 [Python](http://www.python.org/) 编程语言。 你对语法已经驾轻就熟了。
+有好几次，当在学习条件语句、 `for` 循环、类以及玩转开源库（这是这些库让 Python 变得如此强大）时，你突然领悟到了它的精义。
 
-Now you want to take your initial Python knowledge and make something real,
-like an application that's available on the web that you can show off or 
-sell as a service to other people. That's where Full Stack Python comes in. 
-You've come to the right place to learn everything you need to create, deploy 
-and run a production Python web application.
+现在你想用已掌握的Python知识来做一个真正的应用，一个可以在网上展示，或者能为他人提供服务的应用。
+那么你算来对地方了，Full Stack Python就是这样一个网站，在这里你能学到如何创建、部署并且运行生产级Python web应用的一切知识。
