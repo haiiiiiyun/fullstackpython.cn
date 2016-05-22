@@ -1,31 +1,31 @@
-title: Learning Programming
+title: 学习编程
 category: page
 slug: learning-programming
 sortorder: 0102
 toc: False
-sidebartitle: Learning Programming
-meta: Want to learn how to code but don't know where to start? Read up on approaches to learning programming on Full Stack Python.
+sidebartitle: 学习编程
+meta: 想要学习写代码但又不知道如果开始吗？来Full Stack Python掌握如何学习编程的方法吧。
+translators: haiiiiiyun.github.io
+updated: 2016-05-22 15:24
 
 
-# Learning Programming
-Learning to program is about understanding how to translate thoughts into 
-source code that can be executed on computers to achieve one or more goals.
+# 学习编程
+学习如何来编程就是理解如何将想法转换成源代码，再在计算机上运行以实现一个或多个目标。
 
-There are many steps in learning how to program, including
+学习如何编程，包含很多个步骤：
 
-1. setting up a [development environment](/development-environments.html)
-1. selecting a programming language, such as Python
-1. understanding the syntax and commands for the language
-1. writing code in the language, often using 
-   [pre-existing code libraries](/application-dependencies.html) and 
-   [frameworks](/web-frameworks.html)
-1. executing the program
-1. debugging errors and unexpected results
-1. [deploying](/deployment.html) an application so it can run for intended 
-   users
+1. 设置 [开发环境](/development-environments.html)
+1. 选择一门编程语言，例如 Python
+1. 掌握本语言的语法和命令
+1. 写代码时，通常要用到
+   [第三方库](/application-dependencies.html) 和
+   [框架](/web-frameworks.html)
+1. 运行程序
+1. 调试错误和异常结果
+1. 为目标用户[布署](/deployment.html) 并运行应用
 
 
-## How should I learn programming?
+## 我怎样才能学好编程呢？
 There are several schools of thought on how a person should start learning
 to program. One school of thought is that a lower-level programming
 language such as Assembly or C are the most appropriate languages to start
