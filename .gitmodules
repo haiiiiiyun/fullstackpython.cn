@@ -1,0 +1,3 @@
+[submodule "fullstackpython.com"]
+	path = fullstackpython.com
+	url = git@github.com:makaimc/fullstackpython.com.git
