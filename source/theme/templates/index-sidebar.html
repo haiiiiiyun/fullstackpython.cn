@@ -4,21 +4,17 @@
       <div class="panel-heading"><h3 class="panel-head">{% for p in pages|sort(attribute='sortorder') %}{% if page and p.slug == page.slug %}{{ p.title }}{% endif %}{% endfor %}{% if not page %}Full Stack Python{% endif %}</h3></div>
       <div class="panel-body">
           {% if not page %}
-          <a href="/">Full Stack Python</a> is an open book that explains
-          concepts in plain language and provides the most helpful resources 
-          on those topics.
+          <a href="/">Full Stack Python</a> 是一本开源图书，它用朴实的语言阐释概念并提供相关主题的最有用资源。
           <hr/>
-          View the 
-          <a href="/table-of-contents.html">table of contents</a> if you're
-          looking for a specific Python topic.
+          如果你要查找一个特定主题请查看本 
+          <a href="/table-of-contents.html">目录</a>。
           {% endif %}
           {% if page %}
           <hr/>
-          Major updates are tweeted via
-          <a href="https://twitter.com/fullstackpython">@fullstackpython</a>.
+          重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
-          Need more detailed tutorials than you see here?
-          <a href="http://www.deploypython.com/">Learn more about The Full Stack Python Guide to Deployments book.</a>
+          需要更加详细的教程吗？请看
+          <a href="http://www.deploypython.com/">《The Full Stack Python Guide to Deployments》。</a>
           {% endif %}
       </div>
   </div>
