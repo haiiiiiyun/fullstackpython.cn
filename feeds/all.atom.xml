@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Matt Makai</title><link href="http://www.fullstackpython.com/" rel="alternate"></link><link href="http://www.fullstackpython.com/feeds/all.atom.xml" rel="self"></link><id>http://www.fullstackpython.com/</id><updated>2016-05-18T00:00:00-04:00</updated><entry><title>Setting up PostgreSQL with Python 3 and psycopg on Ubuntu 16.04</title><link href="http://www.fullstackpython.com/postgresql-python-3-psycopg2-ubuntu-1604.html" rel="alternate"></link><published>2016-05-18T00:00:00-04:00</published><author><name>Matt Makai</name></author><id>tag:www.fullstackpython.com,2016-05-18:postgresql-python-3-psycopg2-ubuntu-1604.html</id><summary type="html">&lt;p&gt;&lt;a href="/postgresql.html"&gt;PostgreSQL&lt;/a&gt; is a powerful open source 
+&lt;a href="/databases.html"&gt;relational database&lt;/a&gt; frequently used to create, read,
+update and delete &lt;a href="/web-frameworks.html"&gt;Python web application&lt;/a&gt; data.
+&lt;a href="http://pythonhosted.org/psycopg2/"&gt;Psycopg2&lt;/a&gt; is a PostgreSQL database 
+driver that serves as a Python client for access to the PostgreSQL server. 
+This post explains how to install PostgreSQL on Ubuntu 16.04 and run a few 
+basic SQL queries within a Python program.&lt;/p&gt;
+&lt;p&gt;We won't cover 
+&lt;a href="/object-relational-mappers-orms.html"&gt;object-relational mappers (ORMs)&lt;/a&gt; 
+in this tutorial but these steps can be used as a prerequisite to working 
+with an ORM such as SQLAlchemy or Peewee.&lt;/p&gt;
+&lt;h2&gt;Tools We Need&lt;/h2&gt;
+&lt;p&gt;Our walkthrough should work with either &lt;a href="/python-2-or-3.html"&gt;Python 2 or 3&lt;/a&gt; 
+although all the steps were tested specifically with Python 3.5. Besides 
+the Python interpreter, here are the other components we'll use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://releases.ubuntu.com/16.04/"&gt;Ubuntu 16.04&lt;/a&gt; (these 
+  steps should also work fine with other Ubuntu versions)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pip.pypa.io/en/stable/"&gt;pip&lt;/a&gt; and 
+  &lt;a href="https://virtualenv.pypa.io/en/latest/"&gt;virtualenv&lt;/a&gt; to handle the
+  &lt;a href="https://pypi.python.org/pypi/psycopg2/2.6.1"&gt;psycopg2&lt;/a&gt; 
+  &lt;a href="/application-dependencies.html"&gt;application dependency&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.postgresql.org/"&gt;PostgreSQL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you aren't sure how how to install pip and virtualenv, review the 
+first few steps of the 
+&lt;a href="/blog/python-3-bottle-gunicorn-ubuntu-1604-xenial-xerus.html"&gt;how to set up Python 3, Bottle and Green Unicorn on Ubuntu 16.04 LTS&lt;/a&gt;
+guide.&lt;/p&gt;
+&lt;h2&gt;Install PostgreSQL&lt;/h2&gt;
+&lt;p&gt;We'll install PostgreSQL via the &lt;code&gt;apt&lt;/code&gt; package manager. There are a few
+packages we need since we want to both run PostgreSQL and use the psycopg2
+driver with our Python programs. PostgreSQL will also be installed as a
+system service so we can start, stop and reload its configuration when
+necessary with the &lt;code&gt;service&lt;/code&gt; command. Open the terminal and run: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install postgresql libpq-dev postgresql-client postgresql-client-common
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Enter your &lt;code&gt;sudo&lt;/code&gt; password when prompted and enter 'yes' when &lt;code&gt;apt&lt;/code&gt; asks
+if you want to install the new packages.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160518-postgresql-ubuntu-1604/apt-get-postgresql.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;After a few moments &lt;code&gt;apt&lt;/code&gt; will finish downloading, installing and 
+processing.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160518-postgresql-ubuntu-1604/apt-get-postgresql-done.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;We now have PostgreSQL installed and the PostgreSQL service is running
+in the background. However, we need to create a user and a database instance
+to really start using it. Use the &lt;code&gt;sudo&lt;/code&gt; command to switch to the new
+"postgres" account.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo -i -u postgres
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Within the "postgres" account, create a user from the command line with the
+&lt;code&gt;createuser&lt;/code&gt; command. PostgreSQL will prompt you with several questions.
+Answer "n" to superuser and "y" to the other questions.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;createuser matt -P --interactive
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160518-postgresql-ubuntu-1604/createuser.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Awesome, now we have a PostgreSQL user that matches our Ubuntu login
+account. Exit out of the postgres account by pressing the "Ctrl" key along
+with "d" into the shell. We're back in our own user account.&lt;/p&gt;
+&lt;p&gt;Create a new database we can use for testing. You can name it "testpython"
+or whatever you want for your application.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;createdb testpython
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we can interact with "testpython" via the PostgreSQL command line tool.&lt;/p&gt;
+&lt;h2&gt;Interacting with PostgreSQL&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;psql&lt;/code&gt; command line client is useful for connecting directly to our
+PostgreSQL server without any Python code. Try out &lt;code&gt;psql&lt;/code&gt; by using this
+command at the prompt: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;psql
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The PostgreSQL client will connect to the localhost server. The client is
+now ready for input:&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160518-postgresql-ubuntu-1604/postgresql-cli.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Try out PostgreSQL's command prompt a try with commands such as &lt;code&gt;\dt&lt;/code&gt; and
+&lt;code&gt;\dd&lt;/code&gt;. We can also run SQL queries such as "SELECT * from testpython", 
+although that won't give us back any data yet because we have not inserted
+any into the database. A full list of PostgreSQL commands can be found in the
+&lt;a href="http://www.postgresql.org/docs/9.6/static/app-psql.html"&gt;psql documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Installing psycopg2&lt;/h2&gt;
+&lt;p&gt;Now that PostgreSQL is installed and we have a non-superuser account, we
+can install the &lt;a href="http://initd.org/psycopg/"&gt;psycopg2&lt;/a&gt; package. Let's
+figure out where our &lt;code&gt;python3&lt;/code&gt; executable is located, create a virtualenv
+with &lt;code&gt;python3&lt;/code&gt;, activate the virtualenv and then install the psycopg2 package
+with &lt;code&gt;pip&lt;/code&gt;. Find your &lt;code&gt;python3&lt;/code&gt; executable using the &lt;code&gt;which&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;which python3
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We will see output like what is in this screenshot.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160518-postgresql-ubuntu-1604/which-python-3.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Create a new virtualenv in either your home directory or wherever you
+store your Python virtualenvs. Specify the full path to your &lt;code&gt;python3&lt;/code&gt;
+installation. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# specify the system python3 installation
+virtualenv --python=/usr/bin/python3 venvs/postgrestest
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Activate the virtualenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source ~/venvs/postgrestest/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next we can install the psycopg2 Python package from 
+&lt;a href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt; using the &lt;code&gt;pip&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install psycopg2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160518-postgresql-ubuntu-1604/pip-install-psycopg2.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Sweet, we've got our PostgreSQL driver installed in our virtualenv! We can 
+now test out the installation by writing a few lines of Python code.&lt;/p&gt;
+&lt;h2&gt;Using PostgreSQL from Python&lt;/h2&gt;
+&lt;p&gt;Launch the Python REPL with the &lt;code&gt;python&lt;/code&gt; or &lt;code&gt;python3&lt;/code&gt; command. You can also 
+write the following code in a Python file such as "testpostgres.py" then
+execute it with &lt;code&gt;python testpostgres.py&lt;/code&gt;. Make sure to replace the "user"
+and "password" values with your own.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;psycopg2&lt;/span&gt;
+
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;connect_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;dbname=&amp;#39;testpython&amp;#39; user=&amp;#39;matt&amp;#39; host=&amp;#39;localhost&amp;#39; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; \
+                  &lt;span class="s2"&gt;&amp;quot;password=&amp;#39;myOwnPassword&amp;#39;&amp;quot;&lt;/span&gt;
+    &lt;span class="c1"&gt;# use our connection values to establish a connection&lt;/span&gt;
+    &lt;span class="n"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;psycopg2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;connect_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# create a psycopg2 cursor that can execute queries&lt;/span&gt;
+    &lt;span class="n"&gt;cursor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cursor&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="c1"&gt;# create a new table with a single column called &amp;quot;name&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;CREATE TABLE tutorials (name char(40));&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# run a SELECT statement - no data in there, but we can try it&lt;/span&gt;
+    &lt;span class="n"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;SELECT * from tutorials&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fetchall&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Uh oh, can&amp;#39;t connect. Invalid dbname, user or password?&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;When we run the above code we won't get anything fancy, just an empty
+list printed out. However, in those few lines of code we've ensured our 
+connection to our new database works and we can create new tables in it as 
+well as query them.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160518-postgresql-ubuntu-1604/output.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;That's just enough of a hook to get started writing more complicated SQL 
+queries using psycopg2 and PostgreSQL. Make sure to check out the 
+&lt;a href="/postgresql.html"&gt;PostgreSQL&lt;/a&gt;,
+&lt;a href="/databases.html"&gt;relational databases&lt;/a&gt; and 
+&lt;a href="/object-relational-mappers-orms.html"&gt;object-relational mappers (ORMs)&lt;/a&gt;
+pages for more tutorials.&lt;/p&gt;
+&lt;p&gt;Questions? Tweet &lt;a href="https://twitter.com/fullstackpython"&gt;@fullstackpython&lt;/a&gt;
+or post a message on the 
+&lt;a href="https://www.facebook.com/fullstackpython"&gt;Full Stack Python Facebook page&lt;/a&gt;. 
+Something wrong with this post? Fork 
+&lt;a href="https://github.com/makaimc/fullstackpython.com/blob/gh-pages/source/content/posts/160518-install-postgresql-python-3-ubuntu-1604.markdown"&gt;this page's source on GitHub&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>How to Use Redis with Python 3 and redis-py on Ubuntu 16.04</title><link href="http://www.fullstackpython.com/install-redis-use-python-3-ubuntu-1604.html" rel="alternate"></link><published>2016-05-16T00:00:00-04:00</published><author><name>Matt Makai</name></author><id>tag:www.fullstackpython.com,2016-05-16:install-redis-use-python-3-ubuntu-1604.html</id><summary type="html">&lt;p&gt;&lt;a href="http://redis.io"&gt;Redis&lt;/a&gt; is an in-memory key-value pair 
+&lt;a href="/no-sql-datastore.html"&gt;NoSQL data store&lt;/a&gt; often used 
+for &lt;a href="/web-frameworks.html"&gt;web application&lt;/a&gt; sessions,
+transient &lt;a href="/data.html"&gt;data&lt;/a&gt; and as a broker for 
+&lt;a href="/task-queues.html"&gt;task queues&lt;/a&gt;. redis-py is a common Python code 
+library for interacting with Redis. Let's learn how to get Redis up
+and running on Ubuntu and then start using it in a simple Python application.&lt;/p&gt;
+&lt;h2&gt;Tools We Need&lt;/h2&gt;
+&lt;p&gt;This tutorial is tested with Python 3.5 but either 
+&lt;a href="/python-2-or-3.html"&gt;Python 2 or 3&lt;/a&gt; should work for everything written 
+here. Just make sure one version is installed on your system by going to 
+the terminal and typing &lt;code&gt;python --version&lt;/code&gt;. Other than Python itself,
+here is the software we are going to use throughout the rest of this post:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://releases.ubuntu.com/16.04/"&gt;Ubuntu 16.04&lt;/a&gt; (these 
+  instructions should work fine with earlier Ubuntu versions as well)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pip.pypa.io/en/stable/"&gt;pip&lt;/a&gt; and 
+  &lt;a href="https://virtualenv.pypa.io/en/latest/"&gt;virtualenv&lt;/a&gt; to handle the
+  redis-py &lt;a href="/application-dependencies.html"&gt;application dependency&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://redis.io"&gt;Redis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://redis-py.readthedocs.io/en/latest/"&gt;redis-py&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you aren't sure how how to install pip and virtualenv, review the 
+first few steps of the 
+&lt;a href="/blog/python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html"&gt;how to set up Python 3, Flask and Green Unicorn on Ubuntu 16.04 LTS&lt;/a&gt;
+guide.&lt;/p&gt;
+&lt;h2&gt;Install Redis&lt;/h2&gt;
+&lt;p&gt;There are a few ways to install Redis, such as 
+&lt;a href="http://redis.io/topics/quickstart"&gt;downloading and compiling from source&lt;/a&gt;.
+However, on Ubuntu we can install a system package through &lt;code&gt;apt&lt;/code&gt;. The
+advantage of this method is that the &lt;code&gt;apt&lt;/code&gt; process will take care of 
+installing &lt;code&gt;redis-server&lt;/code&gt; as a system service. Open the terminal and run 
+the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install redis-server
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Enter your &lt;code&gt;sudo&lt;/code&gt; password and when you are prompted whether you want 
+to install the new package enter 'yes'.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160516-redis-ubuntu-1604/apt-get-redis.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;After a few moments the downloading and processing should be complete
+and you will be back at the prompt.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160516-redis-ubuntu-1604/apt-get-redis-done.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Redis is now installed and the Redis server is running in the background 
+as a system service. Even though we installed the &lt;code&gt;redis-server&lt;/code&gt; package,
+the installation also comes with the Redis command line client. The client
+is useful for connecting directly to the Redis server without any Python
+code. Give &lt;code&gt;redis-cli&lt;/code&gt; a try by typing this into the command prompt:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;redis-cli
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The Redis client connects to the localhost server and gives a new prompt
+to show it's ready for commands:&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160516-redis-ubuntu-1604/redis-cli.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Give the prompt a try by using Redis commands such as &lt;code&gt;keys *&lt;/code&gt; or &lt;code&gt;set a 1&lt;/code&gt;.
+The full list of Redis commands is provided in the 
+&lt;a href="http://redis.io/commands"&gt;project documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Virtualenv and Install redis-py&lt;/h2&gt;
+&lt;p&gt;We need to figure out our &lt;code&gt;python3&lt;/code&gt; location, then create a virtualenv,
+activate the virtualenv and then install redis-py with &lt;code&gt;pip&lt;/code&gt;.
+Determine your &lt;code&gt;python3&lt;/code&gt; executable location with the &lt;code&gt;which&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;which python3
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You'll see some output like the following screenshot.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160516-redis-ubuntu-1604/which-python-3.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Create a new virtualenv either in your home directory or wherever you
+store your project virtualenvs. Specify the full path to your &lt;code&gt;python3&lt;/code&gt;
+installation. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# specify the system python3 installation
+virtualenv --python=/usr/bin/python3 venvs/redistest
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Activate the virtualenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source ~/venvs/redistest/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next we can install the redis-py Python package from 
+&lt;a href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt; using the &lt;code&gt;pip&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install redis
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160516-redis-ubuntu-1604/pip-install-redis.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Alright, now it is installed in our virtualenv. Let's write some simple 
+Python code to try out give redis-py!&lt;/p&gt;
+&lt;h2&gt;Working with Redis from Python&lt;/h2&gt;
+&lt;p&gt;Fire up the Python REPL with the &lt;code&gt;python&lt;/code&gt; or &lt;code&gt;python3&lt;/code&gt; command. You can also 
+write the following code in a Python file such as "testredis.py" then
+execute it with &lt;code&gt;python testredis.py&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;redis&lt;/span&gt;
+&lt;span class="c1"&gt;# create a connection to the localhost Redis server instance, by&lt;/span&gt;
+&lt;span class="c1"&gt;# default it runs on port 6379&lt;/span&gt;
+&lt;span class="n"&gt;redis_db&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;StrictRedis&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;6379&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# see what keys are in Redis&lt;/span&gt;
+&lt;span class="n"&gt;redis_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;# output for keys() should be an empty list &amp;quot;[]&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;redis_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;full stack&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# output should be &amp;quot;True&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;redis_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;# now we have one key so the output will be &amp;quot;[b&amp;#39;full stack&amp;#39;]&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;redis_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;full stack&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# output is &amp;quot;b&amp;#39;python&amp;#39;&amp;quot;, the key and value still exist in Redis&lt;/span&gt;
+&lt;span class="n"&gt;redis_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;incr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;twilio&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# output is &amp;quot;1&amp;quot;, we just incremented even though the key did not&lt;/span&gt;
+&lt;span class="c1"&gt;# previously exist&lt;/span&gt;
+&lt;span class="n"&gt;redis_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;twilio&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# output is &amp;quot;b&amp;#39;1&amp;#39;&amp;quot; again, since we just obtained the value from&lt;/span&gt;
+&lt;span class="c1"&gt;# the existing key&lt;/span&gt;
+&lt;span class="n"&gt;redis_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;delete&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;twilio&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# output is &amp;quot;1&amp;quot; because the command was successful&lt;/span&gt;
+&lt;span class="n"&gt;redis_db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;twilio&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# nothing is returned because the key and value no longer exist&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That is a quick introduction to some commonly-used Redis commands
+invoked by their Python bindings through the redis-py library. Take a look 
+at the 
+&lt;a href="https://redis-py.readthedocs.io/en/latest/"&gt;redis-py official documentation&lt;/a&gt;
+to learn more about the extensive command list you can use to create,
+read, modify and delete keys and values in Redis.&lt;/p&gt;
+&lt;p&gt;Questions? Tweet &lt;a href="https://twitter.com/fullstackpython"&gt;@fullstackpython&lt;/a&gt;
+or post a message on the 
+&lt;a href="https://www.facebook.com/fullstackpython"&gt;Full Stack Python Facebook page&lt;/a&gt;. 
+Something wrong with this post? Fork 
+&lt;a href="https://github.com/makaimc/fullstackpython.com/blob/gh-pages/source/content/posts/160516-install-redis-use-python-3-ubuntu-1604.markdown"&gt;this page's source on GitHub&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>How to Send MMS Picture Messages with Python</title><link href="http://www.fullstackpython.com/send-mms-picture-messages-python.html" rel="alternate"></link><published>2016-05-15T00:00:00-04:00</published><author><name>Matt Makai</name></author><id>tag:www.fullstackpython.com,2016-05-15:send-mms-picture-messages-python.html</id><summary type="html">&lt;p&gt;Multimedia Message Service (MMS) picture and video messages are a common 
+extension to the Short Message Service (SMS) system for sending text 
+messages. Using a 
+&lt;a href="/application-programming-interfaces.html"&gt;web application programming interface (API)&lt;/a&gt;
+with Python makes it easy to send MMS messages from a web application or
+script. In this short tutorial we'll learn how to add MMS sending capability
+to a new or existing Python application.&lt;/p&gt;
+&lt;h2&gt;Tools We Need&lt;/h2&gt;
+&lt;p&gt;Either &lt;a href="/python-2-or-3.html"&gt;Python 2 or 3&lt;/a&gt; works for the code in this 
+tutorial. Just make sure you have one of those two versions installed on 
+your system by going to the terminal and typing &lt;code&gt;python --version&lt;/code&gt;.
+The other dependencies for this tutorial include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt; version &lt;a href="/python-2-or-3.html"&gt;2 or 3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pip.pypa.io/en/stable/"&gt;pip&lt;/a&gt; and 
+  &lt;a href="https://virtualenv.pypa.io/en/latest/"&gt;virtualenv&lt;/a&gt; to handle one
+  &lt;a href="/application-dependencies.html"&gt;application dependency&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A free &lt;a href="https://www.twilio.com/try-twilio"&gt;Twilio account&lt;/a&gt; to use their 
+  &lt;a href="https://www.twilio.com/docs/api/rest/sending-messages"&gt;MMS web API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/twilio"&gt;Twilio Python helper library&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you are unsure of how to get pip and virtualenv installed, take a look
+at the first few steps of the 
+&lt;a href="/blog/python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html"&gt;how to set up Python 3, Flask and Green Unicorn on Ubuntu 16.04 LTS&lt;/a&gt;
+guide.&lt;/p&gt;
+&lt;h2&gt;Twilio Web API&lt;/h2&gt;
+&lt;p&gt;Our simple Python example application will use the Twilio web API to send
+picture messages.
+Go to the Twilio website
+&lt;a href="https://www.twilio.com/try-twilio"&gt;sign up for a free trial account&lt;/a&gt;. If 
+you already have a Twilio account (and you should because it makes it easy to
+add almost any type of communications to applications!) then sign into 
+your existing account.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160515-mms-python/try-twilio.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;In trial mode Twilio can send MMS to a validated phone number associated with
+the account. When you're ready to send MMS messages to any phone in any 
+country then you will have to upgrade your account.&lt;/p&gt;
+&lt;p&gt;After signing up for a Twilio account, you will receive your own phone 
+number that'll be used to send messages. That phone number can send outbound
+MMS messages without any configuration. It can also receive messages but 
+that requires 
+&lt;a href="https://www.twilio.com/docs/quickstart/python/sms/hello-monkey"&gt;modifying the Request URL webhook&lt;/a&gt; 
+in the phone number details screen.&lt;/p&gt;
+&lt;h2&gt;Installing Our Dependency&lt;/h2&gt;
+&lt;p&gt;We'll use the &lt;a href="https://pypi.python.org/pypi/twilio"&gt;twilio helper library&lt;/a&gt; 
+as a dependency for our Python code. The helper library can be installed
+via the &lt;code&gt;pip&lt;/code&gt; command, which pulls the code from 
+&lt;a href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt; into our local virtualenv. In this
+tutorial we'll call our virtualenv &lt;code&gt;pymms&lt;/code&gt; but you can name it whatever
+you want for your application.&lt;/p&gt;
+&lt;p&gt;We have to create the virtualenv before using it. In your terminal enter:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;virtualenv pymms
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you need to install virtualenv take a look at the
+&lt;a href="/blog/python-3-django-gunicorn-ubuntu-1604-xenial-xerus.html"&gt;how to set up Python 3, Django and Green Unicorn on Ubuntu 16.04 LTS&lt;/a&gt;
+guide.&lt;/p&gt;
+&lt;p&gt;Activate the virtualenv with the &lt;code&gt;source&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source pymms/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The command prompt will change to look like this after it is activated:&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160515-mms-python/activate-virtualenv.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Now install the Twilio Python helper library.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install twilio
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once the helper library installs we can use it in our Python code.&lt;/p&gt;
+&lt;h2&gt;Sending MMS From Python&lt;/h2&gt;
+&lt;p&gt;Launch the the Python interpreter by executing the &lt;code&gt;python&lt;/code&gt; command in
+your terminal. You can also create a new file named &lt;code&gt;send_mms.py&lt;/code&gt; if you
+want to re-use the code after we give it a try. &lt;/p&gt;
+&lt;p&gt;We need to grab our account credentials from the Twilio Console to connect 
+our Python code to our Twilio account. Go to the 
+&lt;a href="https://www.twilio.com/console"&gt;Twilio Console&lt;/a&gt; and copy the Account SID
+and Authentication Token into your Python code.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160515-mms-python/console-tokens.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Enter the following code into the interpreter or into the new Python file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# we import the Twilio client from the dependency we just installed&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;twilio.rest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TwilioRestClient&lt;/span&gt;
+
+&lt;span class="c1"&gt;# the following line needs your Twilio Account SID and Auth Token&lt;/span&gt;
+&lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TwilioRestClient&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ACxxxxxxxxxxxxxx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;zzzzzzzzzzzzz&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# this is the URL to an image file we&amp;#39;re going to send in the MMS&lt;/span&gt;
+&lt;span class="n"&gt;media&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://www.mattmakai.com/source/static/img/work/fsp-logo.png&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# change the &amp;quot;from_&amp;quot; number to your Twilio number and the &amp;quot;to&amp;quot; number&lt;/span&gt;
+&lt;span class="c1"&gt;# to the phone number you signed up for Twilio with, or upgrade your&lt;/span&gt;
+&lt;span class="c1"&gt;# account to send MMS to any phone number that MMS is available&lt;/span&gt;
+&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;messages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;+19732644152&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;from_&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;+12023358536&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+                       &lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;MMS via Python? Nice!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;media_url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;media&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;All the lines above that start with &lt;code&gt;#&lt;/code&gt; are comments to give you some
+context for what each line is doing. After entering that code into the
+interpreter or running the Python script with &lt;code&gt;python send_mms.py&lt;/code&gt;
+Twilio will send your MMS.&lt;/p&gt;
+&lt;p&gt;In a few seconds you should see a message appear on your phone - note that
+MMS can take a little longer because your phone has to download the image. 
+I use an iPhone so here is what the message looked like when I received it:&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160515-mms-python/mms-result.jpg" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;That is everything need to send MMS to a phone. Pretty awesome result for 
+a few lines of Python code, right? This code can be added to any Python 
+program to send outbound MMS.&lt;/p&gt;
+&lt;p&gt;One final note: keep your Twilio Auth Token secret otherwise anyone who
+gets it will be able to send and receive messages through your account.&lt;/p&gt;
+&lt;p&gt;Questions? Contact me via Twitter 
+&lt;a href="https://twitter.com/fullstackpython"&gt;@fullstackpython&lt;/a&gt;
+or &lt;a href="https://twitter.com/mattmakai"&gt;@mattmakai&lt;/a&gt;. I'm also on GitHub with
+the username &lt;a href="https://github.com/makaimc"&gt;makaimc&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>Configuring Python 3, Bottle and Gunicorn for Development on Ubuntu 16.04 LTS</title><link href="http://www.fullstackpython.com/python-3-bottle-gunicorn-ubuntu-1604-xenial-xerus.html" rel="alternate"></link><published>2016-05-13T00:00:00-04:00</published><author><name>Matt Makai</name></author><id>tag:www.fullstackpython.com,2016-05-13:python-3-bottle-gunicorn-ubuntu-1604-xenial-xerus.html</id><summary type="html">&lt;p&gt;The Ubuntu 16.04 Long Term Support (LTS) Linux
+&lt;a href="/operating-systems.html"&gt;operating system&lt;/a&gt; was released in April 2016.
+This latest Ubuntu release is named "Xenial Xerus" and
+it is the first Ubuntu release to include &lt;a href="/python-2-or-3.html"&gt;Python 3&lt;/a&gt;,
+instead of Python 2.x, as the default Python installation.&lt;/p&gt;
+&lt;p&gt;We can quickly start a new &lt;a href="/bottle.html"&gt;Bottle&lt;/a&gt; web application project 
+and run it with &lt;a href="/green-unicorn-gunicorn.html"&gt;Green Unicorn (Gunicorn)&lt;/a&gt; on
+Ubuntu 16.04.&lt;/p&gt;
+&lt;h2&gt;Tools We Need&lt;/h2&gt;
+&lt;p&gt;Our setup requires the Ubuntu 16.04 release along with a few other code 
+libraries. Don't install these tools just yet since we'll get to them as 
+we go through the walkthrough. Our requirements and their current versions 
+as of May 13, 2016 are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://releases.ubuntu.com/16.04/"&gt;Ubuntu 16.04 LTS (Xenial Xerus)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/why-use-python.html"&gt;Python&lt;/a&gt; version 
+  &lt;a href="https://docs.python.org/3/whatsnew/3.5.html"&gt;3.5&lt;/a&gt; 
+  (default in Ubuntu 16.04)&lt;/li&gt;
+&lt;li&gt;&lt;a href="/bottle.html"&gt;Botle&lt;/a&gt; web framework version 
+  &lt;a href="http://bottlepy.org/docs/0.12/"&gt;0.12&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/green-unicorn-gunicorn.html"&gt;Green Unicorn (Gunicorn)&lt;/a&gt; version 
+  &lt;a href="http://docs.gunicorn.org/en/stable/news.html"&gt;19.5&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you are developing on Mac OS X or Windows, make sure to use 
+virtualization software such
+as &lt;a href="https://www.parallels.com/products/desktop/"&gt;Parallels&lt;/a&gt; or
+&lt;a href="https://www.virtualbox.org/wiki/Downloads"&gt;VirtualBox&lt;/a&gt; with the 
+&lt;a href="http://releases.ubuntu.com/16.04/"&gt;Ubuntu .iso file&lt;/a&gt;. Either the amd64 or
+i386 version of 16.04 is fine. I use the amd64 version for my own local 
+development.&lt;/p&gt;
+&lt;p&gt;A desktop screen like this one appears when you boot up Ubuntu.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160513-ubuntu-bottle-gunicorn/ubuntu-desktop.jpg" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Open a terminal window to install the system packages.&lt;/p&gt;
+&lt;h2&gt;System Packages&lt;/h2&gt;
+&lt;p&gt;We can see the python3 system version Ubuntu comes with and where its
+executable is stored using these commands.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 --version
+which python3
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160513-ubuntu-bottle-gunicorn/which-python.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Our Ubuntu installation requires a few system packages. We will get prompted 
+for the superuser password because restricted system access is needed 
+to install packages through 
+&lt;a href="https://en.wikipedia.org/wiki/Advanced_Packaging_Tool"&gt;apt&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install virtualenv python-pip python3-dev
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160513-ubuntu-bottle-gunicorn/install-packages.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Enter &lt;code&gt;y&lt;/code&gt; to let the system package installation process do its job.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160513-ubuntu-bottle-gunicorn/packages-installed.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;The packages we need are now installed. We can continue on to install our 
+Python-specific dependencies.&lt;/p&gt;
+&lt;h2&gt;Virtualenv&lt;/h2&gt;
+&lt;p&gt;In the previous section, &lt;a href="https://virtualenv.pypa.io/en/latest/"&gt;virtualenv&lt;/a&gt; 
+and &lt;a href="https://pypi.python.org/pypi/pip"&gt;pip&lt;/a&gt; were installed to handle our 
+&lt;a href="/application-dependencies.html"&gt;application dependencies&lt;/a&gt;.
+We can now use them to download and install Bottle and Gunicorn.&lt;/p&gt;
+&lt;p&gt;Create a directory for the virtualenvs. Then create a new virtualenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# the tilde &amp;quot;~&amp;quot; specifies the user&amp;#39;s home directory, like /home/matt
+cd ~
+mkdir venvs
+# specify the system python3 installation
+virtualenv --python=/usr/bin/python3 venvs/bottleproj
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Activate the virtualenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source ~/venvs/bottleproj/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Our prompt will change after we properly activate the virtualenv.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160513-ubuntu-bottle-gunicorn/venv-activated.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Our virtualenv is now activated with Python 3. We can install whatever
+dependencies we want, in our case Bottle and Gunicorn. &lt;/p&gt;
+&lt;h2&gt;Bottle and Gunicorn&lt;/h2&gt;
+&lt;p&gt;We can now install Bottle and Green Unicorn via the &lt;code&gt;pip&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install bottle gunicorn
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;No errors like we see in the following screenshot is a good sign.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160513-ubuntu-bottle-gunicorn/good-sign.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Use the &lt;code&gt;mkdir&lt;/code&gt; command to create a new directory to keep our Bottle 
+project then use the &lt;code&gt;cd&lt;/code&gt; (change directory) command to move into the
+new folder.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir ~/bottleproj
+cd ~/bottleproj
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Create a new file named &lt;code&gt;app.py&lt;/code&gt; within our &lt;code&gt;bottleproj&lt;/code&gt; directory so
+we can test to make sure Bottle is working properly. I prefer to use
+&lt;a href="/vim.html"&gt;Vim&lt;/a&gt; but &lt;a href="/emacs.html"&gt;Emacs&lt;/a&gt; and other 
+&lt;a href="/development-environments.html"&gt;development environments&lt;/a&gt; work great as
+well.&lt;/p&gt;
+&lt;p&gt;Within the new &lt;code&gt;app.py&lt;/code&gt; file write the following code.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;bottle&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bottle&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Response&lt;/span&gt;
+
+&lt;span class="c1"&gt;# a basic URL route to test whether Bottle is responding properly&lt;/span&gt;
+&lt;span class="nd"&gt;@route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;It works!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# these two lines are only used for python app.py&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;0.0.0.0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;debug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;reloader&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# this is the hook for Gunicorn to run Bottle&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bottle&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;default_app&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We could run our app with the Bottle development server using the 
+&lt;code&gt;python app.py&lt;/code&gt; command. Let's instead run our Bottle app with
+Gunicorn.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gunicorn -w 2 app:app
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160513-ubuntu-bottle-gunicorn/gunicorn-run.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Sweet, we can bring up our shell Bottle app in the web browser at
+the &lt;code&gt;localhost:8000&lt;/code&gt; or &lt;code&gt;127.0.0.1:8000&lt;/code&gt; address.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160513-ubuntu-bottle-gunicorn/it-works.jpg" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Time to develop a full-fledged web application with &lt;a href="/bottle.html"&gt;Bottle&lt;/a&gt;!&lt;/p&gt;
+&lt;h2&gt;Ready for Development&lt;/h2&gt;
+&lt;p&gt;Now you have a simple setup to develop Bottle web apps using Gunicorn as
+the &lt;a href="/wsgi-servers.html"&gt;WSGI server&lt;/a&gt; on Ubuntu 16.04. If you need a
+full step-by-step tutorial to deploy your Python web application to a
+production environment, check out the 
+&lt;a href="http://www.deploypython.com/"&gt;Full Stack Python Guide to Deployments book&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To decide what to do next with your Python project, check out the
+&lt;a href="/table-of-contents.html"&gt;Full Stack Python table of contents&lt;/a&gt; page.&lt;/p&gt;</summary></entry><entry><title>How to Send SMS Text Messages with Python</title><link href="http://www.fullstackpython.com/send-sms-text-messages-python.html" rel="alternate"></link><published>2016-05-11T00:00:00-04:00</published><author><name>Matt Makai</name></author><id>tag:www.fullstackpython.com,2016-05-11:send-sms-text-messages-python.html</id><summary type="html">&lt;p&gt;Short Message Service (SMS) text messages are ubiquitous for communication
+all over the world. It is easy to send SMS text messages from a 
+&lt;a href="/why-use-python.html"&gt;Python&lt;/a&gt; application using a 
+&lt;a href="/application-programming-interfaces.html"&gt;web application programming interface (API)&lt;/a&gt;. 
+Let's take a look at the tools we need to quickly add SMS capability to our
+Python apps.&lt;/p&gt;
+&lt;h2&gt;Tools We Need&lt;/h2&gt;
+&lt;p&gt;This guide works with both Python 2 and 3, so make sure you have one of those
+two versions installed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Either &lt;a href="/python-2-or-3.html"&gt;Python 2 or 3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pip.pypa.io/en/stable/"&gt;pip&lt;/a&gt; and 
+  &lt;a href="https://virtualenv.pypa.io/en/latest/"&gt;virtualenv&lt;/a&gt; to handle
+  &lt;a href="/application-dependencies.html"&gt;application dependencies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A free &lt;a href="https://www.twilio.com/try-twilio"&gt;Twilio account&lt;/a&gt; to use their 
+  &lt;a href="https://www.twilio.com/docs/api/rest/sending-messages"&gt;SMS web API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open source 
+  &lt;a href="https://pypi.python.org/pypi/twilio"&gt;Twilio Python helper library&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you need assistance getting pip and virtualenv installed, check out the
+first few steps of the 
+&lt;a href="/blog/python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html"&gt;how to set up Python 3, Flask and Green Unicorn on Ubuntu 16.04 LTS&lt;/a&gt;
+guide that'll show how to install system packages for those tools.&lt;/p&gt;
+&lt;h2&gt;Using a Web API&lt;/h2&gt;
+&lt;p&gt;We're going to use a web API to make sending SMS easier and more reliable.
+Head to the 
+&lt;a href="https://www.twilio.com/try-twilio"&gt;Twilio website and sign up for a free trial account&lt;/a&gt;. If you already have a Twilio account (and you should - it's awesome
+for more than just sending text messages!) then sign into your existing
+account.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160511-send-sms-python/try-twilio.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;The Twilio trial account allows you to send text messages to your own 
+validated phone number.  When you want to send SMS to any phone number in 
+your country or other countries then you can upgrade your account to send 
+messages for fractions of a cent.&lt;/p&gt;
+&lt;p&gt;After signing up, you will get a free phone number in your country. We can
+use that phone number without any configuration to send outbound text 
+messsages. You can also receive text messages but that requires changing
+the Request URL webhook in the phone number configuration screen - we'll
+cover that in a future blog post.&lt;/p&gt;
+&lt;h2&gt;Installing Our Dependency&lt;/h2&gt;
+&lt;p&gt;Our code will use a helper library to make it easier to send text messages
+from Python. We are going to install the helper library from 
+&lt;a href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt; into a virtualenv. First we need to
+create the virtualenv. In your terminal use the following command to create
+a new virtualenv. If you need to install virtualenv take a look at the
+&lt;a href="/blog/python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html"&gt;how to set up Python 3, Flask and Green Unicorn on Ubuntu 16.04 LTS&lt;/a&gt;
+guide.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;virtualenv sendsms
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Activate the virtualenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source sendsms/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The command prompt will change after we properly activate the virtualenv
+to something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160511-send-sms-python/activate-virtualenv.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Now install the Twilio Python helper library.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install twilio
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The helper library is now installed and we can use it with the Python code 
+we create and execute.&lt;/p&gt;
+&lt;h2&gt;Sending SMS From Python&lt;/h2&gt;
+&lt;p&gt;Fire up the Python interpreter in the terminal using the &lt;code&gt;python&lt;/code&gt; command,
+or create a new file named &lt;code&gt;send_sms.py&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;We need to grab our account credentials from the Twilio Console to connect 
+our Python code to our Twilio account. Go to the 
+&lt;a href="https://www.twilio.com/console"&gt;Twilio Console&lt;/a&gt; and copy the Account SID
+and Authentication Token into your Python code.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160511-send-sms-python/console-tokens.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Enter the following code into the interpreter or into the new Python file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# we import the Twilio client from the dependency we just installed&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;twilio.rest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TwilioRestClient&lt;/span&gt;
+
+&lt;span class="c1"&gt;# the following line needs your Twilio Account SID and Auth Token&lt;/span&gt;
+&lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TwilioRestClient&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ACxxxxxxxxxxxxxx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;zzzzzzzzzzzzz&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# change the &amp;quot;from_&amp;quot; number to your Twilio number and the &amp;quot;to&amp;quot; number&lt;/span&gt;
+&lt;span class="c1"&gt;# to the phone number you signed up for Twilio with, or upgrade your&lt;/span&gt;
+&lt;span class="c1"&gt;# account to send SMS to any phone number&lt;/span&gt;
+&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;messages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;+19732644152&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;from_&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;+12023358536&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+                       &lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Hello from Python!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;All the lines above that start with &lt;code&gt;#&lt;/code&gt; are comments. Once you enter that 
+code into the interpreter or run the Python script using 
+&lt;code&gt;python send_sms.py&lt;/code&gt; the SMS will be sent.&lt;/p&gt;
+&lt;p&gt;In a few seconds you should see a message appear on your phone. I'm on
+iOS so here's how the text message I received looked.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160511-send-sms-python/hello-from-python.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;That's it! You can add this code to any Python code to send text messages.
+Just keep your Auth Token secret as it'll allow anyone that has it to use
+your account to send and receive messages.&lt;/p&gt;
+&lt;p&gt;Questions? Contact me via Twitter 
+&lt;a href="https://twitter.com/fullstackpython"&gt;@fullstackpython&lt;/a&gt;
+or &lt;a href="https://twitter.com/mattmakai"&gt;@mattmakai&lt;/a&gt;. I'm also on GitHub with
+the username &lt;a href="https://github.com/makaimc"&gt;makaimc&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>How to set up Python 3, Flask and Green Unicorn on Ubuntu 16.04 LTS</title><link href="http://www.fullstackpython.com/python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html" rel="alternate"></link><published>2016-05-10T00:00:00-04:00</published><author><name>Matt Makai</name></author><id>tag:www.fullstackpython.com,2016-05-10:python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html</id><summary type="html">&lt;p&gt;Ubuntu's latest Long Term Support (LTS) 
+&lt;a href="/operating-systems.html"&gt;operating system&lt;/a&gt; was released last month, in 
+April 2016. The 16.04 update for Ubuntu is known as "Xenial Xerus" and
+it's the first Ubuntu release to include &lt;a href="/python-2-or-3.html"&gt;Python 3&lt;/a&gt; 
+as the default Python installation.&lt;/p&gt;
+&lt;p&gt;We can use this new Ubuntu release along with Python version 3.5 to 
+start a new &lt;a href="/flask.html"&gt;Flask&lt;/a&gt; web application project and run it with 
+&lt;a href="/green-unicorn-gunicorn.html"&gt;Green Unicorn (Gunicorn)&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Tools We'll Need&lt;/h2&gt;
+&lt;p&gt;We'll need the Ubuntu 16.04 release along with a few other libraries to 
+complete our project. You don't have to install these tools just yet, 
+we will get to them as we progress through the walkthrough. Our requirements
+and their current versions as of May 10, 2016 are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://releases.ubuntu.com/16.04/"&gt;Ubuntu 16.04 LTS (Xenial Xerus)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/why-use-python.html"&gt;Python&lt;/a&gt; version 
+  &lt;a href="https://docs.python.org/3/whatsnew/3.5.html"&gt;3.5&lt;/a&gt; 
+  (default in Ubuntu 16.04)&lt;/li&gt;
+&lt;li&gt;&lt;a href="/flask.html"&gt;Flask&lt;/a&gt; web framework version 
+  &lt;a href="http://flask.pocoo.org/docs/0.10/"&gt;0.10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/green-unicorn-gunicorn.html"&gt;Green Unicorn (Gunicorn)&lt;/a&gt; version 
+  &lt;a href="http://docs.gunicorn.org/en/stable/news.html"&gt;19.4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you're running on Mac OS X or Windows, use virtualization software such
+as &lt;a href="https://www.parallels.com/products/desktop/"&gt;Parallels&lt;/a&gt; or
+&lt;a href="https://www.virtualbox.org/wiki/Downloads"&gt;VirtualBox&lt;/a&gt; with the 
+&lt;a href="http://releases.ubuntu.com/16.04/"&gt;Ubuntu .iso file&lt;/a&gt;. Either the amd64 or
+i386 version of 16.04 is fine. I'm using amd64 for development and testing
+in this tutorial.&lt;/p&gt;
+&lt;p&gt;Once you boot up Ubuntu, you should see a screen like this one.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160510-ubuntu-flask-gunicorn/ubuntu-desktop.jpg" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Open up a terminal window to proceed with the setup.&lt;/p&gt;
+&lt;h2&gt;System Packages&lt;/h2&gt;
+&lt;p&gt;We can see the python3 system version Ubuntu comes with and where its
+executable is stored using these commands.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 --version
+which python3
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160510-ubuntu-flask-gunicorn/which-python.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Our Ubuntu installation requires a few system packages. We will get prompted 
+for the superuser password because restricted system access is needed 
+to install packages through 
+&lt;a href="https://en.wikipedia.org/wiki/Advanced_Packaging_Tool"&gt;apt&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install virtualenv python-pip python3-dev
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160510-ubuntu-flask-gunicorn/install-packages.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Enter &lt;code&gt;y&lt;/code&gt; to let the system package installation process do its job.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160510-ubuntu-flask-gunicorn/packages-installed.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;The packages we need are now installed. We can continue on to install our 
+Python-specific dependencies.&lt;/p&gt;
+&lt;h2&gt;Virtualenv&lt;/h2&gt;
+&lt;p&gt;In the previous section, &lt;a href="https://virtualenv.pypa.io/en/latest/"&gt;virtualenv&lt;/a&gt; 
+and &lt;a href="https://pypi.python.org/pypi/pip"&gt;pip&lt;/a&gt; were installed to handle our 
+&lt;a href="/application-dependencies.html"&gt;application dependencies&lt;/a&gt;.
+We can now use them to download and install Flask and Gunicorn.&lt;/p&gt;
+&lt;p&gt;Create a directory for the virtualenvs. Then create a new virtualenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# the tilde &amp;quot;~&amp;quot; specifies the user&amp;#39;s home directory, like /home/matt
+cd ~
+mkdir venvs
+# specify the system python3 installation
+virtualenv --python=/usr/bin/python3 venvs/flaskproj
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Activate the virtualenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source ~/venvs/flaskproj/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Our prompt will change after we properly activate the virtualenv.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160510-ubuntu-flask-gunicorn/venv-activated.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Our virtualenv is now activated with Python 3. We can install whatever
+dependencies we want, in our case Flask and Gunicorn. &lt;/p&gt;
+&lt;h2&gt;Flask and Gunicorn&lt;/h2&gt;
+&lt;p&gt;We can finally install Flask and Green Unicorn via the pip command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install flask gunicorn
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It's a good sign if we receive no errors like we see in the following 
+screenshot.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160510-ubuntu-flask-gunicorn/good-sign.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Create a new directory under our home directory that will store our
+Flask project. Change directory into the new folder.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir ~/flaskproj
+cd ~/flaskproj
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Create a new file named &lt;code&gt;__init__.py&lt;/code&gt; within our &lt;code&gt;flaskproj&lt;/code&gt; directory so
+we can test to make sure Flask is working properly. I prefer to use
+&lt;a href="/vim.html"&gt;Vim&lt;/a&gt; but &lt;a href="/emacs.html"&gt;Emacs&lt;/a&gt; and other 
+&lt;a href="/development-environments.html"&gt;development environments&lt;/a&gt; work great as
+well.&lt;/p&gt;
+&lt;p&gt;Within &lt;code&gt;__init__.py&lt;/code&gt; write the following code.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Response&lt;/span&gt;
+
+
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nd"&gt;@app.route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;It works!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;debug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We could run our app with the Flask development server using the 
+&lt;code&gt;python __init__.py&lt;/code&gt; command. Instead run the Flask app with
+Gunicorn. Go to the directory above the &lt;code&gt;flaskproj&lt;/code&gt; folder, in our
+case we can enter &lt;code&gt;cd ~&lt;/code&gt; then use the &lt;code&gt;gunicorn&lt;/code&gt; command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gunicorn flaskproj:app
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160510-ubuntu-flask-gunicorn/gunicorn-run.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Sweet, we can bring up our shell Flask app in the web browser at
+the &lt;code&gt;localhost:8000&lt;/code&gt; or &lt;code&gt;127.0.0.1:8000&lt;/code&gt; address.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160510-ubuntu-flask-gunicorn/it-works.jpg" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Now ready for some real &lt;a href="/flask.html"&gt;Flask&lt;/a&gt; development!&lt;/p&gt;
+&lt;h2&gt;Ready for Development&lt;/h2&gt;
+&lt;p&gt;That's a simple setup for developing with Flask and Gunicorn on 
+Ubuntu 16.04. If you need an in-depth step-by-step tutorial to 
+deploy your &lt;a href="/wsgi-servers.html"&gt;WSGI-powered web application&lt;/a&gt; to a 
+production environment, check out the 
+&lt;a href="http://www.deploypython.com/"&gt;Full Stack Python Guide to Deployments book&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To determine what to code next for your Python project, read the topics 
+found on the &lt;a href="/table-of-contents.html"&gt;table of contents&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;Questions? Contact me via Twitter 
+&lt;a href="https://twitter.com/fullstackpython"&gt;@fullstackpython&lt;/a&gt;
+or &lt;a href="https://twitter.com/mattmakai"&gt;@mattmakai&lt;/a&gt;. I'm also on GitHub with
+the username &lt;a href="https://github.com/makaimc"&gt;makaimc&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>Setting up Python 3, Django and Gunicorn on Ubuntu 16.04 LTS</title><link href="http://www.fullstackpython.com/python-3-django-gunicorn-ubuntu-1604-xenial-xerus.html" rel="alternate"></link><published>2016-05-09T00:00:00-04:00</published><author><name>Matt Makai</name></author><id>tag:www.fullstackpython.com,2016-05-09:python-3-django-gunicorn-ubuntu-1604-xenial-xerus.html</id><summary type="html">&lt;p&gt;Ubuntu released the newest Long Term Support (LTS) version of its 
+&lt;a href="/operating-systems.html"&gt;operating system&lt;/a&gt; in April 2016. The update
+brings Ubuntu to version 16.04 and its latest code name is 
+"Xenial Xerus". 16.04 is the first Ubuntu release to include 
+&lt;a href="/python-2-or-3.html"&gt;Python 3&lt;/a&gt; as the default Python installation.&lt;/p&gt;
+&lt;p&gt;Let's use this newest Ubuntu release along with Python version 3.5 to 
+start a new &lt;a href="/django.html"&gt;Django&lt;/a&gt; web application project and run it with 
+&lt;a href="/green-unicorn-gunicorn.html"&gt;Green Unicorn (Gunicorn)&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Tools We'll Need&lt;/h2&gt;
+&lt;p&gt;We will need a few tools to complete our project. Don't worry about 
+installing these just yet as we'll get to them as we progress through the
+tutorial. The tools and their current versions as of May 9, 2016 are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://releases.ubuntu.com/16.04/"&gt;Ubuntu 16.04 LTS (Xenial Xerus)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/why-use-python.html"&gt;Python&lt;/a&gt; version 
+  &lt;a href="https://docs.python.org/3/whatsnew/3.5.html"&gt;3.5&lt;/a&gt; 
+  (default in Ubuntu 16.04)&lt;/li&gt;
+&lt;li&gt;&lt;a href="/django.html"&gt;Django&lt;/a&gt; web framework version 
+  &lt;a href="https://docs.djangoproject.com/en/1.9/releases/1.9/"&gt;1.9.6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/green-unicorn-gunicorn.html"&gt;Green Unicorn (Gunicorn)&lt;/a&gt; version 
+  &lt;a href="http://docs.gunicorn.org/en/stable/news.html"&gt;19.4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you're running on Mac OS X or Windows, use virtualization software such
+as &lt;a href="https://www.parallels.com/products/desktop/"&gt;Parallels&lt;/a&gt; 
+(this is what I use, but it's Mac OS X-only) or 
+&lt;a href="https://www.virtualbox.org/wiki/Downloads"&gt;VirtualBox&lt;/a&gt; with the 
+&lt;a href="http://releases.ubuntu.com/16.04/"&gt;Ubuntu .iso file&lt;/a&gt;. Either the amd64 or
+i386 version of 16.04 is fine, but I use amd64 for development and testing
+in this blog post.&lt;/p&gt;
+&lt;p&gt;When we boot up for the first time, we should see a desktop screen like this 
+one.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160509-ubuntu-django-gunicorn/ubuntu-desktop.jpg" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Open up terminal to proceed with the setup.&lt;/p&gt;
+&lt;h2&gt;System Packages&lt;/h2&gt;
+&lt;p&gt;We can see the python3 version Ubuntu comes with, as well as where its
+executable is stored.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 --version
+which python3
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160509-ubuntu-django-gunicorn/which-python.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Our Ubuntu installation first needs system packages for Python development.
+You'll be prompted for your superuser password because restricted system
+access is required to install packages through apt.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install virtualenv python-pip python3-dev
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160509-ubuntu-django-gunicorn/install-packages.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Enter &lt;code&gt;y&lt;/code&gt; and let the system package installation process run.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160509-ubuntu-django-gunicorn/packages-installed.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;The basic system packages we need are now installed so we can proceed to
+our Python-specific dependencies.&lt;/p&gt;
+&lt;h2&gt;Virtualenv&lt;/h2&gt;
+&lt;p&gt;Virtualenv and pip for isolating and handling 
+&lt;a href="/application-dependencies.html"&gt;application dependencies&lt;/a&gt; were just 
+installed via system packages so we can now use them to obtain Django and 
+Gunicorn.&lt;/p&gt;
+&lt;p&gt;Create a directory to store virtualenvs then put a new virtualenv in it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# the tilde &amp;quot;~&amp;quot; specifies the user&amp;#39;s home directory, like /home/matt
+cd ~
+mkdir venvs
+# specify the system python3 installation
+virtualenv --python=/usr/bin/python3 venvs/djproject
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Activate the virtualenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source ~/venvs/djproject/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We should see our prompt change so that we know the virtualenv is properly 
+activated.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160509-ubuntu-django-gunicorn/venv-activated.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Our virtualenv with Python 3 is activated so we can install whatever
+dependencies we want, such as Django and Gunicorn. &lt;/p&gt;
+&lt;h2&gt;Django and Gunicorn&lt;/h2&gt;
+&lt;p&gt;Time to install Django and Green Unicorn into our virtualenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install django gunicorn
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;No errors is a good sign everything worked for us.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160509-ubuntu-django-gunicorn/good-sign.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Create a new Django project named &lt;code&gt;djproject&lt;/code&gt;, or whatever you want to name
+your project. Then change into the directory for the new project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;django-admin startproject djproject
+cd djproject
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We could run Django with the development server using the 
+&lt;code&gt;python manage.py runserver&lt;/code&gt; command. However, start Django up with
+Gunicorn instead.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gunicorn djproject.wsgi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="/source/static/img/160509-ubuntu-django-gunicorn/gunicorn-run.png" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Awesome, now we can bring up our shell project in the web browser at
+the &lt;code&gt;localhost:8000&lt;/code&gt; or &lt;code&gt;127.0.0.1:8000&lt;/code&gt; address.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/source/static/img/160509-ubuntu-django-gunicorn/it-worked.jpg" width="100%" class="technical-diagram img-rounded"&gt;&lt;/p&gt;
+&lt;p&gt;Ready for development!&lt;/p&gt;
+&lt;h2&gt;Ready for Development&lt;/h2&gt;
+&lt;p&gt;Those are the basics for starting development with Django and Gunicorn on 
+Ubuntu 16.04. If you need an even more in-depth step-by-step tutorial to 
+deploy your Python web application to a production environment, check out the 
+&lt;a href="http://www.deploypython.com/"&gt;Full Stack Python Guide to Deployments book&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To figure out what to do next for your Python project, read the topics 
+found on the &lt;a href="/table-of-contents.html"&gt;table of contents&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;Questions? Contact me via Twitter 
+&lt;a href="https://twitter.com/fullstackpython"&gt;@fullstackpython&lt;/a&gt;
+or &lt;a href="https://twitter.com/mattmakai"&gt;@mattmakai&lt;/a&gt;. I'm also on GitHub with
+the username &lt;a href="https://github.com/makaimc"&gt;makaimc&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>The Full Stack Python Blog</title><link href="http://www.fullstackpython.com/full-stack-python-blog.html" rel="alternate"></link><published>2016-05-08T00:00:00-04:00</published><author><name>Matt Makai</name></author><id>tag:www.fullstackpython.com,2016-05-08:full-stack-python-blog.html</id><summary type="html">&lt;p&gt;Full Stack Python began way back in December 2012 when I started writing
+the initial &lt;a href="/deployment.html"&gt;deployment&lt;/a&gt;, &lt;a href="/servers.html"&gt;server&lt;/a&gt;, 
+operating system, web server and WSGI server pages. Since then, the pages
+have expanded out into a 
+&lt;a href="/table-of-contents.html"&gt;boatload of other areas&lt;/a&gt;
+including subjects outside the deployment topics I originally started the
+site to explain.&lt;/p&gt;
+&lt;p&gt;Frequently though I wanted to write a Python walkthrough that was not a
+good fit for the page format I use for each topic. Many of those walkthroughs
+became &lt;a href="https://www.twilio.com/blog/author/mmakai"&gt;Twilio blog posts&lt;/a&gt;
+but not all of them were quite the right fit on there. I'll still be writing
+plenty more Twilio tutorials, but this &lt;a href="/blog.html"&gt;Full Stack Python blog&lt;/a&gt;
+is the spot for technical posts that fall outside the Twilio domain.&lt;/p&gt;
+&lt;p&gt;Let me know what you think and what tutorials you'd like to see in the future. 
+Hit me up on Twitter &lt;a href="https://twitter.com/fullstackpython"&gt;@fullstackpython&lt;/a&gt;
+or &lt;a href="https://twitter.com/mattmakai"&gt;@mattmakai&lt;/a&gt;.&lt;/p&gt;</summary></entry></feed>

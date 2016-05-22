@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block meta_header %}
+<meta name="description" content="A blog with tutorials for Full Stack Python developers.">
+{% endblock %}
+
+{% block title %}Blog - {% endblock %}
+
+{% block banner %}
+    {% include "banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+      {% for a in articles %}
+        <h2 style="line-height: 1.5em;"><a href="/blog/{{ a.slug }}.html">{{ a.title }}</a></h2>
+        <div class="post-byline">
+            Posted by <a href="/about-author.html">Matt Makai</a> on 
+            {{ a.date.strftime('%B %d, %Y') }}.
+        </div>
+        {{ a.content|truncate(350) }} (<a href="/blog/{{ a.slug }}.html">read more</a>)
+      {% endfor %}
+    </div>
+    {% include "sidebar-blog.html" %}
+</div>
+{% endblock %}
