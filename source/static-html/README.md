@@ -17,11 +17,9 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 ## 项目进度
 
 - [x] content/pages/01-introduction/01-introduction.markdown (2016-05-21)
-    * 贡献者：[某某某](github.com)
+    + 贡献者：[某某某](github.com)
 - [ ] content/pages/01-introduction/02-learning-programming.markdown
-- [x] content/pages/01-introduction/03-why-use-python.markdown
-    * 贡献者：[某某某](github.com)
-    * 贡献者：[某某某](github.com)
+- [ ] content/pages/01-introduction/03-why-use-python.markdown
 - [ ] content/pages/01-introduction/04-python-2-or-3.markdown
 - [ ] content/pages/01-introduction/05-enterprise-python.markdown
 - [ ] content/pages/01-introduction/11-best-python-resources.markdown
