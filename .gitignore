@@ -1,0 +1,17 @@
+M
+*.swp
+
+# Python
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Translations
+*.mo
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/

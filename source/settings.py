@@ -2,11 +2,11 @@
 
 AUTHOR = u'Matt Makai'
 SITENAME = u'Matt Makai'
-SITEURL = 'http://www.fullstackpython.com'
+SITEURL = 'http://fullstackpython.atjiang.com'
 TIMEZONE = 'America/New_York'
 
-GITHUB_URL = 'https://github.com/makaimc/fullstackpython.com'
-DISQUS_SITENAME = 'makaimc'
+GITHUB_URL = 'https://github.com/haiiiiiyun/fullstackpython.cn'
+DISQUS_SITENAME = 'haiiiiiyun'
 PDF_GENERATOR = False
 
 DIRECT_TEMPLATES = ('index', 'sitemap', 'table-of-contents', 'email',
