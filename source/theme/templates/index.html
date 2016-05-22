@@ -10,11 +10,11 @@
         {% for page in pages|sort(attribute='sortorder') %}
           {% if page.slug == 'introduction' %}
               {{ page.content }}
-              <p>本指南的各项主题内容将相对独立，因为你的学习需求会由你的当前工作决定。
+              <p>本指南的各项主题内容将相对独立设置，因为你的学习需求会由你的当前工作决定。
                  选择下面的一个主题按钮或查看整个
                  <a href="/table-of-contents.html">目录</a>. 
               </p>
-              <h3>创建应用你需要学习哪些知识？</h3>
+              <h3>创建应用需要学习哪些知识？</h3>
               {% include "choices/index.html" %}
           {% endif %}
         {% endfor %}
