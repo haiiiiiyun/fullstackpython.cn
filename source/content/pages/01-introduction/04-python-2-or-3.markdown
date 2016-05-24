@@ -16,52 +16,25 @@ Python 编程语言目前正处在从版本 2 升级到版本 3 的漫长过渡�
 
 我个人推荐初学者现在应该从 Python 3 开始学起。因为现在已经能找到足够多的 [好资料](/best-python-resources.html) 来指导我们从零基础开始学习 Python 3。
 
-However, if you are interested in DevOps-type work with 
-[configuration management tools](/configuration-management.html) such as 
-Ansible or Fabric, then you'll have to stick to Python 2 because they have
-yet to upgrade to support Python 3. If you know there are libraries you must
-use in a project, check the 
-[Python Walls of Superpowers](https://python3wos.appspot.com/). If you're
-using Django, there is also a wall specifically for 
-[Python 3 compatibility of popular Django packages](http://djangowos.com/).
+但是，如果你对 DevOps 型工作感兴趣，并且使用像 Ansible 或 Fabric 等 [配置管理工具](/configuration-management.html)，那么你还是应该用 Python 2，因此这些工具还不支持 Python 3。如果你知道项目中必须要用到某些库，先在 [Python 超能墙](https://python3wos.appspot.com/) 网站上查下兼容性。如果你用 Django 的话，也有个类似的网站叫 [常用 Django 包的 Python 3 兼容性](http://djangowos.com/)。
 
 
-### Python 2 to 3 resources
-* Want to know all of the advantages and what's changed in Python 3 
-  compared to Python 2? There's 
-  [an official guide to Python 3 changes](https://docs.python.org/3/whatsnew/index.html)
-  you'll want to read.
+### 从 Python 2 转到 3 的相关资源
+* 想知道 Python 3 与 Python 2 相比都有什么改动及 Python 3 的所有优势吗？那么你需要看下 [Python 3 修改情况的官方文档](https://docs.python.org/3/whatsnew/index.html)。
 
-* The official 
-  [porting code to Python 3](https://wiki.python.org/moin/PortingToPy3k/)
-  page links to resources on porting Python code as well as underlying C
-  implementations. There is also a 
-  [quick reference for writting code with Python 2 and 3 compatibility](https://wiki.python.org/moin/PortingToPy3k/BilingualQuickRef).
+* 在官方的 [将代码移植到 Python 3](https://wiki.python.org/moin/PortingToPy3k/)页面上列出了如何移植 Python 代码及底层的 C 代码等相关资源链接。 还有一个网站叫 [编写与 Python 2 和 3 兼容的代码之快速参考](https://wiki.python.org/moin/PortingToPy3k/BilingualQuickRef)。
 
-* [Python 3 in 2016](https://hynek.me/articles/python3-2016/) explains
-  that many newer Python developers have only used Python 3 and as that
-  cohort continues to grow it will have an outsized impact on further
-  adoption.
+* [2016 年的 Python 3](https://hynek.me/articles/python3-2016/) 上陈述了现在很多新 Python 开发者只使用 Python 3， 如果这个队伍继续壮大，将会对以后 Python 3 的采用产生特别大的影响。
 
-* [Python 3 is winning](https://blogs.msdn.microsoft.com/pythonengineering/2016/03/08/python-3-is-winning/)
-  presents data and graphs from PyPI to show that at the current rate,
-  by mid-2016 overall Python 3 library support will overtake Python 2 
-  support.
+* [Python 3 是赢家](https://blogs.msdn.microsoft.com/pythonengineering/2016/03/08/python-3-is-winning/) 上的数据和图表来看 PyPI，可以看出如果以当前速度发展，到 2016 年中期，支持 Python 3的库总量将超过 支持 Python 2 的库。
 
-* [The stages of the Python 3 transition](http://www.snarky.ca/the-stages-of-the-python-3-transition)
-  provides perspective from a core Python developer on how the transition from
-  Python 2 to 3 is going as of the end of 2015.
+* [Python 3 过渡期的各阶段](http://www.snarky.ca/the-stages-of-the-python-3-transition) 从一个 Python 核心开发人员的角度，阐述了截止 2015 年底 Python 2 怎样过渡到 Python 3 的过程。
 
-* [Porting to Python 3 is like eating your vegetables](http://nothingbutsnark.svbtle.com/porting-to-python-3-is-like-eating-your-vegetables)
-  explains that there are treats in Python 3 that are worth porting for and
-  has some tips on making the transition easier.
+* [移植到 Python 3 就像要求你吃完蔬菜](http://nothingbutsnark.svbtle.com/porting-to-python-3-is-like-eating-your-vegetables)， 阐述了 Python 3 有些特性值得我们将代码移植过去，同时还提供了一些怎样移植更省力的小建议。
 
-* [Moving from Python 2 to Python 3](http://ptgmedia.pearsoncmg.com/imprint_downloads/informit/promotions/python/python2python3.pdf)
-  is a PDF cheatsheet for porting your Python code.
+* [从 Python 2 移植到 Python 3](http://ptgmedia.pearsoncmg.com/imprint_downloads/informit/promotions/python/python2python3.pdf) 是一份如何移植 Python 代码的 PDF 小抄。
 
-* [Django and Python 3 How to Setup pyenv for Multiple Pythons](https://godjango.com/96-django-and-python-3-how-to-setup-pyenv-for-multiple-pythons/)
-  is a screencast showing how to run both Python 2 and 3 for different
-  projects using pyenv.
+* [Django 和 Python 3 如何设置 pyenv 来支持多个 Python 版本](https://godjango.com/96-django-and-python-3-how-to-setup-pyenv-for-multiple-pythons/)， 是一部讲述如何用 pyenv 来实现同时运行 Python 2 和 3，以支持不同的项目。
 
 * [Scrapy on the road to Python 3 support](http://blog.scrapinghub.com/2015/08/19/scrapy-on-the-road-to-python-3-support/)
   explains from the perspective of a widely used Python project what their
