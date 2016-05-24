@@ -21,7 +21,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/01-introduction/01-introduction.markdown (2016-05-22)
 - [x] content/pages/01-introduction/02-learning-programming.markdown (2016-05-22)
 - [x] content/pages/01-introduction/03-why-use-python.markdown (2016-05-23)
-- [ ] content/pages/01-introduction/04-python-2-or-3.markdown
+- [x] content/pages/01-introduction/04-python-2-or-3.markdown (2016-05-24)
 - [ ] content/pages/01-introduction/05-enterprise-python.markdown
 - [ ] content/pages/01-introduction/11-best-python-resources.markdown
 - [ ] content/pages/01-introduction/12-best-python-videos.markdown
