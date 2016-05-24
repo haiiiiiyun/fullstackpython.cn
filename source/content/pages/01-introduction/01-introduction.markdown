@@ -1,9 +1,9 @@
-title: Introduction
+title: 简介
 category: page
 slug: introduction
 sortorder: 0101
 toc: True
-sidebartitle: 1. Introduction
+sidebartitle: 1. 简介
 translators: haiiiiiyun.github.io
 updated: 2016-05-22 14:28
 meta: Full Stack Python 通过使用朴实的语言阐释概念并提供丰富的资源来帮助你学习 Python 编程。

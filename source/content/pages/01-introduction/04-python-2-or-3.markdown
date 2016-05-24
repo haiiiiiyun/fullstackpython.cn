@@ -1,28 +1,20 @@
-title: Python 2 or 3?
+title: Python 2 还是 3？
 category: page
 slug: python-2-or-3
 sortorder: 0104
 toc: False
-sidebartitle: Python 2 or 3?
-meta: Learn about whether you should use Python version 2 or 3 to build your applications.
+sidebartitle: Python 2 还是 3？
+meta: 了解你到底应该用 Python 2 还是 Python 3 来编写应用。
+translators: haiiiiiyun.github.io
+updated: 2016-05-24 14:12
 
+# Python 2 还是 3？
 
-# Python 2 or 3?
-The Python programming language is currently in the midst of a long-term
-transition from version 2 to version 3. New programmers typically have many
-questions about which version they should learn. It's confusing to hear
-that Python 3, which was originally released in 2008, is still not the default
-installation on many operating systems.
+Python 编程语言目前正处在从版本 2 升级到版本 3 的漫长过渡期中。初学者通常会有他们到底应该学习哪个版本的问题。听到 Python 3 最初是在 2008 年发布的，但目前仍不是作为默认版本安装在很多操作系统上，这令人困惑。
 
-Here's the good news: you can't go wrong starting with either version. While 
-there are differences in unicode and syntax, for the most part if you 
-start with Python 2 and then learn Python 3 you won't be starting from 
-scratch. Likewise, you'll be able to read and write Python 2 code if you 
-started with Python 3.
+告诉你个好消息： 无论你从哪个版本开始学起都不会有问题的。尽管这两个版本在 unicode 处理和语法上有些许不同，但对于其它大部分来说，你先学的 Python 2 然后再学 Python 3 不会又要从头学起。
 
-My personal recommendation for new programmers as of right now is to start
-with Python 3. There are enough [great resources](/best-python-resources.html)
-out there that teach version 3 from the ground up.
+我个人推荐初学者现在应该从 Python 3 开始学起。因为现在已经能找到足够多的 [好资料](/best-python-resources.html) 来指导我们从零基础开始学习 Python 3。
 
 However, if you are interested in DevOps-type work with 
 [configuration management tools](/configuration-management.html) such as 
