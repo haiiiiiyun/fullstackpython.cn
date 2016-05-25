@@ -1,84 +1,40 @@
-title: Enterprise Python
+title: 企业 Python
 category: page
 slug: enterprise-python
 sortorder: 0105
 toc: False
-sidebartitle: Enterprise Python
-meta: Python is widely used to build enterprise application in large organizations around the world.
+sidebartitle: 企业 Python
+meta: 在世界各地的大型机构中 Python 被广泛用于构建企业应用。
+translator: haiiiiiyun.github.io
+updated: 2016-05-25 11:05
 
 
-# Enterprise Python
-One of the misconceptions around Python and other dynamically-typed languages 
-is that they cannot be reliably used to build enterprise-grade software. 
-However, almost all commercial and government enterprises already use 
-Python in some capacity, either as glue code between disparate applications 
-or to build the applications themselves. 
+# 企业 Python
+关于 Python 等动态类型语言的一个错误观念认为它们用于构建企业级应用还不太可靠。然而，几乎所有的商业和政府机构都已经或多或少使用 Python 了，无论是作为不同的应用程序之间的粘合代码还是构建应用程序本身。
 
+## 什么是企业软件？
+企业软件是为机构的需求而非个人的需要创建的。为企业编写的软件通常需要与历史遗留系统，例如现有的数据库和单机应用程序进行整合。通常也需与 [轻量级目录访问协议 (LDAP)](http://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol) 和 [活动目录 (AD)](https://msdn.microsoft.com/en-us/library/aa746492%28v=vs.85%29.aspx) 这样的认证系统整合。 
 
-## What is enterprise software?
-Enterprise software is built for the requirements of an organization rather 
-than the needs of an individual. Software written for enterprises often 
-needs to integrate with legacy systems, such as existing databases and 
-non-web applications. There are often requirements to integrate with 
-authentication systems such as the 
-[Lightweight Directory Access Protocol (LDAP)](http://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol) 
-and 
-[Active Directory (AD)](https://msdn.microsoft.com/en-us/library/aa746492%28v=vs.85%29.aspx).
+机构开发企业软件，包含大量的定制需求以适应其运营模式的具体需要。 因此，由于组织内部不同派系之间为争取软件能优先解决其各自的需求而罔顾他人的斗争，往往会导致软件开发过程变得异常复杂。
 
-Organizations develop enterprise software with numerous custom requirements 
-to fit the specific needs of their operating model. Therefore the software
-development process often becomes far more complicated due to disparate 
-factions within an organization vying for the software to handle their 
-needs at the expense of other factions.
+由于企业软件建设过程涉及到许多利益相关者而产生的复杂局面，导致了大量的预算以及由机构非技术人员执行的过度审查。而这些非技术人员通常在编程语言和框架的选择上妄加评断--而他们是不应该做出技术设计决策的。
 
-The complexity due to the many stakeholders involved in the building of 
-enterprise software leads to large budgets and extreme scrutiny by 
-non-technical members of an organization. Typically those non-technical 
-people place irrational emphasis on the choice of programming language and 
-frameworks when otherwise they should not make technical design decisions.
+## 为什么企业环境中存在对 Python 的误解？
+传统大型机构使用静态类型语言如 C++， .NET 和 Java 构建企业软件。上世纪80年代和90年代的大公司，如微软、Sun 和 甲骨文将这些语言标榜为”企业级“语言进行市场销售。其直接后果是，其它语言受到了冷落，并被看作不适应 CIO 的艰难技术环境。除了 Java，C++ 和 .NET，其它语言都被认为是有风险的，因此不值投资使用。
 
+此外， 在 20 世纪 90 年代， ”脚本语言“如 Python，Perl 和 Ruby 都还不够强大， 因为他们的核心标准库都仍处在开发阶段。像 [Django](/django.html)、[Flask](/flask.html) 以及 Rails (Ruby 语言) 这样的框架还没有产生。 那时的网络还刚刚开始，大多数企业应用还只是 Windows 系统上的桌面应用程序。 而 Python 根本不适合用于那样的环境。
 
-## Why are there misconceptions about Python in enterprise environments?
-Traditionally large organizations building enterprise software have used 
-statically typed languages such as C++, .NET and Java. Throughout the 1980s 
-and 1990s large companies such as Microsoft, Sun Microsystems and Oracle 
-marketed these languages as "enterprise grade". The inherent snub to other
-languages was that they were not appropriate for CIOs' difficult technical 
-environments. Languages other than Java, C++ and .NET were seen as risky and
-therefore not worthy of investment.
+## 为什么说 Python 现在适合于构建企业级软件？
+从本世纪初到现在，许多动态类型语言及其生态系统有了很大的发展，而且在某些方面往往超越了其它生态系统。Python， Ruby 以及其它之前被冷落的语言现在有了更广阔并且维护良好的开源生态系统，它们受到独立开发者和大公司的支持，包括微软、IBM、谷歌、Facebook、Dropbox、Twilio等等。
 
-In addition, "scripting languages" such as Python, Perl and Ruby were not
-yet robust enough in the 1990s because their core standard libraries were
-still being developed. Frameworks such as [Django](/django.html), 
-[Flask](/flask.html) and Rails (for Ruby) did not yet exist. The Web was
-just beginning and most enterprise applications were desktop apps built
-for Windows. Python simply wasn't made for such environments.
+Python的开源库，特别是针对[Web开发](/web-frameworks.html)和数据分析的那些代码，对于任何语言来说，都是维护良好功能完备的典范。
 
+同时，一些传统的企业软件开发语言如 Java 因受主要企业支持者投资不足影响，已经衰落了。当 [Oracle 于2009 年收购 Sun](http://www.oracle.com/us/corporate/press/018363) 时，在 Java 中增加新的语言特性以升级到 Java 7 的计划已被拖了很多一段时间。Oracle 还在 [Java 安装包中捆绑了不需要的广告软件](http://www.engadget.com/2015/03/06/java-adware-mac/)，而 Python 社区绝不会容忍这种情况发生，因为这门语言是开源的，并不受某一公司控制。
 
-## Why is Python now appropriate for building enterprise software?
-From the early 2000s through today the languages and ecosystems for many
-dynamically typed languages have greatly improved and often surpassed some
-aspects of other ecosystems. Python, Ruby and other previously derided 
-languages now have vast, well-maintained open source ecosystems backed by 
-both independent developers and large companies including Microsoft, IBM, 
-Google, Facebook, Dropbox, Twilio and many, many others.
+其他的生态系统，如微软的 .NET 平台则发展的较好。微软在整个新世纪的早期阶段对 .NET 平台进行了持继投资以促进及发展。
 
-Python's open source libraries, especially for
-[web development](/web-frameworks.html) and data analysis, are some of the 
-best maintained and fully featured pieces of code for any language.
+然而，微软的企业产品针对他们的应用程序服务器和相关软件往往有昂贵的许可费用。
 
-Meanwhile, some of the traditional enterprise software development languages 
-such as Java have languished due to underinvestment by their major corporate 
-backers. When [Oracle purchased Sun Microsystems in 2009](http://www.oracle.com/us/corporate/press/018363)
-there was a long lag time before Java was enhanced with new language features
-in Java 7.  Oracle also 
-[bundles unwanted adware with the Java installation](http://www.engadget.com/2015/03/06/java-adware-mac/),
-whereas the Python community would never put up with such a situation because
-the language is open source and does not have a single corporate controller.
-
-Other ecosystems, such as the .NET platform by Microsoft have fared much 
-better. Microsoft continued to invest in moving the .NET platform along
-throughout the early part of the new millennium.
 
 However, Microsoft's enterprise products often have expensive licensing fees 
 for their application servers and associated software. In addition, Microsoft 
@@ -127,4 +83,3 @@ continue delivering business value to their business side customers.
   [Python subreddit thread about Python in the enterprise](https://www.reddit.com/r/Python/comments/3myppd/everyone_who_encounters_it_seems_to_love_python/)
   that's worth a look for broader opinions on Python compared to Java and
   .NET in enterprise environments.
-
