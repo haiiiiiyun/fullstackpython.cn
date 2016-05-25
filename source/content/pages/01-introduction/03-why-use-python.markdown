@@ -3,7 +3,7 @@ category: page
 slug: why-use-python
 sortorder: 0103
 toc: False
-sidebartitle: title: 为什么用 Python？
+sidebartitle: 为什么用 Python？
 meta: 了解为什么要用 Python--这种功能强大简单易学的编程语言。
 translators: haiiiiiyun.github.io
 updated: 2016-05-23 08:33
