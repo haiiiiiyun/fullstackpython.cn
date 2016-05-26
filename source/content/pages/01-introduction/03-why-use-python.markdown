@@ -20,7 +20,7 @@ Python 在大学里也广泛被用于教学，并且也在像
 [树莓派](http://www.raspberrypi.org/) 那样的
 对于初学者来说易于上手的设备上使用。
 
-<div class="well see-also">如果你想了解为何要选用 Python，你应该也看下 <a href="/best-python-resources.html">最好的 Python 资源</a> 和 <a href="/what-full-stack-means.html">“全栈”指的是什么</a>.</div>
+<div class="well see-also">如果你想了解为何要选用 Python，你应该也看下 <a href="/best-python-resources.html">最佳 Python 资源</a> 和 <a href="/what-full-stack-means.html">“全栈”指的是什么</a>.</div>
 
 
 ## Python 编程语言的流行度

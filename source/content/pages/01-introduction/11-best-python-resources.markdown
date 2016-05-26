@@ -1,13 +1,13 @@
-title: Best Python Resources
+title: 最佳 Python 资源
 category: page
 slug: best-python-resources
 sortorder: 0111
 toc: False
-sidebartitle: Best Python Resources
-meta: Get recommendations for dozens of great programming tutorials via Full Stack Python's Best Python Resources page.
+sidebartitle: 最佳 Python 资源
+meta: Get recommendations for dozens of great programming tutorials via 's Best Python Resources page.
+Full Stack Python 的“最佳 Python 资源”页向你推荐了几十篇不错的编程教程。
 
-
-# Best Python Resources
+# 最佳 Python 资源
 The Python community is amazing at sharing detailed resources and helping
 beginners learn to program with the language. There are so many resources
 out there though that it can be difficult to know how to find them. 
