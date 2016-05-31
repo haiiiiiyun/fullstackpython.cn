@@ -244,19 +244,13 @@ Python 列为一门 Top10 的编程语言--如果还未进前五的话。</p>
 <p>这篇 Reddit 上的 Python 主题文章 <a href="https://www.reddit.com/r/Python/comments/3myppd/everyone_who_encounters_it_seems_to_love_python/">企业中的 Python</a> 值得一读，里面有针对在企业环境中 Python 对比 Java 和 .NET 的更广泛观点。</p>
 </li>
 </ul>
-          <p>Full Stack Python 的“最佳 Python 资源”页向你推荐了几十篇不错的编程教程。</p>
-<h1>最佳 Python 资源</h1>
-<p>The Python community is amazing at sharing detailed resources and helping
-beginners learn to program with the language. There are so many resources
-out there though that it can be difficult to know how to find them. </p>
-<p>This page aggregates the best general Python resources with descriptions of
-what they provide to readers.</p>
-<div class="well see-also">If you prefer to learn by watching videos check out the <a href="/best-python-videos.html">best Python videos</a>. You may also be interested in reading about <a href="/development-environments.html">development environments</a> to use for coding.</div>
+          <h1>最佳 Python 资源</h1>
+<p>Python 社区对详细资源的分享令人惊讶，并且乐与帮助初学者学习用这门语言编程。已经有很多资源在那里了，虽然很难知道如何才能找到它们。</p>
+<p>本页面整理出了最佳的常用 Python 资源及其提供给读者的相关资源描述。</p>
+<div class="well see-also">如果你更喜欢通过观看视频来学习，请查看 <a href="/best-python-videos.html">最佳 Python 视频</a>。 你可能对编写代码要用到的 <a href="/development-environments.html">开发环境</a> 也感兴趣。</div>
 
-<h2>New to programming</h2>
-<p>If you're learning your first programming language these books were written
-with you in mind. Developers learning Python as a second or later language
-should skip down to the next section for "experienced developers".</p>
+<h2>刚开始学编程</h2>
+<p>如果你是刚开始学第一门编程语言，那么下面的这些书就是特意为你准备的。作为第二门或以后的语言而学习 Python 的开发人员，应该跳到下一节“有经验的开发者”。</p>
 <ul>
 <li>
 <p>To get an introduction to Python, Django and Flask at the same time, 
@@ -608,85 +602,50 @@ questions about your coding issues.</p>
   engage an audience of peers with an exciting talk.</p>
 </li>
 </ul>
-          <h1>Development Environments</h1>
-<p>A development environment is a combination of a text editor and the Python
-interpreter. The text editor allows you to write the code. The interpreter
-provides a way to execute the code you've written. A text editor can be
-as simple as Notepad on Windows or more complicated as a complete integrated
-development environment (IDE) such as 
-<a href="https://www.jetbrains.com/pycharm/">PyCharm</a> which runs on any major 
-operating system.</p>
-<h2>Why is a development environment necessary?</h2>
-<p>Python code needs to be written, executed and tested to build
-applications. The text editor provides a way to write the code. The 
-interpreter allows it to be executed. Testing to see if the code does what
-you want can either be done manually or by unit and functional tests. </p>
-<div class="well see-also">While you're learning about development environments be sure to check out information on <a href="/vim.html">Vim</a> and <a href="/emacs.html">Emacs</a>.</div>
+          <h1>开发环境</h1>
+<p>开发环境就是文本编辑器和 Python 解译器的组合。文本编辑器用来输入源代码。而解译器用来执行你写的代码。文本编辑器可以很简单，比如 Windows 系统上的 Notepad，也可以相当复杂，比如 <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>，它就是一个完整的集成开发环境（IDE）， 并且在当前主流的操作系统上都能运行。</p>
+<h2>为什么需要开发环境？</h2>
+<p>Python 代码需要经过编写、执行、测试然后才能构建成应用程序。文本编辑器提供输入代码的功能。解译器使得代码能够运行。测试用来检验代码是否按预期运行，而测试工作要么通过手动进行，或者通过单元测试和功能测试进行。</p>
+<div class="well see-also">当你在学习开发环境的相关知识时，请务必查看 <a href="/vim.html">Vim</a> 和 <a href="/emacs.html">Emacs</a>。</div>
 
-<h2>A development environment example</h2>
-<p>Here's what I (the author of Full Stack Python, 
-<a href="/about-author.html">Matt Makai</a>) use to develop most of my Python 
-applications. I have a Macbook Pro with Mac OS X as its base operating 
-system. <a href="/operating-systems.html">Ubuntu 14.04 LTS</a> is virtualized on top 
-with <a href="https://www.parallels.com/">Parallels</a>. My code is written in 
-<a href="http://www.vim.org/">vim</a> and executed with the 
-<a href="https://www.python.org/download/releases/2.7.8/">Python 2.7.x</a> interpreter
-via the command line. I use virtualenv to create separate Python interpreters
-with their own isolated
-<a href="/application-dependencies.html">application dependencies</a> and
-<a href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a>
-to quickly switch between the interpreters created by virtualenv.</p>
-<p>That's a common set up but you can certainly write great code with a much
-less expensive set up or a cloud-based development environment.</p>
-<h2>Open source text editors</h2>
+<h2>开发环境案例</h2>
+<p>这是我（Full Stack Python 的作者 <a href="/about-author.html">Matt Makai</a>） 用于开发我的大部分 Python 应用的开发环境。我有一台安装了 Mac OS X 系统的 Macbook Pro。<a href="/operating-systems.html">Ubuntu 14.04 LTS</a> 是通过 <a href="https://www.parallels.com/">Parallels</a> 安装在虚拟机上的。我的代码在 <a href="http://www.vim.org/">vim</a> 里输入，然后在命令行上由 <a href="https://www.python.org/download/releases/2.7.8/">Python 2.7.x</a> 解译器执行。我使用 <a href="https://virtualenv.pypa.io/en/stable/">virtualenv</a> 创建独立的 Python 解译器，每个解译器包含各自独立的 <a href="/application-dependencies.html">应用程序依赖包</a> 。我使用 <a href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a> 在各个解译器间进行快速切换。</p>
+<p>这是一套常见的设置方案，当然你也能用更简单的方案或者基于云计算的开发环境来写出好代码。</p>
+<h2>开源文本编辑器</h2>
 <ul>
 <li>
-<p><a href="http://www.vim.org/">vim</a> is my editor of choice and installed by default
-  on most *nix systems.</p>
+<p><a href="http://www.vim.org/">vim</a> 是我选择的编辑器，该编辑器在大多数类 unix 系统都已默认安装。</p>
 </li>
 <li>
-<p><a href="http://www.gnu.org/software/emacs/">emacs</a> is another editor often used
-  on *nix.</p>
+<p><a href="http://www.gnu.org/software/emacs/">emacs</a> 是另一款在类 unix 上常用的编辑器。</p>
 </li>
 <li>
-<p><a href="https://atom.io/">Atom</a> is an open source editor built by the 
-  <a href="https://github.com">GitHub</a> team.</p>
+<p><a href="https://atom.io/">Atom</a> 是一款由 <a href="https://github.com">GitHub</a> 团队创建的开源编辑器。</p>
 </li>
 </ul>
-<h2>Proprietary (closed source) editors</h2>
+<h2>专有（封闭源码） 编辑器</h2>
 <ul>
 <li>
-<p><a href="http://www.sublimetext.com/">Sublime Text</a> versions 2 and 3 (currently
-  in beta) are popular text editors that can be extended with code completion,
-  linting, syntax highlighting and other features using plugins.</p>
+<p><a href="http://www.sublimetext.com/">Sublime Text</a> 版本 2 和 3 （当前还是 beta 版）都是较流行的文本编辑器，通过插件扩展，能够在它上面增加代码补全、代码检查、语法高亮等功能。</p>
 </li>
 <li>
-<p><a href="http://komodoide.com/">Komodo</a> is a cross-platform text editor and IDE
-  for major languages including Python, Ruby, JavaScript, Go and more.</p>
+<p><a href="http://komodoide.com/">Komodo</a> 是一款跨平台的文本编辑器和 IDE，它支持主流的语言，包括 Python、 Ruby、 JavaScript、 Go 等。</p>
 </li>
 </ul>
-<h2>Python-specific IDEs</h2>
+<h2>Python 专用 IDE</h2>
 <ul>
 <li>
-<p><a href="https://www.jetbrains.com/pycharm/">PyCharm</a> is a Python-specific IDE
-  built on <a href="https://www.jetbrains.com/">JetBrains</a>' platform. There are
-  free editions for students and open source projects.</p>
+<p><a href="https://www.jetbrains.com/pycharm/">PyCharm</a> 是一款基于 <a href="https://www.jetbrains.com/">JetBrains</a> 平台的 Python 专用 IDE 。它对学生和开源项目提供免费版本。</p>
 </li>
 <li>
-<p><a href="https://wingware.com/">Wing IDE</a> is a paid development environment with
-  integrated debugging and code completion.</p>
+<p><a href="https://wingware.com/">Wing IDE</a> 是一款需要付费的开发环境，它有集成的调试环境和代码补全功能。</p>
 </li>
 <li>
-<p><a href="http://pydev.org/">PyDev</a> is a Python IDE plug in for 
-  <a href="https://www.eclipse.org/">Eclipse</a>.</p>
+<p><a href="http://pydev.org/">PyDev</a> 是 <a href="https://www.eclipse.org/">Eclipse</a> 上的一个 Python IDE 插件。</p>
 </li>
 </ul>
-<h2>Hosted development environment services</h2>
-<p>In the past couple of years several cloud-based development environments
-have popped up. These can work great for when you're learning or stuck on
-a machine with only a browser but no way to install your own software. Most
-of these have free tiers for getting started and paid tiers as you scale
-up your application.</p>
+<h2>托管的开发环境服务</h2>
+<p>在过去的几年中，出现了一些基于云计算的开发环境。当在一台只有浏览器且无法安装软件的机器上学习时，你会觉得这些工具很有用。它们大部分对入门级使用免费，但当你需要提升应用需求时对你进行收费。</p>
 <ul>
 <li>
 <p><a href="https://www.nitrous.io/">Nitrous.io</a></p>
@@ -701,44 +660,29 @@ up your application.</p>
 <p><a href="https://koding.com/">Koding</a></p>
 </li>
 </ul>
-<h2>Development environment resources</h2>
+<h2>开发环境相关资源</h2>
 <ul>
 <li>
-<p>If you're considering the cloud-based development environment route, check
-  out this 
-  <a href="http://readwrite.com/2014/08/14/cloud9-koding-nitrousio-integrated-development-environment-ide-coding">great article comparing Cloud9, Koding and Nitrous.io</a>
-  by Lauren Orsini. She also explains more about what a cloud IDE is and is
-  not.</p>
+<p>如果你是考虑基于云计算的开发环境的路线，那么看下 Lauren Orsini 的这篇文章 <a href="http://readwrite.com/2014/08/14/cloud9-koding-nitrousio-integrated-development-environment-ide-coding">Cloud9、 Koding 和 Nitrous.io 之比较</a>。她还对什么是云 IDE 什么不是云 IDE 进行了深入的阐述。</p>
 </li>
 <li>
-<p>Real Python has an awesome, detailed post on 
-  <a href="https://realpython.com/blog/python/setting-up-sublime-text-3-for-full-stack-python-development/">setting up your Sublime Text 3 environment</a>
-  as a full-fledged IDE.</p>
+<p>《Real Python》上有一篇不错的文章，详细说明怎样 <a href="https://realpython.com/blog/python/setting-up-sublime-text-3-for-full-stack-python-development/">设置你的 Sublime Text 3 环境</a> 使其成为一个功能完备的 IDE。</p>
 </li>
 <li>
-<p>The <a href="http://docs.python-guide.org/en/latest/dev/env/">Hitchhiker's Guide to Python</a>
-  has a page dedicated to development environments.</p>
+<p><a href="http://docs.python-guide.org/en/latest/dev/env/">Python 漫游指南</a> 上有一页专门讲述开发环境的内容。</p>
 </li>
 <li>
-<p><a href="http://pedrokroger.net/choosing-best-python-ide/">Choosing the best Python IDE</a>
-  is a review of six IDEs. PyCharm, Wing IDE and PyDev stand out above the
-  other three in this review.</p>
+<p><a href="http://pedrokroger.net/choosing-best-python-ide/">选择最佳 Python IDE</a> 是一篇针对六个 IDE 的评测文章。这篇文章认为 PyCharm、Wing IDE 和 PyDev 优于另外三个。 </p>
 </li>
 <li>
-<p><a href="http://nafiulis.me/pycharm-the-good-parts-i.html">PyCharm: The Good Parts</a>
-  shows you how to be more efficient and productive with that IDE if it's
-  your choice for writing Python code.</p>
+<p><a href="http://nafiulis.me/pycharm-the-good-parts-i.html">PyCharm: 好的方面</a> 向你展示了如何更高效地利用该 IDE 来写代码。</p>
 </li>
 <li>
-<p>JetBrains' <a href="http://blog.jetbrains.com/pycharm/">PyCharm Blog</a> is required
-  reading if you're using the IDE or considering trying it. One of the
-  core developers also an interview on the 
-  <a href="http://talkpython.fm/episodes/show/36/python-ides-with-the-pycharm-teama">Talk Python to Me podcast</a> 
-  that's worth listening to.</p>
+<p>如果你使用 PyCharm 这个 IDE 或者正考虑尝试一下，那么你应该读读 JetBrains 的 <a href="http://blog.jetbrains.com/pycharm/">PyCharm Blog</a>。它的一位核心开发人员在播客
+  <a href="http://talkpython.fm/episodes/show/36/python-ides-with-the-pycharm-teama">和我聊 Python</a> 上的一篇采访也值得听一下。</p>
 </li>
 <li>
-<p><a href="https://opensourcehacker.com/2015/05/02/pycharm-vs-sublime-text/">PyCharm vs Sublime Text</a>
-  has a comparison of several features between the two editors.</p>
+<p><a href="https://opensourcehacker.com/2015/05/02/pycharm-vs-sublime-text/">PyCharm 对比 Sublime Text</a> 对这两个编辑器的多个功能进行了比较。</p>
 </li>
 </ul>
           <h1>Vim</h1>

@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Development environments allow programmers to work with code. Learn more about development environments on Full Stack Python.">
+    <meta name="description" content="程序员在开发环境中编写代码。在 Full Stack Python 上学习开发环境的更多知识。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Development Environments - Full Stack Python 简体中文网站</title>
+    <title>开发环境 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,85 +36,50 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Development Environments</h1>
-<p>A development environment is a combination of a text editor and the Python
-interpreter. The text editor allows you to write the code. The interpreter
-provides a way to execute the code you've written. A text editor can be
-as simple as Notepad on Windows or more complicated as a complete integrated
-development environment (IDE) such as 
-<a href="https://www.jetbrains.com/pycharm/">PyCharm</a> which runs on any major 
-operating system.</p>
-<h2>Why is a development environment necessary?</h2>
-<p>Python code needs to be written, executed and tested to build
-applications. The text editor provides a way to write the code. The 
-interpreter allows it to be executed. Testing to see if the code does what
-you want can either be done manually or by unit and functional tests. </p>
-<div class="well see-also">While you're learning about development environments be sure to check out information on <a href="/vim.html">Vim</a> and <a href="/emacs.html">Emacs</a>.</div>
+          <h1>开发环境</h1>
+<p>开发环境就是文本编辑器和 Python 解译器的组合。文本编辑器用来输入源代码。而解译器用来执行你写的代码。文本编辑器可以很简单，比如 Windows 系统上的 Notepad，也可以相当复杂，比如 <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>，它就是一个完整的集成开发环境（IDE）， 并且在当前主流的操作系统上都能运行。</p>
+<h2>为什么需要开发环境？</h2>
+<p>Python 代码需要经过编写、执行、测试然后才能构建成应用程序。文本编辑器提供输入代码的功能。解译器使得代码能够运行。测试用来检验代码是否按预期运行，而测试工作要么通过手动进行，或者通过单元测试和功能测试进行。</p>
+<div class="well see-also">当你在学习开发环境的相关知识时，请务必查看 <a href="/vim.html">Vim</a> 和 <a href="/emacs.html">Emacs</a>。</div>
 
-<h2>A development environment example</h2>
-<p>Here's what I (the author of Full Stack Python, 
-<a href="/about-author.html">Matt Makai</a>) use to develop most of my Python 
-applications. I have a Macbook Pro with Mac OS X as its base operating 
-system. <a href="/operating-systems.html">Ubuntu 14.04 LTS</a> is virtualized on top 
-with <a href="https://www.parallels.com/">Parallels</a>. My code is written in 
-<a href="http://www.vim.org/">vim</a> and executed with the 
-<a href="https://www.python.org/download/releases/2.7.8/">Python 2.7.x</a> interpreter
-via the command line. I use virtualenv to create separate Python interpreters
-with their own isolated
-<a href="/application-dependencies.html">application dependencies</a> and
-<a href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a>
-to quickly switch between the interpreters created by virtualenv.</p>
-<p>That's a common set up but you can certainly write great code with a much
-less expensive set up or a cloud-based development environment.</p>
-<h2>Open source text editors</h2>
+<h2>开发环境案例</h2>
+<p>这是我（Full Stack Python 的作者 <a href="/about-author.html">Matt Makai</a>） 用于开发我的大部分 Python 应用的开发环境。我有一台安装了 Mac OS X 系统的 Macbook Pro。<a href="/operating-systems.html">Ubuntu 14.04 LTS</a> 是通过 <a href="https://www.parallels.com/">Parallels</a> 安装在虚拟机上的。我的代码在 <a href="http://www.vim.org/">vim</a> 里输入，然后在命令行上由 <a href="https://www.python.org/download/releases/2.7.8/">Python 2.7.x</a> 解译器执行。我使用 <a href="https://virtualenv.pypa.io/en/stable/">virtualenv</a> 创建独立的 Python 解译器，每个解译器包含各自独立的 <a href="/application-dependencies.html">应用程序依赖包</a> 。我使用 <a href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a> 在各个解译器间进行快速切换。</p>
+<p>这是一套常见的设置方案，当然你也能用更简单的方案或者基于云计算的开发环境来写出好代码。</p>
+<h2>开源文本编辑器</h2>
 <ul>
 <li>
-<p><a href="http://www.vim.org/">vim</a> is my editor of choice and installed by default
-  on most *nix systems.</p>
+<p><a href="http://www.vim.org/">vim</a> 是我选择的编辑器，该编辑器在大多数类 unix 系统都已默认安装。</p>
 </li>
 <li>
-<p><a href="http://www.gnu.org/software/emacs/">emacs</a> is another editor often used
-  on *nix.</p>
+<p><a href="http://www.gnu.org/software/emacs/">emacs</a> 是另一款在类 unix 上常用的编辑器。</p>
 </li>
 <li>
-<p><a href="https://atom.io/">Atom</a> is an open source editor built by the 
-  <a href="https://github.com">GitHub</a> team.</p>
+<p><a href="https://atom.io/">Atom</a> 是一款由 <a href="https://github.com">GitHub</a> 团队创建的开源编辑器。</p>
 </li>
 </ul>
-<h2>Proprietary (closed source) editors</h2>
+<h2>专有（封闭源码） 编辑器</h2>
 <ul>
 <li>
-<p><a href="http://www.sublimetext.com/">Sublime Text</a> versions 2 and 3 (currently
-  in beta) are popular text editors that can be extended with code completion,
-  linting, syntax highlighting and other features using plugins.</p>
+<p><a href="http://www.sublimetext.com/">Sublime Text</a> 版本 2 和 3 （当前还是 beta 版）都是较流行的文本编辑器，通过插件扩展，能够在它上面增加代码补全、代码检查、语法高亮等功能。</p>
 </li>
 <li>
-<p><a href="http://komodoide.com/">Komodo</a> is a cross-platform text editor and IDE
-  for major languages including Python, Ruby, JavaScript, Go and more.</p>
+<p><a href="http://komodoide.com/">Komodo</a> 是一款跨平台的文本编辑器和 IDE，它支持主流的语言，包括 Python、 Ruby、 JavaScript、 Go 等。</p>
 </li>
 </ul>
-<h2>Python-specific IDEs</h2>
+<h2>Python 专用 IDE</h2>
 <ul>
 <li>
-<p><a href="https://www.jetbrains.com/pycharm/">PyCharm</a> is a Python-specific IDE
-  built on <a href="https://www.jetbrains.com/">JetBrains</a>' platform. There are
-  free editions for students and open source projects.</p>
+<p><a href="https://www.jetbrains.com/pycharm/">PyCharm</a> 是一款基于 <a href="https://www.jetbrains.com/">JetBrains</a> 平台的 Python 专用 IDE 。它对学生和开源项目提供免费版本。</p>
 </li>
 <li>
-<p><a href="https://wingware.com/">Wing IDE</a> is a paid development environment with
-  integrated debugging and code completion.</p>
+<p><a href="https://wingware.com/">Wing IDE</a> 是一款需要付费的开发环境，它有集成的调试环境和代码补全功能。</p>
 </li>
 <li>
-<p><a href="http://pydev.org/">PyDev</a> is a Python IDE plug in for 
-  <a href="https://www.eclipse.org/">Eclipse</a>.</p>
+<p><a href="http://pydev.org/">PyDev</a> 是 <a href="https://www.eclipse.org/">Eclipse</a> 上的一个 Python IDE 插件。</p>
 </li>
 </ul>
-<h2>Hosted development environment services</h2>
-<p>In the past couple of years several cloud-based development environments
-have popped up. These can work great for when you're learning or stuck on
-a machine with only a browser but no way to install your own software. Most
-of these have free tiers for getting started and paid tiers as you scale
-up your application.</p>
+<h2>托管的开发环境服务</h2>
+<p>在过去的几年中，出现了一些基于云计算的开发环境。当在一台只有浏览器且无法安装软件的机器上学习时，你会觉得这些工具很有用。它们大部分对入门级使用免费，但当你需要提升应用需求时对你进行收费。</p>
 <ul>
 <li>
 <p><a href="https://www.nitrous.io/">Nitrous.io</a></p>
@@ -129,44 +94,29 @@ up your application.</p>
 <p><a href="https://koding.com/">Koding</a></p>
 </li>
 </ul>
-<h2>Development environment resources</h2>
+<h2>开发环境相关资源</h2>
 <ul>
 <li>
-<p>If you're considering the cloud-based development environment route, check
-  out this 
-  <a href="http://readwrite.com/2014/08/14/cloud9-koding-nitrousio-integrated-development-environment-ide-coding">great article comparing Cloud9, Koding and Nitrous.io</a>
-  by Lauren Orsini. She also explains more about what a cloud IDE is and is
-  not.</p>
+<p>如果你是考虑基于云计算的开发环境的路线，那么看下 Lauren Orsini 的这篇文章 <a href="http://readwrite.com/2014/08/14/cloud9-koding-nitrousio-integrated-development-environment-ide-coding">Cloud9、 Koding 和 Nitrous.io 之比较</a>。她还对什么是云 IDE 什么不是云 IDE 进行了深入的阐述。</p>
 </li>
 <li>
-<p>Real Python has an awesome, detailed post on 
-  <a href="https://realpython.com/blog/python/setting-up-sublime-text-3-for-full-stack-python-development/">setting up your Sublime Text 3 environment</a>
-  as a full-fledged IDE.</p>
+<p>《Real Python》上有一篇不错的文章，详细说明怎样 <a href="https://realpython.com/blog/python/setting-up-sublime-text-3-for-full-stack-python-development/">设置你的 Sublime Text 3 环境</a> 使其成为一个功能完备的 IDE。</p>
 </li>
 <li>
-<p>The <a href="http://docs.python-guide.org/en/latest/dev/env/">Hitchhiker's Guide to Python</a>
-  has a page dedicated to development environments.</p>
+<p><a href="http://docs.python-guide.org/en/latest/dev/env/">Python 漫游指南</a> 上有一页专门讲述开发环境的内容。</p>
 </li>
 <li>
-<p><a href="http://pedrokroger.net/choosing-best-python-ide/">Choosing the best Python IDE</a>
-  is a review of six IDEs. PyCharm, Wing IDE and PyDev stand out above the
-  other three in this review.</p>
+<p><a href="http://pedrokroger.net/choosing-best-python-ide/">选择最佳 Python IDE</a> 是一篇针对六个 IDE 的评测文章。这篇文章认为 PyCharm、Wing IDE 和 PyDev 优于另外三个。 </p>
 </li>
 <li>
-<p><a href="http://nafiulis.me/pycharm-the-good-parts-i.html">PyCharm: The Good Parts</a>
-  shows you how to be more efficient and productive with that IDE if it's
-  your choice for writing Python code.</p>
+<p><a href="http://nafiulis.me/pycharm-the-good-parts-i.html">PyCharm: 好的方面</a> 向你展示了如何更高效地利用该 IDE 来写代码。</p>
 </li>
 <li>
-<p>JetBrains' <a href="http://blog.jetbrains.com/pycharm/">PyCharm Blog</a> is required
-  reading if you're using the IDE or considering trying it. One of the
-  core developers also an interview on the 
-  <a href="http://talkpython.fm/episodes/show/36/python-ides-with-the-pycharm-teama">Talk Python to Me podcast</a> 
-  that's worth listening to.</p>
+<p>如果你使用 PyCharm 这个 IDE 或者正考虑尝试一下，那么你应该读读 JetBrains 的 <a href="http://blog.jetbrains.com/pycharm/">PyCharm Blog</a>。它的一位核心开发人员在播客
+  <a href="http://talkpython.fm/episodes/show/36/python-ides-with-the-pycharm-teama">和我聊 Python</a> 上的一篇采访也值得听一下。</p>
 </li>
 <li>
-<p><a href="https://opensourcehacker.com/2015/05/02/pycharm-vs-sublime-text/">PyCharm vs Sublime Text</a>
-  has a comparison of several features between the two editors.</p>
+<p><a href="https://opensourcehacker.com/2015/05/02/pycharm-vs-sublime-text/">PyCharm 对比 Sublime Text</a> 对这两个编辑器的多个功能进行了比较。</p>
 </li>
 </ul>
 <h3>Learn about Vim & Emacs next, or move on to web frameworks?</h3>
@@ -231,10 +181,10 @@ up your application.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Best Python Videos</a><a href="/development-environments.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>2. Development Environments</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. Core Language</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Generators</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Comprehensions</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web Development</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Frameworks</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Other Web Frameworks</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Design</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Cascading Style Sheets (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Template Engines</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Application Security</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Best Python Videos</a><a href="/development-environments.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. Core Language</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Generators</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Comprehensions</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web Development</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Frameworks</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Other Web Frameworks</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Design</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Cascading Style Sheets (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Template Engines</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Application Security</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Development Environments</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">开发环境</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -247,7 +197,7 @@ up your application.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a>  <a href="/development-environments.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; 2. Development Environments</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a>  <a href="/development-environments.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; 2. 开发环境</a>
 <a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. Core Language</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web Development</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>

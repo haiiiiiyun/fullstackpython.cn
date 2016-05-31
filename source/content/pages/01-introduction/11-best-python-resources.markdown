@@ -4,24 +4,18 @@ slug: best-python-resources
 sortorder: 0111
 toc: False
 sidebartitle: 最佳 Python 资源
-meta: Get recommendations for dozens of great programming tutorials via 's Best Python Resources page.
-Full Stack Python 的“最佳 Python 资源”页向你推荐了几十篇不错的编程教程。
+meta: Full Stack Python 的“最佳 Python 资源”页向你推荐几十篇不错的编程教程。
 
 # 最佳 Python 资源
-The Python community is amazing at sharing detailed resources and helping
-beginners learn to program with the language. There are so many resources
-out there though that it can be difficult to know how to find them. 
+Python 社区对详细资源的分享令人惊讶，并且乐与帮助初学者学习用这门语言编程。已经有很多资源在那里了，虽然很难知道如何才能找到它们。
 
-This page aggregates the best general Python resources with descriptions of
-what they provide to readers.
+本页面整理出了最佳的常用 Python 资源及其提供给读者的相关资源描述。
 
-<div class="well see-also">If you prefer to learn by watching videos check out the <a href="/best-python-videos.html">best Python videos</a>. You may also be interested in reading about <a href="/development-environments.html">development environments</a> to use for coding.</div>
+<div class="well see-also">如果你更喜欢通过观看视频来学习，请查看 <a href="/best-python-videos.html">最佳 Python 视频</a>。 你可能对编写代码要用到的 <a href="/development-environments.html">开发环境</a> 也感兴趣。</div>
 
 
-## New to programming
-If you're learning your first programming language these books were written
-with you in mind. Developers learning Python as a second or later language
-should skip down to the next section for "experienced developers".
+## 刚开始学编程
+如果你是刚开始学第一门编程语言，那么下面的这些书就是特意为你准备的。作为第二门或以后的语言而学习 Python 的开发人员，应该跳到下一节“有经验的开发者”。
 
 * To get an introduction to Python, Django and Flask at the same time, 
   consider purchasing the 
