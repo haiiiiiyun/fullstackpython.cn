@@ -8,13 +8,13 @@ meta: Full Stack Python 的“最佳 Python 资源”页向你推荐多篇不错
 authors: haiiiiiyun.github.io
 updated: 2016-06-01 22:19
 
+
 # 最佳 Python 资源
 Python 社区善于分享资源，并且乐与帮助初学者学习用这门语言编程。当前已经有很多资源了，虽然很难知道如何才能找到它们。
 
 本页整理出了最佳的常用 Python 资源，并附有其提供给读者的相关资源描述。
 
 <div class="well see-also">如果你更喜欢通过观看视频来学习，请查看 <a href="/best-python-videos.html">最佳 Python 视频</a>。 你还可能对编写代码要用到的 <a href="/development-environments.html">开发环境</a> 也感兴趣。</div>
-
 
 ## 初学编程者
 如果你是刚开始学习第一门编程语言，那么下面的这些资料就是特意为你准备的。如果你是作为第二门或之后的语言而学习 Python 的开发人员，应该跳到下一节“有经验的开发者”。
@@ -105,5 +105,3 @@ Python 对很多行业都很有用。如果你想在某一特定领域使用 Pyt
 * [Import Python](http://importpython.com/newsletter/) 和 Python Weekly 、PyCoder's Weekly 比起来算是一份较新的时讯。到目前为止，我发现它的文章来源和其它两个都不相同。这三份都值得订阅，这样你就不会错失任何资讯了。
 
 * [Full Stack Python monthly newsletter](https://www.fullstackpython.com/email.html) 是一份月度时讯，每月只集中讨论一个主题。比如，某月讲述 Flask 的相关资源，那么下一个将会提供 WSGI 服务器配置的相关信息。
-
-
