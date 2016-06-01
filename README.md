@@ -23,7 +23,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/01-introduction/03-why-use-python.markdown (2016-05-23)
 - [x] content/pages/01-introduction/04-python-2-or-3.markdown (2016-05-24)
 - [x] content/pages/01-introduction/05-enterprise-python.markdown (2016-05-25)
-- [ ] content/pages/01-introduction/11-best-python-resources.markdown
+- [x] content/pages/01-introduction/11-best-python-resources.markdown (206-06-01)
 - [ ] content/pages/01-introduction/12-best-python-videos.markdown
 
 ### 二、开发环境
