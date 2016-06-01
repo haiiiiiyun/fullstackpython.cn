@@ -7,103 +7,58 @@ sidebartitle: 最佳 Python 资源
 meta: Full Stack Python 的“最佳 Python 资源”页向你推荐几十篇不错的编程教程。
 
 # 最佳 Python 资源
-Python 社区对详细资源的分享令人惊讶，并且乐与帮助初学者学习用这门语言编程。已经有很多资源在那里了，虽然很难知道如何才能找到它们。
+Python 社区善于分享资源，并且乐与帮助初学者学习用这门语言编程。当前已经有很多资源了，虽然很难知道如何才能找到它们。
 
-本页面整理出了最佳的常用 Python 资源及其提供给读者的相关资源描述。
+本页面整理出了最佳的常用 Python 资源，并附有其提供给读者的相关资源描述。
 
-<div class="well see-also">如果你更喜欢通过观看视频来学习，请查看 <a href="/best-python-videos.html">最佳 Python 视频</a>。 你可能对编写代码要用到的 <a href="/development-environments.html">开发环境</a> 也感兴趣。</div>
-
-
-## 刚开始学编程
-如果你是刚开始学第一门编程语言，那么下面的这些书就是特意为你准备的。作为第二门或以后的语言而学习 Python 的开发人员，应该跳到下一节“有经验的开发者”。
-
-* To get an introduction to Python, Django and Flask at the same time, 
-  consider purchasing the 
-  <a href="https://realpython.com/?utm_source=fsp&utm_medium=promo&utm_campaign=bestresources">Real Python</a> 
-  course by Fletcher, Michael and Jeremy.
-
-* This [short 5 minute video](https://www.youtube.com/watch?v=mvK0UzFNw1Q)
-  explains why it's better to think of projects you'd like to build and
-  problems you want to solve with programming. Start working on those projects
-  and problems rather than jumping into a specific language that's recommended
-  to you by a friend.
-
-* [CS for All](http://www.cs.hmc.edu/csforall/) is an open book by professors
-  at Harvey Mudd College which teaches the fundamentals of computer science
-  using Python. It's an accessible read and perfect for programming beginners.
-
-* If you've never programmed before check out the 
-  [Getting Started](http://learntocodewith.me/getting-started/) page on 
-  [Learn To Code with Me](http://learntocodewith.me/)
-  by [Laurence Bradford](https://twitter.com/lebdev). She's done an 
-  incredible job of breaking down the steps beginners should take when 
-  they're uncertain about where to begin.
-
-* [Learn Python the Hard Way](http://learnpythonthehardway.org/book/) is a
-  free book by Zed Shaw.
-
-* The [Python projects tag](https://www.twilio.com/blog/tag/python) on the 
-  Twilio blog is constantly updated with fun tutorials you can build to
-  learn Python, such as the
-  [International Space Station Tracker with Flask and Redis-Queue](https://www.twilio.com/blog/2015/11/international-space-station-notifications-with-python-redis-queue-and-twilio-copilot.html), 
-  [Choose Your Own Adventures Presentations using Flask and WebSockets](https://www.twilio.com/blog/2014/11/choose-your-own-adventure-presentations-with-reveal-js-python-and-websockets.html)
-  and [Martianify Photos with OpenCV](https://www.twilio.com/blog/2015/11/getting-started-with-opencv-and-python-featuring-the-martian-2.html).
-
-* [Dive into Python 3](http://www.diveinto.org/python3/) is an open source
-  book provided under the Creative Commons license and available in HTML or
-  PDF form.
-
-* [A Byte of Python](http://www.swaroopch.com/notes/python/) is a beginner's
-  tutorial for the Python language. 
-
-* Code Academy has a [Python track](http://www.codecademy.com/tracks/python)
-  for people completely new to programming.
-
-* [Introduction to Programming with Python](http://opentechschool.github.io/python-beginners/en/index.html)
-  goes over the basic syntax and control structures in Python. The free book 
-  has numerous code examples to go along with each topic.
-
-* Google put together a great compilation of materials and subjects you 
-  should read and learn from if you want to be a 
-  [professional programmer](https://www.google.com/about/careers/students/guide-to-technical-development.html).
-  Those resources are useful not only for Python beginners but any developer
-  who wants to have a strong professional career in software.
-
-* The O'Reilly book 
-  [Think Python: How to Think Like a Computer Scientist](http://greenteapress.com/thinkpython/html/index.html)
-  is available in HTML form for free on the web.
-
-* [Python Practice Book](http://anandology.com/python-practice-book/index.html)
-  is a book of Python exercises to help you learn the basic language syntax.
-
-* Looking for ideas about what projects to use to learn to code? Check out 
-  [this list of 5 programming project for Python beginners](https://medium.com/learning-journalism-tech/five-mini-programming-projects-for-the-python-beginner-21492f6ce0f3).
-
-* There's a Udacity course by one of the creators of Reddit that shows how to 
-  [use Python to build a blog](https://www.udacity.com/course/web-development--cs253).
-  It's a great introduction to web development concepts through coding.
-
-* I wrote a quick blog post on
-  [learning Python](http://www.mattmakai.com/learning-python-for-non-developers.html)
-  that non-technical folks trying to learn to program may find useful.
-
-* [Python for you and me](http://pymbook.readthedocs.org/en/latest/) is an
-  approachable book with sections for Python syntax and the major language 
-  constructs. The book also contains a short guide at the end to get
-  programmers to write their first Flask web application.
+<div class="well see-also">如果你更喜欢通过观看视频来学习，请查看 <a href="/best-python-videos.html">最佳 Python 视频</a>。 你还可能对编写代码要用到的 <a href="/development-environments.html">开发环境</a> 也感兴趣。</div>
 
 
-## Python for specific occupations
-Python is powerful for many professions. If you're seeking to use Python in a
-specific field, one of these guides may be the most appropriate for you.
+## 初学编程者
+如果你是刚开始学第一门编程语言，那么下面的这些书就是特意为你准备的。如果你是作为第二门或以后的语言而学习 Python 的开发人员，应该跳到下一节“有经验的开发者”。
 
-* [Python for Social Scientists](http://www-rohan.sdsu.edu/~gawron/python_for_ss/)
-  contains a textbook, course outline and slides for a college course that taught
-  social scientists to use Python for their profession.
+* 想同时了解有关 Python、 Django 和 Flask 的入门知识，考虑下购买由 Fletcher、 Michael 和 Jeremyat 三位专家讲授的 <a href="https://realpython.com/?utm_source=fsp&utm_medium=promo&utm_campaign=bestresources">Real Python</a> 课程及资料。
+ 
+* 这份 [5 分钟视频](https://www.youtube.com/watch?v=mvK0UzFNw1Q) 内容解释了为什么在着手创建项目或解决问题前，要先用编程思想进行思考。要先对这些项目和问题进行研究，而不是一开始就认定使用由你朋友推荐的某门编程语言。
 
-* [Practical Business Python](http://pbpython.com/) is a blog that covers topics
-  such as how to automate generating large Excel spreadsheets or perform analysis 
-  when your data is locked in Microsoft Office files.
+* [CS for All](http://www.cs.hmc.edu/csforall/) 是一本由哈威穆德学院（Harvey Mudd College）多位教授执笔的开源图书。该学院致力于使用 Python 教授计算机科学的基本知识。这本书通俗易懂，非常适合编程初学者。
+
+* 如果你之前从来没有写过代码，那么看下由 [Laurence Bradford](https://twitter.com/lebdev) 编写的教程 [Learn To Code with Me](http://learntocodewith.me/) 的 [开始](http://learntocodewith.me/getting-started/) 页。 她还难得地将学习过程逐步分解，这对于那些从哪里开始学习毫无头绪的初学者来说是相当有帮助的。
+
+* [Learn Python the Hard Way](http://learnpythonthehardway.org/book/) 是一本由 Zed Shaw 写的免费图书。
+
+* Twilio 博客的 [Python 项目标签页](https://www.twilio.com/blog/tag/python) 上经常会上传一些有趣的教程，你可以通过这些教程来学习 Python，比如 [用 Flask 和 Redis-Queue 制作国际空间站的追踪器](https://www.twilio.com/blog/2015/11/international-space-station-notifications-with-python-redis-queue-and-twilio-copilot.html)、
+  [用 Flask 和 WebSockets 制作交互的幻灯片 ](https://www.twilio.com/blog/2014/11/choose-your-own-adventure-presentations-with-reveal-js-python-and-websockets.html)
+  以及 [用 OpenCV 制作火星人照片](https://www.twilio.com/blog/2015/11/getting-started-with-opencv-and-python-featuring-the-martian-2.html)。
+
+* [Dive into Python 3](http://www.diveinto.org/python3/) 是一本开源图书上，以创作共享许可授权（Creative Commons license），提供 HTML 和 PDF 格式的版本。
+
+* [A Byte of Python](http://www.swaroopch.com/notes/python/) 是一本适合 Python 语言初学者的教程。
+
+* Code Academy 网站上的 [Python track](http://www.codecademy.com/tracks/python) 也是针对初学者的。
+
+* [Introduction to Programming with Python](http://opentechschool.github.io/python-beginners/en/index.html) 讲述了 Python 的基本语法和控制结构。这本免费图书中针对每个主题都有大量的代码示例。
+
+* Google 汇编了大量的资料和课程，如果想成为 [专业程序员](https://www.google.com/about/careers/students/guide-to-technical-development.html) 的话，你应该仔细阅读并认真学习下。这些资源不仅对 Python 初学者很帮助，对每一位想在软件业中拥有成功的职业生涯的开发人员都有帮助。
+
+* 由 O'Reilly 出版的图书 [Think Python: How to Think Like a Computer Scientist](http://greenteapress.com/thinkpython/html/index.html) 能在网络上找到 HTML 格式的免费版本。
+
+* [Python Practice Book](http://anandology.com/python-practice-book/index.html) 是一本有关 Python 实践练习的图书，能帮助你学习基本的语言语法。
+
+* 想知道能通过哪些项目来学习编程吗？看下 [推荐给 Python 初学者的 5 个 编程项目](https://medium.com/learning-journalism-tech/five-mini-programming-projects-for-the-python-beginner-21492f6ce0f3)。
+
+* 在优达学城上（Udacity）有一堂由 Reddit的一位创始人讲授的课程， 讲述了如何 [使用 Python 创建一个 blog 系统](https://www.udacity.com/course/web-development--cs253)。这是通过实践学习 Web 开发相关概念的很好的入门教程。
+
+* 我写过一篇简短的博客叫 [学习 Python](http://www.mattmakai.com/learning-python-for-non-developers.html)，想学习编程的非技术人员可能会觉得有用。
+
+* [Python for you and me](http://pymbook.readthedocs.org/en/latest/) 通俗易懂，内容包含 Python 语法及主要语言特性等知识。书本的最后还包含有一篇简短教程，帮助程序员创建他们的首个 Flask Web 应用 。
+
+## 特定行业的 Python
+Python 对很多行业都很有用。如果你想在某一特定领域使用 Python 的，下面的一些教程可以最适合你。
+
+* [Python for Social Scientists](http://www-rohan.sdsu.edu/~gawron/python_for_ss/) 上包含了一门学院课程用到的教科书、课程大纲和幻灯片，该课程教授社会科学家在职业生涯中使用 Python。
+
+* [Practical Business Python](http://pbpython.com/) 是一博客文章，覆盖的主题内容包括像如何自动创建大型 Excel 表格，或者如何用 Microsoft 办法文件中的数据进行分析。
 
 * [Python for the Humanities](http://fbkarsdorp.github.io/python-course/) is a
   textbook and course on the basics of Python and text processing. Note if you've
