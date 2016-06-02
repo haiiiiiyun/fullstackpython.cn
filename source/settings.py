@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 AUTHOR = u'Matt Makai'
-SITENAME = u'Matt Makai'
-SITEURL = 'http://fullstackpython.atjiang.com'
+SITENAME = u'Full Stack Python'
+SITEURL = 'https://www.fullstackpython.com'
 TIMEZONE = 'America/New_York'
 
-GITHUB_URL = 'https://github.com/haiiiiiyun/fullstackpython.cn'
-DISQUS_SITENAME = 'haiiiiiyun'
+GITHUB_URL = 'https://github.com/makaimc/fullstackpython.com'
+DISQUS_SITENAME = 'makaimc'
 PDF_GENERATOR = False
 
 DIRECT_TEMPLATES = ('index', 'sitemap', 'table-of-contents', 'email',
@@ -15,6 +15,9 @@ DIRECT_TEMPLATES = ('index', 'sitemap', 'table-of-contents', 'email',
 ARTICLE_SAVE_AS = 'blog/{slug}.html'
 
 SITEMAP_SAVE_AS = 'sitemap.xml'
+
+FEED_DOMAIN = 'https://www.fullstackpython.com'
+FEED_RSS = 'feed'
 
 BYLINE = '&copy; 2016 Matt Makai. All Rights Reserved.'
 LINKS = ()

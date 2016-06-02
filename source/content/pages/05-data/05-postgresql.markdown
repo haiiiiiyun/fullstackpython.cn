@@ -155,6 +155,12 @@ for properly handling your data.
 * [PostgreSQL Weekly](http://postgresweekly.com/) is a weekly newsletter of
   PostgreSQL content from around the web.
 
+* [An introduction to PostgreSQL physical storage](http://rachbelaid.com/introduction-to-postgres-physical-storage/)
+  provides a solid walkthrough of where PostgreSQL files are located on
+  disk, how the files store your data and what mappings are important for
+  the underlying database structure. This post is an easy read and well worth
+  your time.
+
 * Braintree wrote about their experiences [scaling PostgreSQL](https://www.braintreepayments.com/braintrust/scaling-postgresql-at-braintree-four-years-of-evolution). 
 The post is an inside look at the evolution of Braintree's usage of the database.
 
@@ -242,4 +248,7 @@ have to handle these issues in your applications.
   queries you should run to get them. The article also covers performance
   monitoring and how to analyze trigger functions.
 
+* [PostgreSQL monitoring queries](https://github.com/nilenso/postgresql-monitoring)
+  is a simple GitHub repository of SQL queries that can be run against
+  a PostgreSQL instance to determine usage, caching and bloat.
 

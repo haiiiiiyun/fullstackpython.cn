@@ -70,7 +70,7 @@ packages found on Linux servers running a Python stack. These packages are:
 
 * [python-virtualenv](http://packages.ubuntu.com/precise/python-virtualenv)
   for creating and managing Python 
-  [virtualenvs](http://www.virtualenv.org/en/latest/) to isolate library
+  [virtualenvs](https://virtualenv.pypa.io/en/latest/) to isolate library
   dependencies
 
 
@@ -101,9 +101,9 @@ provides a command-line interface for interacting with the RPM system.
   [this introduction to Unix tutorial](http://www.oliverelliott.org/article/computing/tut_unix/)
   to become more familiar with the operating system.
 
-* [Choosing a Linux Distribution](http://www.rackspace.com/knowledge_center/article/choosing-a-linux-distribution)
-
 * [First 5 Minutes on a Server](http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers)
+  shows the first several [security steps](/web-application-security.html)
+  that should be done manually or automatically on any server you stand up.
 
 * Digital Ocean has a detailed 
   [walkthrough for setting up Python web applications on Ubuntu](https://www.digitalocean.com/community/articles/how-to-set-up-ubuntu-cloud-servers-for-python-web-applications).

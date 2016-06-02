@@ -4344,6 +4344,13 @@ for properly handling your data.</p>
   PostgreSQL content from around the web.</p>
 </li>
 <li>
+<p><a href="http://rachbelaid.com/introduction-to-postgres-physical-storage/">An introduction to PostgreSQL physical storage</a>
+  provides a solid walkthrough of where PostgreSQL files are located on
+  disk, how the files store your data and what mappings are important for
+  the underlying database structure. This post is an easy read and well worth
+  your time.</p>
+</li>
+<li>
 <p>Braintree wrote about their experiences <a href="https://www.braintreepayments.com/braintrust/scaling-postgresql-at-braintree-four-years-of-evolution">scaling PostgreSQL</a>. 
 The post is an inside look at the evolution of Braintree's usage of the database.</p>
 </li>
@@ -4450,6 +4457,11 @@ have to handle these issues in your applications.</p>
   explains how to gather general performance metrics and provides the exact
   queries you should run to get them. The article also covers performance
   monitoring and how to analyze trigger functions.</p>
+</li>
+<li>
+<p><a href="https://github.com/nilenso/postgresql-monitoring">PostgreSQL monitoring queries</a>
+  is a simple GitHub repository of SQL queries that can be run against
+  a PostgreSQL instance to determine usage, caching and bloat.</p>
 </li>
 </ul>
           <h1>MySQL</h1>
@@ -4560,6 +4572,11 @@ developers learn PostgreSQL if they do not already know MySQL.</p>
 <p>This tutorial shows how to install <a href="http://www.cs.wcupa.edu/rkline/index/mysql-lin.html">MySQL on Ubuntu</a>.</p>
 </li>
 <li>
+<p><a href="https://www.digitalocean.com/community/tutorials/a-basic-mysql-tutorial">A Basic MySQL Tutorial</a>
+  doesn't have the most original title but it's a good walkthrough of your
+  first few steps in MySQL for creating users and working with tables.</p>
+</li>
+<li>
 <p><a href="https://engineering.pinterest.com/blog/open-sourcing-pinterest-mysql-management-tools">Pinterest open sourced many of their MySQL tools</a>
   to manage instances of the database.</p>
 </li>
@@ -4602,6 +4619,14 @@ access a SQLite database from within Python applications.</p>
 <p><a href="http://www.blog.pythonlibrary.org/2012/07/18/python-a-simple-step-by-step-sqlite-tutorial/">A simple step-by-step SQLite tutorial</a>
   walks through creating databases as well as inserting, updating, querying and
   deleting data.</p>
+</li>
+<li>
+<p><a href="http://www.jarchitect.com/Blog/?p=2392">SQLite: The art of keep it simple</a>
+  uses C code examples from SQLite's codebase to show how its design has been
+  kept consistent and tight throughout 15+ years of active development.
+  There's also a 
+  <a href="http://sqlite.org/src4/doc/trunk/www/design.wiki">great design document on the SQLite site</a> 
+  that covers many of these principles.</p>
 </li>
 <li>
 <p><a href="http://charlesleifer.com/blog/my-list-of-python-and-sqlite-resources/">My list of SQLite resources</a>
@@ -5582,7 +5607,7 @@ packages found on Linux servers running a Python stack. These packages are: </p>
 <li>
 <p><a href="http://packages.ubuntu.com/precise/python-virtualenv">python-virtualenv</a>
   for creating and managing Python 
-  <a href="http://www.virtualenv.org/en/latest/">virtualenvs</a> to isolate library
+  <a href="https://virtualenv.pypa.io/en/latest/">virtualenvs</a> to isolate library
   dependencies</p>
 </li>
 </ul>
@@ -5616,10 +5641,9 @@ provides a command-line interface for interacting with the RPM system.</p>
   to become more familiar with the operating system.</p>
 </li>
 <li>
-<p><a href="http://www.rackspace.com/knowledge_center/article/choosing-a-linux-distribution">Choosing a Linux Distribution</a></p>
-</li>
-<li>
-<p><a href="http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers">First 5 Minutes on a Server</a></p>
+<p><a href="http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers">First 5 Minutes on a Server</a>
+  shows the first several <a href="/web-application-security.html">security steps</a>
+  that should be done manually or automatically on any server you stand up.</p>
 </li>
 <li>
 <p>Digital Ocean has a detailed 
@@ -6231,7 +6255,7 @@ all yourself. A few of the best collections of Python libraries are</p>
 <h2>Isolating dependencies</h2>
 <p>Dependencies are installed separately from system-level packages to prevent 
 library version conflicts. The most common isolation method is 
-<a href="http://www.virtualenv.org/en/latest/">virtualenv</a>. Each virtualenv is its
+<a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>. Each virtualenv is its
 own copy of the Python interpreter and dependencies in the site-packages
 directory. To use a virtualenv it must first be created with the virtualenv
 command and then activated.</p>
@@ -6774,9 +6798,6 @@ from PyCon UK 2013</p>
 <p><a href="http://benlopatin.com/getting-started-with-ansible/">Introducing Ansible into Legacy Projects</a></p>
 </li>
 <li>
-<p><a href="http://www.nickhammond.com/automating-your-development-environment-with-ansible/">Automating your development environment with Ansible</a></p>
-</li>
-<li>
 <p><a href="http://devopsu.com/guides/ansible-post-install.html">Post-install steps with Ansible</a> </p>
 </li>
 <li>
@@ -6944,7 +6965,7 @@ the application was written in.</p>
   instance, you'll need to lock it down against unauthorized users.</p>
 </li>
 <li>
-<p><a href="http://engineering.simondata.com/can-we-use-jenkins-for-that/">Can we use Jenkins for that?</a>
+<p><a href="http://engineering.simondata.com/can-we-use-jenkins-for-that">Can we use Jenkins for that?</a>
   looks at how one team uses Jenkins for more than typical continuous 
   integration situations - they also use it as an administrative interface, 
   cron jobs, data analytics pipelines and long-running scripts.</p>
@@ -7884,6 +7905,13 @@ HTTP(S) configurations.</p>
 <p><a href="http://articles.slicehost.com/nginx">Nginx web server tutorials</a> are oldies
   but goodies on setting up previous versions of Nginx. </p>
 </li>
+<li>
+<p><a href="https://benwilber.github.io/nginx/syslog/logging/2015/08/26/dynamic-log-formats-in-nginx.html">Dynamic log formats in nginx</a> 
+  explains how to use the HttpSetMiscModule module to transform variables
+  in Nginx and map input to controlled output in the logs. The author uses
+  this technique for pixel tracking but there are other purposes this method
+  could be used for such as advanced debugging. </p>
+</li>
 </ul>
           <h1>Apache HTTP Server</h1>
 <p>The <a href="https://httpd.apache.org/">Apache HTTP Server</a> is a widely deployed web server
@@ -7978,7 +8006,7 @@ implementation that is commonly used to run Python web applications.</p>
 <h2>Why is Gunicorn important?</h2>
 <p>Gunicorn is one of many WSGI server implementations, but it's particularly
 important because it is a stable, commonly-used part of
-<a href="/deployments.html">web app deployments</a> that's powered some of the
+<a href="/deployment.html">web app deployments</a> that's powered some of the
 largest Python-powered web applications in the world, such as 
 <a href="http://instagram-engineering.tumblr.com/post/13649370142/what-powers-instagram-hundreds-of-instances">Instagram</a>.</p>
 <p>Gunicorn implements the 
@@ -8041,9 +8069,9 @@ perform the request handling. Each worker is independent of the controller.</p>
 </ol>
 </li>
 <li>
-<p><a href="http://adambeagle.com/blog/deploying-django-17-ubuntu/">Deploying Django 1.7 on Ubuntu with DigitalOcean with PostgreSQL, Nginx, and Gunicorn</a> 
-  is a detailed walkthrough that uses Green Unicorn as the WSGI server part of
-  the deployment.</p>
+<p><a href="https://vxlabs.com/2015/12/08/gunicorn-as-your-django-development-server/">gunicorn as your Django development server</a>
+  is a short post with a few good tips on using Gunicorn for local
+  application development.</p>
 </li>
 <li>
 <p>The <a href="http://www.deploypython.com/">Full Stack Python Guide to Deployments</a>
@@ -8457,8 +8485,16 @@ inception in December 2012. Another way to view the modifications is through
 the 
 <a href="https://github.com/makaimc/fullstackpython.github.com/commits/gh-pages">source repository's commit log</a> on GitHub.</p>
 <h2>2016</h2>
+<h3>June</h3>
+<ul>
+<li>New <a href="/postgresql.html">PostgreSQL</a> monitoring resources.</li>
+</ul>
 <h3>May</h3>
 <ul>
+<li>New <a href="/sqlite.html">SQLite</a> resources.</li>
+<li>Removed or redirected a few broken links on various deployment pages.</li>
+<li>One more new blog post tutorial before the month ends: 
+  <a href="/blog/respond-sms-text-messages-python-flask.html">Responding to SMS Text Messages with Python &amp; Flask</a>.</li>
 <li>Added bunches of new content and links to the <a href="/mysql.html">MySQL</a> page.</li>
 <li>Redirected several links that were still available but changed URLs.
   Make sure to 301 Redirect your old links that still have traffic! :)</li>
