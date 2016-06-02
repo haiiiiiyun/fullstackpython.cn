@@ -1,123 +1,60 @@
-title: Best Python Videos
+title: 最佳 Python 视频
 category: page
 slug: best-python-videos
 sortorder: 0112
 toc: False
-sidebartitle: Best Python Videos
-meta: Watch the best videos to learn Python from the language masters of the community on Full Stack Python's Best Python Videos page.
+sidebartitle: 最佳 Python 视频
+meta: 观看 Full Stack Python “最佳 Python 视频” 页面上的视频，向社区中的语言专家学习 Python。
+authors: haiiiiiyun.github.io
+updated: 2016-06-02 16:50
 
+# 最佳 Python 视频
+如果你更喜欢通过观看视频来学习 Python 的话，那么这里的资源很适合你。我观看了上百部技术访谈视频节目，并且从这些视频中梳理出了这些最佳资源，视频中的这些专家会向你传授有关这门语言及其生态系统的大量知识。
 
-# Best Python Videos
-If you prefer to learn Python programming by watching videos then this is the
-resource for you. I've watched hundreds of live technical talks and combed
-through videos to pick out the ones with great speakers who'll teach you the
-most about the language and ecosystem. 
+本页列出了最好的免费视频链接，以及其它一些视频列表，这些视频都是在过去几年的讨论会和见面会上发布的，你可以在这些视频集中搜索你需要的内容。
 
-This page links to the best free videos as well as other video lists so you 
-can do your own searching through the huge backlog of conference and meetup 
-talks from the past several years. 
-
-<div class="well see-also">Be sure to read the <a href="/best-python-resources.html">best Python resources</a> for links to books and articles as well as <a href="/web-frameworks.html">web frameworks</a> to learn more about web development.</div>
-
+<div class="well see-also">务必看下 <a href="/best-python-resources.html">最佳 Python 资源</a>，通过上面的书籍和文章链接，以及 <a href="/web-frameworks.html">Web 框架</a> 来深入学习 Web 开发。</div>
 
 ## Live Coding
-Learn by watching developers code. Follow my account on 
-[Twitch Creative](https://www.twitch.tv/mattmakai) then enable 
-email alerts when I go live. On Wednesdays I code Python and Swift 
-applications, answering any chat questions along the way.
-I also hold office hours on Fridays where you can drop in and ask 
-questions about your coding issues.
+通过观看开发人员写代码来学习。在 [Twitch Creative](https://www.twitch.tv/mattmakai) 上关注我的账号，当我要开始的时候，请打开电子邮件提醒功能。 每周三我都会写 Python 和 Swift 程序，到时会回答每一个提问。每周五我也会安排办公时间，到时你可以来问有关写代码的问题。
+
+## 用 Django、 Flask 和 其它框架进行 Web 开发
+* [Kate Heddleston](https://twitter.com/heddle317) 在 PyCon 2014 上作了一次演讲， 叫 "[全栈 Python Web 应用开发](http://pyvideo.org/video/2591/so-you-want-to-be-a-full-stack-developer-how-to)"， 对 Python  Web 各堆栈层如何有效组织在一起进行了清晰的可视化呈现。你还可以在这里找到[那次演讲的幻灯片](https://speakerdeck.com/pycon2014/so-you-want-to-be-a-full-stack-developer-how-to-build-a-full-stack-python-web-application-by-kate-heddleston)，其中也包括所有的图表资料。
+
+* 我在 EuroPython 2014 上的演讲 ["Full Stack Python"](https://www.youtube.com/watch?v=s6NaOKD40rY)，对本指南中涉及到的每个主题都进行了讲解，并就这些内容是如何组织在一起的相关背景情况一并进行了说明。这里是[演讲的幻灯片](http://www.mattmakai.com/presentations/2014-full-stack-python-berlin.html) 。
 
 
-## Web development with Django, Flask and other frameworks
-* [Kate Heddleston](https://twitter.com/heddle317) gave a talk at PyCon 2014 
-  called 
-  "[Full-stack Python Web Applications](http://pyvideo.org/video/2591/so-you-want-to-be-a-full-stack-developer-how-to)"
-  with clear visuals for how numerous layers of the Python web
-  stack fit together. There are also [slides available from the talk](https://speakerdeck.com/pycon2014/so-you-want-to-be-a-full-stack-developer-how-to-build-a-full-stack-python-web-application-by-kate-heddleston)
-  with all the diagrams.
+* 我和 Kate Heddleston 在 DjangoCon 2014 上的一次演讲叫 [Choose Your Own Django Deployment Adventure](https://www.youtube.com/watch?v=QrFEKghISEI)，就你在部署首个 Django 网站时可能会碰到的各种情况进行了讲解。
 
-* My [EuroPython 2014 "Full Stack Python"](https://www.youtube.com/watch?v=s6NaOKD40rY)
-  talk goes over each topic from this guide and provides context for how the
-  pieces fit together. 
-  The [talk slides](http://www.mattmakai.com/presentations/2014-full-stack-python-berlin.html) are also available.
+* [Discover Flask](https://github.com/realpython/discover-flask) 系统视频是一份有关 Flask 的详细教程，并在 Github上配有相应的代码示例。
 
-* Kate Heddleston and I gave a talk at DjangoCon 2014 called
-  [Choose Your Own Django Deployment Adventure](https://www.youtube.com/watch?v=QrFEKghISEI)
-  which walked through many of the scenarios you'd face when deploying your
-  first Django website.
+* 在 [Designing Django's Migrations](http://pyvideo.org/video/2630/designing-djangos-migrations)视频中，South 的主要开发者，现在也是 Django 内置数据迁移功能的作者 Andrew Godwin，对 Django 1.7 数据迁移这个新功能进行了讲解。
 
-* The [Discover Flask](https://github.com/realpython/discover-flask) series is
-  a detailed Flask tutorial on video with corresponding code examples on 
-  GitHub.
+* [GoDjango](https://godjango.com/) 提供的屏幕录像和教程，都是些学习如何创建 Django 应用的免费短视频。
 
-* [Designing Django's Migrations](http://pyvideo.org/video/2630/designing-djangos-migrations)
-  covers Django 1.7's new migrations from the main programmer 
-  of South and now Django's built-in migrations, Andrew Godwin.
+* [Django: Under the Hood 2015](https://www.youtube.com/channel/UC9T1dhIlL_8Va9DxvKRowBw) 上的这些视频和幻灯片都来自 Django 核心开发人员，他们就 ORM、国际化、模板及其它 [Web 框架](/web-frameworks.html) 相关的重要主题向我们展示了真知灼见。
 
-* [GoDjango](https://godjango.com/) screencasts and tutorials are free short
-  videos for learning how to build Django applications.
+* DjangoCon US [2014 年](https://www.youtube.com/playlist?list=PLE7tQUdRKcybbNiuhLcc3h6WzmZGVBMr3)、 [2013 年](http://www.youtube.com/user/TheOpenBastion/videos)、  [2012 年](http://pyvideo.org/category/23/djangocon-2012)、 [2011 年](http://pyvideo.org/category/3/djangocon-2011) 的视频， 以及  [早期的  DjangoCon US 和 DjangoCon EU 讨论会](http://pyvideo.org/category) 上的视频也都能免费获取。
 
-* The videos and slides from 
-  [Django: Under the Hood 2015](https://www.youtube.com/channel/UC9T1dhIlL_8Va9DxvKRowBw)
-  are from Django core committers and provide insight into the ORM, 
-  internationalization, templates and other important 
-  [web framework](/web-frameworks.html) topics.
-
-* DjangoCon US videos from 
-  [2014](https://www.youtube.com/playlist?list=PLE7tQUdRKcybbNiuhLcc3h6WzmZGVBMr3), 
-  [2013](http://www.youtube.com/user/TheOpenBastion/videos), 
-  [2012](http://pyvideo.org/category/23/djangocon-2012), 
-  [2011](http://pyvideo.org/category/3/djangocon-2011), as well as  
-  [earlier US and DjangoCon EU conferences](http://pyvideo.org/category) are
-  all available free of charge.
-
-* DjangoCon EU videos are also available from 
-  [2015](https://vimeo.com/channels/952478/videos).
+* DjangoCon EU [2015 年](https://vimeo.com/channels/952478/videos) 的视频也能在这里找到。
 
 
-## Core Python language videos
-* Jessica McKellar's 
-  [Building and breaking a Python sandbox](https://www.youtube.com/watch?v=sL_syMmRkoU)
-  is a fascinating walk through the lower layers of the Python interpreter.
+## 核心 Python 语言视频
+* Jessica McKellar 在视频 [Building and breaking a Python sandbox](https://www.youtube.com/watch?v=sL_syMmRkoU) 中对 Python 解译器的低层知识进行了深刻的讲解。
 
-* Brandon Rhodes' 
-  [All Your Ducks In A Row: Data Structures in the Std Lib and Beyond](https://www.youtube.com/watch?v=fYlnfvKVDoM)
-  goes through how data structures are implemented, how to select a
-  data structure appropriate to your application and how the list and 
-  dictionary can be used in many situations.
+* Brandon Rhodes 在视频 [All Your Ducks In A Row: Data Structures in the Std Lib and Beyond](https://www.youtube.com/watch?v=fYlnfvKVDoM)中，就数据结构是如何实现的、如何选取适合你的应用的数据结构、如何在各种情况下使用列表和元组等问题进行了讲解。
 
-* The talk [Python Descriptors](https://www.youtube.com/watch?v=ZdvpNaWwx24) 
-  by Simeon Franklin explains the what and why of this core Python language 
-  feature.
+* Simeon Franklin 在 [Python Descriptors](https://www.youtube.com/watch?v=ZdvpNaWwx24) 这份演讲视频中，解译了什么是描述子以及为什么需要该核心 Python 语言特性。
 
-* David Beazley gives an amazing live coded performance to show
-  [Python concurrency](https://www.youtube.com/watch?v=MCs5OvhV9S4)
-  using threads, event loops and coroutines. David makes the live coding
-  look easy but a whole lot of work must've gone into that talk.
+* David Beazley 在即时编程视频中，使用线程、事件循环和协程等机制向我们展示了 [Python 的并发性](https://www.youtube.com/watch?v=MCs5OvhV9S4)。David 的即时编程看起来很容易，但他一定是为这次演讲做了大量的准备工作。
+
+## 屏幕录像和课堂录像
+* [Google Python 课堂](https://developers.google.com/edu/python/) 包含学习 Python 的教学视频及练习。
+
+* 虽然不会总有在线直播，但我们还是值得到 [Livecoding.tv 网站的 Python 类目 ](https://www.livecoding.tv/livestreams/python/) 上逛逛，找找是否有人在上面进行 Python 相关项目的直播，或者录像资料。即使是经验丰富的开发人员也能通过观看其他开发人员如何在他们的项目上工作，而学到很多东西。我每周也会直播几次，如果你 [关注了我的名字](https://www.livecoding.tv/mattmakai/) 的话，我上线时你会得到通知的。
 
 
-## Screencasts and class recordings
-* [Google's Python Class](https://developers.google.com/edu/python/) contains
-  lecture videos and exercises for learning Python.
+## 视频汇编
+* [PyVideo](http://www.pyvideo.org/) 对来自主流讨论会及见面会的上千份视频资源进行了整理和索引编排。
 
-* While there aren't always live streams online, it's worth checking out the 
-  [Python category on Livecoding.tv](https://www.livecoding.tv/livestreams/python/) 
-  to see if anyone is streaming or has a recording of working on a Python 
-  project. Even experienced developers can learn a whole lot from watching 
-  other developer's work on their projects. I also stream a couple times per
-  week so if you 
-  [follow me on my username](https://www.livecoding.tv/mattmakai/) you'll 
-  get an alert when I go online.
-
-
-## Video compilations
-* [PyVideo](http://www.pyvideo.org/) organizes and indexes thousands of Python
-  videos from both major conferences and meetups.
-
-* [Incredible Technical Speakers](https://github.com/makaimc/incredible-technical-speakers)
-  is a repository I put together that features software developer speakers
-  talking about programming language agnostic topics. The list is intended
-  to emphasize professional software developers who also have the ability to
-  engage an audience of peers with an exciting talk.
-
+* [Incredible Technical Speakers](https://github.com/makaimc/incredible-technical-speakers) 是我整理的一份 Git 库，收集了一份具有软件开发背景的演讲人员名单，他们的演讲主题都和编程语言无关。这份名单重点意在收集那些有能力给同行的观众奉献一场精彩演讲的专业软件开发人员。

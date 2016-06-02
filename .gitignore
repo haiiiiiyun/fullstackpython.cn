@@ -17,3 +17,4 @@ docs/_build/
 
 # temp file
 *.markdown~
+*.md~
