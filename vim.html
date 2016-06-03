@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Vim is a text editor with powerful string manipulation capabilities. Find out more about Vim on Full Stack Python.">
+    <meta name="description" content="Vim 是一个具有强大字符处理能力的文本编辑器。到 Full Stack Python 网站上找到更多 Vim 资料。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
     <title>Vim - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
@@ -37,243 +37,159 @@
 </div><div class="row">
     <div class="col-md-8">
           <h1>Vim</h1>
-<p>Vim, short for Vi IMproved, is a configurable text editor often used as
-a Python development environment. Vim proponents commonly cite the numerous
-plugins, Vimscript and logical command language as major Vim strengths.</p>
-<h2>Why is Vim a good Python development environment?</h2>
-<p>Vim's philosophy is that developers are more productive when they avoid
-taking their hands off the keyboard. Code should flow naturally from the
-developer's thoughts through the keyboard and onto the screen. Using a mouse
-or other peripheral is a detriment to the rate at which a developer's
-thoughts become code.</p>
-<p>Vim has a logical, structured command language. When a beginner is learning
-the editor she may feel like it is impossible to understand all the key
-commands. However, the commands stack together in a logical way so that over
-time the editor becomes predictable.</p>
-<div class="well see-also">If you're interested in Vim you'll also want to read about <a href="/development-environments.html">development environments for coding</a> and learn <a href="/why-use-python.html">what makes Python a great programming language</a>.</div>
+<p>Vim， 即 Vi IMproved 的缩写，是一个可配置的文本编辑器，通常用作 Python 的开发环境。Vim 用户通常使用大量的插件、Vim 脚本和逻辑命令语言来扩展 Vim 功能。</p>
+<h2>为什么 Vim 适合用作 Python 开发环境</h2>
+<p>Vim 的哲学是：当开发人员的手不离开键盘时，工作效率会更高。代码应该从开发人员的头脑自然地流经键盘，再到达屏幕。使用鼠标等外设会降低开发者的思想与代码的转换速率。</p>
+<p>Vim 内含一种逻辑结构化的命令语言。当开始学习时，我们会觉得理解全部的命令是不可能的。但是，这些命令是按一定逻辑组织起来的，因此，随着时间推移，这个编辑器会变得得心应手。</p>
+<div class="well see-also">如果你喜欢 Vim，你应该也想了解 <a href="/development-environments.html">写代码的开发环境</a> 和 <a href="/why-use-python.html">什么使 Python 变得如些强大</a>。</div>
 
-<h2>Configuring Vim with a Vimrc file</h2>
-<p>The Vimrc file is used to configure the Vim editor. A Vimrc file can range
-from nothing in it to very complicated with hundreds or thousands of lines
-of configuration commands.</p>
-<p>Here's a short, commented example .vimrc file I use for Python development
-to get a feel for some of the configuration statements:</p>
-<div class="highlight"><pre><span></span>&quot; enable syntax highlighting
+<h2>利用 Vimrc 配置 Vim</h2>
+<p>Vimrc 是 Vim 编辑器的配置文件。一个 Vimrc 文件可以是一个空文件，也可以包含成百上千行配置命令。</p>
+<p>下面是我用于 Python 开发的一个简短的 .vimrc 示例文件，并附带注释。从中你可以感受一下它的配置语句：</p>
+<div class="highlight"><pre><span></span>&quot; 开启语法高亮
 syntax enable
 
-&quot; show line numbers
+&quot; 显示行号
 set number
 
-&quot; set tabs to have 4 spaces
+&quot; 设置 tab 符为 4 个空格
 set ts=4
 
-&quot; indent when moving to the next line while writing code
+&quot; 写代码时，移到下一行时自动缩进
 set autoindent
 
-&quot; expand tabs into spaces
+&quot; 将 tab 符自动扩展成空格
 set expandtab
 
-&quot; when using the &gt;&gt; or &lt;&lt; commands, shift lines by 4 spaces
+&quot; 使用 &gt;&gt; 和 &lt;&lt; 命令时, 移动 4 个空格
 set shiftwidth=4
 
-&quot; show a visual line under the cursor&#39;s current line
+&quot; 在光标所在的当前行下显示一条行指示线
 set cursorline
 
-&quot; show the matching part of the pair for [] {} and ()
+&quot; 显示 [] {} 和 () 匹配的另一半符号
 set showmatch
 
-&quot; enable all Python syntax highlighting features
+&quot; 开启全部 Python 语法高亮特性
 let python_highlight_all = 1
 </pre></div>
 
 
-<p>Here is how these configuration options look with a dark background on
-Mac OS X while editing the markdown for this webpage (how meta!).</p>
-<p><img src="/img/vim-dark-bg.jpg" width="100%" alt="Vim with basic configuration options on a dark background." class="technical-diagram" style="border-radius: 5px;"></p>
-<p>Take a look at another example using these configuration options, this time
-with a light background and editing Python code from my
-<a href="https://github.com/makaimc/choose-your-own-adventure-presentations">Choose Your Own Adventures Presentations</a>
-project.</p>
-<p><img src="/img/vim-white-bg.png" width="100%" alt="Vim with basic configuration options on a white background." class="technical-diagram" style="border-radius: 5px; border: 1px solid #999;"></p>
-<p>The Vimrc file lives under the home directory of the user account running
-Vim. For example, when my user account is 'matt', on Mac OS X my Vimrc
-file is found at <code>/Users/matt/.vimrc</code>. On Ubuntu Linux my .vimrc file
-can be found within the <code>/home/matt/</code> directory.</p>
-<p>If a Vimrc file does not already exist, just create it within the user's
-home directory and it will be picked up by Vim the next time you open the
-editor.</p>
-<h2>Vim tutorials</h2>
-<p>Vim has a reputation for a difficult learning curve, but it's much easier
-to get started with these tutorials.</p>
+<p>下面的图片是我在 Mac OS X 上编辑本页 markdown 文件的截图，你可以这到这些配置选项在暗色背景后的显示效果是什么样的。</p>
+<p><img src="/img/vim-dark-bg.jpg" width="100%" alt="在暗色背景上设置了基本配置选项的 Vim 。" class="technical-diagram" style="border-radius: 5px;"></p>
+<p>看一下另一个例子，同样的配置选项，这次使用的是浅色背景，图片是我在写 <a href="https://github.com/makaimc/choose-your-own-adventure-presentations">制作交互的演示文稿</a> 项目的 Python 代码时的截图。</p>
+<p><img src="/img/vim-white-bg.png" width="100%" alt="在浅色背景上设置了基本配置选项的 Vim 。" class="technical-diagram" style="border-radius: 5px; border: 1px solid #999;"></p>
+<p>Vimrc 文件位于运行 Vim 的用户帐号的 home 目录下。例如，我的用户账号是 'matt'， 在 Mac OS X 上，我的 Vimrc 文件可以在 <code>/home/matt/</code> 目录下找到。</p>
+<p>如果 Vimrc 文件还没有创建，你只需在用户的 home 目录下创建一个即可，这样，当你下次打开 Vim 时，它就能被加载了。</p>
+<h2>Vim 教程</h2>
+<p>Vim 有难学的坏名声，但是通过这些教程，入门会变得更加容易。</p>
 <ul>
 <li>
-<p><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/">Learn Vim Progressively</a>
-  is a wonderful tutorial that follows the path I took when learning Vim:
-  learn just enough to survive with it as your day-to-day editor then begin
-  adding more advanced commands on top.</p>
+<p><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/">Learn Vim Progressively</a> 是一本很精彩的教程，里面提到的学习方式和我学习 Vim 时用的是一样的：先学会编辑器的基本知识就会日常使用，然后再学习更加高级的命令。</p>
 </li>
 <li>
-<p><a href="https://danielmiessler.com/study/vim/">A vim Tutorial and Primer</a> is an
-  incredibly deep study in how to go from beginner to knowledgeable in Vim.</p>
+<p><a href="https://danielmiessler.com/study/vim/">A vim Tutorial and Primer</a> 深入研究了如何从初学都进阶到 Vim 专家。</p>
 </li>
 <li>
-<p><a href="https://medium.com/@mkozlows/why-atom-cant-replace-vim-433852f4b4d1">Why Atom Can't Replace Vim</a>
-  discusses one of Vim's core principles: command composability. Vim has 
-  a language where simple commands are combined to execute more advanced 
-  operations. For example, in command mode,<code>$</code> moves to the end of a line.
-  When <code>$</code> is preceded by <code>d</code> then everything to the end of the line is
-  deleted. Over time the simple commands become intuitive and the 
-  combinations become more powerful than having distinct commands such as
-  a drop-down menu with a specific option to delete all text until the end
-  of the line.</p>
+<p><a href="https://medium.com/@mkozlows/why-atom-cant-replace-vim-433852f4b4d1">Why Atom Can't Replace Vim</a> 探讨了 Vim 的一个核心理念： 命令的可组合性。Vim 的内置语言能将简单的命令组合成一个更加高级的组合操作命令。例如在命令模式下， <code>$</code> 的功能是移动到行尾，但当 <code>$</code> 前加 <code>d</code> 后，就能删除从当前位置到行尾的所有内容。随着时间的推移，这些简单的命令会变成你的直觉，而组合命令会比在下拉菜单中设置一个特定选项来删除到行尾的全部内容这样的方式更加强大。</p>
 </li>
 <li>
-<p><a href="http://benmccormick.org/2014/07/02/learning-vim-in-2014-vim-as-language/">Vim as a Language</a>
-  explains the language syntax and how you can build up over time to master
-  the editor.</p>
+<p><a href="http://benmccormick.org/2014/07/02/learning-vim-in-2014-vim-as-language/">Vim as a Language</a> 解译了其语言语法及如何通过日积月累掌握这个编辑器。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/tutorials/installing-and-using-the-vim-text-editor-on-a-cloud-server">How to install and use Vim on a cloud server</a>
-  along with <a href="https://www.digitalocean.com/community/tutorials/how-to-use-vim-for-advanced-editing-of-plain-text-or-code-on-a-vps--2">How to use Vim for advanced editing of code on a VPS</a>
-  are two detailed Digital Ocean guides for getting up and running with Vim,
-  regardless of whether you're using it locally or on a cloud server.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/installing-and-using-the-vim-text-editor-on-a-cloud-server">How to install and use Vim on a cloud server</a> 和 <a href="https://www.digitalocean.com/community/tutorials/how-to-use-vim-for-advanced-editing-of-plain-text-or-code-on-a-vps--2">How to use Vim for advanced editing of code on a VPS</a> 这两份详细教程都来自 Digital Ocean，内容是如何设置和运行 Vim，无论你是在本地还是在云服务器上使用 Vim, 都值得一看。</p>
 </li>
 <li>
-<p><a href="http://vim-adventures.com/">Vim Adventures</a> is a cute, fun browser-based
-  game that helps you learn Vim commands by playing through the adventure.</p>
+<p><a href="http://vim-adventures.com/">Vim 冒险</a> 是一款小巧好玩的浏览器游戏，通过玩这个冒险游戏能帮你学习 Vim 命令。</p>
 </li>
 <li>
-<p>In <a href="http://mislav.uniqpath.com/2011/12/vim-revisited/">Vim: revisited</a> the
-  author explains his on-again off-again relationship with using Vim. He then
-  shows how he configures and uses the editor so it sticks as his primary
-  code editing tool.</p>
+<p>在 <a href="http://mislav.uniqpath.com/2011/12/vim-revisited/">Vim: revisited</a> 中， 作者解释了他时断时续使用 Vim 的经历。然后阐述他如何配置和使用该编辑器，并坚持以它作为主要的代码编辑工具。</p>
 </li>
 </ul>
-<h2>Vimrc resources</h2>
-<p>These are a few resources for learning how to structure a <code>.vimrc</code> file. I
-recommend adding configuration options one at a time to test them
-individually instead of going whole hog with a Vimrc you are unfamiliar with.</p>
+<h2>Vimrc 资源</h2>
+<p>这些是学习如何组织 <code>.vimrc</code> 文件的资源。我建议一项项增加配置选项，每次添加一条，然后再单独测试一下，而不是一股脑儿地把你不熟悉的 Vimrc 都拷贝进来。</p>
 <ul>
 <li>
-<p><a href="http://dougblack.io/words/a-good-vimrc.html">A Good Vimrc</a> is a fantastic,
-  detailed overview and opinionated guide to configuring Vim. Highly
-  recommended for new and experienced Vim users.</p>
+<p><a href="http://dougblack.io/words/a-good-vimrc.html">A Good Vimrc</a> 是一份关于配置 Vim 的即详细又独特的指南。我极力推荐给新手和有经验的 Vim 用户。</p>
 </li>
 <li>
-<p><a href="https://justin.abrah.ms/vim/vim_and_python.html">Vim and Python</a> shows
-  and explains many Python-specific .vimrc options.</p>
+<p><a href="https://justin.abrah.ms/vim/vim_and_python.html">Vim and Python</a> 阐述了多个只针对 Python 的 .vimrc 选项。</p>
 </li>
 <li>
-<p>This
-  <a href="https://github.com/amix/vimrc/tree/master/vimrcs">repository's folder with Vimrc files</a>
-  has example configurations that are well commented and easy to learn from.</p>
+<p>该 <a href="https://github.com/amix/vimrc/tree/master/vimrcs">代码库的 Vimrc 文件目录</a> 下有很多配置示例，里面都有详细注释，易用学习。</p>
 </li>
 <li>
-<p>For people who are having trouble getting started with Vim, check out this
-  blog post on the
-  <a href="http://adamdelong.com/two-simple-steps-helped-me-learn-vim/">two simple steps that helped this author learn Vim</a>.</p>
+<p>对于那些入门 Vim 有困难的朋友，看下这篇文章 <a href="http://adamdelong.com/two-simple-steps-helped-me-learn-vim/">两个简单步骤让这位仁兄学会了 Vim</a>。</p>
 </li>
 </ul>
-<h2>Vim installation guides</h2>
-<p>These installation guides will help you get Vim up and running on Mac OS X,
-Linux and Windows.</p>
+<h2>Vim 安装指南</h2>
+<p>这些安装指南将指导你在 Mac OS X、Linux 和 Windows 上安装和运行 Vim 。</p>
 <ul>
 <li>
-<p><a href="http://www.prioritized.net/blog/upgrading-vim-on-os-x">Upgrading Vim on OS X</a>
-  explains why to upgrade from Vim 7.2 to 7.3+ and how to do it using
-  <a href="http://brew.sh/">Homebrew</a>.</p>
+<p><a href="http://www.prioritized.net/blog/upgrading-vim-on-os-x">Upgrading Vim on OS X</a> 阐述了为什么要从 Vim 7.2 升级到 7.3+，以及如何通过 <a href="http://brew.sh/">Homebrew</a> 升级。</p>
 </li>
 <li>
-<p>The easiest way to install Vim on Windows 7+ is to download and run the
-  <a href="http://www.vim.org/download.php#pc">gvim74.exe</a> file.</p>
+<p>在 Windows 7+ 上安装 Vim 的最简单方法是下载并运行 <a href="http://www.vim.org/download.php#pc">gvim74.exe</a> 文件。</p>
 </li>
 <li>
-<p>On Linux make sure to install the
-  <a href="https://launchpad.net/ubuntu/+source/vim">vim package</a> with
-  <code>sudo apt-get install vim</code>.</p>
+<p>在 Linux 上应该使用 <code>sudo apt-get install vim</code> 来安装 <a href="https://launchpad.net/ubuntu/+source/vim">vim 软件包</a>。</p>
 </li>
 <li>
-<p>If you're using PyCharm as your IDE you won't need to install Vim as a
-  separate text editor - instead use the
-  <a href="https://plugins.jetbrains.com/plugin/164">IdeaVim</a> PyCharm plugin to get
-  Vim keybindings, visual/insert mode, configuration with ~/.ideavimrc and
-  other Vim emulation features.</p>
+<p>如果你将 PyCharm 作为你的 IDE 的话，你不需要再单独安装 Vim 文本编辑器。你可以用 PyCharm 的 <a href="https://plugins.jetbrains.com/plugin/164">IdeaVim</a>  插件，并利用 ~/.ideavimrc 及其它的 Vim 模拟功能来实现 Vim 按键绑定、视觉/插入模式等。 </p>
 </li>
 </ul>
-<h2>Using Vim as a Python IDE</h2>
-<p>Once you get comfortable with Vim as an editor, there are several
-configuration options and plugins you can use to enhance your Python
-productivity. These are the resources and tutorials to read when you're
-ready to take that step.</p>
+<h2>将 Vim 作为 Python IDE</h2>
+<p>一旦你已熟悉 Vim 编译器，就可以用一些配置选项和插件来提高你的 Python 工作效率。到了这一步，你可以看下这些资料：</p>
 <ul>
 <li>
-<p><a href="https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/">VIM and Python - a Match Made in Heaven</a> details how to set up a powerful VIM environment geared towards wrangling Python day in and day out.</p>
+<p><a href="https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/">VIM and Python - a Match Made in Heaven</a> 详细叙述了如何为 Python 的日常工作设置一个强大的 Vim 环境。</p>
 </li>
 <li>
-<p>The <a href="https://github.com/klen/python-mode">python-mode</a> project is a Vim
-  plugin with syntax highlighting, breakpoints, PEP8 linting, code completion
-  and many other features you'd expect from an integrated development
-  environment.</p>
+<p><a href="https://github.com/klen/python-mode">python-mode</a> 是一个 Vim 插件项目， 具有语法高亮、断点、PEP8 代码检测、代码补全、以及其它许多你能在集成开发环境中看到的功能。</p>
 </li>
 <li>
-<p><a href="http://haridas.in/vim-as-your-ide.html">Vim as Your IDE</a> discusses how to
-  set up Vim for greater productivity once you learn the initial Vim language
-  for using the editor.</p>
+<p><a href="http://haridas.in/vim-as-your-ide.html">Vim as Your IDE</a> 探讨了当你学会了 Vim 的基本用法后如果设置 Vim 以提高工作效率。</p>
 </li>
 <li>
-<p><a href="http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/">Vim as a Python IDE</a>
-  goes through the steps necessary to make Vim into a more comfortable
-  environment for Python development.</p>
+<p><a href="http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/">Vim as a Python IDE</a> 讲述了将 Vim 打造成一个更加舒适的 Python 开发环境需要经历的几个必要步骤。</p>
 </li>
 <li>
-<p><a href="http://stackoverflow.com/questions/9172802/setting-up-vim-for-python">Setting up Vim for Python</a>
-  has a well written answer on Stack Overflow for getting started with Vim.</p>
+<p><a href="http://stackoverflow.com/questions/9172802/setting-up-vim-for-python">Setting up Vim for Python</a> 是 Stack Overflow 上针对如何入门 Vim 的一份不错的答案。</p>
 </li>
 <li>
-<p>If you're writing your documentation in Markdown using Vim, be sure to
-  read this
-  <a href="http://www.swamphogg.com/2015/vim-setup/">insightful post on a Vim setup for Markdown</a>.</p>
+<p>如果你用 Vim 写 Markdown 文本，务必看下这篇 <a href="http://www.swamphogg.com/2015/vim-setup/">颇有见地的文章：设置 Vim 以支持 Markdown</a>。</p>
 </li>
 </ul>
-<h2>Vim Plugin Managers</h2>
+<h2>Vim 插件管理</h2>
 <ul>
 <li>
-<p><a href="https://github.com/gmarik/Vundle.vim">Vundle</a> comes highly recommended
-  as a plugin manager for Vim.</p>
+<p><a href="https://github.com/gmarik/Vundle.vim">Vundle</a> 是一个被大量推荐的 Vim 插件管理器。</p>
 </li>
 <li>
-<p><a href="https://github.com/tpope/vim-pathogen">Pathogen</a> is a widely used
-  used plugin manager.</p>
+<p><a href="https://github.com/tpope/vim-pathogen">Pathogen</a> 是一个广泛使用的插件管理器。</p>
 </li>
 <li>
-<p><a href="https://github.com/junegunn/vim-plug">Vim-plug</a> bills itself as a
-  minimalistic Vim plugin manager.</p>
+<p><a href="https://github.com/junegunn/vim-plug">Vim-plug</a> 宣称自己是一个最小的 Vim 插件管理器。</p>
 </li>
 </ul>
-<h2>Vim Plugin resources</h2>
+<h2>Vim 插件资源</h2>
 <ul>
 <li>
-<p><a href="http://joelhooks.com/blog/2013/04/23/5-essential-vim-plugins/">5 Essential VIM Plugins That Greatly Increase my Productivity</a>
-  covers the author's experience with the Vundle, NERDTree, ctrlp, Syntastic
-  and EasyMotion Vim plugins.</p>
+<p><a href="http://joelhooks.com/blog/2013/04/23/5-essential-vim-plugins/">极大提升了我的工作效率的 5 个必备 Vim 插件</a> 总结了作者对 Vundle、 NERDTree、 ctrlp、 Syntastic 和 EasyMotion 等 Vim 插件的使用心得。</p>
 </li>
 <li>
-<p><a href="http://benmccormick.org/2014/07/21/learning-vim-in-2014-getting-more-from-vim-with-plugins/">Getting more from Vim with plugins</a>
-  provides a list of plugins with a description for each one on its
-  usefulness. The comments at the bottom are also interesting as people have
-  suggested alternatives to some of the plugins mentioned in the post.</p>
+<p><a href="http://benmccormick.org/2014/07/21/learning-vim-in-2014-getting-more-from-vim-with-plugins/">Getting more from Vim with plugins</a> 上提供了一份插件列表，并附有每个插件的使用说明。下面的评论内容也非常有趣，因此针对文章里提到的一些插件，一些人提供了类似的其他插件。</p>
 </li>
 <li>
-<p><a href="https://github.com/powerline/powerline">Powerline</a> is a popular statusline
-  plugin for Vim that works with both Python 2 and 3.</p>
+<p><a href="https://github.com/powerline/powerline">Powerline</a> 是一个流行的 Vim 状态栏插件，兼容 Python 2 和 3 。</p>
 </li>
 </ul>
-<h3>Now that you know about Vim, what do you want to develop in it?</h3>
+<h3>既然已经学了 Vim，你想用它来开发什么呢？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
 <a href="/data.html" class="btn btn-success btn-full"><svg width="28" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M63 1536h-63v-1408h63v1408zm63-1h-32v-1407h32v1407zm94 0h-31v-1407h31v1407zm157 0h-31v-1407h31v1407zm157 0h-62v-1407h62v1407zm126 0h-31v-1407h31v1407zm63 0h-31v-1407h31v1407zm63 0h-31v-1407h31v1407zm157 0h-63v-1407h63v1407zm157 0h-63v-1407h63v1407zm126 0h-63v-1407h63v1407zm126 0h-63v-1407h63v1407zm94 0h-63v-1407h63v1407zm189 0h-94v-1407h94v1407zm63 0h-32v-1407h32v1407zm94 1h-63v-1408h63v1408z" fill="#fff"/></svg></a>
-<p class="under-btn">I want to know about working with data in Python.</p>        </div>
+<p class="under-btn">我想知道在 Python 中如何处理数据。</p>        </div>
     </div>
     <div class="col-md-4">
         <div class="well select-next">

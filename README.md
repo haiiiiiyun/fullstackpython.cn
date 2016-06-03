@@ -29,7 +29,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 ### 二、开发环境
 
 - [x] content/pages/02-development-environments/01-development-environments.markdown (2016-05-31)
-- [ ] content/pages/02-development-environments/03-vim.markdown
+- [x] content/pages/02-development-environments/03-vim.markdown (2016-06-03)
 - [ ] content/pages/02-development-environments/04-emacs.markdown
 
 ### 三、编程语言
