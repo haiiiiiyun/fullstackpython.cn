@@ -30,7 +30,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 - [x] content/pages/02-development-environments/01-development-environments.markdown (2016-05-31)
 - [x] content/pages/02-development-environments/03-vim.markdown (2016-06-03)
-- [ ] content/pages/02-development-environments/04-emacs.markdown
+- [x] content/pages/02-development-environments/04-emacs.markdown (2016-06-06)
 
 ### 三、编程语言
 
