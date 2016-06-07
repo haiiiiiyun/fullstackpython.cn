@@ -69,7 +69,7 @@ Vim 有难学的坏名声，但是通过这些教程，入门会变得更加容�
 
 * [Learn Vim Progressively](http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/) 是一本很精彩的教程，里面提到的学习方式和我学习 Vim 时用的是一样的：先学会编辑器的基本知识就会日常使用，然后再学习更加高级的命令。
 
-* [A vim Tutorial and Primer](https://danielmiessler.com/study/vim/) 深入研究了如何从初学都进阶到 Vim 专家。
+* [A vim Tutorial and Primer](https://danielmiessler.com/study/vim/) 深入研究了如何从初学者进阶到 Vim 专家。
 
 * [Why Atom Can't Replace Vim](https://medium.com/@mkozlows/why-atom-cant-replace-vim-433852f4b4d1) 探讨了 Vim 的一个核心理念： 命令的可组合性。Vim 的内置语言能将简单的命令组合成一个更加高级的组合操作命令。例如在命令模式下， `$` 的功能是移动到行尾，但当 `$` 前加 `d` 后，就能删除从当前位置到行尾的所有内容。随着时间的推移，这些简单的命令会变成你的直觉，而组合命令会比在下拉菜单中设置一个特定选项来删除到行尾的全部内容这样的方式更加强大。
 
