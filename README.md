@@ -34,7 +34,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 ### 三、编程语言
 
-- [ ] content/pages/03-programming-language/01-programming-language.markdown
+- [x] content/pages/03-programming-language/01-programming-language.markdown (2016-06-07)
 - [ ] content/pages/03-programming-language/08-generators.markdown
 - [ ] content/pages/03-programming-language/09-comprehensions.markdown
 
