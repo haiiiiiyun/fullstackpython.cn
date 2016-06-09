@@ -88,7 +88,7 @@ Vim 有难学的坏名声，但是通过这些教程，入门会变得更加容�
 
 * [Vim and Python](https://justin.abrah.ms/vim/vim_and_python.html) 阐述了多个只针对 Python 的 .vimrc 选项。
 
-* 该 [代码库的 Vimrc 文件目录](https://github.com/amix/vimrc/tree/master/vimrcs) 下有很多配置示例，里面都有详细注释，易用学习。
+* 该 [代码库的 Vimrc 文件目录](https://github.com/amix/vimrc/tree/master/vimrcs) 下有很多配置示例，里面都有详细注释，易于学习。
 
 * 对于那些入门 Vim 有困难的朋友，看下这篇文章 [两个简单步骤让这位仁兄学会了 Vim](http://adamdelong.com/two-simple-steps-helped-me-learn-vim/)。
 
