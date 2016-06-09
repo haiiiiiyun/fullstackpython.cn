@@ -836,80 +836,55 @@ let python_highlight_all = 1
 <p><a href="http://www.dabeaz.com/generators/">系统程序员生成器使用技巧</a> 提供了如何使用生成器的示例代码。这份资料最先是在一次针对系统程序员的 PyCon 研讨会上发布的。但是对于那些想理解如何正确使用生成器的 Python 开发人员来说，都值得一读。</p>
 </li>
 </ul>
-          <h1>Comprehensions</h1>
-<p>Comprehensions are a Python language construct for concisely creating data
-in lists, dictionaries and sets. List comprehensions are included in Python 2
-while dictionary and set comprehensions were introduced to the language in
-Python 3.</p>
-<h2>Why are comprehensions important?</h2>
-<p>Comprehensions are a more clear syntax for populating conditional data in the 
-core Python data structures. Creating data without comprehensions often 
-involves nested loops with conditionals that can be difficult for code
-readers to properly evaluate.</p>
-<h2>Example code</h2>
-<p>List comprehension:</p>
+          <h1>推导式</h1>
+<p>推导式是 Python 语言的构件之一，使用它能简洁地构建列表、字典和集合。列表推导式在 Python 2 中引入，而字典和集合的推导式是在 Python 3 时引用的。</p>
+<h2>推导式为什么很重要？</h2>
+<p>在 Python 核心数据结构中填充条件式数据，推导式是一种较清晰的语法。如果没有推导式，实现相同的功能通常需要使用嵌套的循环和条件语句，这使得代码阅读者很难进行适当的评估。</p>
+<h2>示例代码</h2>
+<p>列表推导式:</p>
 <div class="highlight"><pre><span></span>&gt;&gt;&gt; double_digit_evens = [e*2 for e in range(5, 50)]
 &gt;&gt;&gt; double_digit_evens
 [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
 </pre></div>
 
 
-<p>Set comprehension:</p>
+<p>集合推导式:</p>
 <div class="highlight"><pre><span></span>&gt;&gt;&gt; double_digit_odds = {e*2+1 for e in range(5, 50)}
 {11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99}
 </pre></div>
 
 
-<p>Dictionary comprehension:</p>
+<p>字典推导式:</p>
 <div class="highlight"><pre><span></span>&gt;&gt;&gt; {e: e*10 for e in range(1, 11)}
 {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90, 10: 100}
 </pre></div>
 
 
-<h2>Comprehension resources</h2>
+<h2>推导式相关资源</h2>
 <ul>
 <li>
-<p>Intermediate Python's 
-  <a href="http://intermediatepythonista.com/python-comprehensions">Python Comprehensions</a>
-  post gives a well written overview of comprehensions for the three core 
-  Python data structures.</p>
+<p>Intermediate Python 上的 <a href="http://intermediatepythonista.com/python-comprehensions">Python 推导式</a> 这篇文章对 Python 这三个核心数据结构的推导式做了相当不错的总结。</p>
 </li>
 <li>
-<p><a href="http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/">Python List Comprehensions: Explained Visually</a>
-  explains how the common idiom for iteration became syntactic sugar in
-  the language itself and how you can use it in your own programs.</p>
+<p><a href="http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/">Python 列表推导式： 可视化讲解</a> 讲解了这种迭代的惯用法是如何变成语言本身的语法糖的以及如何在自己的程序中使用它。</p>
 </li>
 <li>
-<p>The Python 3 Patterns and Idioms site has an overview of 
-  <a href="http://python-3-patterns-idioms-test.readthedocs.org/en/latest/Comprehensions.html">comprehensions</a>
-  including code examples and diagrams to explain how they work.</p>
+<p>Python 3 模式及惯用法网站对 <a href="http://python-3-patterns-idioms-test.readthedocs.org/en/latest/Comprehensions.html">推导式</a> 做了总结，并用代码示例和图表讲解了它们是如何运作的。</p>
 </li>
 <li>
-<p><a href="https://gist.github.com/bearfrieze/a746c6f12d8bada03589">Comprehensions in Python the Jedi way</a>
-  shows off comprehensions with a Star Wars theme to walk through the nuts
-  and bolts. All examples use Python 3.5.</p>
+<p><a href="https://gist.github.com/bearfrieze/a746c6f12d8bada03589">以绝地武士的方式讲解 Python 的推导式</a> 以星球大战的主题风格展示推导式，并演示了它的各要点知识。所有示例都用 Python 3.5 写成。</p>
 </li>
 <li>
-<p><a href="https://blogs.msdn.microsoft.com/pythonengineering/2016/03/14/idiomatic-python-comprehensions/">Idiomatic Python: Comprehensions</a>
-  explains how Python's comprehensions were inspired by Haskell's list
-  comprehensions. It also provides clear examples that show how comprehensions
-  are shorthand for common iteration code, such as copying one list into
-  another while performing some operation on the contained elements.</p>
+<p><a href="https://blogs.msdn.microsoft.com/pythonengineering/2016/03/14/idiomatic-python-comprehensions/">Python 惯用法： 推导式</a> 讲解了 Python 推导式如何受到 Haskell 列表推导式的启发。并以清晰的例子讲解推导式是如何简化普通迭代代码的--例如将一个列表复制到另一个列表并对其中的元素进行一些操作。</p>
 </li>
 <li>
-<p><a href="http://blog.cdleary.com/2010/04/learning-python-by-example-list-comprehensions/">Learning Python by example: list comprehensions</a>
-  gives an example of an incorrect list comprehension then shows how to
-  correct its issues.</p>
+<p><a href="http://blog.cdleary.com/2010/04/learning-python-by-example-list-comprehensions/">通过例子学 Python ：列表推导式</a> 先给出一个不正确的列表推导式的例子，然后讲解如何修正错误。</p>
 </li>
 <li>
-<p><a href="http://www.pythonforbeginners.com/basics/list-comprehensions-in-python">List comprehensions in Python</a>
-  covers what the code for list comprehensions looks like and gives some
-  example code to show how they work.</p>
+<p><a href="http://www.pythonforbeginners.com/basics/list-comprehensions-in-python">Python 的列表推导式</a> 这篇文章涉及列表推导式代码是怎样的，并提供一些示例代码以展示它们是如何工作的。</p>
 </li>
 <li>
-<p><a href="http://effbot.org/zone/python-list.htm">An Introduction to Python Lists</a>
-  is a solid overview of Python lists in general and tangentially covers 
-  list comprehensions.</p>
+<p><a href="http://effbot.org/zone/python-list.htm">Python 列表简介</a> 对 Python 列表做了大体而可靠的综述，其中当然也涉及到列表推导式。</p>
 </li>
 </ul>
           <h1>Web Development</h1>
