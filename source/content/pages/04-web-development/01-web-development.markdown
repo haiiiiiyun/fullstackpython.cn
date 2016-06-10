@@ -1,67 +1,32 @@
-title: Web Development
+title: Web 开发
 category: page
 slug: web-development
 sortorder: 0401
 toc: True
-sidebartitle: 4. Web Development
-meta: Web development is the catch-all term for activities involved with websites and web apps. Learn more on Full Stack Python.
+sidebartitle: 4. Web 开发
+meta: Web 开发是对网站和 Web 应用程序相关活动的统称。请到 Full Stack Python 上了解理解信息。
+authors: haiiiiiyun.github.io
+updated: 2016-06-10 09:11
 
+# Web 开发
+Web 开发是对概念化、构建、 [部署](/deployment.html) 和运营　Web 应用程序及 Web [应用程序接口](/application-programming-interfaces.html) 的统称。
 
-# Web Development
-Web development is the umbrella term for conceptualizing, creating, 
-[deploying](/deployment.html) and operating web applications and 
-[application programming interfaces](/application-programming-interfaces.html)
-for the Web.
+## 为什么 Web 开发很重要？
+自从 [第一个网站](http://info.cern.ch/hypertext/WWW/TheProject.html) 于 [1989](http://home.cern/topics/birth-web) 年诞生以来，网络在网站数量、用户数和容量上取得了难以置信的发展。 Web 开发这个概念包含了与网站及 Web 应用程序相关的所有活动。
 
+## Python 如何用于 Web 开发？
+Python 能用于创建服务端 Web 应用程序。虽然 [Web 框架](/web-frameworks.html) 对于创建 Web 应用来说不是必需的，但是不用现存的开源库来加快开发进度的开发人员还是很少的。
 
-## Why is web development important?
-The Web has grown a mindboggling amount in the number of sites, users and
-implementation capabilities since the 
-[first website](http://info.cern.ch/hypertext/WWW/TheProject.html) went live
-in [1989](http://home.cern/topics/birth-web). Web development is the concept
-that encompasses all the activities involved with websites and web 
-applications.
+Python 不能用于浏览器。能在 Chrome、 Firefox 和 Internet Explorer 等浏览器上运行的语言是 [JavaScript](/javascript.html)。像 [pyjs](http://pyjs.org/) 等项目能将 Python 程序编译成 JavaScript 程序。但是，大多数 Python 开发人员使用混合的方式开发他们的 Web 应用程序，服务端用 Python，浏览器客户端用 JavaScript。 
 
-## How does Python fit into web development?
-Python can be used to build server-side web applications. While a
-[web framework](/web-frameworks.html) is not required to build web apps,
-it's rare that developers would not use existing open source libraries to
-speed up their progress in getting their application working.
+### Web 开发相关资源
+* [Web 应用开发是不同的并且更好](http://radar.oreilly.com/2014/01/web-application-development-is-different-and-better.html) 提供了 Web 开发如何从只需要写静态 HTML 文件进化到如今需要由复杂的 JavaScript 客户端应用动态生成的相关背景。
 
-Python is not used in a web browser. The language executed in browsers
-such as Chrome, Firefox and Internet Explorer is 
-[JavaScript](/javascript.html). Projects such as [pyjs](http://pyjs.org/) 
-can compile from Python to JavaScript. However, most Python developers are 
-write their web applications in a combination of Python, which is executed
-on the server side and JavaScript, which is downloaded to the web browser
-client and executed there.
+* 虽然不是只针对 Python，Mozilla 为想学习建网站的初学者和中级网络用户整理了一份 [Web 学习](https://developer.mozilla.org/en-US/Learn) 的教程。它对于想学习通用 Web 开发知识的人来说还是值得一看的。
 
+* [Web 的进化](http://www.evolutionoftheweb.com/) 形象化地展示了浏览器及其相关技术的发展历程，以及 Internet 数据传输量的总体发展状况。值得注意的是上面的数据只统计到 2013 年年初，但对于探索最初 24 年中所发生的事件，也不啻为一种很好的途径。
 
-### Web development resources
-* [Web application development is different and better](http://radar.oreilly.com/2014/01/web-application-development-is-different-and-better.html)
-  provides some context for how web development has evolved from writing
-  static HTML files into the complex JavaScript client-side applications
-  produced today.
+* Web 开发涉及到与服务器的 HTTP 通信，托管网站或 Web 应用，以及客户端－一个浏览器。理解浏览器的工作原理对于一个开发者来说是很重要的，因此建议看下这篇文章
+  [Web 浏览器里都有些什么](https://medium.com/@camaelon/what-s-in-a-web-browser-83793b51df6c)。
 
-* While not Python-specific, Mozilla put together a 
-  [Learning the Web](https://developer.mozilla.org/en-US/Learn) tutorial
-  for beginners and intermediate web users who want to build websites.
-  It's worth a look for general web development learning.
-
-* The [Evolution of the Web](http://www.evolutionoftheweb.com/) visualizes 
-  how web browsers and related technologies have changed over time as well as
-  the overall growth of the Internet in the amount of data transferred. Note 
-  that the visualization unfortunately stops around the beginning of 2013 but
-  it's a good way to explore what happened in the first 24 years.
-
-* Web development involves HTTP communication between the server, hosting
-  a website or web application, and the client, a web browser. Knowing
-  how web browsers works is important as a developer, so take a look at
-  this article on 
-  [what's in a web browser](https://medium.com/@camaelon/what-s-in-a-web-browser-83793b51df6c).
-
-* [Three takeaways for web developers after two weeks of painfully slow Internet](https://medium.com/@zengabor/three-takeaways-for-web-developers-after-two-weeks-of-painfully-slow-internet-9e7f6d47726e)
-  is a must-read for every web developer. Not everyone has fast Internet
-  service, whether because they are in a remote part of the world or they're
-  just in a subway tunnel. Optimizing sites so they work in those situations
-  is important for keeping your users happy.
+* [经历两周痛苦的慢速网络后给网站开发者的三个忠告](https://medium.com/@zengabor/three-takeaways-for-web-developers-after-two-weeks-of-painfully-slow-internet-9e7f6d47726e) 对于每位 Web 开发人员来说都是必读的。不是每个人都使用高速网络服务的，因为他可能地处世界边远地区，或者刚好在地铁隧道中。优化网站以适应这些情况是非常重要的，它能保持用户的满意度。
