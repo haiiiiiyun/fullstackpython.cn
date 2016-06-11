@@ -913,148 +913,71 @@ let python_highlight_all = 1
 <p><a href="https://medium.com/@zengabor/three-takeaways-for-web-developers-after-two-weeks-of-painfully-slow-internet-9e7f6d47726e">经历两周痛苦的慢速网络后给网站开发者的三个忠告</a> 对于每位 Web 开发人员来说都是必读的。不是每个人都使用高速网络服务的，因为他可能地处世界边远地区，或者刚好在地铁隧道中。优化网站以适应这些情况是非常重要的，它能保持用户的满意度。</p>
 </li>
 </ul>
-          <h1>Web frameworks</h1>
-<p>A web framework is a code library that makes a developer's life easier when 
-building reliable, scalable and maintainable web applications.</p>
-<h2>Why are web frameworks necessary?</h2>
-<p>Web frameworks encapsulate what developers have learned over the past twenty
-years while programming sites and applications for the web. Frameworks make 
-it easier to reuse code for common HTTP operations and to structure projects 
-so other developers with knowledge of the framework can quickly build and
-maintain the application.</p>
-<h2>Common web framework functionality</h2>
-<p>Frameworks provide functionality in their code or through extensions to 
-perform common operations required to run web applications. These common 
-operations include:</p>
+          <h1>Web 框架</h1>
+<p>Web 框架就是一份代码库，它能帮助开发人员创建可靠、可扩展、易维护的 Web 应用。</p>
+<h2>为什么 Web 框架很有必要？</h2>
+<p>Web 框架封装了开发人员在过去二十年中学到的网站和 Web 应用开发的经验总结。它使得重用代码（例如通用 HTTP 操作和项目代码组织等）变得更加容易，因而熟悉该框架的其他开发人员就能快速创建和维护应用程序。</p>
+<h2>Web 框架的基本功能</h2>
+<p>框架通过它们自己的代码或扩展代码提供功能，以实现运行 Web 应用所需的基本操作。这些基本操作包括：</p>
 <ol>
-<li>URL routing</li>
-<li>HTML, XML, JSON, and other output format templating</li>
-<li>Database manipulation</li>
-<li>Security against Cross-site request forgery (CSRF) and other attacks</li>
-<li>Session storage and retrieval</li>
+<li>URL 路由</li>
+<li>HTML、 XML、JSON 及其它输出模式模板</li>
+<li>数据库处理</li>
+<li>跨站请求伪造安全问题（CSRF）和其它攻击</li>
+<li>session 存取</li>
 </ol>
-<p>Not all web frameworks include code for all of the above functionality. 
-Frameworks fall on the spectrum from executing a single use case to providing 
-every known web framework feature to every developer. Some frameworks take 
-the "batteries-included" approach where everything possible comes bundled 
-with the framework while others have a minimal core package that is amenable
-to extensions provided by other packages.</p>
-<p>For example, the <a href="/django.html">Django web application framework</a> includes an 
-Object-Relational Mapping (ORM) layer that abstracts relational database 
-read, write, query, and delete operations. However, Django's ORM
-cannot work without significant modification on non-relational databases 
-such as <a href="http://www.mongodb.org/">MongoDB</a>.</p>
-<p>Some other web frameworks such as <a href="/flask.html">Flask</a> and 
-<a href="/pyramid.html">Pyramid</a> are easier to
-use with non-relational databases by incorporating external Python libraries.
-There is a spectrum between minimal functionality with easy extensibility on
-one end and including everything in the framework with tight integration on
-the other end.</p>
-<h2>Comparing web frameworks</h2>
-<p>Are you curious about how the code in a Django project is structured compared 
-with Flask? Check out 
-<a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/django">this Django web application tutorial</a> 
-and then view <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/flask">the same application built with Flask</a>.</p>
-<p>There is also a repository called
-<a href="https://github.com/makaimc/compare-python-web-frameworks">compare-python-web-frameworks</a>
-where the same web application is being coded with varying Python web 
-frameworks, templating engines and 
-<a href="/object-relational-mappers-orms.html">object-relational mappers</a>.</p>
-<div class="well see-also">While you're learning about web frameworks you should also study <a href="/deployment.html">web application deployment</a> and <a href="/application-programming-interfaces.html">web APIs</a>.</div>
+<p>不是所有的 Web 框架都包含以上全部功能。框架种类从执行单一的用例到提供每个开发人员熟知的每个 Web 框架功能，不一而足。一些框架奉行“即插即用”的理念，把所有可能的东西都打包进来，而其它一些框架却有一个很小的内核包，以方便通过第三方代码包来扩展功能。</p>
+<p>例如，<a href="/django.html">Django Web 应用框架</a> 含有一个对象关系映射 (ORM) 层来对关系型数据库的读、写、查询和删除操作进行抽象。但是，Django 的 ORM 如果不进行大量修改的话，是不能操作像 <a href="http://www.mongodb.org/">MongoDB</a> 等的非关系型数据库的。</p>
+<p>其它一些框架，像 <a href="/flask.html">Flask</a> 和 <a href="/pyramid.html">Pyramid</a> 可以通过包含进外部 Python 库来更加容易地与非关系型数据库一起使用。框架的实现，都需要在最少功能和易扩展性，以及将所有东西都包含进来以提高整合度这两个选择之间进行抉择。</p>
+<h2>Web 框架对比</h2>
+<p>你对一个项目用 Django 实现和用 Flask 实现的代码对比感兴趣吗？看下 <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/django">这篇 Django Web 应用教程</a> 然后再看下 <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/flask">由 Flask 实现的相同的应用</a>。</p>
+<p>还有一份代码库叫 <a href="https://github.com/makaimc/compare-python-web-frameworks">compare-python-web-frameworks</a>，上面的一个相同的 Web 应用由不能的 Python Web 框架、模板引擎和 <a href="/object-relational-mappers-orms.html">对象关系映射器</a>来实现。</p>
+<div class="well see-also">既然已经学了 Web 框架，你也应该学下 <a href="/deployment.html">Web 应用部署</a> 和 <a href="/application-programming-interfaces.html">Web API</a>。</div>
 
-<h2>Do I have to use a web framework?</h2>
-<p>Whether or not you use a web framework in your project depends on your 
-experience with web development and what you're trying to accomplish. If you 
-are a beginner programmer and just want to work on a web application as a 
-learning project then a framework can help you understand the concepts listed
-above, such as URL routing, data manipulation and authentication that are
-common to the majority of web applications.</p>
-<p>On the other hand if you're an experienced programmer with significant 
-web development experience you may feel like the existing frameworks do not
-match your project's requirements. In that case, you can mix and match
-open source libraries such as <a href="http://werkzeug.pocoo.org/">Werkzeug</a> for
-WSGI plumbing with your own code to create your own framework. There's 
-still plenty of room in the Python ecosystem for new frameworks to satisfy 
-the needs of web developers that are unmet by <a href="/django.html">Django</a>, 
-<a href="/flask.html">Flask</a>, <a href="/pyramid.html">Pyramid</a>, <a href="/bottle.html">Bottle</a> and 
-<a href="/other-web-frameworks.html">many others</a>.</p>
-<p>In short, whether or not you need to use a web framework to build a web 
-application depends on your experience and what you're trying to accomplish. 
-Using a web framework to build a web application certainly isn't required, 
-but it'll make most developers' lives easier in many cases.</p>
-<h2>Web framework resources</h2>
+<h2>我需要使用 Web 框架吗？</h2>
+<p>你的项目是否需要使用 Web 框架取决于你的网站开发经验和你的目标。如果你是一个初级程序员并且以学习为目的来开发一个 Web 应用，那么框架能帮助你理解下面的这些概念，例如 URL 路由、数据处理和认证等这些主流的 Web 应用都具有的功能。</p>
+<p>另一方面，如果你是一位有经验的程序员，具有丰富的网站开发经验，你可能会觉得现有的框架不能满足你的项目需求。如果那样的话，你可以将 <a href="http://werkzeug.pocoo.org/">Werkzeug</a> 等开源库、WSGI 功能包和你自己的代码进行混合匹配来创建你自己的框架。 Python 的生态系统仍然为新框架留了足够的空间，以便去满足那些不能从<a href="/django.html">Django</a>、 <a href="/flask.html">Flask</a>、 <a href="/pyramid.html">Pyramid</a>、 <a href="/bottle.html">Bottle</a> 和 <a href="/other-web-frameworks.html">许多其它框架</a> 中得到满足的程序员的需求。</p>
+<p>简言之，你是否需要使用 Web 框架来创建 Web 应用取决于你的经验和你的目标。使用框架来创建 Web 应用当然不是必需的，但是在多数情况下，它能让开发人员的生活变得更加轻松。</p>
+<h2>Web 框架相关资源</h2>
 <ul>
 <li>
-<p>"<a href="http://www.jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/">What is a web framework?</a>"
-  is an in-depth explanation of what web frameworks are and their relation
-  to web servers.</p>
+<p>"<a href="http://www.jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/">什么是 Web 框架？</a>" 深入讲解了什么是 Web 框架以及它们与 Web 服务器的关系。</p>
 </li>
 <li>
-<p>Check out the answer to the 
-  "<a href="http://stackoverflow.com/questions/4507506/what-is-a-web-framework-how-does-it-compare-with-lamp">What is a web framework and how does it compare to LAMP?</a>"
-  question on Stack Overflow.</p>
+<p>你可以看下 Stack Overflow 上有关 "<a href="http://stackoverflow.com/questions/4507506/what-is-a-web-framework-how-does-it-compare-with-lamp">什么是 Web 框架以及如何与 LAMP 比较？</a>" 这个问题的答案。</p>
 </li>
 <li>
-<p><a href="http://youtu.be/W6KCPXl6Zuc">Frameworks</a> is a really well done short video
-  that explains how to choose between web frameworks. The author has some
-  particular opinions about what should be in a framework. For the most part
-  I agree although I've found sessions and database ORMs to be a helpful
-  part of a framework when done well.</p>
+<p><a href="http://youtu.be/W6KCPXl6Zuc">框架</a> 真的是一部精彩的短视频，它向你讲解了如何选择 Web 框架。它的作者对一个框架应该有哪些功能有一些独特的看法。我赞同里面说的大部分内部，尽管我认为如果 session 和 数据库 ORM 如何实现的好的话也应该是框架的一个有用的构件。</p>
 </li>
 <li>
-<p><a href="https://www.airpair.com/python/posts/django-flask-pyramid">Django vs Flask vs Pyramid: Choosing a Python Web Framework</a>
-  contains background information and code comparisons for similar
-  web applications built in these three big Python frameworks.</p>
+<p><a href="https://www.airpair.com/python/posts/django-flask-pyramid">Django vs Flask vs Pyramid：选择一个 Python Web 框架</a> 包含了一些背景资料，并通过用这三个主流的 Python 框架实现类似的 Web 应用来进行代码对比。</p>
 </li>
 <li>
-<p>This <a href="http://www.konstruktor.ee/blog/python-web-framework-roundup/">Python web framework roundup</a>
-  covers Django, Flask and Bottle as well as several other lesser known Python
-  frameworks.</p>
+<p>这篇精彩的博文通过对代码的图形化分析，列出了 <a href="http://grokcode.com/864/snakefooding-python-code-for-complexity-visualization/">几个 Python Web 框架的代码复杂度</a>。</p>
 </li>
 <li>
-<p>This fascinating blog post takes a look at the 
-  <a href="http://grokcode.com/864/snakefooding-python-code-for-complexity-visualization/">code complexity of several Python web frameworks</a>
-  by providing visualizations based on their code bases.</p>
+<p><a href="http://klen.github.io/py-frameworks-bench/">Python Web 框架基准测试</a> 上有一份针对各框架响应度的测试，测试方式是先将一个对象编码成 JSON 然后返回，以及从数据库中读取数据然后在模板中呈现。虽然没有确凿性结果，但是看看上面的输出内容还是很有趣的。</p>
 </li>
 <li>
-<p><a href="http://klen.github.io/py-frameworks-bench/">Python's web frameworks benchmarks</a>
-  is a test of the responsiveness of a framework with encoding an object to
-  JSON and returning it as a response as well as retrieving data from the 
-  database and rendering it in a template. There were no conclusive results
-  but the output is fun to read about nonetheless.</p>
+<p><a href="http://www.reddit.com/r/webdev/comments/2les4x/what_frameworks_do_you_use_and_why_are_they/">你使用什么 Web 框架以及为什么觉得它好？</a> 是 Reddit 上有关 Web 框架的讨论。 看看使用其它语言的程序员对于他们的 Web 框架的品味，然后与主流的 Python 框架比较一下也是蛮有意思的。</p>
 </li>
 <li>
-<p><a href="http://www.reddit.com/r/webdev/comments/2les4x/what_frameworks_do_you_use_and_why_are_they/">What web frameworks do you use and why are they awesome?</a>
-  is a language agnostic Reddit discussion on web frameworks. It's interesting
-  to see what programmers in other languages like and dislike about their
-  suite of web frameworks compared to the main Python frameworks.</p>
-</li>
-<li>
-<p>This user-voted question &amp; answer site asked "<a href="http://www.slant.co/topics/426/~what-are-the-best-general-purpose-python-web-frameworks-usable-in-production-sites">What are the best general purpose Python web frameworks usable in production?</a>".
-  The votes aren't as important as the list of the many frameworks
-  that are available to Python developers.</p>
+<p>这个由用户投票的问答网站上问到 "<a href="http://www.slant.co/topics/426/~what-are-the-best-general-purpose-python-web-frameworks-usable-in-production-sites">在生产环境下哪个是最好的通用 Python Web 框架？</a>"。看看上面列出的那么多能让 Python 开发人员使用的框架比看投票结果重要多了。</p>
 </li>
 </ul>
-<h2>Web frameworks learning checklist</h2>
+<h2>Web 框架学习清单</h2>
 <ol>
 <li>
-<p>Choose a major Python web framework (<a href="/django.html">Django</a> or 
-   <a href="/flask.html">Flask</a> are recommended) and stick with it. When you're just
-   starting it's best to learn one framework first instead of bouncing around
-   trying to understand every framework. </p>
+<p>选择一个主流 Python Web 框架 (推荐 <a href="/django.html">Django</a> 和 <a href="/flask.html">Flask</a>)，然后坚持使用。刚开始的时候最好只学习一个框架，而不要试图去理解每个框架。</p>
 </li>
 <li>
-<p>Work through a detailed tutorial found within the resources links on the
-   framework's page.</p>
+<p>根据那个框架的网站上的资源链接，寻找一份详细的教程，并据此进行练习。</p>
 </li>
 <li>
-<p>Study open source examples built with your framework of choice so you can 
-   take parts of those projects and reuse the code in your application.</p>
+<p>研究用你所选框架开发的开源案例，这样你就能参与这些项目并在你的应用中重用这些代码。</p>
 </li>
 <li>
-<p>Build the first simple iteration of your web application then go to
-   the <a href="/deployment.html">deployment</a> section to make it accessible on the 
-   web.</p>
+<p>写完你的 Web 应用的第一个版本，然后参考 <a href="/deployment.html">部署</a> 那一章，将它发布到网上。</p>
 </li>
 </ol>
           <h1>Django</h1>
