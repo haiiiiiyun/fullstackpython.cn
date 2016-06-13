@@ -42,7 +42,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 - [x] content/pages/04-web-development/01-web-development.markdown (2016-06-10)
 - [x] content/pages/04-web-development/02-web-frameworks.markdown (2016-06-11)
-- [ ] content/pages/04-web-development/03-django.markdown
+- [x] content/pages/04-web-development/03-django.markdown (2016-06-13)
 - [ ] content/pages/04-web-development/04-flask.markdown
 - [ ] content/pages/04-web-development/05-bottle.markdown
 - [ ] content/pages/04-web-development/06-pyramid.markdown
