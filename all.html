@@ -985,7 +985,7 @@ let python_highlight_all = 1
 <p><a href="http://www.djangoproject.com/" style="border: none;"><img src="/img/django-logo-positive.png" width="100%" alt="Official Django logo. Trademark Django Software Foundation." class="technical-diagram" /></a></p>
 <p>例如，<a href="https://docs.djangoproject.com/en/dev/topics/auth/">身份验证</a>、 <a href="https://docs.djangoproject.com/en/dev/topics/http/urls/">URL 路由</a>、 <a href="https://docs.djangoproject.com/en/dev/topics/templates/">模板系统</a>、 <a href="/object-relational-mappers-orms.html">对象关系映射</a> (ORM) 和 <a href="https://docs.djangoproject.com/en/dev/topics/migrations/">数据库迁移</a> (版本 1.7) 等功能都已包含在 <a href="https://pypi.python.org/pypi/Django/">Django 框架</a> 中。 Flask 框架与 Django 相比，并没有包含这么多的功能，例如它还需要一个独立的 <a href="https://flask-login.readthedocs.org/en/latest/">Flask-Login</a> 库来实现用户身份验证。</p>
 <p>包含一切和易扩展性是实现框架时采用的两种不同哲学罢了，再两种方式各有千秋，不能说哪一种会再好。</p>
-<div class="well see-also">Django 是对<a href="/web-frameworks.html">Web 框架</a> 概念的一种实现。在 <a href="/web-development.html">Web 开发</a> 那一章你可以框架的各部分组件是如何协同工作的，或者到 <a href="/table-of-contents.html">总目录</a> 页去查看其它所有主题。</div>
+<div class="well see-also">Django 是对<a href="/web-frameworks.html">Web 框架</a> 概念的一种实现。在 <a href="/web-development.html">Web 开发</a> 那一章你可以了解框架的各部分组件是如何协同工作的，或者到 <a href="/table-of-contents.html">总目录</a> 页去查看其它所有主题。</div>
 
 <h2>为什么说 Django Web 框架是一个不错的选择</h2>
 <p>自创建以来， Django 项目的稳定性、高性能和它的社区在过去的十年中有了长足的发展。现在已经有大量的在线资源和图书资料，从中你能找到详细的教程和实践指南。该框架还在不断地往新版本中增加诸如 <a href="https://docs.djangoproject.com/en/dev/topics/migrations/">数据迁移</a> 新功能。</p>
@@ -1185,17 +1185,11 @@ let python_highlight_all = 1
 </li>
 </ol>
           <h1>Flask</h1>
-<p><a href="http://flask.pocoo.org/">Flask</a> is a Python web framework built with a 
-<a href="http://flask.pocoo.org/docs/design/">small core and easy-to-extend philosophy</a>. </p>
+<p><a href="http://flask.pocoo.org/">Flask</a> 是一个 Python Web 框架，它在设计实现时奉行 <a href="http://flask.pocoo.org/docs/design/">小核心且易于扩展的哲学</a>。</p>
 <p><a href="http://flask.pocoo.org/" style="border: none;"><img src="/img/flask.jpg" width="100%" alt="Official Flask logo. Flask Artwork License." class="technical-diagram"></a></p>
-<h2>Why is Flask a good web framework choice?</h2>
-<p>Flask is considered more 
-<a href="http://blog.startifact.com/posts/older/what-is-pythonic.html">Pythonic</a>
-than Django because Flask web application code is in most cases more explicit. 
-Flask is easy to get started with as a beginner because there is little 
-boilerplate code for getting a simple app up and running. </p>
-<p>For example, here's a valid "hello world" web application with Flask (the
-equivalent in Django would be significantly more code):</p>
+<h2>为什么说 Flask Web 框架是一个不错的选择？</h2>
+<p>人们认为 Flask 相比 Django 更加的 <a href="http://blog.startifact.com/posts/older/what-is-pythonic.html">Pythonic</a>， 因为 Flask Web 应用的代码在多数情况下都会更加清晰明确。 由于创建和运行一个简单的 Flask 应用只需很少的样板文件， Flask 对于初学者来说，更易于上手。</p>
+<p>例如，下面是一个 Flask 版本的 "hello world" 应用(它的 Django 版本将需要更多的代码量）：</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
@@ -1208,256 +1202,134 @@ equivalent in Django would be significantly more code):</p>
 </pre></div>
 
 
-<p>Flask was also written several years after Django and therefore
-learned from the Python community's reactions as the framework evolved.
-Jökull Sólberg wrote a great piece articulating to this effect in his 
-<a href="http://jokull.calepin.co/my-flask-to-django-experience.html">experience switching between Flask and Django</a>.</p>
-<div class="well see-also">Flask is an implementation of the <a href="/web-frameworks.html">web frameworks</a> concept. Learn how these pieces fit together in the <a href="/web-development.html">web development</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+<p>Flask 是距 Django 好几年后才开发的，因此它能从 Django 框架的发展历程中学到很多东西。Jökull Sólberg 在他的这篇文章 <a href="http://jokull.calepin.co/my-flask-to-django-experience.html">从 Flask 换回到 Django 经历</a>中就很好地阐明了这个问题。</p>
+<div class="well see-also">Flask 是对<a href="/web-frameworks.html">Web 框架</a> 概念的一种实现。在 <a href="/web-development.html">Web 开发</a> 那一章你可以了解框架的各部分组件是如何协同工作的，或者到 <a href="/table-of-contents.html">总目录</a> 页去查看其它所有主题。</div>
 
-<h2>Flask resources</h2>
+<h2>Flask 资源</h2>
 <ul>
 <li>
-<p>The Flask mega tutorial by 
-  <a href="https://twitter.com/miguelgrinberg">Miguel Grinberg</a> is a perfect 
-  starting resource for using this web framework. Each post focuses on a 
-  single topic and builds on previous posts. The series includes 18 parts:
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">#1 Hello World</a>, 
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates">#2 Templates</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms">#3 Web Forms</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database">#4 Database</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins">#5 User Logins</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vi-profile-page-and-avatars">#6 Profile Page and Avatars</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing">#7 Unit Testing</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-viii-followers-contacts-and-friends">#8 Followers, Contacts, and Friends</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ix-pagination">#9 Pagination</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-x-full-text-search">#10 Full Text Search</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xi-email-support">#11 Email Support</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xii-facelift">#12 Facelift</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiii-dates-and-times">#13 Dates and Times</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiv-i18n-and-l10n">#14 I18n and L10n</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-ajax">#15 Ajax</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvi-debugging-testing-and-profiling">#16 Debugging, Testing and Profiling</a>,
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux-even-on-the-raspberry-pi">#17 Deployment on Linux</a>
-  and 
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-the-heroku-cloud">#18 Deployment on the Heroku Cloud</a>. 
-  Miguel also wrote the 
-  <a href="http://shop.oreilly.com/product/0636920031116.do">O'Reilly Flask Web Development</a>
-  book which is also an excellent learning resource.</p>
+<p>由 <a href="https://twitter.com/miguelgrinberg">Miguel Grinberg</a> 写的这套教程是学习如何使用这个 Web 框架的绝佳入门资源。 每一篇文章都只关注一个主题，并且都是建立在之前文章的基础上。这个系列共分 18 个部分：
+  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">#1 Hello World</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates">#2 模板</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms">#3 表单</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database">#4 数据库</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins">#5 用户登录</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vi-profile-page-and-avatars">#6 简介页与用户标识</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing">#7 单元测试</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-viii-followers-contacts-and-friends">#8 关注者、联系人及好友</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ix-pagination">#9 分页</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-x-full-text-search">#10 全文检索</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xi-email-support">#11 邮件支持</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xii-facelift">#12 改良</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiii-dates-and-times">#13 日期和时间</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiv-i18n-and-l10n">#14 国际化和本地化</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-ajax">#15 Ajax</a> <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvi-debugging-testing-and-profiling">#16 调试、测试及性能分析</a> <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux-even-on-the-raspberry-pi">#17 在 Linux 上部署</a> 及 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-the-heroku-cloud">#18 在 Heroku 云上部署</a>。 Miguel 还编写了 <a href="http://shop.oreilly.com/product/0636920031116.do">O'Reilly Flask Web 开发</a> 这本书，这也是本相当不错的学习资料。</p>
 </li>
 <li>
-<p>If you're looking for a fun tutorial with Flask and WebSockets, check out
-  my blog post on creating 
-  <a href="https://www.twilio.com/blog/2014/11/choose-your-own-adventure-presentations-with-reveal-js-python-and-websockets.html">Choose Your Own Adventure Presentations with Reveal.js, Python and WebSockets</a>.
-  Follow up that tutorial by 
-  <a href="https://www.twilio.com/blog/2015/03/choose-your-own-adventures-presentations-wizard-mode-part-1-of-3.html">building an admin interface in part 1</a>,
-  <a href="https://www.twilio.com/blog/2015/05/choose-your-own-adventure-presentations-wizard-mode-part-2-of-3.html">part 2</a>
-  and <a href="https://www.twilio.com/blog/2015/07/choose-your-own-adventure-presentations-flask-reveal-js-websockets.html">part 3</a> 
-  that'll show you how to use forms and SQLAlchemy. There is also a 
-  companion open source 
-  <a href="https://github.com/makaimc/choose-your-own-adventure-presentations">GitHub repository</a> 
-  for the app with 
-  <a href="https://github.com/makaimc/choose-your-own-adventure-presentations/releases">tags for each step</a> 
-  in the blog posts.</p>
+<p>如果你想一份趣味教程来学习 Flask 和 WebSocket 知识，看下我的博文 <a href="https://www.twilio.com/blog/2014/11/choose-your-own-adventure-presentations-with-reveal-js-python-and-websockets.html">使用 Reveal.js、 Python 和 WebSocket 创建一个可交互的演示文稿</a>。参照那个教程来 <a href="https://www.twilio.com/blog/2015/03/choose-your-own-adventures-presentations-wizard-mode-part-1-of-3.html">创建一个管理界面， 这是第 1 部分</a>、 <a href="https://www.twilio.com/blog/2015/05/choose-your-own-adventure-presentations-wizard-mode-part-2-of-3.html">第 2 部分</a> 和 <a href="https://www.twilio.com/blog/2015/07/choose-your-own-adventure-presentations-flask-reveal-js-websockets.html">第 3 部分</a> 向你展示了如何使用表单和 SQLAlchemy。当然这个应用还有一个开源的 <a href="https://github.com/makaimc/choose-your-own-adventure-presentations">GitHub 代码库</a>，并同步博客 <a href="https://github.com/makaimc/choose-your-own-adventure-presentations/releases">对每一次的文章发布都作了 tag</a>。</p>
 </li>
 <li>
-<p>This <a href="https://www.twilio.com/blog/2015/09/warm-phone-call-transfers-with-python-flask-and-twilio-voice.html">simple Flask app uses Twilio Voice</a>
-  to do voice calling with three participants. It's a fun introduction
-  to Python and Flask I wrote for the Twilio blog.</p>
+<p>这个 <a href="https://www.twilio.com/blog/2015/09/warm-phone-call-transfers-with-python-flask-and-twilio-voice.html">简单的 Flask 应用使用 Twilio Voice</a> 实现三方之间的语言通话功能。这是我发布在 Twilio 博客上的关于 Python 和 Flask 的介绍文章，非常有趣。</p>
 </li>
 <li>
-<p><a href="http://flask.pocoo.org/extensions/">The Flask Extensions Registry</a> is a
-  curated list of the best packages that extend Flask. It's the first location
-  to look through when you're wondering how to do something that's not in the
-  core framework.</p>
+<p><a href="http://flask.pocoo.org/extensions/">Flask 扩展中心</a> 这份精心整理的列表上都是些 Flask 最佳扩展。如果你需要的一些功能没有包含在核心框架中，你可以先到这里找找看。</p>
 </li>
 <li>
-<p><a href="http://exploreflask.com/">Explore Flask</a> is a public domain book that
-  was previously backed on Kickstarter and cost money for about a year before
-  being open sourced. The book explains best practices and patterns for 
-  building Flask apps.</p>
+<p><a href="http://exploreflask.com/">探索 Flask</a> 是一本公共图书，它之前是 Kickstarter 上的一个项目，在进行开源之前大约收费了一年多时间。该书讲解了创建 Flask 应用的最佳实践和模式。 </p>
 </li>
 <li>
-<p><a href="http://mattupstate.com/blog/how-i-structure-my-flask-applications/">How I Structure My Flask Application</a>
-  walks through how this developer organizes the components and architecture
-  for his Flask applications.</p>
+<p><a href="http://mattupstate.com/blog/how-i-structure-my-flask-applications/">如何组织我的 Flask 应用</a> 演示了这位开发者对其 Flask 应用的各部件和构架是如何进行组织的。</p>
 </li>
 <li>
-<p>Nice post by Jeff Knupp on <a href="http://www.jeffknupp.com/blog/2014/01/29/productionizing-a-flask-application/">Productionizing a Flask App</a>.</p>
+<p>Jeff Knupp 写了一篇不错的文章叫 <a href="http://www.jeffknupp.com/blog/2014/01/29/productionizing-a-flask-application/">创建一个 Flask 应用</a>。</p>
 </li>
 <li>
-<p>The Plank &amp; Whittle blog has two posts, one on 
-  <a href="http://www.plankandwhittle.com/packaging-a-flask-web-app/">Packaging a Flask web app</a> 
-  and another on 
-  <a href="http://www.plankandwhittle.com/packaging-a-flask-app-in-a-debian-package/">Packaging a Flask app in a Debian package</a>
-  once you've built an app and want to deploy it.</p>
+<p>Plank &amp; Whittle 这个博客上有两篇文章，一篇叫 <a href="http://www.plankandwhittle.com/packaging-a-flask-web-app/">如何打包一个 Flask Web 应用</a>，另一篇叫 <a href="http://www.plankandwhittle.com/packaging-a-flask-app-in-a-debian-package/">将 Flask 应用打包成一个 Debian 包</a>，适合已创建了一个应用并想进行部署的你看。</p>
 </li>
 <li>
-<p>The Tuts+ <a href="http://code.tutsplus.com/tutorials/an-introduction-to-pythons-flask-framework--net-28822">Flask tutorial</a> 
-  is another great walkthrough for getting started with the framework.</p>
+<p>这份 <a href="http://code.tutsplus.com/tutorials/an-introduction-to-pythons-flask-framework--net-28822">Flask 教程</a> 是另一个不错的框架入门资料。</p>
 </li>
 <li>
-<p><a href="http://readwrite.com/2014/07/11/one-click-messaging-app">Create Your Own Obnoxiously Simple Messaging App Just Like Yo</a>
-  is a silly walkthrough of very basic Flask web application that uses
-  <a href="https://www.nitrous.io/">Nitrous.io</a> to get started and 
-  <a href="https://www.twilio.com/">Twilio</a> for SMS.</p>
+<p><a href="http://readwrite.com/2014/07/11/one-click-messaging-app">创建你自己的类似 Yo 的极简消息应用</a> 示范了一个非常基本的 Flask 应用，使用 <a href="https://www.nitrous.io/">Nitrous.io</a> 来创建项目，并用 <a href="https://www.twilio.com/">Twilio</a> 来提供短信功能。</p>
 </li>
 <li>
-<p>The blog post series "Things which aren't magic" covers how Flask's 
-  ubiquitous @app.route decorator works under the covers. There are two 
-  parts in the series,
-  <a href="http://ains.co/blog/things-which-arent-magic-flask-part-1.html">part 1</a>
-  and 
-  <a href="http://ains.co/blog/things-which-arent-magic-flask-part-2.html">part 2</a>.</p>
+<p>这个博客系列文章 "其实并不神奇"，讲解了 Flask 中无处不在的 @app.route 这个装饰器到底是如何运作的。这个系列分为两部分， <a href="http://ains.co/blog/things-which-arent-magic-flask-part-1.html">第 1 部分</a> 和 <a href="http://ains.co/blog/things-which-arent-magic-flask-part-2.html">第 2 部分</a>。</p>
 </li>
 <li>
-<p><a href="http://www.realpython.com/blog/python/flask-by-example-part-1-project-setup/">Flask by Example: Part 1</a>
-  shows the basic first steps for setting up a Flask project. 
-  <a href="http://www.realpython.com/blog/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/">Part 2</a> 
-  explains how to use PostgreSQL, SQLAlchemy and Alembic. 
-  <a href="https://realpython.com/blog/python/flask-by-example-part-3-text-processing-with-requests-beautifulsoup-nltk/">Part 3</a>
-  describes text processing with BeautifulSoup and NLTK. 
-  <a href="https://realpython.com/blog/python/flask-by-example-implementing-a-redis-task-queue/">Part 4</a>
-  shows how to build a task queue with Flask and Redis.</p>
+<p><a href="http://www.realpython.com/blog/python/flask-by-example-part-1-project-setup/">通过示例学 Flask: 第 1 部分</a> 对 Flask 工程如何进行初始设置进行了讲解。 <a href="http://www.realpython.com/blog/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/">第 2 部分</a> 讲解了如何使用 PostgreSQL、 SQLAlchemy 和 Alembic。 <a href="https://realpython.com/blog/python/flask-by-example-part-3-text-processing-with-requests-beautifulsoup-nltk/">第 3 部分</a> 描述了如何使用 BeautifulSoup 和 NLTK 进行文本处理。<a href="https://realpython.com/blog/python/flask-by-example-implementing-a-redis-task-queue/">第 4 部分</a> 展示了如何用 Flask 和 Redis 来创建一个任务队列。</p>
 </li>
 <li>
-<p><a href="https://www.twilio.com/blog/2014/10/branded-mms-coupon-generation-with-python-and-twilio.html">Branded MMS Coupon Generation with Python and Twilio</a>
-  is a Flask tutorial I wrote for building a web application that can send
-  branded barcode coupons via MMS. The post goes through every step from
-  a blank directory until you have a working app that you can deploy to
-  Heroku.</p>
+<p><a href="https://www.twilio.com/blog/2014/10/branded-mms-coupon-generation-with-python-and-twilio.html">使用 Python 和 Twilio 生成品牌的彩信优惠券</a> 是我写的一篇 Flask 教程，讲述如何创建一个 Web 应用并通过彩信发送品牌条码优惠券。这篇文章对应用开发的每个步骤（从一片空目录开始直到创建一个可以部署到 Heroku 的应用）都作了一一的讲解。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/articles/how-to-structure-large-flask-applications">How to Structure Large Flask Applications</a>
-  covers a subject that comes up quickly once you begin adding significant
-  functionality to your Flask application.</p>
+<p><a href="https://www.digitalocean.com/community/articles/how-to-structure-large-flask-applications">如何组织一个大型的 Flask 应用</a> 涉及的这个主题，是你一旦要开始在你的 Flask 应用 中增加重要的功能时就会很快碰到的。</p>
 </li>
 <li>
-<p><a href="http://fewstreet.com/2015/01/16/flask-blueprint-templates.html">Flask Blueprint templates</a>
-  shows a way of structuring your <code>__init__.py</code> file with 
-  <a href="http://flask.pocoo.org/docs/0.10/blueprints/">blueprints</a> for large
-  projects.</p>
+<p><a href="http://fewstreet.com/2015/01/16/flask-blueprint-templates.html">Flask 模板</a> 针对大型项目，展示了如何组织你的多个 <a href="http://flask.pocoo.org/docs/0.10/blueprints/">blueprints</a>。</p>
 </li>
 <li>
-<p><a href="http://blog.miguelgrinberg.com/post/video-streaming-with-flask">Video streaming with Flask</a>
-  is another fantastic tutorial by Miguel Grinberg that covers video 
-  streaming.</p>
+<p><a href="http://blog.miguelgrinberg.com/post/video-streaming-with-flask">Flask 实现视频流功能</a> 是 Miguel Grinberg 的另一篇精彩教程，内容涉及视频流。</p>
 </li>
 <li>
-<p><a href="https://medium.com/@5hreyans/the-one-weird-trick-that-cut-our-flask-page-load-time-by-70-87145335f679">One line of code cut our Flask page load times by 60%</a>
-  is an important note about optimizing Flask template cache size to 
-  dramatically increase performance in some cases.</p>
+<p><a href="https://medium.com/@5hreyans/the-one-weird-trick-that-cut-our-flask-page-load-time-by-70-87145335f679">一行代码并能减少 Flask 60% 的页面加载时间</a> 是篇重要的文章，阐明了优化 Flask 模板的缓存大小在某些情况下能显著地增加性能。</p>
 </li>
 <li>
-<p><a href="https://www.twilio.com/blog/2014/03/unit-testing-your-twilio-app-using-pythons-flask-and-nose.html">Unit Testing Your Twilio App Using Python’s Flask and Nose</a>
-  covers integrating the Twilio API into a Flask application and how to test 
-  that functionality with <a href="https://nose.readthedocs.org/en/latest/">nose</a>.</p>
+<p><a href="https://www.twilio.com/blog/2014/03/unit-testing-your-twilio-app-using-pythons-flask-and-nose.html">利用 Python 的 Flask 和 Nose 来对你的 Twilio 应用进行单元测试</a> 涉及如何将 Twilio API 集成到 Flask 应用中，以及如何用 <a href="https://nose.readthedocs.org/en/latest/">nose</a> 进行功能测试。</p>
 </li>
 <li>
-<p>The Flask documentation has some quick examples for how to deploy Flask
-  with 
-  <a href="http://flask.pocoo.org/docs/deploying/wsgi-standalone/">standalone WSGI containers</a>.</p>
+<p>Flask 文档上有一些小例子，演示了如果在 <a href="http://flask.pocoo.org/docs/deploying/wsgi-standalone/">独立的 WSGI 容器</a> 中部署 Flask。</p>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/handling-email-confirmation-in-flask/">Handling Email Confirmation in Flask</a>
-  is a great walkthrough for a common use case of ensuring an email address
-  matches with the user's login information.</p>
+<p><a href="https://realpython.com/blog/python/handling-email-confirmation-in-flask/">在 Flask 中如何确认邮件地址</a> 很好地示范了如何将邮件地址与用户的登录信息进行匹配。</p>
 </li>
 <li>
-<p>If you're not sure why <code>DEBUG</code> should be set to <code>False</code> in a production
-  <a href="/deployment.html">deployment</a>, be sure to read this article on 
-  <a href="http://labs.detectify.com/post/130332638391/how-patreon-got-hacked-publicly-exposed-werkzeug">how Patreon got hacked</a>.</p>
+<p>如果你还不是很了解为什么在生产环境中 <a href="/deployment.html">部署</a>后，必须要将 <code>DEBUG</code> 设置成 <code>False</code> 的话，你应该读读这篇文章 <a href="http://labs.detectify.com/post/130332638391/how-patreon-got-hacked-publicly-exposed-werkzeug">Patreon 是如何被黑掉的</a>。</p>
 </li>
 </ul>
-<h2>Open source Flask example projects</h2>
+<h2>开源 Flask 示例项目</h2>
 <ul>
 <li>
-<p><a href="https://github.com/makaimc/choose-your-own-adventure-presentations">Choose Your Own Adventure Presentations</a>
-  combines Flask with <a href="http://lab.hakim.se/reveal-js/">Reveal.js</a> and text 
-  messages to create presentations where the audience can vote on how the 
-  story should proceed. The code is all open source under an MIT license
-  and also uses the 
-  <a href="https://flask-socketio.readthedocs.org/en/latest/">Flask-SocketIO</a> and 
-  <a href="https://flask-wtf.readthedocs.org/en/latest/">Flask-WTF</a> projects to
-  support voting and form input.</p>
+<p><a href="https://github.com/makaimc/choose-your-own-adventure-presentations">交互式的演示文稿</a> 将 Flask 与 <a href="http://lab.hakim.se/reveal-js/">Reveal.js</a> 及短信结合，创建了一个观众能够投票决定事件进程的演示文稿。它的代码在 MIT 许可下完全开源，它使用 <a href="https://flask-socketio.readthedocs.org/en/latest/">Flask-SocketIO</a> 和 <a href="https://flask-wtf.readthedocs.org/en/latest/">Flask-WTF</a> 项目来支持投票和表单输入功能。</p>
 </li>
 <li>
-<p><a href="https://github.com/skylines-project/skylines">Skylines</a> is an open source 
-  flight tracking web application built with Flask. You can check out a 
-  <a href="https://skylines.aero/">running version of the application</a>.</p>
+<p><a href="https://github.com/skylines-project/skylines">Skylines</a> 是一个开源的航班信息追踪系统，它用 Flask 实现。可以在 <a href="https://skylines.aero/">这里看到这个应用的运行效果</a>。</p>
 </li>
 <li>
-<p><a href="https://github.com/miguelgrinberg/microblog">Microblog</a> is the companion
-  open source project that goes along with Miguel Grinberg's O'Reilly Flask
-  book.</p>
+<p><a href="https://github.com/miguelgrinberg/microblog">Microblog</a> 这个开源项目是和 Miguel Grinberg 的 O'Reilly Flask 那本书配套的。</p>
 </li>
 <li>
-<p><a href="https://github.com/mjhea0/flaskr-tdd">Flaskr TDD</a> takes the official Flask
-  tutorial and adds test driven development and JQuery to the project. </p>
+<p><a href="https://github.com/mjhea0/flaskr-tdd">Flaskr TDD</a> 遵循了官方的 Flask 教程， 并在项目中增加了测试驱动开发和 JQuery。</p>
 </li>
 <li>
-<p>Here is a 
-  <a href="http://charlesleifer.com/blog/saturday-morning-hack-a-little-note-taking-app-with-flask/">note-taking app</a>
-  along with the 
-  <a href="https://gist.github.com/coleifer/632d3c9aa6b2ea519384">source code in Gists</a>.</p>
+<p>这是一个 <a href="http://charlesleifer.com/blog/saturday-morning-hack-a-little-note-taking-app-with-flask/">笔记记录应用</a>，这是它在 <a href="https://gist.github.com/coleifer/632d3c9aa6b2ea519384">Gist 上的源代码</a>。</p>
 </li>
 <li>
-<p><a href="https://github.com/BouncyNudibranch/bean-counter">Bean Counter</a> is an
-  open source Flask app for tracking coffee.</p>
+<p><a href="https://github.com/BouncyNudibranch/bean-counter">Bean Counter</a> 是一个开源的 Flask 应用，用于追踪咖啡的相关信息。</p>
 </li>
 <li>
-<p><a href="http://flaskbb.org/">FlaskBB</a> is a Flask app for a discussion forum.</p>
+<p><a href="http://flaskbb.org/">FlaskBB</a> 是一个用 Flask 实现的论坛应用。</p>
 </li>
 <li>
-<p><a href="https://github.com/Jahaja/psdash">psdash</a> is an app built with Flask and
-  psutils to display information about the computer it is running on.</p>
+<p><a href="https://github.com/Jahaja/psdash">psdash</a> 这个应用是用 Flask 和 psutils 创建的，它能显示运行它的计算机的相关信息。</p>
 </li>
 </ul>
-<h2>Flask project templates</h2>
+<h2>Flask 项目模板</h2>
 <ul>
 <li>
-<p>Use the 
-  <a href="https://github.com/kamalgill/flask-appengine-template">Flask App Engine Template</a>
-  for getting set up on Google App Engine with Flask.</p>
+<p><a href="https://github.com/kamalgill/flask-appengine-template">Flask App Engine 模板</a> ，采用这个模板设置，你的 Flask 应用就能在 Google App Engine 上运行。</p>
 </li>
 <li>
-<p><a href="https://github.com/JackStouffer/Flask-Foundation">Flask Foundation</a> is a
-  starting point for new Flask projects. There's also a 
-  <a href="https://jackstouffer.github.io/Flask-Foundation/">companion website</a> for
-  the project that explains what extensions the base project includes.</p>
+<p><a href="https://github.com/JackStouffer/Flask-Foundation">Flask Foundation</a> 是一个 Flask 项目模板。它还有一个 <a href="https://jackstouffer.github.io/Flask-Foundation/">相应的网站</a>，讲解了这个模板中包含了哪些扩展。</p>
 </li>
 <li>
-<p><a href="https://github.com/sloria/cookiecutter-flask">Cookiecutter Flask</a> is a 
-  project template for use with 
-  <a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a>.</p>
+<p><a href="https://github.com/sloria/cookiecutter-flask">Cookiecutter Flask</a> 这个项目模板使用了 <a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a>。</p>
 </li>
 <li>
-<p><a href="https://github.com/MaxHalford/Flask-Boilerplate">Flask-Boilerplate</a> 
-  provides another starting project with sign up, log in and password
-  reset.</p>
+<p><a href="https://github.com/MaxHalford/Flask-Boilerplate">Flask-Boilerplate</a> 是另一个项目模板，它提供了注册、登录和密码重置等功能。</p>
 </li>
 </ul>
-<h2>Flask framework learning checklist</h2>
+<h2>Flask 框架学习清单</h2>
 <ol>
 <li>
-<p><a href="http://flask.pocoo.org/docs/installation/">Install Flask</a> on
-   your local development machine.</p>
+<p>在你的本地开发机上 <a href="http://flask.pocoo.org/docs/installation/">安装 Flask</a> 。</p>
 </li>
 <li>
-<p>Work through the 18-part Flask tutorial listed first under "Flask 
-   resources" above.</p>
+<p>根据上面的 “Flask 资源”节里列出的那 18 个 Flask 教程，依次练习。</p>
 </li>
 <li>
-<p>Read through 
-   <a href="http://flask.pocoo.org/extensions/">Flask Extensions Registry</a> to find 
-   out what extensions you'll need to build your project.</p>
+<p>在 <a href="http://flask.pocoo.org/extensions/">Flask 扩展中心</a> 查找你的项目所需的扩展。</p>
 </li>
 <li>
-<p>Start coding your Flask app based on what you learned from the 18 part
-   Flask tutorial plus open source example applications found below. </p>
+<p>在学习和研究完那 18 个 Flask 教程以及下面列出的开源示例应用后，开始编写你自己的 Flask 应用 。</p>
 </li>
 <li>
-<p>Move on to the <a href="/deployment.html">deployment section</a> to get your initial 
-   Flask project on the web.</p>
+<p>查看 <a href="/deployment.html">部署那一章</a>，将你的 Flask 项目发布上网上。</p>
 </li>
 </ol>
           <h1>Bottle</h1>

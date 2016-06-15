@@ -18,7 +18,7 @@ updated: 2016-06-12 08:27
 
 包含一切和易扩展性是实现框架时采用的两种不同哲学罢了，再两种方式各有千秋，不能说哪一种会再好。
 
-<div class="well see-also">Django 是对<a href="/web-frameworks.html">Web 框架</a> 概念的一种实现。在 <a href="/web-development.html">Web 开发</a> 那一章你可以框架的各部分组件是如何协同工作的，或者到 <a href="/table-of-contents.html">总目录</a> 页去查看其它所有主题。</div>
+<div class="well see-also">Django 是对<a href="/web-frameworks.html">Web 框架</a> 概念的一种实现。在 <a href="/web-development.html">Web 开发</a> 那一章你可以了解框架的各部分组件是如何协同工作的，或者到 <a href="/table-of-contents.html">总目录</a> 页去查看其它所有主题。</div>
 
 ## 为什么说 Django Web 框架是一个不错的选择
 自创建以来， Django 项目的稳定性、高性能和它的社区在过去的十年中有了长足的发展。现在已经有大量的在线资源和图书资料，从中你能找到详细的教程和实践指南。该框架还在不断地往新版本中增加诸如 [数据迁移](https://docs.djangoproject.com/en/dev/topics/migrations/) 新功能。
