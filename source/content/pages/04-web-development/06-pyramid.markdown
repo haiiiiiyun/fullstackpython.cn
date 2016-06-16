@@ -4,47 +4,31 @@ slug: pyramid
 sortorder: 0406
 toc: False
 sidebartitle: Pyramid
-meta: Pyramid is a Python web framework that grew out of the Pylons project. Learn more about Pyramid on Full Stack Python. 
+meta: Pyramid 是一个源自 Pylons 项目的 Python Web 框架。到 Full Stack Python 上了解 Pyramid 的更多知识。
+authors: haiiiiiyun.github.io
+updated: 2016-06-16 12:16
 
 
 # Pyramid
-[Pyramid](http://www.pylonsproject.org/projects/pyramid/about) is an open 
-source [WSGI](/wsgi-servers.html) web framework based on the 
-Model-View-Controller (MVC) architectural pattern.
+[Pyramid](http://www.pylonsproject.org/projects/pyramid/about) 是一个开源的 [WSGI](/wsgi-servers.html) Web 框架，它基于 模型-视图-控制器 (MVC) 结构模式。
 
 <a href="http://www.pylonsproject.org/" style="border: none;"><img src="/img/pyramid-logo.jpg" style="border-radius: 5px;" width="100%" alt="Pyramid web framework logo." class="technical-diagram" /></a>
 
 
-## Open source Pyramid example apps
-* [pyramid\_blogr](https://github.com/Pylons/pyramid_blogr) is an example 
-  project that shows how to build a blog with Pyramid modeled on the 
-  [Flaskr](http://flask.pocoo.org/docs/0.10/tutorial/introduction/) tutorial.
+## 开源 Pyramid 示例应用
+* [pyramid\_blogr](https://github.com/Pylons/pyramid_blogr) 这个示例项目源自 [Flaskr](http://flask.pocoo.org/docs/0.10/tutorial/introduction/) 教程，展示了如何使用 Pyramid 创建一个博客系统。
 
-* [pyramid\_appengine](https://github.com/twillis/pyramid_appengine)
-  provides a project skeleton for running Pyramid on 
-  [Google App Engine](/platform-as-a-service.html).
+* [pyramid\_appengine](https://github.com/twillis/pyramid_appengine) 提供了一个能在 [Google App Engine](/platform-as-a-service.html) 上运行的 Pyramid 项目框架。
 
+## Pyramid 资源
+* [尝试 Pyramid](http://trypyramid.com/) 这个着陆页面列举了 Pyramid 框架的优势。页面上还提供了一些示例 "hello world!" 代码。
 
-## Pyramid resources
-* [Try Pyramid](http://trypyramid.com/) is a landing page that explains the
-  advantages of the Pyramid framework. It also provides some sample "hello
-  world!" code.
+* [首个 Pyramid 应用](http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/firstapp.html) 是你开始着手创建一个示例项目的起点。
 
-* The [first Pyramid app](http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/firstapp.html)
-  is a good place to start getting your hands dirty with an example project.
+* Six Feet Up 上的一篇博文讲解了他们的 [快速开发型项目](http://www.sixfeetup.com/blog/pyramid-for-rapid-development-projects) 都选用 Pyramid 的缘由。
 
-* Six Feet Up explains why Pyramid is their choice for 
-  [rapid development projects](http://www.sixfeetup.com/blog/pyramid-for-rapid-development-projects)
-  in that blog post.
+* [使用 Pyramid, SQLDB, 和 BluemixBuild 创建一个聊天应用](http://www.ibm.com/developerworks/cloud/library/cl-chatapp-bluemix-app/index.html) 演示了如何基于 IBM 的 Bluemix 平台创建 Pyramid 应用。
 
-* [Build a chat app with Pyramid, SQLDB, and Bluemix](http://www.ibm.com/developerworks/cloud/library/cl-chatapp-bluemix-app/index.html)
-  is a Pyramid application walkthrough specific to IBM's Bluemix platform.
+* [使用 Python Pyramid 框架开发 Web 应用](https://www.youtube.com/watch?v=kRKOWNdT72A) 是出自 San Francisco Python 的一个视频，综述了如何安装、并着手使用 Pyramid 框架来创建一个 Web 应用。
 
-* [Developing Web Apps Using the Python Pyramid Framework](https://www.youtube.com/watch?v=kRKOWNdT72A)
-  is a video from San Francisco Python with an overview of how to install,
-  get started and build a web app with the Pyramid framework.
-
-* This [podcast interview with the primary author of the Pyramid framework](http://www.talkpythontome.com/episodes/show/3/pyramid-web-framework)
-  explains how Pyramid sprang from Pylons and how Pyramid compares to other 
-  modern frameworks.
-
+* 这个 [播客上对 Pyramid 框架主要作者的访谈视频](http://www.talkpythontome.com/episodes/show/3/pyramid-web-framework) 讲解了 Pyramid 是如何从 Pylons 中分离出来的，及 Pyramid 与其它现代框架的对比。
