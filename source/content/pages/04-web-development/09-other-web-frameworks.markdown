@@ -1,79 +1,45 @@
-title: Other Web Frameworks
+title: 其它 Web 框架
 category: page
 slug: other-web-frameworks
 sortorder: 0409
 toc: False
-sidebartitle: Other Web Frameworks
-meta: Python has dozens of web frameworks with differing philosophies. Learn more about frameworks on Full Stack Python.
+sidebartitle: 其它 Web 框架
+meta: Python 有几十个不同理念的 Web 框架。在 Full Stack Python 上了解更多框架的知识。
+authors: haiiiiiyun.github.io
+updated: 2016-06-17 10:21
 
 
-# Other Web Frameworks
-Python has a significant number of web frameworks outside the usual Django,
-Flask, Pyramid and Bottle suspects.
-
+# 其它 Web 框架
+除了通常用的 Django、 Flask、 Pyramid 和 Bottle 之外， Python 还有很多其它的 Web 框架。
 
 ## TurboGears2
-[TurboGears2](http://www.turbogears.org) born as a full stack layer on top
-of Pylons is now a standalone web framework that can act both as a full stack
-solution (like Django) or as a micro framework.
-
+[TurboGears2](http://www.turbogears.org) 原来只是 Pylons 的一个扩展，现在已经发展成为一个独立的 Web 框架。它可被用作一种全栈解决方案（像 Django），也可作为一个微框架使用。
 
 ## Falcon
-[Falcon](http://falconframework.org/) is a minimalist web framework designed
-with web application speed as a top priority.
-
+[Falcon](http://falconframework.org/) 是一个简洁的 Web 框架，Web 应用的运行速度是其设计重点。
 
 ## web.py
-[web.py](http://webpy.org/) is a Python web framework designed for simplicity
-in building web applications.
+[web.py](http://webpy.org/) 是一个意在简化 Web 应用开发过程的 Python Web 框架。
 
-* See this Reddit discussion on 
-  [reasons why to not use web.py](http://www.reddit.com/r/Python/comments/2sjghv/is_there_any_reason_to_not_use_webpy/)
-  for some insight into the state of the project.
-
+* 看下 Reddit 上的这篇讨论贴 [不使用 web.py 的理由](http://www.reddit.com/r/Python/comments/2sjghv/is_there_any_reason_to_not_use_webpy/) 来了解该项目的当前状态。
 
 ## web2py
-[Web2py](http://www.web2py.com/) is a batteries-included philosophy framework
-with project structure based on model-view-controller patterns.
-
+[Web2py](http://www.web2py.com/) 是一个基于“包含一切”哲学的框架，其项目结构使用模型-视图-控制器的模式。
 
 ## CherryPy
-[CherryPy](http://www.cherrypy.org/) is billed as a minimalist web framework,
-from the perspective of the amount of code needed to write a web application
-using the framework. The project has a 
-[long history](http://w3techs.com/technologies/details/ws-cherrypy/all/all) 
-and made a major transition between the second and third release.
-
+[CherryPy](http://www.cherrypy.org/) 号称是一个最简洁的 Web 框架。以编写一个 Web 应用所需的代码量这个角度来看，确实是这样。这个项目经历了 [很长的一段历史](http://w3techs.com/technologies/details/ws-cherrypy/all/all)，并在第二版和第三版之间进行了重大的修改。
 
 ## Muffin
-[Muffin](https://github.com/klen/muffin) is a web framework
-built on top of the [asyncio](https://docs.python.org/3/library/asyncio.html)
-module in the Python 3.4+ standard library. Muffin takes inspiration from
-Flask with URL routes defined as decorators upon view functions. The 
-[Peewee ORM](https://peewee.readthedocs.org/en/latest/) is used instead of 
-the more common SQLAlchemy ORM.
+[Muffin](https://github.com/klen/muffin) 是一个基于 [asyncio](https://docs.python.org/3/library/asyncio.html)（一个 Python 3.4+ 标准库）创建的 Web 框架。Muffin 参考 Flask，通过视图函数上的装饰器来定义 URL 路由。它使用 [Peewee ORM](https://peewee.readthedocs.org/en/latest/) 来替代更加常用的 SQLAlchemy ORM。
 
+## 其它 Web 框架资源
+* 这篇 [对 14 个微型 Python 框架的综述](http://codecondo.com/14-minimal-web-frameworks-for-python/) 即涵盖了一些流行的 Python 库，也涵盖了一些鲜为人知的库。
 
-## Other web framework resources
-* This [roundup of 14 minimal Python frameworks](http://codecondo.com/14-minimal-web-frameworks-for-python/)
-  contains both familiar and less known Python libraries.
+* [Web 微框架之战](http://www.slideshare.net/r1chardj0n3s/web-microframework-battle/) 这份演示文稿对 Bottle、Flask 及其它许多不太知名的 Python Web 框架进行了探讨。
 
-* The [web micro-framework battle](http://www.slideshare.net/r1chardj0n3s/web-microframework-battle/)
-  presentation goes over Bottle, Flask, and many other lesser known Python
-  web frameworks.
+* 一个 Python 初学者在 Reddit 上问到： [这么多 Python Web 框架之间都有什么区别](http://www.reddit.com/r/Python/comments/28qr7c/can_anyone_explain_the_differences_between_web2py/)，并且收到了一些很赞的回答。
 
-* A Python newcomer asked the Python Subreddit to 
- [explain the differences between numerous Python web frameworks](http://www.reddit.com/r/Python/comments/28qr7c/can_anyone_explain_the_differences_between_web2py/)
- and received some interesting responses from other users.
+## 其它框架学习清单
+1. 了解上面列出的这些 Web 框架，并访问它们的项目网站。
 
-
-## Other frameworks learning checklist
-1. Read through the web frameworks listed above and check out their project
-   websites. 
-
-1. It's useful to know what other web frameworks exist besides Django and 
-   Flask. However, when you're just starting to learn to program there are 
-   significantly more tutorials and resources for [Django](/django.html) and 
-   [Flask](/flask.html) on the web. My recommendation is to start with one of
-   those two frameworks then expand your knowledge from there.
-
+1. 除了 Django 和 Flask 之外，知识还存在哪些 Web 框架是非常有用的。但是，如果你现在只想开始学习编程的话，那么在网上找到 [Django](/django.html) 和 [Flask](/flask.html) 的相关教程的资源会更容易也更多。我的建议是：先从这两个框架开始学习，然后再扩展你的知识。
