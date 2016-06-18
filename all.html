@@ -1509,65 +1509,37 @@ let python_highlight_all = 1
 <p>除了 Django 和 Flask 之外，知识还存在哪些 Web 框架是非常有用的。但是，如果你现在只想开始学习编程的话，那么在网上找到 <a href="/django.html">Django</a> 和 <a href="/flask.html">Flask</a> 的相关教程的资源会更容易也更多。我的建议是：先从这两个框架开始学习，然后再扩展你的知识。</p>
 </li>
 </ol>
-          <h1>Web Design</h1>
-<p>Web design is the creation of a web application's style and user interaction
-using CSS and JavaScript.</p>
-<h2>Why is web design important?</h2>
-<p>You wouldn’t use a web application that looked like the following screenshot, 
-would you?</p>
-<p><img src="/img/no-style-webpage.png" width="100%" alt="HTML with no CSS or JavaScript." class="technical-diagram" /> </p>
-<p>Creating web pages with their own style and interactivity so users can easily
-accomplish their tasks is a major part of building modern web applications.</p>
-<h2>Responsive design</h2>
-<p>Separating the content from the rules for how to display the content allows 
-devices to render the output differently based on factors such as screen size
-and device type. Displaying content differently based on varying screen 
-attributes is often called <em>responsive design</em>. The responsiveness is 
-accomplished by implementing
-<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">media queries</a>
-in the <a href="/cascading-style-sheets.html">CSS</a>. </p>
-<p>For example, a mobile device does not have as much space to display a 
-navigation bar on the side of a page so it is often pushed down 
-below the main content. The 
-<a href="http://getbootstrap.com/examples/blog/">Bootstrap Blog example</a> 
-shows that navigation bar relocation scenario when you resize the browser 
-width.</p>
-<h2>Design resources</h2>
+          <h1>Web 设计</h1>
+<p>Web 设计就是使用 CSS 和 JavaScript 来创造 Web 应用的风格和用户交互界面。</p>
+<h2>为什么说 Web 设计很重要？</h2>
+<p>你不会喜欢使用看起来像下面这样的 Web 应用吧？</p>
+<p><img src="/img/no-style-webpage.png" width="100%" alt="没有 CSS 和 JavaScript 的 HTML 页面。" class="technical-diagram" /> </p>
+<p>创建具有自有风格和交互性的 Web 页面，以便用户能更加容易完成他们的工作是现代 Web 应用创建过程的主要任务。</p>
+<h2>响应式设计</h2>
+<p>将内容和显示规则分离，使得设备能根据诸如屏幕大小和设备类型等不同的因素呈现不同的输出内容。基于不同的屏幕参数来显示不同的内容的技术，通常被叫作 <em>响应式设计</em>。响应特性是通过在 <a href="/cascading-style-sheets.html">CSS</a> 中使用 <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">媒体查询功能</a> 实现的。</p>
+<p>例如，移动设备没有足够的空间将导航栏显示在页面的侧边，因而它通常将导航栏下推，显示在主要内容之下。 <a href="http://getbootstrap.com/examples/blog/">Bootstrap 上的 Blog 例子</a> 演示了这个效果，当你改变浏览器的宽度时，导航栏会重新定位。</p>
+<h2>设计相关资源</h2>
 <ul>
 <li>
-<p><a href="http://www.webdesignrepo.com/">Web Design Repo</a> is a one stop shop for 
-  links to blogs, podcasts, inspiration, tutorials and tools related to
-  web design.</p>
+<p><a href="https://rrrepo.co/repo/webdesign">Web 设计仓库</a> 是一个一站式服务的网站，上面有博客、播客、灵感、教程和工具等与 Web 设计有关的各种链接。</p>
 </li>
 <li>
-<p><a href="https://github.com/bendc/frontend-guidelines">Frontend Guidelines</a> is
-  an amazing write up of good practices for HTML, CSS and JS.</p>
+<p><a href="https://github.com/bendc/frontend-guidelines">前端指南</a> 是一篇讲述 HTML、CSS 和 JS 最佳实践的文章。</p>
 </li>
 <li>
-<p><a href="https://medium.com/@JustinMezzell/how-i-work-with-color-8439c98ae5ed">How I Work with Color</a>
-  is a fantastic article from a professional designer on how he thinks
-  about color and uses it for certain effects in his designs.</p>
+<p><a href="https://medium.com/@JustinMezzell/how-i-work-with-color-8439c98ae5ed">如何使用颜色</a> 这篇精彩的文章来自一位专业设计师，讲述他对颜色的理解以及如何使用颜色来实现他的设计中的某个特定效果。</p>
 </li>
 <li>
-<p>The <a href="http://bootstrappingdesign.com/">Bootstrapping Design</a> book is one of 
-  the clearest and concise resources for learning design that I've ever read. 
-  Highly recommended especially if you feel you have no design skills but 
-  need to learn them.</p>
+<p><a href="http://bootstrappingdesign.com/">Bootstrapping 设计</a> 这本书是我迄今为止读到的有关学习设计的最清晰简洁的资源了。特别推荐给那些感觉自己没有设计才能但又需要学习设计的人。</p>
 </li>
 <li>
-<p><a href="http://learndesignprinciples.com">Learn Design Principles</a> is a well
-  thought out clear explanation for how to think about design according to
-  specific rules such as axis, symmetry, hierarchy and rhythm.</p>
+<p><a href="http://learndesignprinciples.com">学习设计原理</a> 就如何根据特定的规则如轴、对称性、层次和节律等来思考设计给出了清晰的讲解。</p>
 </li>
 <li>
-<p><a href="https://kuler.adobe.com/create/color-wheel/">Kuler</a> is a complementary
-  color picker by Adobe that helps choose colors for your designs.</p>
+<p><a href="https://kuler.adobe.com/create/color-wheel/">Kuler</a> 是一款来自 Adobe 的辅助取色器，能帮助你在设计中选取颜色。</p>
 </li>
 <li>
-<p>If you want to learn more about how browsers work behind the scenes, 
-  here's a 
-  <a href="http://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">blog post series on building a browser engine</a>
-  that will show you how to build a simple rendering engine.</p>
+<p>如果你想了解浏览器的工作原理，这里是 <a href="http://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">关于如何创建浏览器引擎的系列文章</a>，它会向你展示了如何创建一个简单的渲染引擎。</p>
 </li>
 </ul>
           <h1>Cascading Style Sheets (CSS)</h1>
