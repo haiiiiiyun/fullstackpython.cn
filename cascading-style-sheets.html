@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Learn how to use Cascading Style Sheets (CSS) to create your web application's user interface design on Full Stack Python.">
+    <meta name="description" content="到 Full Stack Python 上学习如何使用级联样式表 (CSS) 来设计你的 Web 应用用户界面。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Cascading Style Sheets - Full Stack Python 简体中文网站</title>
+    <title>级联样式表 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,71 +36,43 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Cascading Style Sheets (CSS)</h1>
-<p>Cascading Style Sheet (CSS) files contain rules for how to display and 
-lay out the HTML content when it is rendered by a web browser.</p>
-<h2>Why is CSS necessary?</h2>
-<p>CSS separates the content contained in HTML files from how the content 
-should be displayed. It is important to separate the content from the rules
-for how it should be rendered primarily because it is easier to reuse those
-rules across many pages. CSS files are also much easier to maintain on large
-projects than styles embedded within the HTML files.</p>
-<h2>How is CSS retrieved from a web server?</h2>
-<p>The HTML file sent by the web server contains a reference to the CSS file(s)
-needed to render the content. The web browser requests the CSS file after the
-HTML file as shown below in a screenshot captured of the Chrome Web Developer 
-Tools network traffic.</p>
-<p><img src="/img/css-chrome-dev-tools.jpg" width="100%" alt="Google Chrome Web Developer Tools shows how CSS is separate from the HTML content." class="technical-diagram" /></p>
-<p>That request for the fsp.css file is made because the HTML file for Full 
-Stack Python contains a reference to <code>theme/css/fsp.css</code> which is shown
-in the view source screenshot below.</p>
+          <h1>级联样式表 (CSS)</h1>
+<p>级联样式表 (CSS) 文件包含了浏览器如何显示和布局 HTML 内容的规则。</p>
+<h2>为什么说 CSS 是必需的？</h2>
+<p>CSS 将 HTML 文件内容与其如何显示进行了分离。将内容与其应该如何呈现的规则分离的重要性主要在于：可以在多个页面中更加容易复用这些规则。相比于嵌在 HTML 文件中的样式内容，大型项目中使用 CSS 文件还更易于维护。</p>
+<h2>CSS 是怎样从 Web 服务器上获取的？</h2>
+<p>由 Web 服务器发送的 HTML 文件中包含有指向 CSS 文件（用于呈现内容）的引用地址。浏览器获取到 HTML 文件后，再请求 CSS 文件，如下面的截图所示，该图是从 Chrome Web 开发者工具中的网络流量标签页截取的。</p>
+<p><img src="/img/css-chrome-dev-tools.jpg" width="100%" alt="Google Chrome Web 开发者工具显示了 CSS 是如何与 HTML 内容分离的。" class="technical-diagram" /></p>
+<p>发送了一个对 fsp.css 文件的请求是因为 Full Stack Python 的 HTML 文件中包含了一个到 <code>theme/css/fsp.css</code> 的引用，如下面的显示源代码截图所示。</p>
 <p><img src="/img/fsp-css-source.jpg" width="100%" alt="View source screenshot for the fsp.css file in index.html." class="technical-diagram" /></p>
-<h2>CSS preprocessors</h2>
-<p>A CSS preprocessor compiles a processed language into plain CSS code. CSS 
-preprocessing languages add syntax such as variables, mixins and functions
-to reduce code duplication. The additional syntax also makes it possible for
-designers to use these basic programming constructs to write maintainable
-front end code.</p>
+<h2>CSS 预处理器</h2>
+<p>CSS 预处理器将处理语言编译成纯 CSS 代码。CSS 处理语言通过增设变量、mixin、函数等语法结构来减少代码的重复度。有了这些额外的语法，使得设计人员使用这些基本的编程结构来编写可维护的前端代码变得可能。</p>
 <ul>
 <li>
-<p><a href="http://sass-lang.com/">Sass</a> is currently the favored preprocessor in
-  the design community. Sass is considered the most powerful CSS preprocessor
-  in terms of advanced language features.</p>
+<p><a href="http://sass-lang.com/">Sass</a> 是一款目前在设计界备受青睐的预处理器。Sass 具有很多高级的语言特性，因此被认为是功能最强大的 CSS 预处理器。</p>
 </li>
 <li>
-<p><a href="http://lesscss.org/">LESS</a> is right up there with Sass and has an ace up
-  its sleeve in that the <a href="http://getbootstrap.com/">Bootstrap Framework</a> is
-  written in LESS which brings up its popularity.</p>
+<p><a href="http://lesscss.org/">LESS</a> 是一款与 Sass 不分上下的预处理器，由于 <a href="http://getbootstrap.com/">Bootstrap 框架</a> 是用 LESS 写的，LESS 现在变得越来越受欢迎了。</p>
 </li>
-<li>
-<p><a href="http://learnboost.github.io/stylus/">Stylus</a> is often cited as the third
-  most popular CSS preprocessing language.</p>
-</li>
+<li><a href="http://learnboost.github.io/stylus/">Stylus</a> 经常被认为是排名第三的最受欢迎的 CSS 预处理语言。</li>
 </ul>
-<h3>CSS preprocessor resources</h3>
+<h3>CSS 预处理器资源</h3>
 <ul>
 <li>
-<p>The Advanced Guide to HTML and CSS book has a well-written chapter on 
-  <a href="http://learn.shayhowe.com/advanced-html-css/preprocessors">preprocessors</a>.</p>
+<p>《Advanced Guide to HTML and CSS》这本书中有一章是专门讲 <a href="http://learn.shayhowe.com/advanced-html-css/preprocessors">预处理器</a>的，写的很好。</p>
 </li>
 <li>
-<p><a href="http://css-tricks.com/sass-vs-less/">Sass vs LESS</a> provides a short answer
-  on which framework to use then a longer more detailed response for those
-  interested in understanding the details.</p>
+<p><a href="http://css-tricks.com/sass-vs-less/">Sass 对比 LESS</a> 先是对应该选用哪个框架这个问题给出了个精简的回答，然后为那些想了解细节的用户给出来一份详实的答案。</p>
 </li>
 <li>
-<p><a href="http://blog.teamtreehouse.com/how-to-choose-the-right-css-preprocessor">How to choose the right CSS preprocessor</a>
-  has a comparison of Sass, LESS and Stylus.</p>
+<p><a href="http://blog.teamtreehouse.com/how-to-choose-the-right-css-preprocessor">如何选择一个合适的 CSS 预处理器</a> 对 Sass、LESS 和 Stylus 进行了对比。</p>
 </li>
 <li>
-<p><a href="http://css-tricks.com/musings-on-preprocessing/">Musings on CSS preprocessors</a>
-  contains helpful advice ranging from how to work with preprocessors in a
-  team environment to what apps you can use to aid your workflow.</p>
+<p><a href="http://css-tricks.com/musings-on-preprocessing/">对 CSS 预处理器的思考</a> 这篇文章中包含了一些很有用的建议，内容包括从如何在团队环境中使用预处理器到你该用什么应用程序来辅助你的工作流等等不一而足。</p>
 </li>
 </ul>
-<h2>CSS frameworks</h2>
-<p>CSS frameworks provide structure and a boilerplate base for building a
-web application's design.</p>
+<h2>CSS 框架</h2>
+<p>CSS 框架为 Web 应用的设计提供架构和样板文件。</p>
 <ul>
 <li>
 <p><a href="http://getbootstrap.com/">Bootstrap</a></p>
@@ -124,73 +96,52 @@ web application's design.</p>
 <p><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></p>
 </li>
 </ul>
-<h2>CSS resources</h2>
+<h2>CSS 资源</h2>
 <ul>
 <li>
-<p><a href="https://github.com/dypsilon/frontend-dev-bookmarks">Frontend Development Bookmarks</a>
-  is one of the largest collections of valuable resources for frontend
-  learning both in CSS as well as JavaScript.</p>
+<p><a href="https://github.com/dypsilon/frontend-dev-bookmarks">前端开发书签</a> 是一个有关前端知识的最有价值的资料库之一，里面即包含 CSS 也包含 Javascript。</p>
 </li>
 <li>
-<p><a href="https://github.com/vasanthk/css-refresher-notes">CSS refresher notes</a> is
-  incredibly helpful if you've learned CSS in bits and pieces along the way
-  and you now want to fill in the gaps in your knowledge.</p>
+<p><a href="https://github.com/vasanthk/css-refresher-notes">CSS 复习摘记</a> 对于之前一直是零星学习 CSS知识，现在又想填充知识空白的你来说相当有帮助。</p>
 </li>
 <li>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">Mozilla Developer Network's CSS page</a>
-  contains an extensive set of resources, tutorials and demos for learning
-  CSS.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">Mozilla 开发者网络中的 CSS 页面</a> 上包含有 CSS 知识的丰富资源、教程和示例。</p>
 </li>
 <li>
-<p><a href="http://alistapart.com/article/css-positioning-101">CSS Positioning 101</a>
-  is a detailed guide for learning how to do element positioning correctly
-  with CSS.</p>
+<p><a href="http://alistapart.com/article/css-positioning-101">CSS 定位 101</a> 这份详细指南讲解了如何用 CSS 进行正确的元素定位。</p>
 </li>
 <li>
-<p><a href="http://media.smashingmagazine.com/wp-content/uploads/images/css3-cheat-sheet/css3-cheat-sheet.pdf">CSS3 cheat sheet</a></p>
+<p><a href="http://media.smashingmagazine.com/wp-content/uploads/images/css3-cheat-sheet/css3-cheat-sheet.pdf">CSS3 小抄</a>。</p>
 </li>
 <li>
-<p><a href="http://learnlayout.com/toc.html">Learn CSS layout</a> is a simple guide that
-  breaks CSS layout topics into chapters so you can learn each part one
-  at a time.</p>
+<p><a href="http://learnlayout.com/toc.html">学习 CSS 布局</a> 这篇简单的指南将 CSS 布局相关主题分成几个章节来讲解，因此你可以按步每次学一部分内容。</p>
 </li>
 <li>
-<p><a href="https://developers.google.com/web/fundamentals/">Google's Web Fundamentals class</a>
-  shows how to create responsive designs and performant websites.</p>
+<p><a href="https://developers.google.com/web/fundamentals/">Google Web 基础课程</a> 讲解了如何创建响应式的设计和高性能的网站。</p>
 </li>
 <li>
-<p><a href="http://programming.oreilly.com/2014/04/tailoring-css-for-performance.html">Tailoring CSS for performance</a>
-  is an interesting read since many developers do not consider the 
-  implications of CSS complexity in browser rendering time.</p>
+<p><a href="http://programming.oreilly.com/2014/04/tailoring-css-for-performance.html">CSS 性能调优</a> 是一篇很有意思的文章，因为很多开发人员不会考虑 CSS 的复杂性对浏览器渲染时间的影响。</p>
 </li>
 <li>
-<p><a href="http://caniuse.com/">Can I Use...</a> is a compatibility table that shows
-  which versions of browsers implement specific CSS features.</p>
+<p><a href="http://caniuse.com/">我能用 ...</a> 是一个兼容表格，显示了哪个版本的浏览器实现了哪些特定的 CSS 功能。</p>
 </li>
 </ul>
-<h2>CSS learning checklist</h2>
+<h2>CSS 学习清单</h2>
 <ol>
 <li>
-<p>Create a simple HTML file with basic elements in it. Use the
-   <code>python -m SimpleHTTPServer</code> command to serve it up. Create a 
-   <code>&lt;style&gt;&lt;/style&gt;</code> element within the <code>&lt;head&gt;</code> section in the HTML
-   markup. Play with CSS within that style element to change the look and 
-   feel of the page.</p>
+<p>创建一个只含基本元素的简单 HTML 文件。使用 <code>python -m SimpleHTTPServer</code> 命令来开启服务端进程。在 HTML 文件的 <code>&lt;head&gt;</code> 区域中创建一个 <code>&lt;style&gt;&lt;/style&gt;</code>。 在 style 元素中通过试验 CSS 来改变页面的外观。</p>
 </li>
 <li>
-<p>Check out front end frameworks such as Bootstrap and Foundation and integrate
-   one of those into the HTML page.</p>
+<p>研究 Bootstrap 或 Foundation 等前端框架，并将框架集成到 HTML 页面中。</p>
 </li>
 <li>
-<p>Work through the framework's grid system, styling options and customization
-   so you get comfortable with how to use the framework.</p>
+<p>练习该框架的网格系统、样式选项和定制功能，以便熟悉如何使用该框架。</p>
 </li>
 <li>
-<p>Apply the framework to your web application and tweak the design until you
-   have something that looks much better than generic HTML.</p>
+<p>将该框架应用到你的 Web 应用中并调整设计，直到实现比通用 HTML 更好的效果。</p>
 </li>
 </ol>
-<h3>Once your app is styled what do you need to learn next?</h3>
+<h3>对你的应用设置好样式后，接下来你需要学习什么知识？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
@@ -252,10 +203,10 @@ web application's design.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Cascading Style Sheets (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Template Engines</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Application Security</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Generators</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Frameworks</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Template Engines</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Application Security</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Cascading Style Sheets</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">级联样式表</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -268,7 +219,7 @@ web application's design.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a>  <a href="/cascading-style-sheets.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Cascading Style Sheets (CSS)</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a>  <a href="/cascading-style-sheets.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; 级联样式表 (CSS)</a>
 <a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>

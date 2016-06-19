@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="在 Full Stack Python 上学习更多 Django 知识， Django 是一个流行的且功能完备的 Python Web 框架。">
+    <meta name="description" content="Learn more about Django, the popular batteries-included Python web framework, on Full Stack Python.">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
     <title>Django - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
@@ -37,207 +37,373 @@
 </div><div class="row">
     <div class="col-md-8">
           <h1>Django</h1>
-<p><a href="http://www.djangoproject.com/">Django</a> 是一个广为使用的 Python Web 应用框架，它奉行 “包含一切” 的哲学。该理念即为：创建 Web 应用所需的通用功能都应该包含到框架中，而不应存在于独立的软件包中。 </p>
+<p><a href="http://www.djangoproject.com/">Django</a> is a widely-used Python web 
+application framework with a "batteries-included" philosophy. The principle
+behind batteries-included is that the common functionality for building
+web applications should come with the framework instead of as separate
+libraries.</p>
 <p><a href="http://www.djangoproject.com/" style="border: none;"><img src="/img/django-logo-positive.png" width="100%" alt="Official Django logo. Trademark Django Software Foundation." class="technical-diagram" /></a></p>
-<p>例如，<a href="https://docs.djangoproject.com/en/dev/topics/auth/">身份验证</a>、 <a href="https://docs.djangoproject.com/en/dev/topics/http/urls/">URL 路由</a>、 <a href="https://docs.djangoproject.com/en/dev/topics/templates/">模板系统</a>、 <a href="/object-relational-mappers-orms.html">对象关系映射</a> (ORM) 和 <a href="https://docs.djangoproject.com/en/dev/topics/migrations/">数据库迁移</a> (版本 1.7) 等功能都已包含在 <a href="https://pypi.python.org/pypi/Django/">Django 框架</a> 中。 Flask 框架与 Django 相比，并没有包含这么多的功能，例如它还需要一个独立的 <a href="https://flask-login.readthedocs.org/en/latest/">Flask-Login</a> 库来实现用户身份验证。</p>
-<p>包含一切和易扩展性是实现框架时采用的两种不同哲学罢了，再两种方式各有千秋，不能说哪一种会再好。</p>
-<div class="well see-also">Django 是对<a href="/web-frameworks.html">Web 框架</a> 概念的一种实现。在 <a href="/web-development.html">Web 开发</a> 那一章你可以了解框架的各部分组件是如何协同工作的，或者到 <a href="/table-of-contents.html">总目录</a> 页去查看其它所有主题。</div>
+<p>For example, 
+<a href="https://docs.djangoproject.com/en/dev/topics/auth/">authentication</a>,
+<a href="https://docs.djangoproject.com/en/dev/topics/http/urls/">URL routing</a>, a 
+<a href="https://docs.djangoproject.com/en/dev/topics/templates/">templating system</a>,
+an <a href="/object-relational-mappers-orms.html">object-relational mapper</a> (ORM),
+and <a href="https://docs.djangoproject.com/en/dev/topics/migrations/">database schema migrations</a>
+(as of version 1.7) are all included with the <a href="https://pypi.python.org/pypi/Django/">Django framework</a>. 
+Compare that included functionality to the Flask framework which requires a 
+separate library such as 
+<a href="https://flask-login.readthedocs.org/en/latest/">Flask-Login</a>
+to perform user authentication. </p>
+<p>The batteries-included and extensibility philosophies are simply two different
+ways to tackle framework building. Neither philosophy is inherently better 
+than the other one.</p>
+<div class="well see-also">Django is an implementation of the <a href="/web-frameworks.html">web frameworks</a> concept. Learn how these pieces fit together in the <a href="/web-development.html">web development</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
 
-<h2>为什么说 Django Web 框架是一个不错的选择</h2>
-<p>自创建以来， Django 项目的稳定性、高性能和它的社区在过去的十年中有了长足的发展。现在已经有大量的在线资源和图书资料，从中你能找到详细的教程和实践指南。该框架还在不断地往新版本中增加诸如 <a href="https://docs.djangoproject.com/en/dev/topics/migrations/">数据迁移</a> 新功能。</p>
-<p>我非常推荐 Python Web 开发新手使用 Django 框架，因为它的官方文档和一些教程的质量在软件开发界都是数一数二的。许多城市都有 Django 团体，如 <a href="http://www.meetup.com/django-district/">Django District</a>、 <a href="http://www.meetup.com/djangoboston/">Django Boston</a> 和 <a href="http://www.meetup.com/The-San-Francisco-Django-Meetup-Group/">San Francisco Django</a>，因此新手在碰到难题时能获得帮助。</p>
-<p>虽然有 <a href="http://www.jeffknupp.com/blog/2012/12/11/learning-python-via-django-considered-harmful/">通过使用 Django 来学习 Python 是不好的</a> 这样的争议。但是，对于先前已经花时间学过 Python 语法和语义，然后才转入 Web 开发的人来说，这样的说法是站不住脚的。</p>
-<h2>Django 图书和教程</h2>
-<p>已经有大量的免费或低价的 Django 资源。不过 Django 是在 10 年前发布的，并且之后又进行了大量的更新，因此当你要找一本与时俱进的 Django 图书时，应该先看看下面的这份列表，或者读下这篇文章 <a href="http://twoscoopspress.org/pages/current-django-books">当前的 Django 图书</a>，截止到 Django 1.8，1.9。</p>
+<h2>Why is Django a good web framework choice?</h2>
+<p>The Django project's stability, performance and community have grown 
+tremendously over the past decade since the framework's creation. Detailed
+tutorials and good practices are readily available on the web and in books.
+The framework continues to add significant new functionality such as 
+<a href="https://docs.djangoproject.com/en/dev/topics/migrations/">database migrations</a>
+with each release. </p>
+<p>I highly recommend the Django framework as a starting place for new Python web 
+developers because the official documentation and tutorials are some of the 
+best anywhere in software development. Many cities also have Django-specific
+groups such as <a href="http://www.meetup.com/django-district/">Django District</a>,
+<a href="http://www.meetup.com/djangoboston/">Django Boston</a> and 
+<a href="http://www.meetup.com/The-San-Francisco-Django-Meetup-Group/">San Francisco Django</a> 
+so new developers can get help when they are stuck.</p>
+<p>There's some debate on whether 
+<a href="http://www.jeffknupp.com/blog/2012/12/11/learning-python-via-django-considered-harmful/">learning Python by using Django is a bad idea</a>. 
+However, that criticism is invalid if you take the time to learn the Python
+syntax and language semantics first before diving into web development.</p>
+<h2>Django books and tutorials</h2>
+<p>There are a slew of free or low cost resources out there for Django. Since
+Django was released over 10 years ago and has had a huge number of updates
+since then, when you're looking for an up-to-date Django book check out the
+list below or read this post showing <a href="http://twoscoopspress.org/pages/current-django-books">current Django books</a>
+as of Django 1.8, 1.9.</p>
 <ul>
 <li>
-<p><a href="http://www.obeythetestinggoat.com/">Python 测试驱动开发</a> 着重讲解如何用 Django 和 JavaScript 进行 Web 开发。该书将 Django 作为网站开发框架，并以一个实际案例的开发为例，讲解了如何进行测试驱动开发（TDD）。它的内容还涉及到 NoSQL、 Websocket 和异步响应等。该书能在网上免费阅读，或者你也可以购买 O'Reilly 的纸质版本。</p>
+<p><a href="http://www.obeythetestinggoat.com/">Test-Driven Development with Python</a> 
+  focuses on web development using Django and JavaScript. This book uses 
+  the development of a website using the Django web framework as a real
+  world example of how to perform test-driven development (TDD). There is
+  also coverage of NoSQL, websockets and asynchronous responses. The book can
+  be read online for free or purchased in hard copy via O'Reilly.</p>
 </li>
 <li>
-<p><a href="http://www.tangowithdjango.com/book17/">和 Django 跳探戈</a> 上有一系列内容丰富的免费文章，介绍如何使用这个最受欢迎的 Python Web 框架。 现在很多开发人员都说这份资料对于他们克服刚开始学习框架时的困难很有帮助。这份资料最近已更新到 Django 1.7！</p>
+<p><a href="http://www.tangowithdjango.com/book17/">Tango with Django</a> is an extensive 
+  set of free introductions to using the most popular Python web framework. 
+  Several current developers said this book really helped them get over the 
+  initial framework learning curve. It's recently been updated for Django 1.7!</p>
 </li>
 <li>
-<p><a href="http://tutorial.djangogirls.org/en/index.html">Django 宅女教程</a> 是一份不错的教程，它能帮助你创建你的首个 Web 应用，并且不要求你之前有任何 Python 或 Django 相关知识。</p>
+<p>The <a href="http://tutorial.djangogirls.org/en/index.html">Django Girls Tutorial</a>
+  is a great tutorial that doesn't assume any prior knowledge of Python or
+  Django while helping you build your first web application.</p>
 </li>
 <li>
-<p>由 Daniel Greenfeld 和 Audrey Roy 写的 <a href="http://twoscoopspress.com/products/two-scoops-of-django-1-8">2 Scoops of Django</a> 对于真正想学好如何正确开发 Django 网站的人来说物有所值。</p>
+<p><a href="http://twoscoopspress.com/products/two-scoops-of-django-1-8">2 Scoops of Django</a> 
+  by Daniel Greenfeld and Audrey Roy is well worth the price of admission if
+  you're serious about learning how to correctly develop Django websites.</p>
 </li>
 <li>
-<p><a href="http://effectivedjango.com/">高效 Django</a> 是另一份介绍 Web 框架的免费资料。</p>
+<p><a href="http://effectivedjango.com/">Effective Django</a> is another free introduction
+  to the web framework.</p>
 </li>
 <li>
-<p><a href="http://www.reddit.com/r/django">Django subreddit</a> 上经常会有与 Django 学习相关的最新链接，并且那里也是个提 Django 问题的好地方。</p>
+<p>The <a href="http://www.reddit.com/r/django">Django subreddit</a> often has links to
+  the latest resources for learning Django and is also a good spot to ask 
+  questions about it.</p>
 </li>
 <li>
-<p>Steve Losh 写了一篇详实精彩的文章 <a href="http://stevelosh.com/blog/2011/06/django-advice/">Django 忠告指南</a>。</p>
+<p>Steve Losh wrote an incredibly detailed <a href="http://stevelosh.com/blog/2011/06/django-advice/">Django Advice guide</a>.</p>
 </li>
 <li>
-<p><a href="http://programming.oreilly.com/2014/04/simplifying-django.html">轻量化 Django</a> 上有一些不错的示例，详述如何将 Django 分解成一些更小的组件。</p>
+<p><a href="http://programming.oreilly.com/2014/04/simplifying-django.html">Lightweight Django</a>
+  has several nice examples for breaking Django into smaller simpler 
+  components.</p>
 </li>
 <li>
-<p><a href="https://github.com/rogueleaderr/definitive_guide_to_django_deployment">Django 部署权威指南</a> 对配置后的结构进行讲解，并包含一个自动化部署的 Chef 脚本。</p>
+<p>The <a href="https://github.com/rogueleaderr/definitive_guide_to_django_deployment">Definitive Guide to Django Deployment</a>
+  explains the architecture of the resulting set up and includes Chef scripts
+  to automate the deployment.</p>
 </li>
 <li>
-<p><a href="http://agiliq.com/blog/2014/08/deploying-a-django-app-on-amazon-ec2-instance/">将 Django 应用部署到 Amazon EC2 上</a> 通过一个例子详实地演示了如果将一个 Django 应用部署到 Amazon Web 服务上。</p>
+<p><a href="http://agiliq.com/blog/2014/08/deploying-a-django-app-on-amazon-ec2-instance/">Deploying a Django app on Amazon EC2 instance</a>
+  is a detailed walkthrough for deploying an example Django app to Amazon
+  Web Services.</p>
 </li>
 <li>
-<p><a href="http://aliteralmind.wordpress.com/2014/09/21/jquery_django_tutorial/">Django 分步指南</a> 展示了如何在 JQuery 中通过 AJAX 传输数据。</p>
+<p>This <a href="http://aliteralmind.wordpress.com/2014/09/21/jquery_django_tutorial/">step-by-step guide for Django</a>
+  shows how to transmit data via AJAX with JQuery.</p>
 </li>
 <li>
-<p><a href="https://github.com/rosarior/awesome-django">django-awesome</a> 是一份精心整理的 Django 库和资源的列表。</p>
+<p><a href="https://github.com/rosarior/awesome-django">django-awesome</a> is a curated
+  list of Django libraries and resources.</p>
 </li>
 <li>
-<p><a href="https://realpython.com/learn/start-django/">开始一个 Django 项目</a> 解答了这个问题：“我如何从零开始配置一个 Django (1.5, 1.6, 1.7, or 1.8) 项目？”。</p>
+<p><a href="https://realpython.com/learn/start-django/">Starting a Django Project</a> 
+  answers the question, “How do I set up a Django (1.5, 1.6, 1.7, or 1.8) project 
+  from scratch?”</p>
 </li>
 <li>
-<p>这份 Django 教程讲解了 <a href="http://drksephy.github.io/2015/07/16/django/">如何使用 Twitter Bootstrap、 Bower、 Requests 和 Github API 从零开始创建一个项目</a>。</p>
+<p>This Django tutorial shows how to 
+  <a href="http://drksephy.github.io/2015/07/16/django/">build a project from scratch using Twitter Bootstrap, Bower, Requests and the Github API</a>.</p>
 </li>
 <li>
-<p><a href="http://www.revsys.com/blog/2014/nov/21/recommended-django-project-layout/">推荐的 Django 项目布局</a> 能帮助 Django 开发新手理解项目中每个App的目录和文件是如何组织的。</p>
+<p>The <a href="http://www.revsys.com/blog/2014/nov/21/recommended-django-project-layout/">recommended Django project layout</a>
+  is helpful for developers new to Django to understand how to structure
+  the directories and files within apps for projects.</p>
 </li>
 <li>
-<p><a href="https://github.com/davisfreeman1015/SocialAuthDjangoTutorial">Django 整合 Python 社交认证教程</a> 向你展示了如何在你的 Django 应用中集成社交媒体登录按钮。</p>
+<p>This <a href="https://github.com/davisfreeman1015/SocialAuthDjangoTutorial">Python Social Auth for Django tutorial</a>
+  will show you how to integrate social media sign in buttons into your Django
+  application.</p>
 </li>
 <li>
-<p>由 Luke Plant 所写的 <a href="http://lukeplant.me.uk/blog/posts/my-approach-to-class-based-views/">他自己的基于类的视图的另一种方法</a> (CBVs)这篇文章，经常会在 Django 社区中激起关于 CBV 是否能节省时间或者对于框架来说它是否”太过神奇“等的热烈争论。</p>
+<p>Luke Plant writes about 
+  <a href="http://lukeplant.me.uk/blog/posts/my-approach-to-class-based-views/">his approach to class based views</a> (CBVs),
+  which often provoke heated debate in the Django community for whether they
+  are a time saver or "too much magic" for the framework.</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04">如何在 Ubuntu 14.04 上使用 uWSGI 和 Nginx 部署 Django 应用</a> 及 <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-centos-7">如何设置 Django 、 PostgreSQL、 Nginx 和 Gunicorn</a> 这两个教程，详细演示了部署过程中的每个步骤。</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04">How to serve Django apps with uWSGI and Nginx on Ubuntu 14.04</a>
+  and 
+  <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-centos-7">how to set up Django with PostgreSQL, Nginx and Gunicorn</a> 
+  are detailed tutorials that walk through each step in the deployment process.</p>
 </li>
 <li>
-<p>每个 Web 应用都应处理好时区问题。这篇 <a href="http://tommikaikkonen.github.io/timezones/">发布在 pytz and Django 上的文章</a> 对于你需要为此了解哪些知识给你指明了方向。</p>
+<p>Working with time zones is necessary for every web application. This 
+  <a href="http://tommikaikkonen.github.io/timezones/">blog post on pytz and Django</a> is a
+  great start for figuring out what you need to know.</p>
 </li>
 </ul>
-<h2>Django 视频资源</h2>
-<p>除了文章，你还想找 Django 视频吗？在 <a href="/best-python-videos.html">最佳 Python 视频</a> 页上有一节专门针对 Django 和 Web 开发的。</p>
-<h2>Django 迁移</h2>
+<h2>Django videos</h2>
+<p>Are you looking for Django videos in addition to articles? There is a special section
+for Django and web development on the <a href="/best-python-videos.html">best Python videos</a> page.</p>
+<h2>Django migrations</h2>
 <ul>
 <li>
-<p>Paul Hallett 发布在 Twilio 博客上的文章 <a href="https://www.twilio.com/blog/2014/10/upgrading-your-django-reusable-app-to-support-django-1-7.html">Django 1.7 应用升级详细指南</a> 讲述了他对 django-twilio 包的使用经验。</p>
+<p>Paul Hallett wrote a 
+  <a href="https://www.twilio.com/blog/2014/10/upgrading-your-django-reusable-app-to-support-django-1-7.html">detailed Django 1.7 app upgrade guide</a> 
+  on the Twilio blog from his experience working with the django-twilio 
+  package.</p>
 </li>
 <li>
-<p>Real Python 上的 <a href="https://realpython.com/blog/python/django-migrations-a-primer/">迁移入门教程</a> 探讨了 South 与 Django 内置的迁移功能之间的区别，并介绍了它们的使用方法。</p>
+<p>Real Python's <a href="https://realpython.com/blog/python/django-migrations-a-primer/">migrations primer</a>
+  explores the difference between South's migrations and the built-in
+  Django 1.7 migrations as well as how you use them.</p>
 </li>
 <li>
-<p>Andrew Pinkham 写的 ”升级到 Django 1.7“ 系列文章是很好的学习材料，据此你能了解该版本主要进行了哪些更新，以及能学到应如何相应地对你的 Django 项目进行更新。 <a href="http://andrewsforge.com/article/upgrading-django-to-17/part-1-introduction-and-django-releases/">第 1 部分</a>、 <a href="http://andrewsforge.com/article/upgrading-django-to-17/part-2-migrations-in-django-16-and-17/">第 2 部分</a>、 <a href="http://andrewsforge.com/article/upgrading-django-to-17/part-3-django-17-new-features/">第 3 部分</a> 和 <a href="http://andrewsforge.com/article/upgrading-django-to-17/part-4-upgrade-strategies/">第 4 部分</a> 现在都能找到。</p>
+<p>Andrew Pinkham's "Upgrading to Django 1.7" series is great learning
+  material for understanding what's changed in this major release and
+  how to adapt your Django project.
+  <a href="http://andrewsforge.com/article/upgrading-django-to-17/part-1-introduction-and-django-releases/">Part 1</a>,
+  <a href="http://andrewsforge.com/article/upgrading-django-to-17/part-2-migrations-in-django-16-and-17/">part 2</a> and
+  <a href="http://andrewsforge.com/article/upgrading-django-to-17/part-3-django-17-new-features/">part 3</a>
+  and
+  <a href="http://andrewsforge.com/article/upgrading-django-to-17/part-4-upgrade-strategies/">part 4</a>
+  are now all available to read.</p>
 </li>
 <li>
-<p><a href="http://pankrat.github.io/2015/django-migrations-without-downtimes/">不下线迁移 Django </a> 展示了如何在 Django 站点不下线的情况下进行数据迁移。</p>
+<p><a href="http://pankrat.github.io/2015/django-migrations-without-downtimes/">Django migrations without downtimes</a>
+  shows one potential way of performing on-line schema migrations with
+  Django.</p>
 </li>
 </ul>
-<h2>1.9+ 中的通道</h2>
-<p>通道是 Django 1.9 的一种新机制(作为一个独立应用，稍后会合并到核心框架中），它能基于 <a href="/websockets.html">WebSocket</a> 实现浏览器与服务器之间的实时双向通讯。</p>
+<h2>Channels in 1.9+</h2>
+<p>Channels are a new mechanism in Django 1.9 (as a standalone app, later
+for incorporation into the core framework in 1.10) for real-time 
+full-duplex communication between the browser and the server based on 
+<a href="/websockets.html">WebSockets</a>. </p>
 <ul>
 <li>
-<p><a href="https://blog.heroku.com/archives/2016/3/17/in_deep_with_django_channels_the_future_of_real_time_apps_in_django">这份教程展示了如何在你的项目中引入 Django 通道功能</a>。</p>
+<p>This 
+  <a href="https://blog.heroku.com/archives/2016/3/17/in_deep_with_django_channels_the_future_of_real_time_apps_in_django">tutorial shows how to get started with Django Channels in your project</a>.</p>
 </li>
 <li>
-<p><a href="https://github.com/andrewgodwin/channels-examples">这个通道示例代码库</a> 里有一些不错的初始项目，如实时博客和聊天应用等，可以用作你的基础代码。</p>
+<p>The 
+  <a href="https://github.com/andrewgodwin/channels-examples">channels examples repository</a>
+  contains a couple of good starter projects such as a live blog and a 
+  chat application to use as base code.</p>
 </li>
 <li>
-<p>通道目前使用 Django 现有的认证机制，但是这篇文章 <a href="http://www.machinalis.com/blog/jwt-django-channels/">在 Django 通道中使用 JSON Web Tokens 认证</a> 展示了如何在 Django 通道中使用第三方的 <a href="https://jwt.io/">JSON Web Token (JWT)</a> 进行实现。</p>
+<p>Channnels currently use Django's existing authentication scheme, but
+  this blog post <a href="http://www.machinalis.com/blog/jwt-django-channels/">JSON Web Tokens authentication on Django Channels</a>
+  shows how to use a custom <a href="https://jwt.io/">JSON Web Token (JWT)</a>
+  implementation in Django Channels instead.</p>
+</li>
+<li>
+<p><a href="http://www.machinalis.com/blog/offloading-work-using-django-channels/">Offloading work using Django Channels</a>
+  is a short post that builds on a previous example to add a shared 
+  canvas with group updates via Channels, which would otherwise be difficult 
+  to accomplish in a Django web app without a persistent data transfer
+  mechanism.</p>
 </li>
 </ul>
-<h2>Django 测试</h2>
+<h2>Django testing</h2>
 <ul>
 <li>
-<p><a href="https://lincolnloop.com/blog/integrating-front-end-tools-your-django-project/">Django 集成前端工具</a> 这篇文章指出了如何在开发环境或生产环境的 Django 网站上使用 <a href="http://gulpjs.com/">Gulp</a> 来处理前端工具。</p>
+<p><a href="https://lincolnloop.com/blog/integrating-front-end-tools-your-django-project/">Integrating Front End Tools with Django</a>
+  is a good post to read for figuring out how to use <a href="http://gulpjs.com/">Gulp</a>
+  for handling front end tools in development and production Django sites.</p>
 </li>
 <li>
-<p><a href="http://howchoo.com/g/mjkwmtu5zdl/getting-started-with-django-testing">开始 Django 测试</a> 将使你不再耽搁你的 Django 项目测试计划，如何你之前不知从何开始测试的话。</p>
+<p><a href="http://howchoo.com/g/mjkwmtu5zdl/getting-started-with-django-testing">Getting Started with Django Testing</a>
+  will help you stop procrastinating on testing your Django projects if you're
+  uncertain where to begin.</p>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/testing-in-django-part-1-best-practices-and-examples/">Django 测试</a> 提供了大量的示例，并据此讲解如何对你的 Django 项目代码进行测试。</p>
+<p><a href="https://realpython.com/blog/python/testing-in-django-part-1-best-practices-and-examples/">Testing in Django</a>
+  provides numerous examples and explanations for how to test your Django
+  project's code.</p>
 </li>
 <li>
-<p><a href="https://medium.com/@unary/django-views-automated-testing-with-selenium-d9df95bdc926">使用 Selenium 对 Django 视图进行自动化测试</a> 使用了一些示例代码来演示如何在浏览器里使用 <a href="http://www.seleniumhq.org">Selenium</a> 进行测试。</p>
+<p><a href="https://medium.com/@unary/django-views-automated-testing-with-selenium-d9df95bdc926">Django views automated testing with Selenium</a>
+  gives some example code to get up and running with 
+  <a href="http://www.seleniumhq.org">Selenium</a> browser-based tests.</p>
 </li>
 </ul>
-<h2>Django 及 Angular (Djangular) 资源</h2>
+<h2>Django with Angular (Djangular) resources</h2>
 <ul>
 <li>
-<p><a href="http://blog.kevinastone.com/getting-started-with-django-rest-framework-and-angularjs.html">Django Rest 框架与 AngularJS 入门</a> 是一篇有关 Djangular 的详细介绍，并附带示例代码。</p>
+<p><a href="http://blog.kevinastone.com/getting-started-with-django-rest-framework-and-angularjs.html">Getting Started with Django Rest Framework and AngularJS</a>
+  is a very detailed introduction to Djangular with example code. </p>
 </li>
 <li>
-<p><a href="https://thinkster.io/brewer/angular-django-tutorial/">用 Django 和 AngularJS 创建 Web 应用</a> 是一篇非常详实的指南，讲述如何以 Django 作为 API 层以及将 AngularJS 作为浏览器 MVC 前端进行开发。</p>
+<p><a href="https://thinkster.io/brewer/angular-django-tutorial/">Building Web Applications with Django and AngularJS</a>
+  is a very detailed guide for using Django as an API layer and AngularJS
+  as the MVC front end in the browser.</p>
 </li>
 <li>
-<p>这篇教程 <a href="http://mourafiq.com/2013/07/01/end-to-end-web-app-with-django-angular-1.html">用 Django-Rest 框架 &amp; AngularJS 进行 Web 应用开发，第 1 部分</a> 以及其 <a href="http://mourafiq.com/2013/07/15/end-to-end-web-app-with-django-angular-2.html">第 2 部分</a>、 <a href="http://mourafiq.com/2013/08/01/end-to-end-web-app-with-django-angular-3.html">第 3 部分</a> 和 <a href="http://mourafiq.com/2013/08/15/end-to-end-web-app-with-django-angular-4.html">第 4 部分</a> 讲述了如何用 Djangular 创建一个示例博客系统。该项目的代码存放在 <a href="https://github.com/mouradmourafiq/django-angular-blog">GitHub 上</a>。</p>
+<p>This <a href="http://mourafiq.com/2013/07/01/end-to-end-web-app-with-django-angular-1.html">end to end web app with Django-Rest-Framework &amp; AngularJS part 1</a>
+  tutorial along with 
+  <a href="http://mourafiq.com/2013/07/15/end-to-end-web-app-with-django-angular-2.html">part 2</a>,
+  <a href="http://mourafiq.com/2013/08/01/end-to-end-web-app-with-django-angular-3.html">part 3</a>
+  and
+  <a href="http://mourafiq.com/2013/08/15/end-to-end-web-app-with-django-angular-4.html">part 4</a>
+  creates an example blog application with Djangular. There is also a
+  corresponding <a href="https://github.com/mouradmourafiq/django-angular-blog">GitHub repo</a>
+  for the project code.</p>
 </li>
 <li>
-<p><a href="https://github.com/jrief/django-angular">Django-angular</a> 这个代码库意在使 Django 和 AngularJS 在前端开发上更匹配。</p>
+<p><a href="https://github.com/jrief/django-angular">Django-angular</a> is a code 
+  library that aims to make it easier to pair Django with AngularJS on
+  the front end.</p>
 </li>
 </ul>
-<h2>Django ORM 资源</h2>
-<p>Django 有自己内置的的对象关系映射器(ORM), 通常指代为 "the Django ORM"。到 <a href="/object-relational-mappers-orms.html">Python 对象关系映射页</a> 上了解 Django ORM 相关的更多信息，那上面有一节是专门解读 Django ORM的，当然上面还有其它的资源和教程。</p>
-<h2>静态和媒体文件</h2>
-<p>Django 初级开发人员对于如何部署和处理静态和媒体文件会感觉困惑。下面列出的资料以及 <a href="/static-content.html">静态内容</a> 那一页上的资源对于搞清楚如何正确处理这些文件很有帮助。</p>
+<h2>Django ORM resources</h2>
+<p>Django comes with its own custom object-relational mapper (ORM) typically
+referred to as "the Django ORM". Learn more about the Django ORM on the
+<a href="/object-relational-mappers-orms.html">Python object-relational mappers page</a> 
+that includes a section specifically for the Django ORM as well as additional
+resources and tutorials.</p>
+<h2>Static and media files</h2>
+<p>Deploying and handling static and media files can be confusing for new
+Django developers. These resources along with the 
+<a href="/static-content.html">static content</a> page are useful for figuring out how 
+to handle these files properly.</p>
 <ul>
 <li>
-<p><a href="http://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/">使用 Amazon S3 来存储你的 Django 站点静态和媒体文件</a> 是一篇很好的文章，解答了如何部署静态和媒体文件这个通常被问到的问题。</p>
+<p><a href="http://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/">Using Amazon S3 to Store your Django Site's Static and Media Files</a>
+  is a well written guide to a question commonly asked about static and
+  media file serving.</p>
 </li>
 <li>
-<p><a href="http://www.revsys.com/blog/2014/dec/03/loading-django-files-from-code/">从文件系统中导入 Django FileField 和 ImageFields</a> 向你展示了数据模型的文件类型的项值是如何从文件系统中导入的。</p>
+<p><a href="http://www.revsys.com/blog/2014/dec/03/loading-django-files-from-code/">Loading Django FileField and ImageFields from the file system</a>
+  shows how to load a model field with a file from the file system.</p>
 </li>
 <li>
-<p><a href="http://blog.wearefarm.com/2015/02/09/contact-form-uploads/">在 Django 中限制对用户上传的文件的访问</a> 提供了对媒体文件的一种保护机制。</p>
+<p><a href="http://blog.wearefarm.com/2015/02/09/contact-form-uploads/">Restricting access to user-uploaded files in Django</a>
+  provides a protection mechanism for media files.</p>
 </li>
 </ul>
-<h2>开源 Django 示例项目</h2>
+<h2>Open source Django example projects</h2>
 <ul>
 <li>
-<p><a href="https://www.twilio.com/docs/howto/walkthrough/browser-calls/python/django">使用 Django 和 Twilio 制作浏览器通话器</a> 展示了如何利用 Django 和 <a href="https://www.twilio.com/client">Twilio 客户端</a> 来创建一个 Web 应用，将用户的浏览器改造成一个全功能的电话机。非常有趣。</p>
+<p><a href="https://www.twilio.com/docs/howto/walkthrough/browser-calls/python/django">Browser calls with Django and Twilio</a>
+  shows how to build a web app with Django and 
+  <a href="https://www.twilio.com/client">Twilio Client</a> to turn a user's web 
+  browser into a full-fledged phone. Pretty awesome!</p>
 </li>
 <li>
-<p><a href="https://github.com/makaimc/txt2react">Txt 2 React</a> 是一个 Django Web 应用，它能让观众一边观看演示，一边输入反馈信息或者提问。</p>
+<p><a href="https://github.com/makaimc/txt2react">Txt 2 React</a> is a full Django web
+  app that allows audiences to text in during a presentation with feedback
+  or questions.</p>
 </li>
 <li>
-<p><a href="https://github.com/ustream/openduty">Openduty</a> 是一个网站状态检查和报警系统，类似于 PagerDuty。</p>
+<p><a href="https://github.com/ustream/openduty">Openduty</a> is a website status checking
+  and alert system similar to PagerDuty.</p>
 </li>
 <li>
-<p><a href="https://github.com/myusuf3/courtside">Courtside</a> 是一个收集体育活动信息的 Web 应用，由 PyCoder‘s Weekly 的作者编写和维护。</p>
+<p><a href="https://github.com/myusuf3/courtside">Courtside</a> is a pick up sports web 
+  application written and maintained by the author of PyCoder's Weekly.</p>
 </li>
 <li>
-<p>Django 交互式语音应答系统 (IVR)，它的两份 Web 应用代码库： <a href="https://github.com/phalt/twilio-django-part-1">第 1 部分</a> 和 <a href="https://github.com/phalt/twilio-django-part-2">第 2 部分</a> 向你展示了如何创建一个真正有趣的 Django 应用 。它还有相应的 <a href="https://www.twilio.com/blog/2014/07/build-an-ivr-system-with-twilio-and-django.html">文章</a>， 对其中的每一个步骤进行了详细的讲解。</p>
+<p>These two Django Interactive Voice Response (IVR) system web application
+  repositories <a href="https://github.com/phalt/twilio-django-part-1">part 1</a> and
+  <a href="https://github.com/phalt/twilio-django-part-2">part 2</a> show you how to
+  build a really cool Django application. There's also an accompanying 
+  <a href="https://www.twilio.com/blog/2014/07/build-an-ivr-system-with-twilio-and-django.html">blog post</a>
+  with detailed explanations of each step.</p>
 </li>
 <li>
-<p><a href="https://github.com/taigaio/taiga-back">Taiga</a> 是一个项目管理工具，后端用 Django 开发，前端用 AngularJS 开发。</p>
+<p><a href="https://github.com/taigaio/taiga-back">Taiga</a> is a project management
+  tool built with Django as the backend and AngularJS as the front end.</p>
 </li>
 </ul>
-<h2>Django 项目模板</h2>
+<h2>Django project templates</h2>
 <ul>
 <li>
-<p><a href="https://github.com/caktus/django-project-template">Caktus Group Django 项目模板</a> 适用于 Django 1.6+。</p>
+<p><a href="https://github.com/caktus/django-project-template">Caktus Group's Django project template</a> 
+  is Django 1.6+ ready.</p>
 </li>
 <li>
-<p><a href="https://github.com/pydanny/cookiecutter-django">Cookiecutter Django</a> 这个项目模板出自 Daniel Greenfeld，它使用了 Audrey Roy 的 <a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a>。使用该模板的项目部署到 Heroku 上非常容易。</p>
+<p><a href="https://github.com/pydanny/cookiecutter-django">Cookiecutter Django</a> is a 
+  project template from Daniel Greenfeld, for use with Audrey Roy's 
+  <a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a>. The template results
+  are Heroku deployment-ready.</p>
 </li>
 <li>
-<p><a href="https://github.com/twoscoops/django-twoscoops-project">Two Scoops Django 项目模板</a> 同样来自 PyDanny 和 Audrey Roy。这个模板提供了一个在《Two Scoops of Django》那本书中描述过的快速代码框架。</p>
+<p><a href="https://github.com/twoscoops/django-twoscoops-project">Two Scoops Django project template</a>
+  is also from the PyDanny and Audrey Roy. This one provides a quick scaffold
+  described in the Two Scoops of Django book.</p>
 </li>
 <li>
-<p><a href="https://github.com/mozilla/sugardough">Sugardough</a> 这个 Django 项目模板来自 Mozilla，并与 cookiecutter 兼容。</p>
+<p><a href="https://github.com/mozilla/sugardough">Sugardough</a> is a Django project
+  template from Mozilla that is compatible with cookiecutter.</p>
 </li>
 </ul>
-<h2>Django 学习清单</h2>
+<h2>Django learning checklist</h2>
 <ol>
 <li>
-<p>在你的本地开发机器上 <a href="https://docs.djangoproject.com/en/dev/topics/install/">安装 Django</a>。</p>
+<p><a href="https://docs.djangoproject.com/en/dev/topics/install/">Install Django</a> on
+   your local development machine.</p>
 </li>
 <li>
-<p>依据 <a href="https://docs.djangoproject.com/en/dev/intro/tutorial01/">"polls" 这个教程</a>进行练习。</p>
+<p>Work through the initial 
+   <a href="https://docs.djangoproject.com/en/dev/intro/tutorial01/">"polls" tutorial</a>.</p>
 </li>
 <li>
-<p>依据 “Django 资源” 那一节上的相关教程，创建一些简单的应用。</p>
+<p>Build a few more simple applications using the tutorial resources found
+   in the "Django resources" section.</p>
 </li>
 <li>
-<p>参考 <a href="https://docs.djangoproject.com/en/dev/">官方文档</a> 以及上面的资源链接，开始编写你自己的 Django 项目。当然你会犯错误，但这是你学习如何正确的创建应用的必经之路。</p>
+<p>Start coding your own Django project with help from the 
+   <a href="https://docs.djangoproject.com/en/dev/">official documentation</a> and 
+   resource links below. You'll make plenty of mistakes which is critical
+   on your path to learning the right way to build applications.</p>
 </li>
 <li>
-<p>阅读 <a href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/0981467342">2 Scoops of Django</a> 来理解 Django 的最佳实践，并学会什么是创建 Django Web 应用的更好方式。</p>
+<p>Read <a href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/0981467342">2 Scoops of Django</a> 
+   to understand Django good practices and learn better ways of building 
+   Django web applications.</p>
 </li>
 <li>
-<p>查看 <a href="/deployment.html">部署那一章</a>，将你的 Django 项目发布到网上。</p>
+<p>Move on to the <a href="/deployment.html">deployment section</a> to get your Django 
+   project on the web.</p>
 </li>
 </ol>
 <h3>关于 Django 应用，接下来还要学习什么知识？</h3>
@@ -307,7 +473,7 @@
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Cascading Style Sheets (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Template Engines</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Application Security</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Generators</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Frameworks</a><a href="/django.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Template Engines</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Application Security</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
       <div class="panel-heading"><h3 class="panel-head">Django</h3></div>
