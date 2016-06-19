@@ -1,15 +1,17 @@
 title: How to Install and Use MySQL on Ubuntu 16.04
 slug: install-mysql-ubuntu-1604 
-meta: A quick tutorial on installing and use MySQL on Ubuntu 16.04 Xenial Xerus.
+meta: A quick tutorial to install and use MySQL on Ubuntu 16.04 Xenial Xerus.
 category: post
 date: 2016-05-28
+headerimage: /source/static/img/160528-mysql-ubuntu-1604/header.jpg
+headeralt: MySQL and Ubuntu logos. Copyright their respective owners.
 
 
 [MySQL](/mysql.html) is a common open source 
 [relational database](/databases.html) for creating, reading, updating 
 and deleting data in [Python web applications](/web-frameworks.html).
-Let's learn how to install MySQL on Ubuntu 16.04 and then run a few 
-SQL queries within the command line client.
+Let's learn how to install MySQL on [Ubuntu 16.04](/ubuntu.html) and then 
+run a few SQL queries within the command line client.
 
 We will not go over connecting via Python applications using
 [object-relational mappers (ORMs)](/object-relational-mappers-orms.html) 
