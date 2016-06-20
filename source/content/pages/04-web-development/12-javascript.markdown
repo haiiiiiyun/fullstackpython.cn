@@ -4,29 +4,21 @@ slug: javascript
 sortorder: 0412
 toc: False
 sidebartitle: JavaScript
-meta: Learn about JavaScript and MVC frameworks for web applications on Full Stack Python.
+meta: 到 Full Stack Python 上学习 JavaScript 和 Web 应用的 MVC 框架。
+authors: haiiiiiyun.github.io
+updated: 2016-06-21 08:55
 
 
 # JavaScript
-JavaScript is a small scripting programming language embedded in web browsers 
-to enable dynamic content and interaction. 
+JavaScript 是一种小型的脚本编程语言，它嵌于 Web 浏览器中，用于实现动态内容和用户交互。
 
+## 为什么说 JavaScript 是必需的？
+JavaScript 在客户端执行，它能实现单独的 HTML 和 CSS 不可能实现的动态内容和用户交互。现在的每个 Python Web 应用都在前端使用 JavaScript。
 
-## Why is JavaScript necessary?
-JavaScript executes in the client and enables dynamic content and interaction
-that is not possible with HTML and CSS alone. Every modern Python web 
-application uses JavaScript on the front end. 
+## 前端框架
+前端 JavaScript 框架将 Web 应用的绝大多数呈现功能移到了客户端。因为网页在每次点击新链接时不用重新加载，这种类型的应用通常非正式地被称为 “单面应用”。相反的，这种应用中的部分 HTML 页面会加载到文档对象模型中，或者通过 API 调用获取的数据会显示到已存在的页面上。
 
-
-## Front end frameworks
-Front end JavaScript frameworks move the rendering for most of a web 
-application to the client side. Often these applications are informally 
-referred to as "one page apps" because the webpage is not reloaded upon every
-click to a new URL. Instead, partial HTML pages are loaded into the 
-document object model or data is retrieved through an API call then displayed
-on the existing page.
-
-Examples of these front end frameworks include:
+这些前端框架包括：
 
 * [Angular.js](https://angularjs.org/)
 
@@ -34,69 +26,36 @@ Examples of these front end frameworks include:
 
 * [Ember.js](http://emberjs.com/)
 
-Front end frameworks are rapidly evolving. Over the next several years 
-consensus about good practices for using the frameworks will emerge.
+前端框架发展非常迅速。过不了几年，关于框架使用的最佳实践的共识将会达成。
 
 
-## How did JavaScript originate?
-JavaScript is an implementation of 
-[the ECMAScript specification](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/JavaScript_Overview) 
-which is defined by the 
-[Ecma International Standards Body](http://www.ecma-international.org/default.htm).
+## JavaScript 的起源？
+JavaScript 是对 [ECMAScript 规范](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/JavaScript_Overview) 的一种实现，该规范是由 [Ecma 国际标准组织](http://www.ecma-international.org/default.htm) 定义的。
 
+## JavaScript 资源
+* [2015 年前端工具](http://ashleynolan.co.uk/blog/frontend-tooling-survey-2015-results) 显示了一份关于前端开发人员在 CSS 预处理/后处理过程及其它构建步骤中都使用哪些工具的调查结果。
 
-## JavaScript resources
-* [Frontend tooling in 2015](http://ashleynolan.co.uk/blog/frontend-tooling-survey-2015-results)
-  shows the results of a survey for what frontend developers are using for
-  CSS pre- and post-processing and other build steps.
+* [浏览器工作原理](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/) 对 JavaScript 和 CSS，以及页面是如何在浏览器中呈现的等知识进行了非常好的概述。
 
-* [How Browsers Work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
-  is a great overview of both JavaScript and CSS as well as how pages are 
-  rendered in a browser.
+* 由 Mozilla 发布的 [重新介绍 JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) 对 JavaScript 的基本语法和操作符进行了讲解。
 
-* [A re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
-  by Mozilla walks through the basic syntax and operators.
+* [代码工具与 JavaScript 库](http://www.smashingmagazine.com/2011/10/28/useful-coding-workflow-tools-for-web-designers-developers/) 是一份由 Smashing Magazine 整理的长清单，列出了与 JavaScript 相关的库与工具，并对列出的每一项进行了讲解。
 
-* [Coding tools and JavaScript libraries](http://www.smashingmagazine.com/2011/10/28/useful-coding-workflow-tools-for-web-designers-developers/)
-  is a huge list by Smashing Magazine with explanations for each tool and 
-  library for working with JavaScript.
+* [Superhero.js](http://superherojs.com/) 是一份关于如何测试、组织、理解 JavaScript 及其一般性用法的资源列表，它设计的相当赞。
 
-* [Superhero.js](http://superherojs.com/) is an incredibly well designed list
-  of resources for how to test, organize, understand and generally work with
-  JavaScript.
+* [Unheap](http://www.unheap.com/) 收集了一份非常不错的可重用 JQuery 插件集，从导航栏到显示媒体内容，内容涉及各个方面。
 
-* [Unheap](http://www.unheap.com/) is an amazing collection of reusable JQuery 
-  plugins for everything from navigation to displaying media.
+* [2015 年的 JavaScript 状况](http://www.breck-mckye.com/blog/2014/12/the-state-of-javascript-in-2015/) 论述了这样一个观点：因生态系统变动，比起大型框架，人们现在更倾向于使用小型、单一用途的 JavaScript 库。
 
-* [The State of JavaScript in 2015](http://www.breck-mckye.com/blog/2014/12/the-state-of-javascript-in-2015/)
-  is an opinion piece about favoring small, single-purpose JavaScript libraries 
-  over larger frameworks due to churn in the ecosystem.
+* [当代 JavaScript 开发者工具集](http://www.infoq.com/articles/modern-javascript-toolbox) 为那些在他们的 Web 应用中使用 Javascript 的开发者，提供了一份客户端和服务端常用工具的高度概括。
 
-* [The Modern JavaScript Developer’s Toolbox ](http://www.infoq.com/articles/modern-javascript-toolbox)
-  provides a high-level overview of tools frequently used on the client and
-  server side for developers using JavaScript in their web applications.
+## JavaScript 学习清单
+1. 创建一个只含基本元素的简单 HTML 文件。使用 ``python -m SimpleHTTPServer`` 命令来开启服务端进程。在 HTML 文件的 ``<body>`` 区域的最末尾创建一个 ``<script type="text/javascript"></script>``。 在 script 元素中通过试验 JavaScript 来学习基本语法。
 
+1. 下载 [JQuery](http://jquery.com/) 并将它添加到页面中的 JavaScript 元素之前，开始使用 JQuery 并理解它如何使 JavaScript 的基本功能变得更加易用。
 
-## JavaScript learning checklist
-1. Create a simple HTML file with basic elements in it. Use the
-   ``python -m SimpleHTTPServer`` command to serve it up. Create a 
-   ``<script type="text/javascript"></script>`` 
-   element at the end of the ``<body>`` section in the HTML page. Play
-   with JavaScript within that element to learn the basic syntax.
+1. 在页面上使用 JavaScript。将上面列出的开源项目中的示例和 JQuery 插件加入到页面中。到 [Unheap](http://www.unheap.com/) 上查找大量的分类 JQuery 插件集。
 
-1. Download [JQuery](http://jquery.com/) and add it to the page above your 
-   JavaScript element. Start working with JQuery and learning how it makes 
-   basic JavaScript easier.
+1. 查看上面列出的 JavaScript 资源，学习更多的高级概念并研究开源库。
 
-1. Work with JavaScript on the page. Incorporate examples from open source 
-   projects listed below as well as JQuery plugins. Check out 
-   [Unheap](http://www.unheap.com/) to find a large collection of categorized 
-   JQuery plugins.
-
-1. Check out the JavaScript resources below to learn more about advanced 
-   concepts and open source libraries.
-
-1. Integrate JavaScript into your web application and check the 
-   [static content](/static-content.html) section for how to host the 
-   JavaScript files.
-
+1. 将 JavaScript 加入到你的 Web 应用中，查看 [静态内容](/static-content.html) 那一章来学习如何发布 JavaScript 文件。
