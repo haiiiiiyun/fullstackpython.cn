@@ -4,100 +4,51 @@ slug: websockets
 sortorder: 0413
 toc: False
 sidebartitle: WebSockets
-meta: WebSockets are a protocol for full-duplex web communications. Learn about WebSockets on Full Stack Python.
+meta: WebSocket 是一种全双工 Web 通讯协议。到 Full Stack Python 上学习 WebSockets 知识。
+updated: 2016-06-21 08:45
 
 
 # WebSockets
-A WebSocket is a [standard protocol](http://tools.ietf.org/html/rfc6455) for 
-two-way data transfer between a client and server. The WebSockets protocol 
-does not run over HTTP, instead it is a separate implementation on top of 
-[TCP](http://en.wikipedia.org/wiki/Transmission_Control_Protocol).
+WebSocket 是一种 [标准协议](http://tools.ietf.org/html/rfc6455)，用于在客户端和服务端之间进行双向数据传输。WebSockets 协议没有运行在 HTTP 之上，它是基于 [TCP](http://en.wikipedia.org/wiki/Transmission_Control_Protocol) 的一种独立实现。
 
+## 为什么要用 WebSockets？
+一个 WebSocket 连接允许在客户端和服务端之间进行全双工通讯，从而每一端都可以通过建立的连接向另一端推送数据。 WebSocket，以及与其相关的 [服务端发送事件](http://en.wikipedia.org/wiki/Server-sent_events) (SSE) 及 [WebRTC 数据通路](https://tools.ietf.org/html/draft-ietf-rtcweb-data-channel-12) 等技术之所以重要的原因是：HTTP不能打开并一直保持连接，不能在服务端和 Web 浏览器之间进行频繁的数据推送。在这之前，大多数的 Web 应用会通过频繁的异步 JavaScript 和 XML (AJAX) 请求来实现长轮循，如下图所示。
 
-## Why use WebSockets?
-A WebSocket connection allows full-duplex communication between a client 
-and server so that either side can push data to the other through an 
-established connection. The reason why WebSockets, along with the related 
-technologies of 
-[Server-sent Events](http://en.wikipedia.org/wiki/Server-sent_events) (SSE) 
-and 
-[WebRTC data channels](https://tools.ietf.org/html/draft-ietf-rtcweb-data-channel-12), 
-are important is that HTTP is not meant for keeping open a connection for
-the server to frequently push data to a web browser. Previously, most web
-applications would implement long polling via frequent
-Asynchronous JavaScript and XML (AJAX) requests as shown in the below diagram. 
+<img src="/img/ajax-long-polling.png" width="100%" alt="通过 AJAX 的长轮循对于一些应用来说相当的低效。" class="technical-diagram" />
 
-<img src="/img/ajax-long-polling.png" width="100%" alt="Long polling via AJAX is incredibly inefficient for some applications." class="technical-diagram" />
+服务端推送相比长轮循效率更高且更具扩展性，因为 Web 浏览器不再需要通过一系列的 AJAX 请求来持续地获取更新。
 
-Server push is more efficient and scalable than long polling because the 
-web browser does not have to constantly ask for updates through a stream 
-of AJAX requests.
+<img src="/img/websockets-flow.png" width="100%" alt="对于获取服务端所发送的更新来说，WebSocket 比 长轮循理有效率。" class="technical-diagram" />
 
-<img src="/img/websockets-flow.png" width="100%" alt="WebSockets are more efficient than long polling for server sent updates." class="technical-diagram" />
+虽然上图中所示的是服务端将数据推送给客户端，但是 WebSocket 是一个全双工的连接，因此客户端也能将数据推送给服务端，如下图所示。
 
-While the above diagram shows a server pushing data to the client, WebSockets
-is a full-duplex connection so the client can also push data to the server
-as shown in the diagram below.
+<img src="/img/websockets-flow-with-client-push.png" width="100%" alt="WebSocket 也允许客户端向服务端推送数据。" class="technical-diagram" />
 
-<img src="/img/websockets-flow-with-client-push.png" width="100%" alt="WebSockets also allow client push in addition to server pushed updates." class="technical-diagram" />
+用 WebSockets 来获取服务端/客户端推送的更新，这种方式适合特定类型的 Web 应用，例如聊天室，这也是它之所以经常被用作 WebSocket 库的示例应用的原因。
 
-The WebSockets approach for server- and client-pushed updates works well for 
-certain categories of web applications such as chat room, which is why that's 
-often an example application for a WebSocket library.
+## 实现 WebSocket
+Web 浏览器和服务端都必须要实现 WebSocket 协议，以便建立和维护连接。因为 WebSocket 的连接是持续连通的，不像经典的 HTTP 连接，因此服务器需要做更多工作。
 
+基于多线程或多进程的服务器不能很好地提供 WebSockets 服务，因为它们的设计是：打开一个连接，尽快处理完请求，然后关闭连接。因此，采用 [Tornado](http://www.tornadoweb.org/en/stable/) 或 打包了 [gevent](http://www.gevent.org/) 的 [Green Unicorn](http://gunicorn.org/) 等异步服务器，对于实现一个实用的服务端 WebSockets 都是必要的。 
 
-## Implementing WebSockets
-Both the web browser and the server must implement the WebSockets protocol
-to establish and maintain the connection. There are important implications for 
-servers since WebSockets connections are long lived, unlike typical HTTP 
-connections. 
+而在客户端，使用 WebSocket 并不要求有某个 JavaScript 库。实现了 WebSocket 的 Web 浏览器都会通过 [WebSockets 对象](http://www.w3.org/TR/2011/WD-websockets-20110419/) 导出所有必要的客户端功能。
 
-A multi-threaded or multi-process based server cannot scale appropriately for
-WebSockets because it is designed to open a connection, handle a request as 
-quickly as possible and then close the connection. An asynchronous server such 
-as [Tornado](http://www.tornadoweb.org/en/stable/) or 
-[Green Unicorn](http://gunicorn.org/) monkey patched with 
-[gevent](http://www.gevent.org/) is necessary for any practical WebSockets 
-server-side implementation.
+但是，JavaScript 封装库实现了优雅地降级（不支持 WebSocket 的情况下通常会采用长轮循机制），并隐藏了不同浏览器间的羞异，使用这些封闭库，会使开发者工作起来更加轻松。 有关 JavaScript 客户端库及 Python 实现的示例在下面列出。
 
-On the client side, it is not necessary to use a JavaScript library for 
-WebSockets. Web browsers that implement WebSockets will expose all necessary
-client-side functionality through the 
-[WebSockets object](http://www.w3.org/TR/2011/WD-websockets-20110419/). 
+## JavaScript 客户端库
+* [Socket.io](http://socket.io/) 的客户端 JavaScript 库能与实现了 WebSocket 的服务端进行连接。
 
-However, a JavaScript wrapper library can make a developer's life easier by 
-implementing graceful degradation (often falling back to long-polling when 
-WebSockets are not supported) and by providing a wrapper around 
-browser-specific WebSocket quirks. Examples of JavaScript client libraries 
-and Python implementations are found below.
+* [web-socket-js](https://github.com/gimite/web-socket-js) 是一个基于 Flash 的客户端 WebSocket 实现。
 
+## Python 实现
+* [Autobahn](http://autobahn.ws/python/) 使用 Twisted 或 asyncio 来实现 WebSocket 协议。
 
-## JavaScript client libraries
-* [Socket.io](http://socket.io/)'s client side JavaScript library can be 
-  used to connect to a server side WebSockets implementation.
+* [Crossbar.io](http://crossbar.io/) 构建于 Autobahn 之上，并且包含一个独立的服务器， 如果 Web 应用开发者需要的话，可以用它来对 WebSocket 连接进行单独处理。
 
-* [web-socket-js](https://github.com/gimite/web-socket-js) is a Flash-based
-  client-side WebSockets implementation.
+## Nginx WebSocket 代理
+Nginx 从 [第 1.3 版](http://nginx.com/blog/websocket-nginx/) 开始就正式支持 WebSocket 代理了，通过配置 Upgrade 和 Connection 头可以确保请求通过 Nginx 并到达你的 WSGI 服务器。第一次设置可能会有一点难度。
 
-
-## Python implementations
-* [Autobahn](http://autobahn.ws/python/) uses Twisted or asyncio to implement
-  the WebSockets protocol.
-
-* [Crossbar.io](http://crossbar.io/) builds upon Autobahn and includes a
-  separate server for handling the WebSockets connections if desired by
-  the web app developer.
-
-
-## Nginx WebSocket proxying
-Nginx officially supports WebSocket proxying as of 
-[version 1.3](http://nginx.com/blog/websocket-nginx/). However, you have
-to configure the Upgrade and Connection headers to ensure requests are
-passed through Nginx to your WSGI server. It can be tricky to set this up
-the first time. 
-
-Here are the configuration settings I use in my Nginx file as part of my
-WebSockets proxy.
+下面是我的 WebSockets 代理的 Nginx 配置。
 
     # this is where my WSGI server sits answering only on localhost
     # usually this is Gunicorn monkey patched with gevent
@@ -125,116 +76,55 @@ WebSockets proxy.
       }
     }
 
-Note if you run into any issues with the above example configuration
-you'll want to scope out the 
-[official HTTP proxy module documentation](http://nginx.org/en/docs/http/ngx_http_proxy_module.html).
+值得注意的是，如何上面的示例配置不能工作，你应该查看 [官方的 HTTP 代理模块文档](http://nginx.org/en/docs/http/ngx_http_proxy_module.html)。
 
-The following resources are also helpful for setting up the configuration 
-properly.
+下面的这些资源对于正确的配置也很有帮助。
 
-* Nginx has [an official page for WebSocket proxying](http://nginx.org/en/docs/http/websocket.html).
+* Nginx 上有[与 WebSocket 代理相关的官方页面](http://nginx.org/en/docs/http/websocket.html)。
 
-* [WebSockets in Nginx](http://blog.martinfjordvald.com/2013/02/websockets-in-nginx/)
-  walks through the Nginx WebSockets configuration directives.
+* [Nginx 中的 WebSockets](http://blog.martinfjordvald.com/2013/02/websockets-in-nginx/) 历数了 Nginx WebSockets 的配置指令。
 
-* [Proxying WebSockets with Nginx](https://chrislea.com/2013/02/23/proxying-websockets-with-nginx/)
-  shows how to proxy with Socket.io.
+* [用 Nginx 代理 WebSockets](https://chrislea.com/2013/02/23/proxying-websockets-with-nginx/) 展示了如何通过 Socket.io 进行代理。
 
 
-## Open source Python examples with WebSockets
-* The 
-  [python-websockets-example](https://github.com/makaimc/python-websockets-example)
-  contains code to create a simple web application that provides WebSockets
-  using Flask, Flask-SocketIO and gevent.
+## 使用 WebSockets 的开源 Python 示例
+  [python-websockets-example](https://github.com/makaimc/python-websockets-example) 包含了创建一个简单 Web 应用的代码，它使用 Flash、Flask-SocketIO 和 gevent 来提供 WebSockets。
+
+* Flask-SocketIO 项目中有一个 [聊天室 Web 应用](https://github.com/miguelgrinberg/Flask-SocketIO/tree/master/example)，演示了如何发送服务端生成的事件，以及如何通过表单的文本输入框来获取用户输入。
+
+## 通用 WebSocket 资源
+* 官方的 W3C [WebSockets API 候选草案](http://www.w3.org/TR/websockets/) 和 [WebSockets 工作草案](http://dev.w3.org/html5/websockets/) 都是不错的参考材料，但是对于刚接触 WebSockets 概念的开发者来说会有点难度。我建议先看下面列出的一些对初学者来说较容易的资料，然后再读那份工作草案。
+
+* 由 Armin Ronacher 写的 [WebSockets 101](http://lucumr.pocoo.org/2012/9/24/websockets-101/) 提供了一份有关 HTTP 代理对 WebSockets 低水平支持的详细评估报告。同时对 WebSockets 协议的复杂性及其实现也进行了探讨。
+
+* "我能使用吗？" 网站上有一份 [非常有用的 WebSockets 参照表](http://caniuse.com/#feat=websockets)，指出了哪些浏览器及其版本支持 WebSockets。
+
+* Mozilla 的 [WebSockets 开发者资源](https://developer.mozilla.org/en-US/docs/WebSockets) 是一个查找 WebSockets 开发相关文档与工具的好地方。
+
+* [从零开始学 WebSockets](https://blog.pusher.com/websockets-from-scratch/) 先对该协议进行了概述，然后对 WebSockets 的低层知识进行了讲解，这些知识对于只使用 Socket.IO 等库的开发人员来说通常是个黑盒子。
+
+* [websocketd](http://websocketd.com/) 是一个 WebSockets 服务程序，意在成为 "WebSockets 的 CGI"。值得一看。
 
 
-* The Flask-SocketIO project has a 
-  [chat web application](https://github.com/miguelgrinberg/Flask-SocketIO/tree/master/example) 
-  that demos sending server generated events as well as input from users
-  via a text box input on a form.
+## Python 相关的 WebSockets 资源
+* 我在 2015 年 1月份的 San Francisco Python 上的演讲中提到了 "[使用 WebSockets & gevent 实现异步 Python Web Apps](https://youtu.be/L5YQbNrFfyw)"，它是一个实时编写的 Flask Web 示例应用，如我创建的应用所示，它可以让用户通过 Websockets 实现互动。
 
+* [Python 的实时操作](http://mrjoes.github.io/2013/06/21/python-realtime.html) 提供了 Python 相关的背景知识，叙述了在 Python 中过去是如何实现服务端更新推送的，以及随着 Python 工具的发展，现在是如何执行服务端更新的。
 
-## General WebSockets resources
-* The official W3C 
-  [candidate draft for WebSockets API](http://www.w3.org/TR/websockets/) 
-  and the 
-  [working draft for WebSockets](http://dev.w3.org/html5/websockets/) are 
-  good reference material but can be tough for those new to the WebSockets
-  concepts. I recommend reading the working draft after looking through some
-  of the more beginner-friendly resources list below.
+* [websockets](https://github.com/aaugustin/websockets) 是一个基于 Python 3.3+ 的 WebSockets 实现，它使用了 [asyncio](https://docs.python.org/3.4/library/asyncio.html) 模块 ( 如果你使用的是 Python 3.3 的话，是 [Tulip](https://code.google.com/p/tulip/) )。
 
-* [WebSockets 101](http://lucumr.pocoo.org/2012/9/24/websockets-101/) by
-  Armin Ronacher provides a detailed assessment of the subpar state of HTTP
-  proxying in regards to WebSockets. He also discusses the complexities of
-  the WebSockets protocol including the packet implementation.
+* [交互式的演示文稿](https://www.twilio.com/blog/2014/11/choose-your-own-adventure-presentations-with-reveal-js-python-and-websockets.html) 这篇教程在服务端通过 gevent 实现 WebSockets，并使用 socketio.js 将投票数从服务端推送x给客户端。
 
-* The "Can I Use?" website has a 
-  [handy WebSockets reference chart](http://caniuse.com/#feat=websockets) 
-  for which web browsers and specific versions support WebSockets.
+* [为 Django 应用增加实时功能](http://crossbar.io/docs/Adding-Real-Time-to-Django-Applications/) 讲解了如何使用 Django 和 Crossbar.io 在应用中实现发布/订阅功能。
 
-* Mozilla's 
-  [Developer Resources for WebSockets](https://developer.mozilla.org/en-US/docs/WebSockets)
-  is a good place to find documentation and tools for developing with 
-  WebSockets.
+* [异步 Bottle](http://bottlepy.org/docs/dev/async.html) 讲解了在 Bottle Web 框架中如何使用 greenlets 来支持 WebSockets。
 
-* [WebSockets from Scratch](https://blog.pusher.com/websockets-from-scratch/) 
-  gives a nice overview of the protocol then shows how the lower-level pieces
-  work with WebSockets, which are often a black box to developers who only
-  use libraries like Socket.IO.
+* 如果你部署到 Heroku 的话, 这里的这篇 [WebSockets 相关指南](https://devcenter.heroku.com/articles/python-websockets) 能帮助你部署你的 Python 应用。
 
-* [websocketd](http://websocketd.com/) is a WebSockets server aiming to be
-  the "CGI of WebSockets". Worth a look.
+* [Reddit 上的相关页面](http://www.reddit.com/r/Python/comments/2ujqd7/an_overview_of_using_websockets_in_python/) 有一些很有意思的评论，填补了我上面缺失的一点内容。
 
+* [用 Python 和 Websockets 创建聊天室应用](http://pawelmhm.github.io/python/websockets/2016/01/02/playing-with-websockets.html) 展示了处理服务端 Websockets 连接的 Twisted 服务器代码及客户端的 JavaScript 代码。
 
-## Python-specific WebSockets resources
-* The 
-  "[Async Python Web Apps with WebSockets & gevent](https://youtu.be/L5YQbNrFfyw)"
-  talk I gave at San Francisco Python in January 2015 is a live-coded example
-  Flask web app implementation that allows the audience to interact with
-  WebSockets as I built out the application.
+* [使用 Websockets 实现 Flask 应用的客户端同步](http://www.matthieuamiguet.ch/blog/synchronize-clients-flask-application-websockets) 这份简短的教程，讲解了如何使用 Flask、Flask-SocketIO 扩展和 Socket.IO 实现在各浏览器客户端间更新数据。
 
-* [Real-time in Python](http://mrjoes.github.io/2013/06/21/python-realtime.html)
-  provides Python-specific context for how the server push updates were 
-  implemented in the past and how Python's tools have evolved to perform
-  server side updates.
-
-* [websockets](https://github.com/aaugustin/websockets) is a WebSockets 
-  implementation for Python 3.3+ written with the 
-  [asyncio](https://docs.python.org/3.4/library/asyncio.html) module (or with 
-  [Tulip](https://code.google.com/p/tulip/) if you're working with 
-  Python 3.3).
-
-* The [Choose Your Own Adventure Presentations](https://www.twilio.com/blog/2014/11/choose-your-own-adventure-presentations-with-reveal-js-python-and-websockets.html)
-  tutorial uses WebSockets via gevent on the server and socketio.js for 
-  pushing vote count updates from the server to the client. 
-
-* [Adding Real Time to Django Applications](http://crossbar.io/docs/Adding-Real-Time-to-Django-Applications/)
-  shows how to use Django and Crossbar.io to implement a publish/subscribe
-  feature in the application.
-
-* [Async with Bottle](http://bottlepy.org/docs/dev/async.html) shows how to
-  use greenlets to support WebSockets with the Bottle web framework.
-
-* If you're deploying to Heroku, there is a 
-  [specific WebSockets guide](https://devcenter.heroku.com/articles/python-websockets)
-  for getting your Python application up and running.
-
-* The 
-  [Reddit thread for this page](http://www.reddit.com/r/Python/comments/2ujqd7/an_overview_of_using_websockets_in_python/)
-  has some interesting comments on what's missing from the above content that
-  I'm working to address.
-
-* [Creating Websockets Chat with Python](http://pawelmhm.github.io/python/websockets/2016/01/02/playing-with-websockets.html)
-  shows code for a Twisted server that handles WebSockets connections
-  on the server side along with the JavaScript code for the client side.
-
-* [Synchronize clients of a Flask application with WebSockets](http://www.matthieuamiguet.ch/blog/synchronize-clients-flask-application-websockets)
-  is a quick tutorial showing how to use Flask, the Flask-SocketIO extension 
-  and Socket.IO to update values between web browser clients when changes
-  occur.
-
-* [Can WebSockets and HTTP/2 Co-exist?](http://www.infoq.com/articles/websocket-and-http2-coexist)
-  compares and contrasts the two protocols and shows how they have 
-  differences which will likely lead to WebSockets sticking around for
-  awhile longer.
-
+* [WebSockets 能和 HTTP/2 共存吗？](http://www.infoq.com/articles/websocket-and-http2-coexist) 先对这两个协议进行了对比，然后阐述了它们之间的差异可能会导致 WebSockets 会被使用更长时间。
