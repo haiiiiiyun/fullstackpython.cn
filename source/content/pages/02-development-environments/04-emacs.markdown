@@ -4,86 +4,54 @@ slug: emacs
 sortorder: 0204
 toc: False
 sidebartitle: Emacs
-meta: Emacs is an extensible, customizable text editor often used for coding. Read more about Emacs on Full Stack Python.
+meta: Emacs 是一个可扩展，易定制的文本编辑器，通常用于编写代码。 在 Full Stack Python 上了解更多 Emacs 知识。
+authors: haiiiiiyun.github.io
+updated: 2016-06-06 20:43
 
 
 # Emacs
-Emacs is an extensible text editor that can be customized by writing Lisp
-code.
+Emacs 是一个可扩展的文本编辑器，可以通过编写 Lisp 代码来定制。
+
+## 为什么说 Emacs 适合用来编写 Python 代码？
+Emacs 旨在可以通过内置的 Lisp 解释器和包管理器进行定制。它的包管理器叫 package.el，具有安装管理功能。其最大的 Lisp 软件包仓库是 [Melpa](http://melpa.org)，它能获取软件源上的数据并提供自动更新。
+
+在 Emacs 中，宏对于执行重复的动作非常有用。宏就是对之前一组按键序列的记录，并通过重放该记录来执行之前的动作。
+
+所谓挂勾，就是包含一组可调用函数的 Lisp 变量，它是 Emacs 的一种扩展机制。例如，``kill-emacs-hook`` 能在 Emacs 退出前运行，从而使那些函数能被导入到那个挂勾中，以便在退出工作完成前执行必要的操作。 
+
+<div class="well see-also">当你在阅读有关使用 Emacs 编写 Python 代码的知识时，可以去了解下使用何种<a href="/web-frameworks.html">Web 框架</a> 及 <a href="/deployment.html">如何部署一个应用</a>。</div>
 
 
-## Why is Emacs a good choice for Python coding?
-Emacs is designed to be customized via the built-in Lisp interpreter and
-package manager. The package manager, named package.el, has menus for
-handling installation. The largest Lisp Package Archive is 
-[Melpa](http://melpa.org), which provides automatic updates from upstream
-sources.
+## 常用 Emacs 资源
+* [GNU Emacs Manual](http://www.gnu.org/software/emacs/manual/html_node/emacs/index.html) 是一份官方文档，就如何使用 Emacs 提供了深入的探讨。
 
-Macros are useful for performing repetitive actions in Emacs. A macro
-is just a recording of a previous set of keystrokes that can be replayed
-to perform future actions.
+* [Emacs as a Python IDE](http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/) 就如何设置 Emacs 以成为一个 Python 开发环境进行了详细的示例说明。
 
-Hooks, which are Lisp variables that hold lists of functions to call,
-provide an extension mechanism for Emacs. For example,
-``kill-emacs-hook`` runs before exiting Emacs so functions can be loaded
-into that hook to perform necessary actions before the exiting completes.
+* [Emacs - the Best Python Editor?](https://realpython.com/blog/python/emacs-the-best-python-editor/) 是《Real Python》系列上的精彩文章，讲述了如何使用编辑器。除了这篇 Emacs 文章，上面还有一些针对 Python 开发的 [Vim](https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/) 和 [Sublime Text 3](https://realpython.com/blog/python/setting-up-sublime-text-3-for-full-stack-python-development/) 的文章。
 
-<div class="well see-also">While you're reading about coding Python in Emacs be sure to also learn about which <a href="/web-frameworks.html">web frameworks</a> to use as well as <a href="/deployment.html">how to deploy an application</a>.</div>
+* [Emacs Redux](http://emacsredux.com/) 这篇博文提供了如何有效使用 Emacs 的建议及技巧。
+
+* [Emacs Rocks](http://emacsrocks.com/) 是关于 Emacs 的视频教程系列。
+
+* [What the .emacs.d?!](http://whattheemacsd.com/) 提供了一堆 Emacs 工作流程的优化方法。
 
 
-## General Emacs resources
-* [GNU Emacs Manual](http://www.gnu.org/software/emacs/manual/html_node/emacs/index.html)
-  provides an official in-depth review for how to use Emacs.
+## 著名的 Elisp 软件包
+* [Magit](https://magit.vc/) 能让用户在 Emacs 中检查和修改 Git 仓库。
 
-* [Emacs as a Python IDE](http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/)
-  is a detailed walkthrough of setting up Emacs for Python development.
+* [company-mode](http://company-mode.github.io/) 发明了一种模块化的内存代码补全框架。
 
-* [Emacs - the Best Python Editor?](https://realpython.com/blog/python/emacs-the-best-python-editor/)
-  continues the excellent Real Python series showing how to get started
-  with editors. In addition to this Emacs post, there are also posts on 
-  [Vim](https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/) 
-  and 
-  [Sublime Text 3](https://realpython.com/blog/python/setting-up-sublime-text-3-for-full-stack-python-development/)
-  specifically for Python development.
+* [Flycheck](http://flycheck.github.io/) 提供语法检查。
 
-* [Emacs Redux](http://emacsredux.com/) is a blog with tips and tricks for
-  how to use Emacs effectively.
+* [anaconda-mode](https://github.com/proofit404/anaconda-mode/) 专用于 Python 开发，允许进行代码浏览跳转、文档查找和代码补全。其核心使用 [jedi](http://jedi.jedidjah.ch/en/latest/) 库实现。
 
-* [Emacs Rocks](http://emacsrocks.com/) is a video tutorial series for Emacs.
+* [Tern](http://ternjs.net/) 是一个独立的 JavaScript 代码分析引擎。它能通过 [tern-django](https://github.com/proofit404/tern-django) 包与 Django 项目进行整合。
 
-* [What the .emacs.d?!](http://whattheemacsd.com/) provides a bunch of tiny
-  optimizations for Emacs' workflow.
+## 流行的用户配置
+* [Prelude](https://github.com/bbatsov/prelude) 是一个 Emacs V24 的增强版。
 
+* [A reasonable Emacs config](https://github.com/purcell/emacs.d) 展示了一套功能完备的 Emacs 配置方案。
 
-## Notable Elisp Packages
-* [Magit](https://magit.vc/) allows the user to inspect and modify
-  Git repositories from within Emacs.
+* [Emacs settings](https://github.com/magnars/.emacs.d) 这个库包含了 Emacs Rocks 上的屏幕录像里用到的所有 Emacs 配置。
 
-* [company-mode](http://company-mode.github.io/) creates a modular in-buffer
-  completion framework.
-
-* [Flycheck](http://flycheck.github.io/) provides syntax checking.
-
-* [anaconda-mode](https://github.com/proofit404/anaconda-mode/) is specific
-  to Python development and allows code navigation, documentation lookup 
-  and code completion. The [jedi](http://jedi.jedidjah.ch/en/latest/) library 
-  is used under the hood.
-
-* [Tern](http://ternjs.net/) is a stand-alone code-analysis engine for
-  JavaScript. It can be integrated within a Django project
-  via the [tern-django](https://github.com/proofit404/tern-django) package.
-
-
-## Popular user configurations
-* [Prelude](https://github.com/bbatsov/prelude) is an enhanced Emacs
-  version 24 distribution.
-
-* [A reasonable Emacs config](https://github.com/purcell/emacs.d) shows
-  a batteries-includes Emacs configuration bundle.
-
-* [Emacs settings](https://github.com/magnars/.emacs.d) is a repository of
-  configurations used in the Emacs Rocks screencasts.
-
-* [Spacemacs](https://github.com/syl20bnr/spacemacs) mashes together Emacs'
-  extensibility and Vim's ergonomic text editing features.
-
+* [Spacemacs](https://github.com/syl20bnr/spacemacs) 整合了 Emacs 的扩展性和 Vim 的符合人体工程学的文本编辑功能。

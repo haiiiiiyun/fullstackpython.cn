@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Find out about Python web frameworks, which are code libraries that solve common web application creation challenges.">
+    <meta name="description" content="了解 Python Web 框架--解决 Web 应用创建中的通用难题的代码库。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Web Frameworks - Full Stack Python 简体中文网站</title>
+    <title>Web 框架 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,154 +36,71 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Web frameworks</h1>
-<p>A web framework is a code library that makes a developer's life easier when 
-building reliable, scalable and maintainable web applications.</p>
-<h2>Why are web frameworks necessary?</h2>
-<p>Web frameworks encapsulate what developers have learned over the past twenty
-years while programming sites and applications for the web. Frameworks make 
-it easier to reuse code for common HTTP operations and to structure projects 
-so other developers with knowledge of the framework can quickly build and
-maintain the application.</p>
-<h2>Common web framework functionality</h2>
-<p>Frameworks provide functionality in their code or through extensions to 
-perform common operations required to run web applications. These common 
-operations include:</p>
+          <h1>Web 框架</h1>
+<p>Web 框架就是一份代码库，它能帮助开发人员创建可靠、可扩展、易维护的 Web 应用。</p>
+<h2>为什么 Web 框架很有必要？</h2>
+<p>Web 框架封装了开发人员在过去二十年中学到的网站和 Web 应用开发的经验总结。它使得重用代码（例如通用 HTTP 操作和项目代码组织等）变得更加容易，因而熟悉该框架的其他开发人员就能快速创建和维护应用程序。</p>
+<h2>Web 框架的基本功能</h2>
+<p>框架通过它们自己的代码或扩展代码提供功能，以实现运行 Web 应用所需的基本操作。这些基本操作包括：</p>
 <ol>
-<li>URL routing</li>
-<li>HTML, XML, JSON, and other output format templating</li>
-<li>Database manipulation</li>
-<li>Security against Cross-site request forgery (CSRF) and other attacks</li>
-<li>Session storage and retrieval</li>
+<li>URL 路由</li>
+<li>HTML、 XML、JSON 及其它输出模式模板</li>
+<li>数据库处理</li>
+<li>跨站请求伪造安全问题（CSRF）和其它攻击</li>
+<li>session 存取</li>
 </ol>
-<p>Not all web frameworks include code for all of the above functionality. 
-Frameworks fall on the spectrum from executing a single use case to providing 
-every known web framework feature to every developer. Some frameworks take 
-the "batteries-included" approach where everything possible comes bundled 
-with the framework while others have a minimal core package that is amenable
-to extensions provided by other packages.</p>
-<p>For example, the <a href="/django.html">Django web application framework</a> includes an 
-Object-Relational Mapping (ORM) layer that abstracts relational database 
-read, write, query, and delete operations. However, Django's ORM
-cannot work without significant modification on non-relational databases 
-such as <a href="http://www.mongodb.org/">MongoDB</a>.</p>
-<p>Some other web frameworks such as <a href="/flask.html">Flask</a> and 
-<a href="/pyramid.html">Pyramid</a> are easier to
-use with non-relational databases by incorporating external Python libraries.
-There is a spectrum between minimal functionality with easy extensibility on
-one end and including everything in the framework with tight integration on
-the other end.</p>
-<h2>Comparing web frameworks</h2>
-<p>Are you curious about how the code in a Django project is structured compared 
-with Flask? Check out 
-<a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/django">this Django web application tutorial</a> 
-and then view <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/flask">the same application built with Flask</a>.</p>
-<p>There is also a repository called
-<a href="https://github.com/makaimc/compare-python-web-frameworks">compare-python-web-frameworks</a>
-where the same web application is being coded with varying Python web 
-frameworks, templating engines and 
-<a href="/object-relational-mappers-orms.html">object-relational mappers</a>.</p>
-<div class="well see-also">While you're learning about web frameworks you should also study <a href="/deployment.html">web application deployment</a> and <a href="/application-programming-interfaces.html">web APIs</a>.</div>
+<p>不是所有的 Web 框架都包含以上全部功能。框架种类从执行单一的用例到提供每个开发人员熟知的每个 Web 框架功能，不一而足。一些框架奉行“即插即用”的理念，把所有可能的东西都打包进来，而其它一些框架却有一个很小的内核包，以方便通过第三方代码包来扩展功能。</p>
+<p>例如，<a href="/django.html">Django Web 应用框架</a> 含有一个对象关系映射 (ORM) 层来对关系型数据库的读、写、查询和删除操作进行抽象。但是，Django 的 ORM 如果不进行大量修改的话，是不能操作像 <a href="http://www.mongodb.org/">MongoDB</a> 等的非关系型数据库的。</p>
+<p>其它一些框架，像 <a href="/flask.html">Flask</a> 和 <a href="/pyramid.html">Pyramid</a> 可以通过包含进外部 Python 库来更加容易地与非关系型数据库一起使用。框架的实现，都需要在最少功能和易扩展性，以及将所有东西都包含进来以提高整合度这两个选择之间进行抉择。</p>
+<h2>Web 框架对比</h2>
+<p>你对一个项目用 Django 实现和用 Flask 实现的代码对比感兴趣吗？看下 <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/django">这篇 Django Web 应用教程</a> 然后再看下 <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/flask">由 Flask 实现的相同的应用</a>。</p>
+<p>还有一份代码库叫 <a href="https://github.com/makaimc/compare-python-web-frameworks">compare-python-web-frameworks</a>，上面的一个相同的 Web 应用由不能的 Python Web 框架、模板引擎和 <a href="/object-relational-mappers-orms.html">对象关系映射器</a>来实现。</p>
+<div class="well see-also">既然已经学了 Web 框架，你也应该学下 <a href="/deployment.html">Web 应用部署</a> 和 <a href="/application-programming-interfaces.html">Web API</a>。</div>
 
-<h2>Do I have to use a web framework?</h2>
-<p>Whether or not you use a web framework in your project depends on your 
-experience with web development and what you're trying to accomplish. If you 
-are a beginner programmer and just want to work on a web application as a 
-learning project then a framework can help you understand the concepts listed
-above, such as URL routing, data manipulation and authentication that are
-common to the majority of web applications.</p>
-<p>On the other hand if you're an experienced programmer with significant 
-web development experience you may feel like the existing frameworks do not
-match your project's requirements. In that case, you can mix and match
-open source libraries such as <a href="http://werkzeug.pocoo.org/">Werkzeug</a> for
-WSGI plumbing with your own code to create your own framework. There's 
-still plenty of room in the Python ecosystem for new frameworks to satisfy 
-the needs of web developers that are unmet by <a href="/django.html">Django</a>, 
-<a href="/flask.html">Flask</a>, <a href="/pyramid.html">Pyramid</a>, <a href="/bottle.html">Bottle</a> and 
-<a href="/other-web-frameworks.html">many others</a>.</p>
-<p>In short, whether or not you need to use a web framework to build a web 
-application depends on your experience and what you're trying to accomplish. 
-Using a web framework to build a web application certainly isn't required, 
-but it'll make most developers' lives easier in many cases.</p>
-<h2>Web framework resources</h2>
+<h2>我需要使用 Web 框架吗？</h2>
+<p>你的项目是否需要使用 Web 框架取决于你的网站开发经验和你的目标。如果你是一个初级程序员并且以学习为目的来开发一个 Web 应用，那么框架能帮助你理解下面的这些概念，例如 URL 路由、数据处理和认证等这些主流的 Web 应用都具有的功能。</p>
+<p>另一方面，如果你是一位有经验的程序员，具有丰富的网站开发经验，你可能会觉得现有的框架不能满足你的项目需求。如果那样的话，你可以将 <a href="http://werkzeug.pocoo.org/">Werkzeug</a> 等开源库、WSGI 功能包和你自己的代码进行混合匹配来创建你自己的框架。 Python 的生态系统仍然为新框架留了足够的空间，以便去满足那些不能从<a href="/django.html">Django</a>、 <a href="/flask.html">Flask</a>、 <a href="/pyramid.html">Pyramid</a>、 <a href="/bottle.html">Bottle</a> 和 <a href="/other-web-frameworks.html">许多其它框架</a> 中得到满足的程序员的需求。</p>
+<p>简言之，你是否需要使用 Web 框架来创建 Web 应用取决于你的经验和你的目标。使用框架来创建 Web 应用当然不是必需的，但是在多数情况下，它能让开发人员的生活变得更加轻松。</p>
+<h2>Web 框架相关资源</h2>
 <ul>
 <li>
-<p>When you are learning how to use one or more web frameworks it's helpful
-  to have an idea of what the code under the covers is doing. This post on
-  building a 
-  <a href="http://mattscodecave.com/posts/simple-python-framework-from-scratch.html">simple Python framework from scratch</a>
-  shows how HTTP connections, routing, and requests can work in just 
-  320 lines of code. This post is awesome even though the resulting framework
-  is a simplification of what frameworks such as <a href="/django.html">Django</a>, 
-  <a href="/flask.html">Flask</a> and <a href="/pyramid.html">Pyramid</a> allow developers to 
-  accomplish.</p>
+<p>"<a href="http://www.jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/">什么是 Web 框架？</a>" 深入讲解了什么是 Web 框架以及它们与 Web 服务器的关系。</p>
 </li>
 <li>
-<p>Check out the answer to the 
-  "<a href="http://stackoverflow.com/questions/4507506/what-is-a-web-framework-how-does-it-compare-with-lamp">What is a web framework and how does it compare to LAMP?</a>"
-  question on Stack Overflow.</p>
+<p>你可以看下 Stack Overflow 上有关 "<a href="http://stackoverflow.com/questions/4507506/what-is-a-web-framework-how-does-it-compare-with-lamp">什么是 Web 框架以及如何与 LAMP 比较？</a>" 这个问题的答案。</p>
 </li>
 <li>
-<p><a href="http://youtu.be/W6KCPXl6Zuc">Frameworks</a> is a really well done short video
-  that explains how to choose between web frameworks. The author has some
-  particular opinions about what should be in a framework. For the most part
-  I agree although I've found sessions and database ORMs to be a helpful
-  part of a framework when done well.</p>
+<p><a href="http://youtu.be/W6KCPXl6Zuc">框架</a> 真的是一部精彩的短视频，它向你讲解了如何选择 Web 框架。它的作者对一个框架应该有哪些功能有一些独特的看法。我赞同里面说的大部分内部，尽管我认为如果 session 和 数据库 ORM 如何实现的好的话也应该是框架的一个有用的构件。</p>
 </li>
 <li>
-<p>"<a href="http://www.jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/">What is a web framework?</a>"
-  is an in-depth explanation of what web frameworks are and their relation
-  to web servers.</p>
+<p><a href="https://www.airpair.com/python/posts/django-flask-pyramid">Django vs Flask vs Pyramid：选择一个 Python Web 框架</a> 包含了一些背景资料，并通过用这三个主流的 Python 框架实现类似的 Web 应用来进行代码对比。</p>
 </li>
 <li>
-<p><a href="https://www.airpair.com/python/posts/django-flask-pyramid">Django vs Flask vs Pyramid: Choosing a Python Web Framework</a>
-  contains background information and code comparisons for similar
-  web applications built in these three big Python frameworks.</p>
+<p>这篇精彩的博文通过对代码的图形化分析，列出了 <a href="http://grokcode.com/864/snakefooding-python-code-for-complexity-visualization/">几个 Python Web 框架的代码复杂度</a>。</p>
 </li>
 <li>
-<p>This fascinating blog post takes a look at the 
-  <a href="http://grokcode.com/864/snakefooding-python-code-for-complexity-visualization/">code complexity of several Python web frameworks</a>
-  by providing visualizations based on their code bases.</p>
+<p><a href="http://klen.github.io/py-frameworks-bench/">Python Web 框架基准测试</a> 上有一份针对各框架响应度的测试，测试方式是先将一个对象编码成 JSON 然后返回，以及从数据库中读取数据然后在模板中呈现。虽然没有确凿性结果，但是看看上面的输出内容还是很有趣的。</p>
 </li>
 <li>
-<p><a href="http://klen.github.io/py-frameworks-bench/">Python's web frameworks benchmarks</a>
-  is a test of the responsiveness of a framework with encoding an object to
-  JSON and returning it as a response as well as retrieving data from the 
-  database and rendering it in a template. There were no conclusive results
-  but the output is fun to read about nonetheless.</p>
+<p><a href="http://www.reddit.com/r/webdev/comments/2les4x/what_frameworks_do_you_use_and_why_are_they/">你使用什么 Web 框架以及为什么觉得它好？</a> 是 Reddit 上有关 Web 框架的讨论。 看看使用其它语言的程序员对于他们的 Web 框架的品味，然后与主流的 Python 框架比较一下也是蛮有意思的。</p>
 </li>
 <li>
-<p><a href="http://www.reddit.com/r/webdev/comments/2les4x/what_frameworks_do_you_use_and_why_are_they/">What web frameworks do you use and why are they awesome?</a>
-  is a language agnostic Reddit discussion on web frameworks. It's interesting
-  to see what programmers in other languages like and dislike about their
-  suite of web frameworks compared to the main Python frameworks.</p>
-</li>
-<li>
-<p>This user-voted question &amp; answer site asked "<a href="http://www.slant.co/topics/426/~what-are-the-best-general-purpose-python-web-frameworks-usable-in-production-sites">What are the best general purpose Python web frameworks usable in production?</a>".
-  The votes aren't as important as the list of the many frameworks
-  that are available to Python developers.</p>
+<p>这个由用户投票的问答网站上问到 "<a href="http://www.slant.co/topics/426/~what-are-the-best-general-purpose-python-web-frameworks-usable-in-production-sites">在生产环境下哪个是最好的通用 Python Web 框架？</a>"。看看上面列出的那么多能让 Python 开发人员使用的框架比看投票结果重要多了。</p>
 </li>
 </ul>
-<h2>Web frameworks learning checklist</h2>
+<h2>Web 框架学习清单</h2>
 <ol>
 <li>
-<p>Choose a major Python web framework (<a href="/django.html">Django</a> or 
-   <a href="/flask.html">Flask</a> are recommended) and stick with it. When you're just
-   starting it's best to learn one framework first instead of bouncing around
-   trying to understand every framework. </p>
+<p>选择一个主流 Python Web 框架 (推荐 <a href="/django.html">Django</a> 和 <a href="/flask.html">Flask</a>)，然后坚持使用。刚开始的时候最好只学习一个框架，而不要试图去理解每个框架。</p>
 </li>
 <li>
-<p>Work through a detailed tutorial found within the resources links on the
-   framework's page.</p>
+<p>根据那个框架的网站上的资源链接，寻找一份详细的教程，并据此进行练习。</p>
 </li>
 <li>
-<p>Study open source examples built with your framework of choice so you can 
-   take parts of those projects and reuse the code in your application.</p>
+<p>研究用你所选框架开发的开源案例，这样你就能参与这些项目并在你的应用中重用这些代码。</p>
 </li>
 <li>
-<p>Build the first simple iteration of your web application then go to
-   the <a href="/deployment.html">deployment</a> section to make it accessible on the 
-   web.</p>
+<p>写完你的 Web 应用的第一个版本，然后参考 <a href="/deployment.html">部署</a> 那一章，将它发布到网上。</p>
 </li>
 </ol>
 <h3>你想学习哪个 Web 框架？</h3>
@@ -222,17 +139,12 @@ but it'll make most developers' lives easier in many cases.</p>
     </div>
 <div class="col-md-offset-1 col-md-3" id="sidebar">
 <div class="panel panel-success">
-  <div class="panel-heading">
-    <h3 class="panel-head">赞助商</h3>
-  </div>
   <div class="panel-body">
-    <a href="https://realpython.com/?utm_source=fsp&amp;utm_medium=promo&amp;utm_campaign=webframeworks" onclick="trackOutboundLink('https://realpython.com/?utm_source=fsp&amp;utm_medium=promo&amp;utm_campaign=webframeworks'); return false;"><img src="/img/sponsored/realpython.jpg" alt="Real Python logo" width="100%"></a>
-    <p style="font-size: .8em;">如果你想学习 Python Web 开发，我推荐你
-       <a href="https://realpython.com/?utm_source=fsp&amp;utm_medium=promo&amp;utm_campaign=webframeworks" onclick="trackOutboundLink('https://realpython.com/?utm_source=fsp&amp;utm_medium=promo&amp;utm_campaign=webframeworks'); return false;">看看 Real Python</a>上的内容。
+    <a href="http://www.deploypython.com/"><img src="/img/sponsored/fsp-deployment-guide.png" alt="The Full Stack Python Guide to Deployments" width="100%"></a>
+    <p style="font-size: .8em; margin-top: 10px;">想找到一个完整的，一步一步的部署方案吗？请看<a href="http://www.deploypython.com/">《The Full Stack Python Guide to Deployments》</a>. 
     </p>
   </div>
-</div>
-<div class="panel panel-success">
+</div><div class="panel panel-success">
   <div class="panel-heading">
     <h3 class="panel-head">邮件获取更新</h3>
   </div>
@@ -253,10 +165,10 @@ but it'll make most developers' lives easier in many cases.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Generators</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Frameworks</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Template Engines</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Application Security</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Application Security</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Web Frameworks</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">Web 框架</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -269,7 +181,7 @@ but it'll make most developers' lives easier in many cases.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a>  <a href="/web-frameworks.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Web Frameworks</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a>  <a href="/web-frameworks.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Web 框架</a>
 <a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>

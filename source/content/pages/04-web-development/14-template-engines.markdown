@@ -1,18 +1,17 @@
-title: Template Engines
+title: 模板引擎
 category: page
 slug: template-engines
 sortorder: 0414
 toc: False
-sidebartitle: Template Engines
-meta: Template engines provide programmatic output of formatted content such as HTML, XML or PDF.
+sidebartitle: 模板引擎
+meta: 模板引擎提供 HTML、XML 和 PDF 等格式化内容的输出。
+updated: 2016-06-22 13:06
 
+# 模板引擎
+模板引擎对模板文件进行处理，模板文件是处在你的 Python 代码和需要输出的格式化内容（如 HTML 和 PDF 等）之间的一种中间格式文件。
 
-# Template Engines
-Template engines process template files, which provide an intermediate format 
-between your Python code and a desired output format, such as HTML or PDF.
-
-
-## Why are template engines important?
+## 为什么说模板引擎很重要？
+模板引擎能被开发人员用于创建所需的内容类型，比如 HTML 等，同时，它还提供一些编程结构如条件判断和 for 循环等来对输出进行处理。
 Template engines allow developers to generate a desired content type, such 
 as HTML, while using some of the data and programming constructs such as 
 conditionals and for loops to manipulate the output. Template files that are 
@@ -60,7 +59,7 @@ generate the HTML output response when an HTTP request comes in for a
 particular URL. 
 
 
-## Python template engines
+## Python 模板引擎
 There are several popular Python template engines. A template engine implementation 
 will fall somewhere on the spectrum between allowing arbitrary code execution and 
 granting only a limited set of capabilities via template tags. A rough visual of
