@@ -1853,15 +1853,10 @@ let python_highlight_all = 1
 </li>
 </ul>
           <h1>模板引擎</h1>
-<p>模板引擎对模板文件进行处理，模板文件是处在你的 Python 代码和需要输出的格式化内容（如 HTML 和 PDF 等）之间的一种中间格式文件。</p>
+<p>模板引擎对模板文件进行处理，模板文件是处于你的 Python 代码和需要输出的格式化内容（如 HTML 和 PDF 等）之间的一种中间格式文件。</p>
 <h2>为什么说模板引擎很重要？</h2>
-<p>模板引擎能被开发人员用于创建所需的内容类型，比如 HTML 等，同时，它还提供一些编程结构如条件判断和 for 循环等来对输出进行处理。
-Template engines allow developers to generate a desired content type, such 
-as HTML, while using some of the data and programming constructs such as 
-conditionals and for loops to manipulate the output. Template files that are 
-created by developers and then processed by the template engine consist of
-prewritten markup and template tag blocks where data is inserted.</p>
-<p>For example, look at the first ten source lines of HTML of this webpage:</p>
+<p>模板引擎允许开发人员创建 HTML 等所需的内容形式，同时，它还提供条件判断和 for 循环等编程构件来对输出进行处理。 模板文件由预定义的标记和待插入内容的模板标签段组成， 这些文件由开发人员创建，然后再由模板引擎处理。</p>
+<p>例如，查看当前网页的 HTML 内容的前 10 行源代码：</p>
 <div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -1875,15 +1870,8 @@ prewritten markup and template tag blocks where data is inserted.</p>
 </pre></div>
 
 
-<p>Every one of the HTML lines above is standard for each page on Full Stack Python,
-with the exception of the <code>&lt;meta name="description"...</code> line which provides
-a unique short description of what the individual page contains.</p>
-<p>The <a href="https://github.com/makaimc/fullstackpython.com/blob/gh-pages/source/theme/templates/base.html">base.html Jinja template</a> used to generate Full Stack Python
-allows every page on the site to have consistent HTML but 
-dynamically generate the pieces that need to change between pages when 
-the <a href="/static-site-generator.html">static site generator</a> executes. The below
-code from the <code>base.html</code> template shows that the meta description is up to child 
-templates to create.</p>
+<p>除了 <code>&lt;meta name="description"...</code> 这行，它是为各个单独页面提供包含哪些内容的简短描述之外， 上面的各行 HTML 代码对于 Full Stack Python 网站的每个页面来说都是一样的。</p>
+<p><a href="https://github.com/makaimc/fullstackpython.com/blob/gh-pages/source/theme/templates/base.html">base.html</a> 是用于创建 Full Stack Python 的 Jinja 模板，它使得网站的每个页面都有一致的 HTML 内容结构，同时又能为每个页面动态生成那些在 <a href="/static-site-generator.html">静态网站生成器</a> 执行时需要修改的内容。下面的代码来自 <code>base.html</code> 模板，可以看到 meta 描述是要求子模板来生成的。</p>
 <div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -1897,57 +1885,31 @@ templates to create.</p>
 </pre></div>
 
 
-<p>In a typical <a href="/wsgi-servers.html">WSGI application</a>, the template engine would 
-generate the HTML output response when an HTTP request comes in for a 
-particular URL. </p>
+<p>在一个典型的 <a href="/wsgi-servers.html">WSGI 应用中</a>，当某个特定 URL 的 HTTP 请求进来后，模板引擎将生成一个 HTML 文件的应答。</p>
 <h2>Python 模板引擎</h2>
-<p>There are several popular Python template engines. A template engine implementation 
-will fall somewhere on the spectrum between allowing arbitrary code execution and 
-granting only a limited set of capabilities via template tags. A rough visual of
-the code in template spectrum can be seen below for four of the major Python
-template engines.</p>
-<p><img src="/img/template-logic-spectrum.png" width="100%" alt="Spectrum between no logic in templates and the ability to run arbitrary code." class="technical-diagram" style="border-radius: 5px;"></p>
+<p>Python 有几个比较流行的模板引擎。从允许执行任意代码，到只准许通过模板标签来执行有限的功能，每个模板引擎都有各自的实现方式。从下图可以看出 Python 的四个主要模板引擎的模板代码功能。</p>
+<p><img src="/img/template-logic-spectrum.png" width="100%" alt="从不含任何逻辑代码到能执行任意代码。" class="technical-diagram" style="border-radius: 5px;"></p>
 <h3>Jinja</h3>
-<p><a href="http://jinja.pocoo.org/">Jinja</a>, also known as "Jinja2", is a popular Python 
-template engine written as an independent open source project, unlike some
-template engines that are provided as part of a larger web framework.</p>
-<p>Major Python open source applications such as the 
-<a href="/configuration-management.html">configuration management</a> tools Ansible
-and <a href="https://github.com/saltstack/salt">SaltStack</a>
-as well as the <a href="/static-site-generator.html">static site generator</a> Pelican use
-the Jinja template engine by default for generating output files.</p>
-<p>There's a whole lot more to learn about Jinja on the <a href="/jinja2.html">Jinja2</a> page.</p>
-<h3>Django templating</h3>
-<p>Django comes with its 
-<a href="https://docs.djangoproject.com/en/dev/topics/templates/">own template engine</a>
-in addition to supporting (as of Django 1.9) drop-in replacement with other
-template engines such as Jinja.</p>
+<p><a href="http://jinja.pocoo.org/">Jinja</a>, 也叫做 "Jinja2"， 这个广受欢迎的 Python 模板引擎是作为一个独立的开源项目开发的，而不像其它的一些模板引擎那样是某个较大的 Web 框架的一部分。</p>
+<p>主要的 Python 开源应用如 <a href="/configuration-management.html">配置管理</a> 工具 Ansible 和 <a href="https://github.com/saltstack/salt">SaltStack</a>，以及 <a href="/static-site-generator.html">静态网站生成器</a> Pelican 等都默认使用 Jinja 来创建输出文件 。</p>
+<p>在 <a href="/jinja2.html">Jinja2</a> 页还有很多很多关于 Jinja 的学习内容。</p>
+<h3>Django 模板</h3>
+<p>Django （如 Django 1.9） 除了支持 Jinja 等其它一些可替代的模板引擎外，它还有 <a href="https://docs.djangoproject.com/en/dev/topics/templates/">自己的模板引擎</a>。</p>
 <h3>Mako</h3>
-<p><a href="http://www.makotemplates.org/">Mako</a> is the default templating engine for
-the <a href="/pyramid.html">Pyramid web framework</a> and has wide support as a replacement
-template engine for many <a href="/other-web-frameworks.html">other web frameworks</a>.</p>
-<h3>Template engine resources</h3>
+<p><a href="http://www.makotemplates.org/">Mako</a> 是 <a href="/pyramid.html">Pyramid Web 框架</a> 的默认模板引擎，并且因作为许多 <a href="/other-web-frameworks.html">其它 Web 框架</a>的替代模板引擎而广受支持。</p>
+<h3>模板引擎资源</h3>
 <ul>
 <li>
-<p><a href="http://aosabook.org/en/500L/a-template-engine.html">A template engine in 500 lines or less</a>
-  is an article by <a href="http://nedbatchelder.com/">Ned Batchelder</a> provides a<br />
-  template engine in 252 lines of Python that can be used to understand how
-  template engines work under the cover.</p>
+<p><a href="http://aosabook.org/en/500L/a-template-engine.html">一个只有不到 500 行代码的模板引擎</a> 这篇文章是由 <a href="http://nedbatchelder.com/">Ned Batchelder</a> 写的，讲解了一个只有 252 行 Python 代码的模板引擎，从中我们学习模板引擎的工作原理。</p>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/primer-on-jinja-templating/">A Primer on Jinja Templating</a>
-  shows how to use the major parts of this fantastic template engine.</p>
+<p><a href="https://realpython.com/blog/python/primer-on-jinja-templating/">Jinja 模板入门</a> 讲解了如何使用这个无敌模板引擎的主要功能。</p>
 </li>
 <li>
-<p><a href="http://agiliq.com/blog/2015/08/template-fragment-caching-gotchas/">Template fragment gotchas</a> 
-  is a collection of situations that can trip up a developer or designer when
-  working with templates.</p>
+<p><a href="http://agiliq.com/blog/2015/08/template-fragment-caching-gotchas/">模板的疑难问题集锦</a> 收集了开发人员和设计师在使用模板时会碰到的各种坑及其解决办法。</p>
 </li>
 <li>
-<p>This 
-  <a href="http://www.simple-is-better.org/template/index.html">template engines site</a>
-  contains a range of information from what templates engines are to listing
-  more esoteric Python template engines.</p>
+<p>这个 <a href="http://www.simple-is-better.org/template/index.html">模板引擎网站</a> 上包含了从什么是模板引擎到一些鲜为人知的 Python 模板引擎等大量信息。</p>
 </li>
 </ul>
           <h1>Web Application Security</h1>
