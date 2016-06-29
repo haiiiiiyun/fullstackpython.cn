@@ -1,165 +1,90 @@
-title: Web Application Security
+title: Web 应用安全
 category: page
 slug: web-application-security
 sortorder: 0415
 toc: False
-sidebartitle: Web Application Security
-meta: Web applications can be attacked by malicious actors in many ways. Learn about security measures on Full Stack Python.
+sidebartitle: Web 应用安全
+meta: Web 应用会受到恶意份子的各种攻击。到 Full Stack Python 上学习有关安全措施的知识。
+updated: 2016-06-29 12:48
 
 
-# Web Application Security
-Website security must be thought about while building every level of the web 
-stack. However, this section includes topics that deserve particular
-treatment, such as cross-site scripting (XSS), SQL injection, cross-site 
-request forgery and usage of public-private keypairs.
+# Web 应用安全
+构建 Web 应用的每个阶段都必须要考虑网络安全问题。但是，本节包含的主题内容，如跨站脚本 (XSS)， SQL 注入， 跨站请求伪造 (CSRF) 和公钥/私钥对的使用等，都值得我们特别关注。
 
+## 网络安全开源项目
+* [Bro](http://www.bro.org/) 是一个网络安全及流量监测器。
 
-## Security open source projects
-* [Bro](http://www.bro.org/) is a network security and traffic monitor.
+* [快速 NIX 安全脚本](https://github.com/marshyski/quick-secure) 能用于提升 Linux 发行版的安全性。
 
-* [quick NIX secure script](https://github.com/marshyski/quick-secure) for
-securing Linux distributions.
+* [lynis](https://github.com/CISOfy/lynis) 是一个非常好的安全审计工具，它能以 shell 脚本的形式在 Linux 系统上运行，以便找出系统漏洞加以修复，从而避免被恶意份子利用。
 
-* [lynis](https://github.com/CISOfy/lynis) is a really cool security audit
-  tool that can be run as a shell script on a Linux system to find out
-  its vulnerabilities so that you can fix them instead of allowing them
-  to be exploited by malicious actors.
+## HTTPS 资源
+* [HTTPS 到底如何工作？](http://robertheaton.com/2014/03/27/how-does-https-actually-work/) 是一篇有关该协议的概述性文章，包含认证、签名、签署等相关主题内容。
 
-## HTTPS resources
-* [How does HTTPS actually work?](http://robertheaton.com/2014/03/27/how-does-https-actually-work/)
-  is a well-written overview of the protocol including certificates, 
-  signatures, signing and related topics.
+* 这些 [介绍 HTTPS](https://18f.gsa.gov/2015/07/16/introduction-to-https-webinar/) 的视频讲解了什么是 HTTPS 及如何实现它。
 
-* These 
-  [introduction to HTTPS](https://18f.gsa.gov/2015/07/16/introduction-to-https-webinar/)
-  videos explain what HTTPS is and how to implement it.
+* 有人问到 [TLS 和 SSL 之间有什么区别？](http://security.stackexchange.com/questions/5126/whats-the-difference-between-ssl-tls-and-https)，上面的答案解释到：TLS 是 SSL 的更新版本，应该使用 TLS，因为 3.0 版本以下的所有 SSL 都是不安全的。
 
-* This question asking [what is the difference between TLS and SSL?](http://security.stackexchange.com/questions/5126/whats-the-difference-between-ssl-tls-and-https)
-  explains that TLS is a newer version of SSL and should be used because
-  SSL through version 3.0 is insecure.
+* 如果你想知道 SSL/TLS 等这些缩写词到底是什么意思的，可以看看 [安全性/服务端 TLS 指南](https://wiki.mozilla.org/Security/Server_Side_TLS)，Mozilla 就是按此部署它的服务器的。
 
-* If you have wondered what all the SSL/TLS acronyms and settings mean,
-  read the 
-  [Security/Server Side TLS guide](https://wiki.mozilla.org/Security/Server_Side_TLS)
-  which Mozilla uses to operationalize its servers.
+* 如果你的用户需要向你的网站提交敏感信息，你就需要使用 SSL/TLS。TLS 之前的任何版本现在都是不安全的了。阅读这篇 [实用指南](http://wingolog.org/archives/2014/10/17/ffs-ssl) 来了解有关该主题的详细知识。
 
-* If you're having users submit sensitive information to your site you need
-  to use SSL/TLS. Anything before TLS is now insecure. Check out this
-  [handy guide](http://wingolog.org/archives/2014/10/17/ffs-ssl) that goes
-  over some of the nuances of the subject.
+* [SSL 的糟糕状态](https://hynek.me/talks/tls/) 详述了 SSL/TLS 的演化历史。 这两者之间有着非常重要的差别，Hynek 还讲解了为何必须要用 TLS的原因。该文还促使人们基于 Python 3 中的升级内容来对 Python 2.7.9 中的 SSL 进行了改进，并且记录在 [Python 中的 SSL 并不那么糟糕](https://developer.rackspace.com/blog/the-not-so-sorry-state-of-ssl-in-python/) 这篇文章中。 
 
-* [The Sorry State of SSL](https://hynek.me/talks/tls/) details the 
-  history and evolution of SSL/TLS. There are important differences between
-  the versions and Hynek explains why TLS should always be used. The
-  talk prompted work to improve Python's SSL in 2.7.9 based on the upgrades
-  in Python 3 outlined in 
-  [The not-so-sorry state of SSL in Python](https://developer.rackspace.com/blog/the-not-so-sorry-state-of-ssl-in-python/).
+* [HTTPS 如何提升连接的安全性](http://blog.hartleybrody.com/https-certificates/) 是一篇讲解 HTTPS 能够保障什么和不能保障什么的指南性文章。
 
-* [How HTTPS Secures Connections](http://blog.hartleybrody.com/https-certificates/)
-  is a guide for what HTTPS does and does not secure against.
+* [何时及如何部署 HTTPS](http://erik.io/blog/2013/06/08/a-basic-guide-to-when-and-how-to-deploy-https/)。
 
-* [When and How to Deploy HTTPS](http://erik.io/blog/2013/06/08/a-basic-guide-to-when-and-how-to-deploy-https/)
+* [HTTPS 连接的最开始几微秒](http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html) 提供了 SSL 的握手过程的详细描述。浏览器是基于 [RFC 2818](http://tools.ietf.org/html/rfc2818) 标准来实现该过程的。
 
-* [The first few milliseconds of an HTTPS connection](http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html)
-  provides a detailed look at the SSL handshake process that is implemented
-  by browsers based on the [RFC 2818](http://tools.ietf.org/html/rfc2818)
-  specification.
-
-* [Qualy SSL Server Test](https://www.ssllabs.com/ssltest/) can be used to
-  determine what's in place and what is missing for your server's HTTPS 
-  connection. Once you run the test read this article on 
-  [Getting an A+ on Qualy's SSL Labs Tester](https://sethvargo.com/getting-an-a-plus-on-qualys-ssl-labs-tester/)
-  to improve your situation.
+* [Qualy SSL 服务器测试](https://www.ssllabs.com/ssltest/) 能用于测定你的服务器 HTTPS 连接纰漏。 进行测试后，再阅读这篇文章 [在 Qualy SSL 实验测试中获取 A+ 成绩](https://sethvargo.com/getting-an-a-plus-on-qualys-ssl-labs-tester/) 来提升你的安全状况。
   
 
-## General security resources
-* The Open Web Application Security Project (OWASP) has 
-  [cheat sheets for security](https://www.owasp.org/index.php/Cheat_Sheets) 
-  topics.
+## 通用网络安全资源
+* 开放 Web 应用安全项目 (OWASP) 上有一份有关 [各种安全性主题的备忘单](https://www.owasp.org/index.php/Cheat_Sheets)。
 
-* This page contains a
-  [fantastic curated list of security reading material](http://dfir.org/?q=node/8/)
-  from beginning to advanced topics.
+* 该页上包含了一份 [精心整理的安全性相关的资料列表](http://dfir.org/?q=node/8/)，内容从初级到高级主题，应有尽有。
 
-* The [/r/netsec](http://www.reddit.com/r/netsec/) subreddit is one place to
-  go to learn more about network and application security.
+* Reddit 的 [/r/netsec](http://www.reddit.com/r/netsec/) 页是一个了解网络和应用安全的好地方。
 
-* [Hacking Tools Repository](http://gexos.github.io/Hacking-Tools-Repository/)
-  is a great list of password cracking, scanning, sniffing and other security
-  penetration testing tools.
+* [黑客工具库](http://gexos.github.io/Hacking-Tools-Repository/) 是一份关于密码破解、扫描、嗅探和其它安生渗透测试工具的列表。
 
-* [Securing an Ubuntu Server](http://www.andrewault.net/2010/05/17/securing-an-ubuntu-server/)
+* [加固 Ubuntu 服务器的安全性](http://www.andrewault.net/2010/05/17/securing-an-ubuntu-server/)。
 
-* [Securing Ubuntu](http://joshrendek.com/2013/01/securing-ubuntu/)
+* [Ubuntu 的安全性](http://joshrendek.com/2013/01/securing-ubuntu/)。
 
-* [Security Tips from Apache](http://httpd.apache.org/docs/current/misc/security_tips.html)
+* [来自 Apache 的安全建议](http://httpd.apache.org/docs/current/misc/security_tips.html)。
 
-* [Securing a Linux Server](http://spenserj.com/blog/2013/07/15/securing-a-linux-server/)
+* [加固 Linux 服务器的安全性](http://spenserj.com/blog/2013/07/15/securing-a-linux-server/)。
 
-* The EFF has a well written overview on 
-  [what makes a good security audit](https://www.eff.org/deeplinks/2014/11/what-makes-good-security-audit). It's broad but contains some of their behind the
-  scenes thinking on important considerations with security audits.
+* EFF 上有一篇关于 [如何进行有效的安全审计](https://www.eff.org/deeplinks/2014/11/what-makes-good-security-audit) 文章。讲得比较笼统，但是里面包含一些他们的有关安全审计重要性的思考。
 
-* Ars Technica wrote posts on 
-  [securing your website](http://arstechnica.com/security/2013/02/securing-your-website-a-tough-job-but-someones-got-to-do-it/)
-  along with [how to set up a safe and secure web server: part 1](http://arstechnica.com/gadgets/2012/11/how-to-set-up-a-safe-and-secure-web-server/)
-  and [part 2](http://arstechnica.com/information-technology/2012/11/securing-your-web-server-with-ssltls/)
-  to explain HTTPS and SSL without much required pre-existing knowledge.
+* Ars Technica 的文章 [提升你的网站安全性](http://arstechnica.com/security/2013/02/securing-your-website-a-tough-job-but-someones-got-to-do-it/) 及 [如何设置一个安全的 Web 服务器：第 1 部分](http://arstechnica.com/gadgets/2012/11/how-to-set-up-a-safe-and-secure-web-server/) 和 [第 2 部分](http://arstechnica.com/information-technology/2012/11/securing-your-web-server-with-ssltls/)，对 HTTPS 和 SSL 作了讲解，你不需要额外的知识就能看懂。
 
-* [Crypto 101](https://www.crypto101.io/) is an introductory course on
-  cryptography for programmers.
+* [Crypto 101](https://www.crypto101.io/) 是针对程序员的一门密码学入门课程。
 
-* [An in-depth analysis of SSH attacks on Amazon EC2](http://getprismatic.com/story/1409447605839)
-  shows how important it is to secure your web servers, especially when they are
-  hosted in IP address ranges that are commonly scanned by malicious actors.
+* [深入分析 Amazon EC2 上的 SSH 攻击](http://getprismatic.com/story/1409447605839) 阐述了加固 Web 服务器的安全是多么的重要，特别当你的服务器所有的 IP 地址段经常被恶意份子扫描时。
 
-* [Cloud Security Auditing: Challenges and Emerging Approaches](http://www.infoq.com/articles/cloud-security-auditing-challenges-and-emerging-approaches)
-  is a high-level overview of some of security auditing problems that come
-  with cloud deployments.
+* [云安全审计：挑战与新的解决方法](http://www.infoq.com/articles/cloud-security-auditing-challenges-and-emerging-approaches) 是一篇讲述伴随云部署而来的安全性审计问题的高度概括性文章。
 
-* Wondering how the common buffer overflow attack works? Check out this
-  [article on buffer overflows](http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/)
-  that explains the attack in layman's terms.
+* 想知道通常的缓冲区溢出攻击是怎样实现的吗？阅读这篇 [有关缓冲区溢出的文章](http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/)，里面以非专业的角度对这种攻击进行了讲解。
 
-* [7 Security Measures to Protect Your Servers](https://www.digitalocean.com/community/tutorials/7-security-measures-to-protect-your-servers)
-  provides a good overview of the fundamentals for how servers should be
-  configured for baseline security.
+* [保护服务器的 7 个安全措施](https://www.digitalocean.com/community/tutorials/7-security-measures-to-protect-your-servers) 是一篇讲述如果配置服务器来提供基本安全的基础性概述文章。
 
-* As you're developing on Linux, you'll want to read and follow this
-  [Linux workstation security](https://github.com/lfit/itpol/blob/master/linux-workstation-security.md)
-  document to make sure your code and environment are not compromised.
-  If you're on Mac OS X, check out this 
-  [securing Yosemite guide](https://github.com/drduh/OS-X-Yosemite-Security-and-Privacy-Guide)
-  which covers that environment.
+* 如果你用 Linux 做开发的话，你应该阅读和遵照 [Linux 工作站安全](https://github.com/lfit/itpol/blob/master/linux-workstation-security.md) 文档，以确保你的代码和环境都没有受到危害。如果你用 Mac OS X 的话，阅读 [提升 Yosemite 安全性指南](https://github.com/drduh/OS-X-Yosemite-Security-and-Privacy-Guide)，里面讲解了该环境的安全问题。
 
-* [TLS and Nginx Web Server Hardening](https://www.moses.io/2015/09/tls-and-server-hardening-post-nginx/)
-  explains a secure server configuration for the Nginx web server.
+* [TLS 和 Nginx Web 服务器加固](https://www.moses.io/2015/09/tls-and-server-hardening-post-nginx/) 讲述了 Nginx 服务器的一种安全配置方法。
 
-* [Timing attacks are one form of vulnerability](http://arstechnica.com/security/2015/10/new-attacks-on-network-time-protocol-can-defeat-https-and-create-chaos/) 
-  that can be used to defeat HTTPS in certain configurations. Understanding
-  how those attacks work is important in keeping your users' connections
-  secure.
+* [时间漏洞攻击法](http://arstechnica.com/security/2015/10/new-attacks-on-network-time-protocol-can-defeat-https-and-create-chaos/) 能用于攻破特定配置条件下的 HTTPS。理解这些攻击原理对于确保用户连接的安全性是非常重要的。
 
 
-## Web security learning checklist
-1. Read and understand the major web application security flaws that are
-   commonly exploited by malicious actors. These include cross-site request 
-   forgery (CSRF), cross-site scripting (XSS), SQL injection and session 
-   hijacking. The 
-   [OWASP top 10 web application vulnerabilities list](https://www.owasp.org/index.php/Top_10_2013-Top_10) 
-   is a great place to get an overview of these topics.
+## Web 安全学习清单
+1. 阅读和了解那些经常会被恶意份子加以利用的主要 Web 应用安全漏洞。包括跨站请求伪造 (CSRF)、跨站脚本 (XSS)、SQL注入和会话劫持等。[OWASP 前 10 位 Web 应用漏洞列表](https://www.owasp.org/index.php/Top_10_2013-Top_10) 是了解这些主题概念信息的好地方。
 
-1. Determine how the framework you've chosen mitigates these vulnerabilities.
+1. 检查你所选的框架是如何妥善处理这些漏洞的。
 
-1. Ensure your code implements the mitigation techniques for your framework. 
+1. 确保你的代码也使用了框架提供的漏洞处置技术。
 
-1. Think like an attacker and actively work to break into your own system. 
-   If you do not have enough experience to confidently break the security 
-   consider hiring a known white hat attacker. Have her break the 
-   application's security, report the easiest vulnerabilities to exploit in 
-   your app and help implement protections against those weaknesses.
+1. 以攻击者的角度进行思考，并主动攻击自己的系统。如果你没有经验来攻破安全防线，可以考虑雇用一位认识的白帽黑客。一旦攻破了应用的安全防线，应报告应用中最易被利用的漏洞，并帮助实现针对这些漏洞的保护措施。
 
-1. Recognize that no system is ever totally secure. However, the more popular
-   an application becomes the more attractive a target it is to attackers.
-   Reevaluate your web application security on a frequent basis.
-
+1. 认识到没有系统是完全安全的。但是，应用系统越流行，就越可能会成为攻击目标。应经常对你的 Web 应用的安生性进行重新评估。

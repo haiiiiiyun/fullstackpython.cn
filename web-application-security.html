@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Web applications can be attacked by malicious actors in many ways. Learn about security measures on Full Stack Python.">
+    <meta name="description" content="Web 应用会受到恶意份子的各种攻击。到 Full Stack Python 上学习有关安全措施的知识。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Web Application Security - Full Stack Python 简体中文网站</title>
+    <title>Web 应用安全 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,208 +36,134 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Web Application Security</h1>
-<p>Website security must be thought about while building every level of the web 
-stack. However, this section includes topics that deserve particular
-treatment, such as cross-site scripting (XSS), SQL injection, cross-site 
-request forgery and usage of public-private keypairs.</p>
-<h2>Security open source projects</h2>
+          <h1>Web 应用安全</h1>
+<p>构建 Web 应用的每个阶段都必须要考虑网络安全问题。但是，本节包含的主题内容，如跨站脚本 (XSS)， SQL 注入， 跨站请求伪造 (CSRF) 和公钥/私钥对的使用等，都值得我们特别关注。</p>
+<h2>网络安全开源项目</h2>
 <ul>
 <li>
-<p><a href="http://www.bro.org/">Bro</a> is a network security and traffic monitor.</p>
+<p><a href="http://www.bro.org/">Bro</a> 是一个网络安全及流量监测器。</p>
 </li>
 <li>
-<p><a href="https://github.com/marshyski/quick-secure">quick NIX secure script</a> for
-securing Linux distributions.</p>
+<p><a href="https://github.com/marshyski/quick-secure">快速 NIX 安全脚本</a> 能用于提升 Linux 发行版的安全性。</p>
 </li>
 <li>
-<p><a href="https://github.com/CISOfy/lynis">lynis</a> is a really cool security audit
-  tool that can be run as a shell script on a Linux system to find out
-  its vulnerabilities so that you can fix them instead of allowing them
-  to be exploited by malicious actors.</p>
+<p><a href="https://github.com/CISOfy/lynis">lynis</a> 是一个非常好的安全审计工具，它能以 shell 脚本的形式在 Linux 系统上运行，以便找出系统漏洞加以修复，从而避免被恶意份子利用。</p>
 </li>
 </ul>
-<h2>HTTPS resources</h2>
+<h2>HTTPS 资源</h2>
 <ul>
 <li>
-<p><a href="http://robertheaton.com/2014/03/27/how-does-https-actually-work/">How does HTTPS actually work?</a>
-  is a well-written overview of the protocol including certificates, 
-  signatures, signing and related topics.</p>
+<p><a href="http://robertheaton.com/2014/03/27/how-does-https-actually-work/">HTTPS 到底如何工作？</a> 是一篇有关该协议的概述性文章，包含认证、签名、签署等相关主题内容。</p>
 </li>
 <li>
-<p>These 
-  <a href="https://18f.gsa.gov/2015/07/16/introduction-to-https-webinar/">introduction to HTTPS</a>
-  videos explain what HTTPS is and how to implement it.</p>
+<p>这些 <a href="https://18f.gsa.gov/2015/07/16/introduction-to-https-webinar/">介绍 HTTPS</a> 的视频讲解了什么是 HTTPS 及如何实现它。</p>
 </li>
 <li>
-<p>This question asking <a href="http://security.stackexchange.com/questions/5126/whats-the-difference-between-ssl-tls-and-https">what is the difference between TLS and SSL?</a>
-  explains that TLS is a newer version of SSL and should be used because
-  SSL through version 3.0 is insecure.</p>
+<p>有人问到 <a href="http://security.stackexchange.com/questions/5126/whats-the-difference-between-ssl-tls-and-https">TLS 和 SSL 之间有什么区别？</a>，上面的答案解释到：TLS 是 SSL 的更新版本，应该使用 TLS，因为 3.0 版本以下的所有 SSL 都是不安全的。</p>
 </li>
 <li>
-<p>If you have wondered what all the SSL/TLS acronyms and settings mean,
-  read the 
-  <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Security/Server Side TLS guide</a>
-  which Mozilla uses to operationalize its servers.</p>
+<p>如果你想知道 SSL/TLS 等这些缩写词到底是什么意思的，可以看看 <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">安全性/服务端 TLS 指南</a>，Mozilla 就是按此部署它的服务器的。</p>
 </li>
 <li>
-<p>If you're having users submit sensitive information to your site you need
-  to use SSL/TLS. Anything before TLS is now insecure. Check out this
-  <a href="http://wingolog.org/archives/2014/10/17/ffs-ssl">handy guide</a> that goes
-  over some of the nuances of the subject.</p>
+<p>如果你的用户需要向你的网站提交敏感信息，你就需要使用 SSL/TLS。TLS 之前的任何版本现在都是不安全的了。阅读这篇 <a href="http://wingolog.org/archives/2014/10/17/ffs-ssl">实用指南</a> 来了解有关该主题的详细知识。</p>
 </li>
 <li>
-<p><a href="https://hynek.me/talks/tls/">The Sorry State of SSL</a> details the 
-  history and evolution of SSL/TLS. There are important differences between
-  the versions and Hynek explains why TLS should always be used. The
-  talk prompted work to improve Python's SSL in 2.7.9 based on the upgrades
-  in Python 3 outlined in 
-  <a href="https://developer.rackspace.com/blog/the-not-so-sorry-state-of-ssl-in-python/">The not-so-sorry state of SSL in Python</a>.</p>
+<p><a href="https://hynek.me/talks/tls/">SSL 的糟糕状态</a> 详述了 SSL/TLS 的演化历史。 这两者之间有着非常重要的差别，Hynek 还讲解了为何必须要用 TLS的原因。该文还促使人们基于 Python 3 中的升级内容来对 Python 2.7.9 中的 SSL 进行了改进，并且记录在 <a href="https://developer.rackspace.com/blog/the-not-so-sorry-state-of-ssl-in-python/">Python 中的 SSL 并不那么糟糕</a> 这篇文章中。 </p>
 </li>
 <li>
-<p><a href="http://blog.hartleybrody.com/https-certificates/">How HTTPS Secures Connections</a>
-  is a guide for what HTTPS does and does not secure against.</p>
+<p><a href="http://blog.hartleybrody.com/https-certificates/">HTTPS 如何提升连接的安全性</a> 是一篇讲解 HTTPS 能够保障什么和不能保障什么的指南性文章。</p>
 </li>
 <li>
-<p><a href="http://erik.io/blog/2013/06/08/a-basic-guide-to-when-and-how-to-deploy-https/">When and How to Deploy HTTPS</a></p>
+<p><a href="http://erik.io/blog/2013/06/08/a-basic-guide-to-when-and-how-to-deploy-https/">何时及如何部署 HTTPS</a>。</p>
 </li>
 <li>
-<p><a href="http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html">The first few milliseconds of an HTTPS connection</a>
-  provides a detailed look at the SSL handshake process that is implemented
-  by browsers based on the <a href="http://tools.ietf.org/html/rfc2818">RFC 2818</a>
-  specification.</p>
+<p><a href="http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html">HTTPS 连接的最开始几微秒</a> 提供了 SSL 的握手过程的详细描述。浏览器是基于 <a href="http://tools.ietf.org/html/rfc2818">RFC 2818</a> 标准来实现该过程的。</p>
 </li>
 <li>
-<p><a href="https://www.ssllabs.com/ssltest/">Qualy SSL Server Test</a> can be used to
-  determine what's in place and what is missing for your server's HTTPS 
-  connection. Once you run the test read this article on 
-  <a href="https://sethvargo.com/getting-an-a-plus-on-qualys-ssl-labs-tester/">Getting an A+ on Qualy's SSL Labs Tester</a>
-  to improve your situation.</p>
+<p><a href="https://www.ssllabs.com/ssltest/">Qualy SSL 服务器测试</a> 能用于测定你的服务器 HTTPS 连接纰漏。 进行测试后，再阅读这篇文章 <a href="https://sethvargo.com/getting-an-a-plus-on-qualys-ssl-labs-tester/">在 Qualy SSL 实验测试中获取 A+ 成绩</a> 来提升你的安全状况。</p>
 </li>
 </ul>
-<h2>General security resources</h2>
+<h2>通用网络安全资源</h2>
 <ul>
 <li>
-<p>The Open Web Application Security Project (OWASP) has 
-  <a href="https://www.owasp.org/index.php/Cheat_Sheets">cheat sheets for security</a> 
-  topics.</p>
+<p>开放 Web 应用安全项目 (OWASP) 上有一份有关 <a href="https://www.owasp.org/index.php/Cheat_Sheets">各种安全性主题的备忘单</a>。</p>
 </li>
 <li>
-<p>This page contains a
-  <a href="http://dfir.org/?q=node/8/">fantastic curated list of security reading material</a>
-  from beginning to advanced topics.</p>
+<p>该页上包含了一份 <a href="http://dfir.org/?q=node/8/">精心整理的安全性相关的资料列表</a>，内容从初级到高级主题，应有尽有。</p>
 </li>
 <li>
-<p>The <a href="http://www.reddit.com/r/netsec/">/r/netsec</a> subreddit is one place to
-  go to learn more about network and application security.</p>
+<p>Reddit 的 <a href="http://www.reddit.com/r/netsec/">/r/netsec</a> 页是一个了解网络和应用安全的好地方。</p>
 </li>
 <li>
-<p><a href="http://gexos.github.io/Hacking-Tools-Repository/">Hacking Tools Repository</a>
-  is a great list of password cracking, scanning, sniffing and other security
-  penetration testing tools.</p>
+<p><a href="http://gexos.github.io/Hacking-Tools-Repository/">黑客工具库</a> 是一份关于密码破解、扫描、嗅探和其它安生渗透测试工具的列表。</p>
 </li>
 <li>
-<p><a href="http://www.andrewault.net/2010/05/17/securing-an-ubuntu-server/">Securing an Ubuntu Server</a></p>
+<p><a href="http://www.andrewault.net/2010/05/17/securing-an-ubuntu-server/">加固 Ubuntu 服务器的安全性</a>。</p>
 </li>
 <li>
-<p><a href="http://joshrendek.com/2013/01/securing-ubuntu/">Securing Ubuntu</a></p>
+<p><a href="http://joshrendek.com/2013/01/securing-ubuntu/">Ubuntu 的安全性</a>。</p>
 </li>
 <li>
-<p><a href="http://httpd.apache.org/docs/current/misc/security_tips.html">Security Tips from Apache</a></p>
+<p><a href="http://httpd.apache.org/docs/current/misc/security_tips.html">来自 Apache 的安全建议</a>。</p>
 </li>
 <li>
-<p><a href="http://spenserj.com/blog/2013/07/15/securing-a-linux-server/">Securing a Linux Server</a></p>
+<p><a href="http://spenserj.com/blog/2013/07/15/securing-a-linux-server/">加固 Linux 服务器的安全性</a>。</p>
 </li>
 <li>
-<p>The EFF has a well written overview on 
-  <a href="https://www.eff.org/deeplinks/2014/11/what-makes-good-security-audit">what makes a good security audit</a>. It's broad but contains some of their behind the
-  scenes thinking on important considerations with security audits.</p>
+<p>EFF 上有一篇关于 <a href="https://www.eff.org/deeplinks/2014/11/what-makes-good-security-audit">如何进行有效的安全审计</a> 文章。讲得比较笼统，但是里面包含一些他们的有关安全审计重要性的思考。</p>
 </li>
 <li>
-<p>Ars Technica wrote posts on 
-  <a href="http://arstechnica.com/security/2013/02/securing-your-website-a-tough-job-but-someones-got-to-do-it/">securing your website</a>
-  along with <a href="http://arstechnica.com/gadgets/2012/11/how-to-set-up-a-safe-and-secure-web-server/">how to set up a safe and secure web server: part 1</a>
-  and <a href="http://arstechnica.com/information-technology/2012/11/securing-your-web-server-with-ssltls/">part 2</a>
-  to explain HTTPS and SSL without much required pre-existing knowledge.</p>
+<p>Ars Technica 的文章 <a href="http://arstechnica.com/security/2013/02/securing-your-website-a-tough-job-but-someones-got-to-do-it/">提升你的网站安全性</a> 及 <a href="http://arstechnica.com/gadgets/2012/11/how-to-set-up-a-safe-and-secure-web-server/">如何设置一个安全的 Web 服务器：第 1 部分</a> 和 <a href="http://arstechnica.com/information-technology/2012/11/securing-your-web-server-with-ssltls/">第 2 部分</a>，对 HTTPS 和 SSL 作了讲解，你不需要额外的知识就能看懂。</p>
 </li>
 <li>
-<p><a href="https://www.crypto101.io/">Crypto 101</a> is an introductory course on
-  cryptography for programmers.</p>
+<p><a href="https://www.crypto101.io/">Crypto 101</a> 是针对程序员的一门密码学入门课程。</p>
 </li>
 <li>
-<p><a href="http://getprismatic.com/story/1409447605839">An in-depth analysis of SSH attacks on Amazon EC2</a>
-  shows how important it is to secure your web servers, especially when they are
-  hosted in IP address ranges that are commonly scanned by malicious actors.</p>
+<p><a href="http://getprismatic.com/story/1409447605839">深入分析 Amazon EC2 上的 SSH 攻击</a> 阐述了加固 Web 服务器的安全是多么的重要，特别当你的服务器所有的 IP 地址段经常被恶意份子扫描时。</p>
 </li>
 <li>
-<p><a href="http://www.infoq.com/articles/cloud-security-auditing-challenges-and-emerging-approaches">Cloud Security Auditing: Challenges and Emerging Approaches</a>
-  is a high-level overview of some of security auditing problems that come
-  with cloud deployments.</p>
+<p><a href="http://www.infoq.com/articles/cloud-security-auditing-challenges-and-emerging-approaches">云安全审计：挑战与新的解决方法</a> 是一篇讲述伴随云部署而来的安全性审计问题的高度概括性文章。</p>
 </li>
 <li>
-<p>Wondering how the common buffer overflow attack works? Check out this
-  <a href="http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/">article on buffer overflows</a>
-  that explains the attack in layman's terms.</p>
+<p>想知道通常的缓冲区溢出攻击是怎样实现的吗？阅读这篇 <a href="http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/">有关缓冲区溢出的文章</a>，里面以非专业的角度对这种攻击进行了讲解。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/tutorials/7-security-measures-to-protect-your-servers">7 Security Measures to Protect Your Servers</a>
-  provides a good overview of the fundamentals for how servers should be
-  configured for baseline security.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/7-security-measures-to-protect-your-servers">保护服务器的 7 个安全措施</a> 是一篇讲述如果配置服务器来提供基本安全的基础性概述文章。</p>
 </li>
 <li>
-<p>As you're developing on Linux, you'll want to read and follow this
-  <a href="https://github.com/lfit/itpol/blob/master/linux-workstation-security.md">Linux workstation security</a>
-  document to make sure your code and environment are not compromised.
-  If you're on Mac OS X, check out this 
-  <a href="https://github.com/drduh/OS-X-Yosemite-Security-and-Privacy-Guide">securing Yosemite guide</a>
-  which covers that environment.</p>
+<p>如果你用 Linux 做开发的话，你应该阅读和遵照 <a href="https://github.com/lfit/itpol/blob/master/linux-workstation-security.md">Linux 工作站安全</a> 文档，以确保你的代码和环境都没有受到危害。如果你用 Mac OS X 的话，阅读 <a href="https://github.com/drduh/OS-X-Yosemite-Security-and-Privacy-Guide">提升 Yosemite 安全性指南</a>，里面讲解了该环境的安全问题。</p>
 </li>
 <li>
-<p><a href="https://www.moses.io/2015/09/tls-and-server-hardening-post-nginx/">TLS and Nginx Web Server Hardening</a>
-  explains a secure server configuration for the Nginx web server.</p>
+<p><a href="https://www.moses.io/2015/09/tls-and-server-hardening-post-nginx/">TLS 和 Nginx Web 服务器加固</a> 讲述了 Nginx 服务器的一种安全配置方法。</p>
 </li>
 <li>
-<p><a href="http://arstechnica.com/security/2015/10/new-attacks-on-network-time-protocol-can-defeat-https-and-create-chaos/">Timing attacks are one form of vulnerability</a> 
-  that can be used to defeat HTTPS in certain configurations. Understanding
-  how those attacks work is important in keeping your users' connections
-  secure.</p>
+<p><a href="http://arstechnica.com/security/2015/10/new-attacks-on-network-time-protocol-can-defeat-https-and-create-chaos/">时间漏洞攻击法</a> 能用于攻破特定配置条件下的 HTTPS。理解这些攻击原理对于确保用户连接的安全性是非常重要的。</p>
 </li>
 </ul>
-<h2>Web security learning checklist</h2>
+<h2>Web 安全学习清单</h2>
 <ol>
 <li>
-<p>Read and understand the major web application security flaws that are
-   commonly exploited by malicious actors. These include cross-site request 
-   forgery (CSRF), cross-site scripting (XSS), SQL injection and session 
-   hijacking. The 
-   <a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">OWASP top 10 web application vulnerabilities list</a> 
-   is a great place to get an overview of these topics.</p>
+<p>阅读和了解那些经常会被恶意份子加以利用的主要 Web 应用安全漏洞。包括跨站请求伪造 (CSRF)、跨站脚本 (XSS)、SQL注入和会话劫持等。<a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">OWASP 前 10 位 Web 应用漏洞列表</a> 是了解这些主题概念信息的好地方。</p>
 </li>
 <li>
-<p>Determine how the framework you've chosen mitigates these vulnerabilities.</p>
+<p>检查你所选的框架是如何妥善处理这些漏洞的。</p>
 </li>
 <li>
-<p>Ensure your code implements the mitigation techniques for your framework. </p>
+<p>确保你的代码也使用了框架提供的漏洞处置技术。</p>
 </li>
 <li>
-<p>Think like an attacker and actively work to break into your own system. 
-   If you do not have enough experience to confidently break the security 
-   consider hiring a known white hat attacker. Have her break the 
-   application's security, report the easiest vulnerabilities to exploit in 
-   your app and help implement protections against those weaknesses.</p>
+<p>以攻击者的角度进行思考，并主动攻击自己的系统。如果你没有经验来攻破安全防线，可以考虑雇用一位认识的白帽黑客。一旦攻破了应用的安全防线，应报告应用中最易被利用的漏洞，并帮助实现针对这些漏洞的保护措施。</p>
 </li>
 <li>
-<p>Recognize that no system is ever totally secure. However, the more popular
-   an application becomes the more attractive a target it is to attackers.
-   Reevaluate your web application security on a frequent basis.</p>
+<p>认识到没有系统是完全安全的。但是，应用系统越流行，就越可能会成为攻击目标。应经常对你的 Web 应用的安生性进行重新评估。</p>
 </li>
 </ol>
-<h3>What web development topic do you want to learn about next?</h3>
+<h3>接下来你想学习 Web 开发的哪方面内容？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
 <a href="/web-analytics.html" class="btn btn-success btn-full"><svg width="28" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M384 1152q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm192-448q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm428 481l101-382q6-26-7.5-48.5t-38.5-29.5-48 6.5-30 39.5l-101 382q-60 5-107 43.5t-63 98.5q-20 77 20 146t117 89 146-20 89-117q16-60-6-117t-72-91zm660-33q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm-640-640q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm448 192q0-53-37.5-90.5t-90.5-37.5-90.5 37.5-37.5 90.5 37.5 90.5 90.5 37.5 90.5-37.5 37.5-90.5zm320 448q0 261-141 483-19 29-54 29h-1402q-35 0-54-29-141-221-141-483 0-182 71-348t191-286 286-191 348-71 348 71 286 191 191 286 71 348z" fill="#fff"/></svg></a>
-<p class="under-btn">I want to learn more about app users via web analytics.</p>        </div>
+<p class="under-btn">我想学习如何通过 Web 分析来了解用户的更多知识。</p>        </div>
     </div>
     <div class="col-md-4">
         <div class="well select-next">
@@ -247,7 +173,7 @@ securing Linux distributions.</p>
     <div class="col-md-4">
         <div class="well select-next">
 <a href="/logging.html" class="btn btn-success btn-full"><svg width="28" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 1344v128q0 26-19 45t-45 19h-1664q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1664q26 0 45 19t19 45zm-384-384v128q0 26-19 45t-45 19h-1280q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1280q26 0 45 19t19 45zm256-384v128q0 26-19 45t-45 19h-1536q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1536q26 0 45 19t19 45zm-384-384v128q0 26-19 45t-45 19h-1152q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1152q26 0 45 19t19 45z" fill="#fff"/></svg></a>
-<p class="under-btn">How do I log errors that occur in my application?</p>        </div>
+<p class="under-btn">我如何对应用中出现的错误进行日志记录？</p>        </div>
     </div>
 </div><div id="mc_embed_signup">
 <form action="//mattmakai.us2.list-manage.com/subscribe/post?u=b7e774f0c4f05dcebbfee183d&amp;id=b22335388d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -294,10 +220,10 @@ securing Linux distributions.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Application Security</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Site Generators</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Web Application Security</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">Web 应用安全</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -310,7 +236,7 @@ securing Linux distributions.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a>  <a href="/web-application-security.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Web Application Security</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a>  <a href="/web-application-security.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Web 应用安全</a>
 <a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>
