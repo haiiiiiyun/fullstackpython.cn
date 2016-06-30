@@ -21,7 +21,7 @@ updated: 2016-06-16 12:16
 * [pyramid\_appengine](https://github.com/twillis/pyramid_appengine) 提供了一个能在 [Google App Engine](/platform-as-a-service.html) 上运行的 Pyramid 项目框架。
 
 ## Pyramid 资源
-* [尝试 Pyramid](http://trypyramid.com/) 这个着陆页面列举了 Pyramid 框架的优势。页面上还提供了一些示例 "hello world!" 代码。
+* [尝试 Pyramid](http://trypyramid.com/) 是 Pyramid 的官方宣传网站，上面有一些能扩展你的 Pyramid 应用功能的资源。页面上还提供了一些示例 "hello world!" 代码。
 
 * [首个 Pyramid 应用](http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/firstapp.html) 是你开始着手创建一个示例项目的起点。
 

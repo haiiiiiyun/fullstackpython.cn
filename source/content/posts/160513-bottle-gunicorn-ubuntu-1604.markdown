@@ -3,6 +3,7 @@ slug: python-3-bottle-gunicorn-ubuntu-1604-xenial-xerus
 meta: Instructions for developing Bottle web apps on Ubuntu 16.04 with Python 3 and Green Unicorn (Gunicorn).
 category: post
 date: 2016-05-13
+modified: 2016-05-13
 headerimage: /source/static/img/160513-ubuntu-bottle-gunicorn/header.jpg
 headeralt: Bottle, Green Unicorn and Ubuntu logos. Copyright their respective owners.
 
@@ -28,7 +29,7 @@ as of May 13, 2016 are:
 * [Python](/why-use-python.html) version 
   [3.5](https://docs.python.org/3/whatsnew/3.5.html) 
   (default in Ubuntu 16.04)
-* [Botle](/bottle.html) web framework version 
+* [Bottle](/bottle.html) web framework version 
   [0.12](http://bottlepy.org/docs/0.12/)
 * [Green Unicorn (Gunicorn)](/green-unicorn-gunicorn.html) version 
   [19.5](http://docs.gunicorn.org/en/stable/news.html)

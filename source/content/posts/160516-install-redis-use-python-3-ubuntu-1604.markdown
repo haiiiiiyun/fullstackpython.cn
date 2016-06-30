@@ -3,6 +3,9 @@ slug: install-redis-use-python-3-ubuntu-1604
 meta: Step-by-step instructions to install Redis and use it with Python 3 and redis-py on Ubuntu 16.04 Xenial Xerus.
 category: post
 date: 2016-05-16
+modified: 2016-05-16
+headerimage: /source/static/img/160516-redis-ubuntu-1604/header.jpg
+headeralt: Redis and Ubuntu logos. Copyright their respective owners.
 
 
 [Redis](http://redis.io) is an in-memory key-value pair 
@@ -11,7 +14,8 @@ for [web application](/web-frameworks.html) sessions,
 transient [data](/data.html) and as a broker for 
 [task queues](/task-queues.html). redis-py is a common Python code 
 library for interacting with Redis. Let's learn how to get Redis up
-and running on Ubuntu and then start using it in a simple Python application.
+and running on [Ubuntu](/ubuntu.html) and then start using it in a simple 
+Python application.
 
 
 ## Tools We Need

@@ -3,6 +3,9 @@ slug: postgresql-python-3-psycopg2-ubuntu-1604
 meta: A guide for installing and using PostgreSQL with Python 3 and psycopg2 on Ubuntu 16.04 Xenial Xerus.
 category: post
 date: 2016-05-18
+modified: 2016-05-18
+headerimage: /source/static/img/160518-postgresql-ubuntu-1604/header.jpg
+headeralt: PostgreSQL and Ubuntu logos. Copyright their respective owners.
 
 
 [PostgreSQL](/postgresql.html) is a powerful open source 
@@ -10,8 +13,8 @@ date: 2016-05-18
 update and delete [Python web application](/web-frameworks.html) data.
 [Psycopg2](http://pythonhosted.org/psycopg2/) is a PostgreSQL database 
 driver that serves as a Python client for access to the PostgreSQL server. 
-This post explains how to install PostgreSQL on Ubuntu 16.04 and run a few 
-basic SQL queries within a Python program.
+This post explains how to install PostgreSQL on [Ubuntu 16.04](/ubuntu.html) 
+and run a few basic SQL queries within a Python program.
 
 We won't cover 
 [object-relational mappers (ORMs)](/object-relational-mappers-orms.html) 
