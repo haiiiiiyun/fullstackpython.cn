@@ -1,16 +1,16 @@
-title: Static Site Generators
+title: 静态网站生成器
 category: page
 slug: static-site-generator
 sortorder: 0416
 toc: False
-sidebartitle: Static Site Generators
-meta: A static site generator combines a markup language with a templating engine to produce HTML files. Learn more on Full Stack Python.
+sidebartitle: 静态网站生成器
+meta: 静态网站生成器结合标记语言和模板引擎来生成 HTML 文件。到 Full Stack Python 上学习更多知识。
+updated: 2016-07-01 16:45
 
 
-# Static Site Generator
-A static website generator combines a markup language, such as Markdown 
-or reStructuredText, with a templating engine such as 
-[Jinja](http://jinja.pocoo.org/), to produce HTML 
+# 静态网站生成器
+
+静态网站生成器结合标记语言（如 Markdown 或 reStructuredText）以及模板引擎，如 [Jinja](http://jinja.pocoo.org/), 来生成 HTML 文件。
 files. The HTML files can be hosted and served by a 
 [web server](/web-servers.html) or 
 [content delivery network (CDN)](/static-content.html) 
@@ -18,8 +18,9 @@ files. The HTML files can be hosted and served by a
 [WSGI server](/wsgi-servers.html).
 
 
-## Why are static site generators useful?
-[Static content files](/static-content.html) such as HTML, CSS and JavaScript 
+## 为什么说静态网站生成器很有用？
+
+[静态内容文件](/static-content.html) 如 HTML、CSS 和 JavaScript 可以通过内容分发网络 (CDN) 来提供服务，以达到高扩展及低花费的目标。静态生成网站一旦遇到高并发流量，能很容易地通过 CDN 实现扩展而不会丢失连接。
 can be served from a content delivery network (CDN) for high scale and low 
 cost. If a statically generated website is hit by high concurrent traffic it 
 will be easily served by the CDN without dropped connections. 
