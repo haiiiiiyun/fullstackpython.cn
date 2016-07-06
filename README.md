@@ -101,8 +101,8 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 ### 八、测试
 
-- [ ] content/pages/08-testing/01-testing.markdown
-- [ ] content/pages/08-testing/02-unit-testing.markdown
+- [x] content/pages/08-testing/01-testing.markdown (2016-07-05)
+- [x] content/pages/08-testing/02-unit-testing.markdown (2016-07-05)
 - [ ] content/pages/08-testing/03-integration-testing.markdown
 - [ ] content/pages/08-testing/05-code-metrics.markdown
 - [ ] content/pages/08-testing/08-debugging.markdown
