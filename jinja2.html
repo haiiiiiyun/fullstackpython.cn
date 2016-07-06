@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Jinja2 is a template engine written in Python for outputting formats such as HTML and XML.">
+    <meta name="description" content="Jinja2 是一个用 Python 编写的模板引擎，它用于输出 HTML 和 XML 等的格式文件。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
     <title>Jinja2 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
@@ -37,89 +37,48 @@
 </div><div class="row">
     <div class="col-md-8">
           <h1>Jinja2</h1>
-<p><a href="http://jinja.pocoo.org/docs/dev/">Jinja2</a> is a Python 
-<a href="/template-engines.html">template engine</a> used to create HTML, XML or 
-other markup formats that are returned to the user via an HTTP response.</p>
-<h2>Why is Jinja2 useful?</h2>
-<p>Jinja2 is useful because it has consistent template tag syntax and the
-project is cleanly extracted as 
-<a href="https://github.com/mitsuhiko/jinja2">an independent open source project</a> so
-it can be used a dependency by other code libraries.</p>
-<div class="well see-also">Jinja2 is an implementation of the <a href="/template-engines.html">template engines</a> concept. Learn more in the <a href="/web-development.html">web development</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+<p><a href="http://jinja.pocoo.org/docs/dev/">Jinja2</a> 是一个 Python <a href="/template-engines.html">模板引擎</a>，用于创建 HTML、XML 等其它标记格式文件，这些文件能通过 HTTP 响应返回给用户。</p>
+<h2>为什么说 Jinja2 很有用？</h2>
+<p>Jinja2 有用的原因是：它具有一致的模板标签语法，并且该项目完全是作为 <a href="https://github.com/mitsuhiko/jinja2">一个独立的开源项目</a> 存在的，因此它能用于其它的代码库中。</p>
+<div class="well see-also">Jinja2 是对 <a href="/template-engines.html">模板引擎</a> 概念的一种实现。 到 <a href="/web-development.html">Web 开发</a> 那一章去学习更多相关知识，或者到 <a href="/table-of-contents.html">总目录</a> 页去查看其它所有主题。</div>
 
-<p>Jinja2 strikes a thoughtful balance on the template engine spectrum where
-on one end you can embed arbitrary code in the templates and the other
-end a developer can code whatever she wants.</p>
-<h2>Jinja2 origin and development</h2>
-<p>The first recorded public released of Jinja2 was in 
-<a href="http://jinja.pocoo.org/docs/dev/changelog/#version-2-0rc1">2008 with 2.0rc1</a>.
-Since then the engine has seen numerous updates and remains in active
-development.</p>
-<p>Jinja2 engine certainly wasn't the first template engine. In fact, Jinja2's 
-syntax is inspired by Django's built-in template engine, which was released 
-several years earlier. There were many template systems, such as 
-<a href="https://en.wikipedia.org/wiki/JavaServer_Pages">JavaServer Pages (JSPs)</a>,
-that originated almost a decade before Jinja2. Jinja2 built upon the concepts
-of other template engines and today is widely used by the Python community.</p>
-<h2>What projects depend on Jinja2?</h2>
-<p>Jinja2 is a commonly-used templating engine for
-<a href="/web-frameworks.html">web frameworks</a> such as <a href="/flask.html">Flask</a>, 
-<a href="/bottle.html">Bottle</a> <a href="/morepath.html">Morepath</a> and, as of its 1.8 update,
-optionally <a href="/django.html">Django</a> as well. Jinja2 is also used as a template
-language by <a href="/configuration-management.html">configuration management</a> tool 
-Ansible and the <a href="/static-site-generator.html">static site generator</a> Pelican,
-among many other similar tools.</p>
-<p>The idea is that if a developer already knows Jinja2 from working with one 
-project then the exact same syntax and style can be used in another project 
-that requires templating. The re-use reduces the learning curve and saves the
-open source project author from having to reinvent a new templating style.</p>
-<h3>Jinja2 resources</h3>
+<p>对于一个模板引擎的代码功能来说，一个极端是允许将任意的代码嵌入到模板中，另一个极端是允许一个开发者在模板中编写任何她想要的功能。Jinja2 的实现经过了大量的考虑 ，并在这两者之前取得了一个很好的平衡。</p>
+<h2>Jinja2 的起源和发展</h2>
+<p>Jinja2 的第一个有记录的公开发行版是 <a href="http://jinja.pocoo.org/docs/dev/changelog/#version-2-0rc1">2008 的 2.0rc1</a>。自那之后，该引擎进行了大量的更新，且一直处于活跃开发状态。</p>
+<p>Jinja2 引擎当然不是最好的模板引擎。实际上，Jinja2 语法是受到 Django 内置模板引擎启发的， Django 的相关引擎在好几年前就已发布了。之前就已经有很多的模板系统了，例如 <a href="https://en.wikipedia.org/wiki/JavaServer_Pages">JavaServer 页面 (JSPs)</a>，它就比 Jinja2 将近早了十年。Jinja2 的创建吸收了其它模板引擎的经验，而今它在 Python 社区中有着广泛应用。</p>
+<h2>哪些项目使用了 Jinja2？</h2>
+<p>Jinja2 是一个在 <a href="/web-frameworks.html">Web 框架</a> 中经常使用的模板引擎，像 <a href="/flask.html">Flask</a>、<a href="/bottle.html">Bottle</a>、 <a href="/morepath.html">Morepath</a> 以及随着 1.8 版的更新，现在的 <a href="/django.html">Django</a> 也可选用该引擎了。 Jinja2 也被 <a href="/configuration-management.html">配置管理</a> 工具 Ansible 、<a href="/static-site-generator.html">静态网站生成器</a> Pelican 等其它许多类似工具用作模板语言。</p>
+<p>其目标是：当开发人员已经通过某个项目学会了 Jinja2，那么在另一个需要模板功能的项目中就可以使用完全相同的语法和样式。复用降低了学习曲线并使得开源项目作者免于重造一种新的模板样式。</p>
+<h3>Jinja2 相关资源</h3>
 <ul>
 <li>
-<p>Real Python has a nice 
-  <a href="https://realpython.com/blog/python/primer-on-jinja-templating/">Jinja2 primer</a>
-  with many code examples to show how to use the template engine.</p>
+<p>《Real Python》 上有篇很好的 <a href="https://realpython.com/blog/python/primer-on-jinja-templating/">Jinja2 入门资料</a>，它通过大量的示例代码向我们讲解了如何使用模板引擎。</p>
 </li>
 <li>
-<p>The <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates">second part of the Flask mega tutorial</a> 
-  is all about Jinja2 templates. It walks through control flow, template inheritance
-  and other standard features of the engine.</p>
+<p><a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates">《Flask mega 教程》的第二部分</a> 都是讲述 Jinja2 模板的。讲述了控制流、模板继承以及该引擎的其它标准特性。</p>
 </li>
 <li>
-<p><a href="http://jonathanchu.is/posts/upgrading-jinja2-templates-django-18-with-admin/">Upgrading to Jinja2 Templates in Django 1.8 With Admin</a>
-  shows how to fix an issue that can occur with Django 1.8 and using Jinja2 as
-  the template engine.</p>
+<p><a href="http://jonathanchu.is/posts/upgrading-jinja2-templates-django-18-with-admin/">在 Django 1.8 的 Admin 中升级使用 Jinja2 模板</a> 讲解了如何修复一个当 Django 1.8 将 Jinja2 作为模板引擎时会出现的一个问题。</p>
 </li>
 <li>
-<p>The official 
-  <a href="http://jinja.pocoo.org/docs/dev/templates/">Jinja2 template designer documentation</a>
-  is exceptionally useful both as a reference as well as a full read-through
-  to understand how to properly work with template tags.</p>
+<p>官方的 <a href="http://jinja.pocoo.org/docs/dev/templates/">Jinja2 模板设计师文档</a> 毫无疑问是相当有用的，它即可以作为参考使用，也可以进行通读，从而学习如何正确地使用模板标签。</p>
 </li>
 <li>
-<p>When you want to use Jinja2 outside of a <a href="/web-frameworks.html">web framework</a> or 
-  other existing tool, here's a 
-  <a href="http://www.pydanny.com/jinja2-quick-load-function.html">handy quick load function snippet</a>
-  so the template engine can be easily used from a script or the REPL.</p>
+<p>如果你想在 <a href="/web-frameworks.html">Web 框架</a> 或者其它现有工具之外使用 Jinja2 的话，这里有一份 <a href="http://www.pydanny.com/jinja2-quick-load-function.html">非常实用的快速加载函数代码段</a>，它能使该模板引擎更加容易用于脚本和 REPL 环境中。</p>
 </li>
 <li>
-<p>When working with Jinja2 in combination with LaTeX, some of Jinja2's blocks
-  can conflict with LaTeX commands. Check out this post on
-  <a href="http://eosrei.net/articles/2015/11/latex-templates-python-and-jinja2-generate-pdfs">LaTeX templates with Python and Jinja2 to generate PDFs</a>
-  to resolve those issues.</p>
+<p>当 Jinja2 和 LaTeX 一起使用时，一些 Jinja2 段会与 LaTeX 命令冲突。查看这篇文章 <a href="http://eosrei.net/articles/2015/11/latex-templates-python-and-jinja2-generate-pdfs">LaTeX 模板通过 Python 和 Jinja2 来生成 PDF</a> 来了解如何解决这些问题。</p>
 </li>
 <li>
-<p>When you use Jinja2 for long enough, eventually you'll want to escape
-  large blocks of Jinja2-like text in your templates. To do so, you'll
-  need the <a href="http://stackoverflow.com/questions/25359898/escape-jinja2-syntax-in-a-jinja2-template">"raw" template tag</a>.</p>
+<p>如果你经常使用 Jinja2 的话，你一定会有想在模板文件中转义大段 Jinja2 格式文本的情况。如果需要这样做的话，可以看看 <a href="http://stackoverflow.com/questions/25359898/escape-jinja2-syntax-in-a-jinja2-template">"raw" 模板标签</a>。</p>
 </li>
 </ul>
-<h3>Learn more about template engines or move to a new topic?</h3>
+<h3>学习更多的模板引擎知识，还是去学习新的主题？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
 <a href="/template-engines.html" class="btn btn-success btn-full"><svg width="28" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M896 512h-384v384h384v-384zm128 640v128h-640v-128h640zm0-768v640h-640v-640h640zm640 768v128h-512v-128h512zm0-256v128h-512v-128h512zm0-256v128h-512v-128h512zm0-256v128h-512v-128h512zm-1536 960v-960h-128v960q0 26 19 45t45 19 45-19 19-45zm1664 0v-1088h-1536v1088q0 33-11 64h1483q26 0 45-19t19-45zm128-1216v1216q0 80-56 136t-136 56h-1664q-80 0-136-56t-56-136v-1088h256v-128h1792z" fill="#fff"/></svg></a>
-<p class="under-btn">What are template engines and why are they useful?</p>        </div>
+<p class="under-btn">什么是模板引擎及它们为什么很有用？</p>        </div>
     </div>
     <div class="col-md-4">
         <div class="well select-next">

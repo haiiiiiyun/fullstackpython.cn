@@ -55,7 +55,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/04-web-development/14-template-engines.markdown (2016-06-28)
 - [x] content/pages/04-web-development/15-web-app-security.markdown (2016-06-30)
 - [x] content/pages/04-web-development/16-static-site-generator.markdown (2016-07-05)
-- [ ] content/pages/04-web-development/17-jinja2.markdown
+- [x] content/pages/04-web-development/17-jinja2.markdown (2016-07-06)
 
 ### 五、数据部分
 
