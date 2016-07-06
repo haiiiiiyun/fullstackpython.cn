@@ -103,7 +103,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 - [x] content/pages/08-testing/01-testing.markdown (2016-07-05 by [Christopher L](http://blog.chriscabin.com/))
 - [x] content/pages/08-testing/02-unit-testing.markdown (2016-07-05 by [Christopher L](http://blog.chriscabin.com/))
-- [x ] content/pages/08-testing/03-integration-testing.markdown (2016-07-06 by [Christopher L](http://blog.chriscabin.com/))
+- [x] content/pages/08-testing/03-integration-testing.markdown (2016-07-06 by [Christopher L](http://blog.chriscabin.com/))
 - [ ] content/pages/08-testing/05-code-metrics.markdown
 - [ ] content/pages/08-testing/08-debugging.markdown
 
