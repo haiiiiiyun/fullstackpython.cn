@@ -73,7 +73,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [ ] content/pages/06-web-apis/02-api-integration.markdown
 - [ ] content/pages/06-web-apis/03-api-creation.markdown
 
-### 七、Web 应用开发
+### 七、Web 应用部署
 
 - [ ] content/pages/07-web-app-deployment/01-deployment.markdown
 - [ ] content/pages/07-web-app-deployment/02-servers.markdown
@@ -121,6 +121,13 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [ ] content/posts/160515-sending-mms-picture-messages-python.markdown
 - [ ] content/posts/160516-install-redis-use-python-3-ubuntu-1604.markdown
 - [ ] content/posts/160518-install-postgresql-python-3-ubuntu-1604.markdown
+- [ ] content/posts/160528-install-mysql-ubuntu-1604.markdown
+- [ ] content/posts/160530-respond-sms-text-messages-python-flask.markdown
+- [ ] content/posts/160604-build-first-slack-bot-python.markdown
+- [ ] content/posts/160605-reply-sms-python-bottle.markdown
+- [ ] content/posts/160619-pyramid-gunicorn-ubuntu-1604.markdown
+- [ ] content/posts/160626-django-gunicorn-mint-linux-17.markdown
+
 
 ## 如何贡献翻译
 

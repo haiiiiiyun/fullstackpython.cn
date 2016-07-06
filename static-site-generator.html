@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
+<<<<<<< HEAD
     <meta name="description" content="静态网站生成器结合标记语言和模板引擎来生成 HTML 文件。到 Full Stack Python 上学习更多知识。">
+=======
+    <meta name="description" content="静态网站生成器使用标记语言和模板引擎来生成 HTML 文件。到 Full Stack Python 上学习更多知识。">
+>>>>>>> upstream/gh-pages
     <link rel="shortcut icon" href="/img/fsp-fav.png">
     <title>静态网站生成器 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
@@ -37,6 +41,7 @@
 </div><div class="row">
     <div class="col-md-8">
           <h1>静态网站生成器</h1>
+<<<<<<< HEAD
 <p>静态网站生成器结合标记语言（如 Markdown 或 reStructuredText）以及模板引擎，如 <a href="http://jinja.pocoo.org/">Jinja</a>, 来生成 HTML 文件。
 files. The HTML files can be hosted and served by a 
 <a href="/web-servers.html">web server</a> or 
@@ -54,177 +59,95 @@ for a weekend, <a href="https://pages.github.com/">GitHub Pages</a> was used as 
 to serve the site and didn't have any issues even with close to 400 
 concurrent connections at a time, as shown in the following Google Analytics 
 screenshot captured during that traffic burst.</p>
+=======
+<p>静态网站生成器结合标记语言（如 Markdown 或 reStructuredText）以及模板引擎，如 <a href="http://jinja.pocoo.org/">Jinja</a>, 来生成 HTML 文件。这些 HTML 文件可以通过 <a href="/web-servers.html">Web 服务器</a> 或者 <a href="/static-content.html">内容分发网络 (CDN)</a> 进行部署发布，而无需依赖 <a href="/wsgi-servers.html">WSGI 服务器</a> 等其它东西。</p>
+<h2>为什么说静态网站生成器很有用？</h2>
+<p><a href="/static-content.html">静态内容文件</a> 如 HTML、CSS 和 JavaScript 文件可以由内容分发网络 (CDN) 来提供服务，以实现高规模及低成本的目标。静态内容网站一旦遇到高并发流量，能很容易地通过 CDN 来提供服务而不会丢失连接。</p>
+<p>例如，在<a href="https://news.ycombinator.com/item?id=7985692">Full Stack Python 网站被推到 Hacker News 首页</a> 的那个周末，由于本网站是通过将 <a href="https://pages.github.com/">GitHub Pages</a> 作为 CDN 来提供服务的，因此并发连接即便接近 400 个时也没有碰到任何问题，如下图所示，该图是在流量井喷期间截取的 Google Analytics 截图。</p>
+>>>>>>> upstream/gh-pages
 <p><img src="/img/hacker-news-traffic.jpg" width="100%" alt="Example of how static websites scale with a CDN based on Full Stack Python on Hacker News front page traffic." class="technical-diagram"></p>
-<h2>How do static website generators work?</h2>
-<p>Static site generators allow a user to create HTML files by writing in a
-markup language and coding template files. The static site generator then
-combines the markup language and templates to produce HTML. The output HTML 
-does not need to be maintained by hand because it is regenerated every time
-the markup or templates are modified.</p>
-<p>For example, as shown in the diagram below, the Pelican static site 
-generator can take in reStructuredText files and Jinja2 template files 
-as input then combine them to output a set of static HTML files.</p>
+<h2>静态网站生成器是如何工作的？</h2>
+<p>静态网站生成器允许用户通过使用某种标识语言编写模板文件来创建 HTML 文件。然后静态网站生成器结合标记语言和模板文件来生成 HTML 文件。输出的 HTML 文件不需要手工维护，因为当标签或者模板每次被修改后，它都能重新被创建出来。</p>
+<p>例如，如下图所示， Pelican 静态网站生成器能将 reStructuredText 文件和 Jinja2 模板文件作为输入，然后将它们组合并输出一组静态 HTML 文件。</p>
 <p><img src="/img/pelican-flow.jpg" width="100%" alt="Example of how static site generators work with a markup language and templates." class="technical-diagram"></p>
-<h2>What's the downside to using static site generators?</h2>
-<p>The major downside is that code cannot be executed after a site is created. 
-You are stuck with the output files so if you're used to building web 
-applications with a traditional <a href="/web-frameworks.html">web framework</a> you'll
-have to change your expectations. </p>
-<p>Content that is typically powered by a database, such as comments, sessions 
-and user data can only be handled through third party services. For example, 
-if you want to have comments on a static website you'd need to 
-<a href="https://disqus.com/">embed Disqus's form</a> and be completely reliant upon
-their service.</p>
-<p>Many web applications simply cannot be built with only a static site generator.
-However, a static website generator can create part of a site that will be
-served up by a web server while other pages are handled by the WSGI server. 
-If done right, those web applications have the potential to scale better than
-if every page is rendered by the WSGI server. The complexity may or may not be
-worth it for your specific application.</p>
-<h2>Python implementations</h2>
-<p>Numerous static website generators exist in many different languages. The
-ones listed here are primarily coded in Python.</p>
+<h2>使用静态网站生成器的缺点是什么？</h2>
+<p>最大的缺点是： 代码无法在网站生成后执行。你只能使用这些输出文件，因此如果你习惯用传统的 <a href="/web-frameworks.html">Web 框架</a> 创建 Web 应用的话，你得改变下你的期望。</p>
+<p>那些需要数据库来实现的功能，如评论、会话及用户数据，只能通过第三方的服务来提供。例如，如果你想在一个静态网站上添加评论功能，你需要 <a href="https://disqus.com/">嵌入 Disqus 的评论框</a>，从而只能完全依赖他们提供的功能。</p>
+<p>很多的 Web 应用都不能简单地通过静态网站生成器来生成。但是，静态网站生成器可以用来生成网站的部分内容，并通过 Web 服务器来部署，而网站的其它页面可以由 WSGI 服务器来处理。如果处理得当，这种类型的 Web 应用比那些全部页面都由 WSGI 服务器呈现的应用更具扩展潜力。其增加的复杂度对于你的特定应用来说，可能是值得的，也可能并不值得。</p>
+<h2>Python 的实现</h2>
+<p>存在很多用不同的语言实现的静态网站生成器。以下列出的这些主要都是用 Python 编写的。</p>
 <ul>
 <li>
-<p><a href="http://blog.getpelican.com/">Pelican</a> 
-  (<a href="https://github.com/getpelican/pelican">source code</a>) 
-  is a commonly used Python static website generator which is used to create 
-  <a href="https://github.com/makaimc/fullstackpython.com">Full Stack Python</a>. The
-  primary templating engine is Jinja and Markdown, reStructuredText and
-  AsciiDoc are supported with the default configuration.</p>
+<p><a href="http://blog.getpelican.com/">Pelican</a> (<a href="https://github.com/getpelican/pelican">源代码</a>) 是一个常用的 Python 静态网站生成器， <a href="https://github.com/makaimc/fullstackpython.com">Full Stack Python</a> 网站就是用它创建的。它的主要模板引擎是 Jinja，并且在默认配置下就支持 Markdown、 reStructuredText 及 AsciiDoc。</p>
 </li>
 <li>
-<p><a href="http://www.mkdocs.org/">MkDocs</a> 
-  (<a href="https://github.com/mkdocs/mkdocs/">source code</a>) uses a YAML configuration
-  file to take Markdown files and an optional theme to output a documentation
-  site. The templating engine is Jinja, but a user doesn't have to create her
-  own templates unless a custom site is desired at which point it might make
-  more sense to use a different static site generator instead.</p>
+<p><a href="http://www.mkdocs.org/">MkDocs</a> (<a href="https://github.com/mkdocs/mkdocs/">源代码</a>) 使用 YAML 配置文件，并能将 Markdown 文件和一个可选的主题作为输入来创建一个文档网站。它的模板引擎是 Jinja，但是用户通常不必创建自己的模板，除非该特定的网站真得需要，但是如果是这样的话，采用其它的静态网站生成器可能会更加合适。</p>
 </li>
 <li>
-<p><a href="https://getnikola.com/">Nikola</a> 
-  (<a href="https://github.com/getnikola/nikola">source code</a>) takes in 
-  reStructuredText, Markdown or Jupyter (IPython) Notebooks and combines 
-  the files with Mako or Jinja2 templates to output static sites. It is 
-  compatible with both Python 2.7 and 3.3+. Python 2.7 will be dropped 
-  in early 2016 while Python 3.3+ will continue to be supported.</p>
+<p><a href="https://getnikola.com/">Nikola</a> (<a href="https://github.com/getnikola/nikola">源代码</a>) 支持 reStructuredText、 Markdown 及 Jupyter (IPython) Notebooks 等文件，它能将这些文件与 Mako 或 Jinja2 模板结合来创建静态网站。它同时兼容 Python 2.7 和 3.3。对 Python 2.7 的支持会一直到 2016 年年初，而 Python 3.3 会继续得到支持。</p>
 </li>
 <li>
-<p><a href="http://posativ.org/acrylamid/">Acrylamid</a> 
-  (<a href="https://github.com/posativ/acrylamid">source code</a>) uses incremental 
-  builds to generate static sites faster than recreating every page after
-  each change is made to the input files.</p>
+<p><a href="http://posativ.org/acrylamid/">Acrylamid</a> (<a href="https://github.com/posativ/acrylamid">源代码</a>) 使用增量方式来生成静态网站，因此相比每次当输入文件被修改后都重新生成所有页面的生成方式，它处理的更快。</p>
 </li>
 <li>
-<p><a href="http://hyde.github.io/">Hyde</a> 
-  (<a href="https://github.com/hyde/hyde">source code</a>) started out as a Python 
-  rewrite of the popular Ruby-based 
-  <a href="http://jekyllrb.com/">Jekyll static site generator</a>. Today the project
-  has moved past those "clone Jekyll" origins. Hyde supports Jinja as well
-  as other templating languages and places more emphasis on metadata within
-  the markup files to instruct the generator how to produce the output files.
-  Check out the 
-  <a href="https://github.com/hyde/hyde/wiki/Hyde-Powered">Hyde-powered websites</a>
-  page to see live examples created with Hyde.</p>
+<p><a href="http://hyde.github.io/">Hyde</a> (<a href="https://github.com/hyde/hyde">源代码</a>) 最初是作为 Ruby 流行的 <a href="http://jekyllrb.com/">静态网站生成器 Jekyll</a> 的 Python 版本而开始开发的。今天的这个项目已经不是原来的 "Jekyll 克隆版" 了。Hyde 支持 Jinja 及其它的模板语言，它更加注重通过标记文件中的元数据来指示生成器如何产生输出文件。 通过浏览这些 <a href="https://github.com/hyde/hyde/wiki/Hyde-Powered">使用了 Hyde 的网站</a> 页面，可以看看用 Hyde 创建的实际网站示例。</p>
 </li>
 <li>
-<p><a href="http://growsdk.org/">Grow SDK</a> (<a href="http://growsdk.org/">source code</a>) 
-  uses projects, known as pods, which contain a specific file and directory 
-  structure so the site can be generated. The project remains in the
-  "experimental" phase.</p>
+<p><a href="http://growsdk.org/">Grow SDK</a> (<a href="http://growsdk.org/">源代码</a>) 使用工程（通过叫 pods ），工程中包含一个特殊文件和目录结构，来生成网站。该项目当前停留在 "试验“ 阶段。</p>
 </li>
 <li>
-<p><a href="https://www.getlektor.com/">Lektor</a> 
-  (<a href="https://github.com/lektor/lektor">source code</a>) is a Python static 
-  content management system that can deploy to any webserver. It uses 
-  <a href="/jinja2.html">Jinja2</a> as a <a href="/template-engines.html">template engine</a>.</p>
+<p><a href="https://www.getlektor.com/">Lektor</a> (<a href="https://github.com/lektor/lektor">源代码</a>) 是一个 Python 的静态内容管理系统，它可以部署到任何的 Web 服务器上。它的 <a href="/template-engines.html">模板引擎</a> 采用 <a href="/jinja2.html">Jinja2</a>。</p>
 </li>
 <li>
-<p><a href="http://complexity.readthedocs.org/en/latest/">Complexity</a>
-  (<a href="https://github.com/audreyr/complexity">source code</a>) is a site generator
-  for users who like to work in HTML. It uses HTML for templating but
-  has some functionality from Jinja for inheritance. Works with 
-  Python 2.6+, 3.3+ and PyPy.</p>
+<p><a href="http://complexity.readthedocs.org/en/latest/">Complexity</a> (<a href="https://github.com/audreyr/complexity">源代码</a>) 是一款为喜欢使用 HTML 的人准备的网站生成器。它使用 HTML 来创建模板，同时又从 Jinja 那继承了一些功能。它同时兼容 Python 2.6+、 3.3+ 和 PyPy。</p>
 </li>
 <li>
-<p>Cactus (<a href="https://github.com/koenbok/Cactus/">source code</a>) uses the Django
-  templating engine that was originally built with front-end designers in
-  mind. It works with both Python 2.x and 3.x.</p>
+<p>Cactus (<a href="https://github.com/koenbok/Cactus/">源代码</a>) 使用 Django 模板引擎，该引擎在创建时就考虑了前端设计人员的需求。它同时兼容 Python 2.x 和 3.x。</p>
 </li>
 </ul>
-<h3>Open source Python static site generator examples</h3>
+<h3>开源 Python 静态网站生成器示例</h3>
 <ul>
 <li>
-<p>This site is 
-  <a href="https://github.com/makaimc/fullstackpython.com">all open source in its own GitHub repository</a> 
-  under the MIT license. Fork away!</p>
+<p>本网站 <a href="https://github.com/makaimc/fullstackpython.com">有自己的 GitHub 库并且是完全开源的</a>，基于 MIT 许可发布。快来 Fork 吧！ </p>
 </li>
 <li>
-<p><a href="https://github.com/tomchristie/django-rest-framework/tree/master/docs">Django REST Framework</a>
-  uses MkDocs to create its documentation site. Be sure to take a look at the
-  <a href="https://github.com/tomchristie/django-rest-framework/blob/master/mkdocs.yml">mkdocs.yml file</a>
-  to see how large, well-written docs are structured for that project.</p>
+<p><a href="https://github.com/tomchristie/django-rest-framework/tree/master/docs">Django REST 框架</a> 使用 MkDocs 来创建它的文档网站。一定要看下 <a href="https://github.com/tomchristie/django-rest-framework/blob/master/mkdocs.yml">mkdocs.yml 文件</a>，通过它可以了解该项目的这份如此丰富、文风优美的文档是如何组织的。</p>
 </li>
 <li>
-<p><a href="https://www.vlent.nl/">Practicing web development</a> uses Acrylamid to create
-  its site. The code is 
-  <a href="https://github.com/markvl/www.vlent.nl">open source on GitHub</a>.</p>
+<p><a href="https://www.vlent.nl/">实践 Web 开发</a> 使用 Acrylamid 创建它的网站。它的代码发布在 <a href="https://github.com/markvl/www.vlent.nl">GitHub 上并且是开源的</a>。</p>
 </li>
 <li>
-<p><a href="http://loadays.org/">Linux Open Admin Days (Loadsys)</a> has their 
-  <a href="https://github.com/loadays/pelican-site">site open source and available for viewing</a>. </p>
+<p><a href="http://loadays.org/">Linux 开放管理日 (Loadsys)</a> <a href="https://github.com/loadays/pelican-site">这个网站是开源的，并且可以方便获取</a>。</p>
 </li>
 <li>
-<p>The <a href="http://jakevdp.github.io/">Pythonic Perambulations</a> blog has a fairly
-  standard theme but is 
-  <a href="https://github.com/jakevdp/PythonicPerambulations">also open source on GitHub</a>.</p>
+<p><a href="http://jakevdp.github.io/">Pythonic Perambulations</a> 这个博客的主题风格虽然很普通，但是它 <a href="https://github.com/jakevdp/PythonicPerambulations">也是开源的，并且也发布在 GitHub 上</a>。</p>
 </li>
 </ul>
-<h3>Static site generator resources</h3>
+<h3>静态网站生成器资源</h3>
 <ul>
 <li>
-<p><a href="http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html">The Long Road to Building a Static Blog with Pelican</a>
-  is a fantastic read that really gets into the details throughout the 
-  walkthrough. </p>
+<p><a href="http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html">使用 Pelican 创建一个静态博客的漫漫之路</a> 这篇精彩的文章真正对相关知识进行了深入细致的讲解。</p>
 </li>
 <li>
-<p><a href="https://www.staticgen.com/">Staticgen</a> lists static website generators
-  of all programming languages sorted by various attributes such as the
-  number of GitHub stars, forks and issues.</p>
+<p><a href="https://www.staticgen.com/">Staticgen</a> 网站上列出了所有编程语言的静态网站生成器，并依据不同的属性进行了排序，如 GitHub 上的 stars 数， fork 数 和 issue 数等。</p>
 </li>
 <li>
-<p><a href="https://wsvincent.com/static-site-hosting-with-s3-and-cloudflare/">Static site hosting with S3 and Cloudflare</a>
-  shows how to set up an S3 bucket with Cloudflare in front as a CDN that
-  serves the content with HTTPS. You should be able to accomplish roughly 
-  the same situation with Amazon Cloudfront, but as a Cloudflare user I
-  like their service for these static site configurations.</p>
+<p><a href="https://wsvincent.com/static-site-hosting-with-s3-and-cloudflare/">使用 S3 和 Cloudflare 部署静态网站</a> 讲解了如何设置 S3 存储段，并在前端配置 Cloudflare 作为 CDN，以通过 HTTPS 来提供内容服务。你应该可以使用 Amazon Cloudfront 来实现大致相同的设置，但是作为一个 Cloudflare 用户，我还是喜欢它们的这种静态网站配置服务。</p>
 </li>
 <li>
-<p><a href="http://www.mattmakai.com/introduction-to-pelican.html">Getting Started with Pelican and GitHub Pages</a>
-  is a tutorial I wrote for getting up and running with Full Stack Python's
-  source code, which uses Pelican to generate the site.</p>
+<p><a href="http://www.mattmakai.com/introduction-to-pelican.html">Pelican 和 GitHub pages 入门简介</a> 是我写的一篇教程，详解了如何运行 Full Stack Python 的源代码，该网站使用 Pelican 来创建。</p>
 </li>
 <li>
-<p>The title is a big grandiose, but there's some solid detail in this article
-  on 
-  <a href="http://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/">why static website generators are the next big thing</a>.
-  I'd argue static website generators have been big for a long time now.</p>
+<p>标题起得是有点大，但是这篇文章就 <a href="http://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/">为什么说静态网站生成器以后会大有可为</a> 这个论点还是论述的非常详实。 我想说的是：静态网站生成器已经流行很长一段时间了。</p>
 </li>
 <li>
-<p>Static site generators can be used for a range of websites from side
-  projects up to big sites. This blog post by 
-  <a href="http://engineering.wework.com/engineering/2015/12/08/why-wework-com-uses-a-static-generator-and-why-you-should-too/">WeWork on why they use a static site generator</a>
-  explains it from the perspective of a large business.</p>
+<p>静态网站生成器可以用于创建从小项目和大型站点的各种网站。这篇由 <a href="http://engineering.wework.com/engineering/2015/12/08/why-wework-com-uses-a-static-generator-and-why-you-should-too/">WeWork 发布的文章：为什么他们使用静态网站生成器</a> 从一个大公司的角度对其进行了讲解。</p>
 </li>
 <li>
-<p><a href="http://www.mattmakai.com/introduction-to-pelican.html">Getting started with Pelican and GitHub pages</a>
-  is a tutorial I wrote to use the Full Stack Python source code to create
-  and deploy your first static site.</p>
+<p><a href="http://www.mattmakai.com/introduction-to-pelican.html">Pelican 和 GitHub pages 入门简介</a> 是我写的一篇教程，讲解如何使用 Full Stack Python 的源代码来创建和部署你的首个静态网站。</p>
 </li>
 <li>
-<p><a href="http://razius.com/articles/ditching-wordpress-and-becoming-one-of-the-cool-kids/">Ditching Wordpress and becoming one of the cool kids</a>
-  is one developer's experience moving away from Wordpress and onto
-  Pelican with reStructuredText for his personal blog.</p>
+<p><a href="http://razius.com/articles/ditching-wordpress-and-becoming-one-of-the-cool-kids/">放弃 Wordpress 并成为一个时髦的人</a> 详述了一个开发者从 Wordpress 转移到使用 Pelican 和 reStructuredText 来创建他的个人博客的经历。</p>
 </li>
 </ul>
 <h3>你还想学习 Python Web 开发的哪些知识？</h3>
@@ -289,7 +212,11 @@ ones listed here are primarily coded in Python.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
+<<<<<<< HEAD
 <a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+=======
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Unit Testing</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Integration Testing</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Code Metrics</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Debugging</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+>>>>>>> upstream/gh-pages
   </div>
 </div>  <div class="panel panel-success">
       <div class="panel-heading"><h3 class="panel-head">静态网站生成器</h3></div>
@@ -306,7 +233,11 @@ ones listed here are primarily coded in Python.</p>
   </div>
   <div class="list-group">
 <a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a>  <a href="/static-site-generator.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; 静态网站生成器</a>
+<<<<<<< HEAD
 <a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
+=======
+<a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. Data</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. Testing</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
+>>>>>>> upstream/gh-pages
   </div>
 </div></div></div>
         <hr/>
