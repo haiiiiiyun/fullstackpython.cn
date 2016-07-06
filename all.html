@@ -2035,10 +2035,30 @@ let python_highlight_all = 1
 </li>
 </ol>
           <h1>静态网站生成器</h1>
+<<<<<<< HEAD
+<p>静态网站生成器结合标记语言（如 Markdown 或 reStructuredText）以及模板引擎，如 <a href="http://jinja.pocoo.org/">Jinja</a>, 来生成 HTML 文件。
+files. The HTML files can be hosted and served by a 
+<a href="/web-servers.html">web server</a> or 
+<a href="/static-content.html">content delivery network (CDN)</a> 
+<em>without</em> any additional dependencies such as a 
+<a href="/wsgi-servers.html">WSGI server</a>.</p>
+<h2>为什么说静态网站生成器很有用？</h2>
+<p><a href="/static-content.html">静态内容文件</a> 如 HTML、CSS 和 JavaScript 可以通过内容分发网络 (CDN) 来提供服务，以达到高扩展及低花费的目标。静态生成网站一旦遇到高并发流量，能很容易地通过 CDN 实现扩展而不会丢失连接。
+can be served from a content delivery network (CDN) for high scale and low 
+cost. If a statically generated website is hit by high concurrent traffic it 
+will be easily served by the CDN without dropped connections. </p>
+<p>For example, when 
+<a href="https://news.ycombinator.com/item?id=7985692">Full Stack Python was on the top of Hacker News</a> 
+for a weekend, <a href="https://pages.github.com/">GitHub Pages</a> was used as a CDN
+to serve the site and didn't have any issues even with close to 400 
+concurrent connections at a time, as shown in the following Google Analytics 
+screenshot captured during that traffic burst.</p>
+=======
 <p>静态网站生成器结合标记语言（如 Markdown 或 reStructuredText）以及模板引擎，如 <a href="http://jinja.pocoo.org/">Jinja</a>, 来生成 HTML 文件。这些 HTML 文件可以通过 <a href="/web-servers.html">Web 服务器</a> 或者 <a href="/static-content.html">内容分发网络 (CDN)</a> 进行部署发布，而无需依赖 <a href="/wsgi-servers.html">WSGI 服务器</a> 等其它东西。</p>
 <h2>为什么说静态网站生成器很有用？</h2>
 <p><a href="/static-content.html">静态内容文件</a> 如 HTML、CSS 和 JavaScript 文件可以由内容分发网络 (CDN) 来提供服务，以实现高规模及低成本的目标。静态内容网站一旦遇到高并发流量，能很容易地通过 CDN 来提供服务而不会丢失连接。</p>
 <p>例如，在<a href="https://news.ycombinator.com/item?id=7985692">Full Stack Python 网站被推到 Hacker News 首页</a> 的那个周末，由于本网站是通过将 <a href="https://pages.github.com/">GitHub Pages</a> 作为 CDN 来提供服务的，因此并发连接即便接近 400 个时也没有碰到任何问题，如下图所示，该图是在流量井喷期间截取的 Google Analytics 截图。</p>
+>>>>>>> upstream/gh-pages
 <p><img src="/img/hacker-news-traffic.jpg" width="100%" alt="Example of how static websites scale with a CDN based on Full Stack Python on Hacker News front page traffic." class="technical-diagram"></p>
 <h2>静态网站生成器是如何工作的？</h2>
 <p>静态网站生成器允许用户通过使用某种标识语言编写模板文件来创建 HTML 文件。然后静态网站生成器结合标记语言和模板文件来生成 HTML 文件。输出的 HTML 文件不需要手工维护，因为当标签或者模板每次被修改后，它都能重新被创建出来。</p>
@@ -7066,163 +7086,110 @@ repository system packages.</p>
   file integrity on Ubuntu 14.04 LTS.</p>
 </li>
 </ul>
-          <h1>Testing</h1>
-<p>Testing determines whether software runs correctly based on specific inputs 
-and identifies defects that need to be fixed.</p>
-<h2>Why is testing important?</h2>
-<p>As software scales in codebase size, it's impossible for a person or even 
-a large team to keep up with all of the changes and
-the interactions between the changes. Automated testing is the only proven
-method for building reliable software once they grow past the point of a
-simple prototype. Many major software program development failures can be
-traced back to inadequate or a complete lack of testing.</p>
-<p>It's impossible to know whether software works properly unless it is tested.
-While testing can be done manually, by a user clicking buttons or typing in 
-input, it should be performed automatically by writing software programs that
-test the application under test.</p>
-<p>There are many forms of testing and they should all be used together. When 
-a single function of a program is isolated for testing, that is called
-<a href="/unit-testing.html">unit testing</a>. Testing more than a single function 
-in an application at the same time is known as 
-<a href="/integration-testing.html">integration testing</a>. 
-<em>User interface testing</em> ensures the correctness of how a user would 
-interact with the software. There are even more forms of testing that large
-programs need, such as <em>load testing</em>, <em>database testing</em>, and
-<em>browser testing</em> (for web applications).</p>
-<h2>Testing in Python</h2>
-<p>Python software development culture is heavy on software testing. Because
-Python is a dynamically-typed language as opposed to a statically-typed
-language, testing takes on even greater importance for ensuring program
-correctness.</p>
-<h2>Testing resources</h2>
+          <h1>测试</h1>
+<p>测试是一种基于特定的输入来判断软件能否正确地运行的方法，并且可以找到需要修复的软件漏洞。</p>
+<h2>测试缘何重要？</h2>
+<p>因为软件是使用代码库来衡量大小的， 所以，无论是个人还是大型团队，都不可能及时跟进软件所有的变动以及变动之间的交互。事实表明， 一旦软件变得比最初简单原型更加复杂后，自动化测试就是唯一一种可以用来构建健壮的软件的方法了。有很多重要的软件项目失败都是因为缺乏充分并且完善的测试。</p>
+<p>对于我们而言，只有软件通过测试后才能够知道它能不能正常工作。
+虽然测试工作可以由用户手动点击按钮或者输入来完成，但是更佳的办法是编写专门的测试工具，从而让软件测试能够自动化完成。</p>
+<p>现在有许多种形式的测试方法，我们应当将它们一同使用起来。当程序中有一个专门用于测试并且被隔离的函数时，这就叫做
+<a href="/unit-testing.html">单元测试</a>。而当同时测试程序中多个函数时，这就是著名的
+<a href="/integration-testing.html">集成测试</a>。
+<em>用户界面测试</em> 确保了用户如何与软件交互的正确性 。还有更多大型程序所需要的测试方法，比如 <em>负载测试</em>，<em>数据库测试</em>以及
+<em>浏览器测试</em> (针对web应用)。</p>
+<h2>在 Python 中测试</h2>
+<p>Python 软件开发文化就是非常重视软件测试。 相对于静态类型语言而言，Python 是一种动态类型的语言。 为了确保软件的正确性，测试在 Python 开发中占据了至关重要的地位。</p>
+<h2>测试相关的资源</h2>
 <ul>
 <li>
-<p><a href="https://realpython.com/blog/python/the-minimum-viable-test-suite/">The Minimum Viable Test Suite</a>
-  shows how to set unit tests and integration tests for a Flask example
-  application.</p>
+<p><a href="https://realpython.com/blog/python/the-minimum-viable-test-suite/">最小的可行测试套件</a>
+   使用一个 Flask 例子来为我们展示如何进行单元测试和集成测试。</p>
 </li>
 <li>
-<p><a href="http://late.am/post/2015/04/20/good-test-bad-test.html">Good test, bad test</a>
-  explains the difference between a "good" test case and one that is not
-  as useful. Along the way the post breaks down some myths about common
-  testing subjects such as code coverage, assertions and mocking.</p>
+<p><a href="http://late.am/post/2015/04/20/good-test-bad-test.html">好的测试，坏的测试</a>
+   说明了“好的”测试和无用的测试之间的差别。 这篇文章打破了一些关于常见测试主题的误区，例如代码覆盖率、断言和mocking测试。</p>
 </li>
 <li>
-<p><a href="http://pythontesting.net/">Python Testing</a> is a site devoted to testing
-  in - you guessed it - the Python programming language.</p>
+<p><a href="http://pythontesting.net/">Python 测试</a> 是一个（我想你猜到了）专注于 Python 编程语言测试的网站。</p>
 </li>
 <li>
-<p><a href="http://michaeldehaan.net/post/120522567217/the-case-for-test-driven-development">The case for test-driven development</a>
-  by Michael DeHaan explains how automation is the only way to build software
-  at a large scale.</p>
+<p><a href="http://michaeldehaan.net/post/120522567217/the-case-for-test-driven-development">测试驱动开发案例</a>
+  由 Michael DeHaan 发表，它为我们解释了为何自动化测试是构建大规模软件的唯一方法。</p>
 </li>
 <li>
-<p>Google has a <a href="http://googletesting.blogspot.com/">testing blog</a> where
-  they write about various aspects of testing software at scale.</p>
+<p>谷歌有一个<a href="http://googletesting.blogspot.com/">测试博客</a> ，他们提供了关于大规模软件测试的各方面信息。</p>
 </li>
 <li>
-<p>Still confused about the difference between unit, functional and 
-  integration tests? Check out this 
-  <a href="http://stackoverflow.com/questions/4904096/whats-the-difference-between-unit-functional-acceptance-and-integration-test">top answer on Stack Overflow</a> 
-  to that very question.</p>
+<p>依然对单元、函数和继承测试的区别感到糊涂吗？ 来看看关于这个问题的回答吧：
+  <a href="http://stackoverflow.com/questions/4904096/whats-the-difference-between-unit-functional-acceptance-and-integration-test">Stack Overflow上最多的回答</a> 。</p>
 </li>
 <li>
-<p><a href="http://engineroom.trackmaven.com/blog/using-pytest-with-django/">Using pytest with Django</a>
-  shows how to get a basic <a href="http://pytest.org/latest/">pytest</a> test
-  running for a Django project and explains why the author prefers pytest 
-  over standard unittest testing.</p>
+<p><a href="http://engineroom.trackmaven.com/blog/using-pytest-with-django/">Django 中使用 pytest</a>
+    展示了如何获得一个为Django项目运行的基本的<a href="http://pytest.org/latest/">pytest</a> 测试，并且说明了为何作者更喜欢 pytest，而不是标准的 unittest 测试。</p>
 </li>
 </ul>
-          <h1>Unit testing</h1>
-<p>Unit testing is a method of determining the correctness of a single function 
-isolated from a larger codebase. The idea is that if all the atomic units
-of an application work as intended in isolation, then integrating them 
-together as intended is much easier.</p>
-<h2>Why is unit testing important?</h2>
-<p>Unit testing is just one form of <a href="/testing.html">testing</a> that works in
-combination with other testing approaches to wring out the bugs from a
-piece of software being developed. When several functions and classes are
-put together it's often difficult to determine the source of a problem if
-several bugs are occurring at the same time. Unit testing helps eliminate
-as many of the individual bugs as possible so when the application comes
-together as a whole the separate parts work as correct as possible. Then
-when issues arise they can often be tracked down as unintended consequences
-of the disparate pieces not fitting together properly.</p>
-<h2>Unit testing tools</h2>
-<p>There are many tools for creating tests in Python. Some of these tools, such
-as pytest, replace the built-in unittest framework. Other tools, such as
-nose, are extensions that ease test case creation. Note that many of these
-tools are also used for <a href="/integration-testing.html">integration testing</a>
-by writing the test cases to exercise multiple parts of code at once.</p>
+          <h1>单元测试</h1>
+<p>单元测试是一种用于判断从更大的代码库分离出来的单个函数正确性的方法。 单元测试的思想是，如果一个应用程序分离的原子单元都能按照预期工作， 那么当把它们集成到一起并且按照预期工作将会更加容易。</p>
+<h2>单元测试缘何重要？</h2>
+<p>单元测试只是一种 <a href="/testing.html">测试</a> 形式，它会和其他测试方法配合在一起，用于找出一款正在开发的软件某个部分的 bugs。当把多个函数和类放在一块后，通常来说，如果多个 bugs 同时出现时话，那将会很难定位一个问题的根源。 单元测试会帮助消除尽可能多的独立的 bugs，所以当一个程序作为一个整体时，各个组成部分将会尽可能地正确工作。 那么，一旦出现了问题， 它们通常都可以被追溯到，因为不同的部分如果不能较好地融合在一起，那将会产生意想不到的结果。</p>
+<h2>单元测试工具</h2>
+<p>Python 中有许多用于创建测试的工具。有一些测试工具，例如 pytest，是用来替代内建的 unittest 框架的。 还有其他的测试工具，例如 
+nose，是用于简化创建测试案列的扩展。需要注意的是，通过同时编写针对代码中多个部分的测试案例，这些工具也有许多可被用于 <a href="/integration-testing.html">集成测试</a>，。</p>
 <ul>
 <li>
 <p><a href="https://docs.python.org/3/library/unittest.html">unittest</a>
-  is the built-in standard library tool for testing Python code.</p>
+   是专门用于测试 Python 代码的内建标准库工具。</p>
 </li>
 <li>
-<p><a href="http://pytest.org/latest/">pytest</a> is a complete testing tool that
-  emphasizes backwards-compatibility and minimizing boilerplate code.</p>
+<p><a href="http://pytest.org/latest/">pytest</a> 是一个完整的测试工具，它强调后向兼容，同时能够减少样板代码。</p>
 </li>
 <li>
-<p><a href="https://nose.readthedocs.org/en/latest/">nose</a> is an extension to
-  unittest that makes it easier to create and execute test cases.</p>
+<p><a href="https://nose.readthedocs.org/en/latest/">nose</a> 是一个 unittest 的扩展工具，它会使得编写和执行测试案列更加简单。</p>
 </li>
 <li>
-<p><a href="http://hypothesis.readthedocs.io/en/latest/index.html">Hypothesis</a> is a 
-  unit test-generation tool that assists developers in creating tests that
-  exercise edge cases in code blocks. The best way to get started using 
-  Hypothesis is by going through the well-written
+<p><a href="http://hypothesis.readthedocs.io/en/latest/index.html">Hypothesis</a> 是一个单元测试生成工具，它会帮助开发人员创建用于检查代码块边缘情况的测试案例。 学习使用 Hypothesis 最好的途径就是去认真阅读这篇写得非常好的 
   <a href="http://hypothesis.readthedocs.io/en/latest/quickstart.html">quickstart</a>.</p>
 </li>
 <li>
-<p><a href="https://github.com/Yelp/Testify/">testify</a> was a testing framework
-  meant to replace the common unittest+nose combination. However, the team
-  behind testify is transitioning to pytest so it's recommended you do
-  not use testify for new projects.</p>
+<p><a href="https://github.com/Yelp/Testify/">testify</a>  是一个用于替代 unittest+nose 组合的测试框架。 遗憾的是，testify背后的开发团队正在转向 pytest，所以并不推荐你在新的项目中使用 testify。</p>
 </li>
 </ul>
-<h3>Unit testing resources</h3>
+<h3>单元测试相关的资源</h3>
 <ul>
 <li>
-<p><a href="http://www.diveintopython3.net/unit-testing.html">Dive into Python 3's chapter on unit testing</a>
-  has a complete example with code and a detailed explanation for creating
-  unit testing with the 
-  <a href="https://docs.python.org/3/library/unittest.html">unittest</a> module.</p>
+<p><a href="http://www.diveintopython3.net/unit-testing.html">《深入 Python》 第三章 单元测试</a>
+   拥有一个完整的代码示例，并且详细讲解了如何使用
+  <a href="https://docs.python.org/3/library/unittest.html">unittest</a> 模块来创建单元测试。</p>
 </li>
 <li>
-<p><a href="https://www.twilio.com/blog/2014/03/unit-testing-your-twilio-app-using-pythons-flask-and-nose.html">Unit Testing Your Twilio App Using Python’s Flask and Nose</a>
-  is a detailed tutorial for using the nose test runner for ensuring a
-  Flask application is working properly.</p>
+<p><a href="https://www.twilio.com/blog/2014/03/unit-testing-your-twilio-app-using-pythons-flask-and-nose.html">使用 Python 的 Flask 和 Nose 为你的 Twilio 应用进行单元测试</a>
+   是一篇详细的教程，它讲解了使用 nose 来确保一个 Flask 应用能够正常运行。</p>
 </li>
 <li>
-<p><a href="https://jeffknupp.com/blog/2013/12/09/improve-your-python-understanding-unit-testing/">Understanding unit testing</a>
-  explains why testing is important and shows how to do it effectively in
-  your applications.</p>
+<p><a href="https://jeffknupp.com/blog/2013/12/09/improve-your-python-understanding-unit-testing/">理解单元测试</a>
+   一文说明了测试为何重要，并且展示了如何在你的应用中有效地进行测试。</p>
 </li>
 <li>
-<p><a href="http://www.drdobbs.com/testing/unit-testing-with-python/240165163">Unit testing with Python</a>
-  provides a high-level overview of testing and has diagrams to demonstrate
-  what's going on in the testing cycle.</p>
+<p><a href="http://www.drdobbs.com/testing/unit-testing-with-python/240165163">使用 Python 做单元测试</a>
+    从更高的层面来看待测试，并且提供了一些图表用于展示在测试周期中究竟发生了什么。</p>
 </li>
 <li>
-<p>The Python wiki has a page with a list of 
-  <a href="https://wiki.python.org/moin/PythonTestingToolsTaxonomy">Python testing tools and extensions</a>.</p>
+<p>Python 的维基中有一页列出了
+  <a href="https://wiki.python.org/moin/PythonTestingToolsTaxonomy">Python 测试工具和扩展</a>。</p>
 </li>
 <li>
-<p><a href="http://blog.fogcreek.com/working-effectively-with-unit-tests-interview-with-jay-fields/">Working Effectively with Unit Tests</a>
-  is an interview with the author of a book by the title where he shares
-  some of the insight he's learned on the topic.</p>
+<p><a href="http://blog.fogcreek.com/working-effectively-with-unit-tests-interview-with-jay-fields/">高效单元测试</a>
+  是一篇针对《高效单元测试》（Working Effectively with Unit Tests）一书作者的采访，他在那儿分享了一些关于这个话题的高见。</p>
 </li>
 <li>
-<p><a href="http://blog.kevinastone.com/generate-your-tests.html">Generate your tests</a>
-  shows how to write a test generator that works with the <code>unittest</code> 
-  framework.</p>
+<p><a href="http://blog.kevinastone.com/generate-your-tests.html">生成你的测试</a>
+   一文教你如何编写一个可以配合 <code>unittest</code> 
+  框架工作的测试生成器。</p>
 </li>
 <li>
-<p><a href="http://ivory.idyll.org/articles/nose-intro.html">An Extended Introduction to the nose Unit Testing Framework</a>
-  shows how this test runner can be used to write basic test suites.
-  While the article is from 2006, it remains relevant today for learning
-  how to use nose with your projects.</p>
+<p><a href="http://ivory.idyll.org/articles/nose-intro.html">nose 单元测试框架的延伸介绍</a>
+   展示了如何利用这个工具来编写基础的测试套件。
+  虽然这篇文章是2006年的，但是它仍然适用于今天，你可以从中学习到如何在你的项目中使用 nose。</p>
 </li>
 </ul>
           <h1>Integration Testing</h1>
