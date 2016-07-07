@@ -7083,95 +7083,64 @@ repository system packages.</p>
 <p><a href="http://enterprisecraftsmanship.com/2015/07/13/integration-testing-or-how-to-sleep-well-at-nights/">集成测试，或者怎样睡个安稳觉</a> 讲解了什么是集成测试并且给出了一个集成测试的示例。虽说示例是使用 Java 编写的，但仍然和你学习集成测试知识有关。</p>
 </li>
 </ul>
-          <h1>Code Metrics</h1>
-<p>Code metrics can be produced by static code analysis tools to determine 
-complexity and non-standard practices.</p>
-<h2>Why are code metrics important?</h2>
-<p>Code metrics allow developers to find problematic codebase areas that may
-need refactoring. In addition, some metrics such as technical debt assist 
-developers in communicating to non-technical audiences why issues with a
-system are occurring.</p>
-<h2>Open source code metrics projects</h2>
+          <h1>代码度量</h1>
+<p>通过使用静态代码分析工具来生成代码度量信息，从而判断代码的质量和一些其他的非标准实践。</p>
+<h2>代码度量缘何重要？</h2>
+<p>利用代码度量，开发人员可以找到那些可能需要返工的问题代码区域。此外，一些度量概念，例如“技术债务”，可以帮助开发者和非技术人员探讨为什么一个系统会发生问题。 </p>
+<h2>开源的代码度量项目</h2>
 <ul>
 <li>
-<p><a href="http://radon.readthedocs.org/en/latest/index.html">Radon</a> is a tool for
-  obtaining raw metrics on line counts, Cyclomatic Complexity, Halstead
-  metrics and maintainability metrics.</p>
+<p><a href="http://radon.readthedocs.org/en/latest/index.html">Radon</a>  是一个这样的工具，它用于获取代码行数、圈复杂度、霍尔斯特德指标以及可维护性指数这些原始的代码度量值。</p>
 </li>
 <li>
-<p><a href="http://www.pylint.org/">Pylint</a> contains checkers for PEP8 code 
-  style compliance, design, exceptions and many other source code analysis
-  tools.</p>
+<p><a href="http://www.pylint.org/">Pylint</a> 包含了一个用于检查代码是否符合 PEP8 风格的设计、异常的检查工具， 以及许多其它的源码分析工具。</p>
 </li>
 <li>
-<p><a href="https://pypi.python.org/pypi/pyflakes">PyFlakes</a> parses source files for
-  errors and reports on them.</p>
+<p><a href="https://pypi.python.org/pypi/pyflakes">PyFlakes</a> 用于检查源文件中的错误，并为它们生成相应的报告。</p>
 </li>
 <li>
-<p><a href="http://www.unixuser.org/~euske/python/pyntch/index.html">Pyntch</a> is a
-  static code analyzer that attempts to detect runtime errors. It does not
-  perform code style checking.</p>
+<p><a href="http://www.unixuser.org/~euske/python/pyntch/index.html">Pyntch</a> 是一个用于尝试检查代码运行时错误的静态代码分析器。但它并不检查代码的风格。</p>
 </li>
 </ul>
-<h2>Hosted code metrics services</h2>
+<h2>托管的代码度量服务</h2>
 <ul>
-<li><a href="https://coveralls.io">Coveralls</a> shows code coverage from test suites 
-  and other metrics to help developers improve the quality of their code.</li>
+<li><a href="https://coveralls.io">Coveralls</a> 可以通过测试套件获得代码覆盖率并且会报告一些其他的代码度量值，从而帮助开发者们改善他们的代码质量。</li>
 </ul>
-<h2>Code metrics resources</h2>
+<h2>代码度量相关的资源</h2>
 <ul>
 <li>
-<p><a href="http://doughellmann.com/2008/03/01/static-code-analizers-for-python.html">Static Code Analizers for Python</a>
-  is an older article but goes over the basics of what Python static code
-  analyzers do.</p>
+<p><a href="http://doughellmann.com/2008/03/01/static-code-analizers-for-python.html">用于 Python 的静态代码分析器</a>
+  虽然是一篇比较旧的文章，但它讲解了 Python 静态代码分析器可以做什么的基础知识。</p>
 </li>
 <li>
-<p>This <a href="http://stackoverflow.com/questions/1428872/pylint-pychecker-or-pyflakes">Stack Overflow question on Python static code analysis tools</a>
-  contains comparison discussions of PyLint, PyChecker and PyFlakes.</p>
+<p>这个 <a href="http://stackoverflow.com/questions/1428872/pylint-pychecker-or-pyflakes">Stack Overflow 上关于 Python 静态代码分析工具的问题</a>
+  包含了对 PyLint, PyChecker 和 PyFlakes 这些工具的对比和探讨。</p>
 </li>
 <li>
-<p><a href="http://jbisbee.blogspot.ca/2014/04/getting-started-with-pylint.html">Getting Started with Pylint</a>
-  goes over setting up Pylint, generating the .pylintrc file and what's
-  in the configuration.</p>
+<p><a href="http://jbisbee.blogspot.ca/2014/04/getting-started-with-pylint.html">入门 Pylint</a> 告诉你如何设置 Pylint，如何生成 .pylintrc 文件，并且说明了配置文件里面都是什么。</p>
 </li>
 <li>
-<p>This /r/Python 
-  <a href="https://www.reddit.com/r/Python/comments/3oyjva/what_python_linter_do_you_use_poll/">poll on what linters the community uses</a>
-  provides some input on using PyCharm just for its linting features as
-  well as some other approaches.</p>
+<p>这篇文章 <a href="https://www.reddit.com/r/Python/comments/3oyjva/what_python_linter_do_you_use_poll/">关于社区都用什么 linter 的调查</a> 提供了一些仅仅使用 PyCharm 的 linting 特性的输入方法以及一些其他的技巧。</p>
 </li>
 </ul>
-          <h1>Debugging</h1>
-<p>Developers often find themselves in situations where the code they've written
-is not working quite right. When that happens, a developer debugs their code
-by instrumenting, executing and inspecting the code to determine what state
-of the application does not match the assumptions of how the code should
-be correctly running.</p>
-<h2>Why is debugging important?</h2>
-<p>There are bugs in every modest sized or larger application. Every 
-developer has to learn how to debug code in order to write programs that
-work as correctly as time and budget allow.</p>
-<h3>Debugging resources</h3>
+          <h1>调试</h1>
+<p>开发者们经常会陷入到这样的处境，就是他们编写的代码并没有按照预期工作。当那样的情况发生时，开发者就会通过检查、执行并且深入到代码中的调试技术，来找出应用中那些和代码在正确运行时的预期结果没有匹配的状态。</p>
+<h2>调试缘何重要？</h2>
+<p>对于每个应用来说，不论它是适当规模的还是大规模的，都会存在 bug 。 对于每个开发者来说，都应该学会如何调试代码，从而能够在时间和预算允许的情况下，写出可以正确工作的程序来。</p>
+<h3>调试相关的资源</h3>
 <ul>
 <li>
-<p><a href="http://howchoo.com/g/zgi2y2iwyze/debugging-your-python-code">Debugging your Python code</a>
-  walks through a scenario where 
-  <a href="https://docs.python.org/2/library/pdb.html">pdb</a> 
-  can be used to find a defect in a block of Python code.</p>
+<p><a href="http://howchoo.com/g/zgi2y2iwyze/debugging-your-python-code">调试你的 Python 代码</a> 给我们展示了这样一种情景： 可以利用 <a href="https://docs.python.org/2/library/pdb.html">pdb</a>  找出 Python 代码块中的漏洞。</p>
 </li>
 <li>
-<p><a href="https://pymotw.com/2/pdb/">pdb - Interactive Debugger</a> is featured on
-  the Python Module of the Week blog and has some great detail on using
-  the program effectively.</p>
+<p><a href="https://pymotw.com/2/pdb/">pdb —— 交互式调试器</a> 是“本周 Python 模块（The Python Module of the Week）”博客中精选的一篇文章，它详细介绍了如何高效地使用 pdb 调试器。</p>
 </li>
 <li>
-<p><a href="http://blog.ionelmc.ro/2013/06/05/python-debugging-tools/">Python debugging tools</a>
-  provides a list of tools such as pdb and its derivatives ipdb, pudb and
-  pdb++ along with how they can be used in the hunt for defects.</p>
+<p><a href="http://blog.ionelmc.ro/2013/06/05/python-debugging-tools/">Python 调试工具</a> 列出了一些调试工具，例如 pdb 及其衍生工具 ipdb, pudb 和 pdb++，同时文章也讲解了如何利用这些工具来查找程序中的漏洞。</p>
 </li>
 <li>
-<p><a href="https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/">Debugging in Python</a>
-  elaborates on what pdb does and how it can be used.</p>
+<p><a href="https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/">在 Python 中调试</a>
+  阐述了 pdb 可以用来做什么以及如何使用它。</p>
 </li>
 </ul>
           <h1>Bots</h1>
