@@ -15,10 +15,6 @@ the
 
 
 ## 2016
-### July
-* Updated the [NoSQL](/no-sql-datastore.html) page with a couple of new
-  resources.
-
 ### June
 * Added another new blog post, this time on 
   [Setting Up Python 3, Django & Gunicorn on Linux Mint 17.3](/blog/python-3-django-gunicorn-linux-mint-17.html).
