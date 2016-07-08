@@ -3934,120 +3934,85 @@ equivalent of browser testing in the web application world.</p>
    initial API use case.</p>
 </li>
 </ol>
-          <h1>Deployment</h1>
-<p>Deployment involves packaging up your web application and putting it in a 
-production environment that can run the app.</p>
-<h2>Why is deployment necessary?</h2>
-<p>Your web application must live somewhere other than your own desktop or 
-laptop. A production environment is the canonical version of your current 
-application and its associated data.</p>
-<h2>Deployment topics map</h2>
-<p>Python web application deployments are comprised of many pieces that need to
-be individually configured. Here is a map that visually depicts how each
-deployment topic relates to each other. Click the image to pull up a PDF 
-version.</p>
+          <h1>部署</h1>
+<p>部署是一项涉及了为你的 web 应用打包，并且在生产环境下运行的技术。</p>
+<h2>为何部署是必要的？</h2>
+<p>你的 web 应用必须存在于除了你的台式机或者笔记本之外的设备上。生产环境是指正式版本，它包含了你当前的应用及其相关数据。</p>
+<h2>部署主题框图</h2>
+<p>Python web 应用部署由多个环节构成，并且每个环节都需要独立配置好。下面这幅图清晰地描述了部署的各个环节是如何相互联系的。点击这幅图片可以获得对应的 PDF 版本。</p>
 <p><a href="/full-stack-python-map.pdf" target="_blank" style="border: none;"><img src="/img/full-stack-python-map.png" width="100%" alt="Full Stack Python site map." class="technical-diagram" /></a></p>
-<h2>Deployment hosting options</h2>
-<p>There are four options for deploying and hosting a web application:</p>
+<h2>部署托管方案</h2>
+<p>这里提供了四种部署并托管 web 应用的方案：</p>
 <ol>
 <li>
-<p><a href="/servers.html">"Bare metal" servers</a></p>
+<p><a href="/servers.html">“裸机”服务器</a></p>
 </li>
 <li>
-<p><a href="/servers.html">Virtualized servers</a></p>
+<p><a href="/servers.html">虚拟化服务器</a></p>
 </li>
 <li>
-<p><a href="/servers.html">Infrastructure-as-a-service</a></p>
+<p><a href="/servers.html">基础设施即服务（IaaS）</a></p>
 </li>
 <li>
-<p><a href="/platform-as-a-service.html">Platform-as-a-service</a></p>
+<p><a href="/platform-as-a-service.html">平台即服务（PaaS）</a></p>
 </li>
 </ol>
-<p>The first three options are similar. The deployer needs to provision one or
-more servers with a Linux distribution. System packages, a web server, 
-WSGI server, database and the Python environment are then installed. Finally
-the application can be pulled from source and installed in the environment.</p>
-<p>Note that there are other ways of installing a Python web application through
-system-specific package management systems. We won't cover those in this
-guide as they are considered advanced deployment techniques.</p>
-<h2>Deployment resources</h2>
+<p>前三种方案是类似的。开发者首先需要准备一台或多台安装了 Linux 发行版的服务器。然后要在服务器上安装系统程序包、Web 服务器、WSGI 服务器、数据库以及 Python 运行环境。最后，将从源码生成的应用安装到配置好的环境中即可。</p>
+<p>需要注意的是，可以通过系统特定的程序包管理系统来安装一个 Python web 应用。因为它们是比较高级的部署技术，所以我们没有包含进来。</p>
+<h2>部署有关的资源</h2>
 <ul>
 <li>
-<p>If you need a step-by-step guide to deploying a Python web application,
-  I wrote <a href="http://www.deploypython.com/">a whole book</a> on exactly this topic 
-  called 
-  <a href="https://gumroad.com/l/WOvyt">The Full Stack Python Guide to Deployments</a>
-  that you'll find super helpful.</p>
+<p>如果你需要一个渐进式的 Python web 应用部署指南，
+  我刚好写了 <a href="http://www.deploypython.com/">一本书</a> 是专门针对应用部署的，它叫
+  <a href="https://gumroad.com/l/WOvyt">全栈 Python 指南之部署</a>，
+  会对你有很大的帮助。</p>
 </li>
 <li>
-<p><a href="http://talkpython.fm/episodes/show/26/deploying-python-web-applications-updated">Deploying Python web applications</a>
-  is an episode of the great Talk Python to Me podcast series where I
-  discuss deploying web applications based on a fairly traditional virtual 
-  private server, Nginx and Green Unicorn stack.</p>
+<p><a href="http://talkpython.fm/episodes/show/26/deploying-python-web-applications-updated">部署 Python web 应用</a>
+  是著名的“和我讨论 Python” 播客系列中的一节，我在那儿讨论了在基于很传统的虚拟私有服务器、Nginx 以及“绿色独角兽（Green Unicorn）” 的栈上部署 web 应用。</p>
 </li>
 <li>
-<p><a href="http://omniti.com/seeds/thoughts-on-web-application-deployment">Thoughts on web application deployment</a>
-  walks through stages of deployment with source control, planning, 
-  continuous deployment and monitoring the results.</p>
+<p><a href="http://omniti.com/seeds/thoughts-on-web-application-deployment">Web 应用部署沉思录</a>
+  讲解了应用部署的各个环节，包括源码控制，制定计划，持续部署以及监测结果等。</p>
 </li>
 <li>
-<p><a href="https://zachholman.com/posts/deploying-software">Deploying Software</a>
-  is a long must-read for understanding how to deploy software properly.</p>
+<p><a href="https://zachholman.com/posts/deploying-software">部署软件</a>
+  是理解如何恰当地部署软件的必读长文。</p>
 </li>
 <li>
-<p><a href="http://blogs.atlassian.com/2014/04/practical-continuous-deployment/">Practical continuous deployment</a>
-  defines delivery versus deployment and walks through a continuous deployment
-  workflow.</p>
+<p><a href="http://blogs.atlassian.com/2014/04/practical-continuous-deployment/">持续部署实践</a>
+  给出了交付与部署的定义，同时讲解了部署的流程图。</p>
 </li>
 <li>
-<p>In <a href="http://player.oreilly.com/videos/9781491908181?toc_id=210188">this free video by Neal Ford</a>,
-  he talks about engineering practices for continuous delivery. He explains
-  the difference between 
-  <a href="/continuous-integration.html">continuous integration</a>,
-  continuous deployment and continuous delivery. Highly recommended for an
-  overview of deployment concepts and as an introduction to the other videos
-  on those subjects in that series.</p>
+<p>在这个 <a href="http://player.oreilly.com/videos/9781491908181?toc_id=210188">Neal Ford 制作的免费视频</a> 中，
+  他谈论了持续交付在工程上的实践。他解释了关于
+  <a href="/continuous-integration.html">持续集成</a>、持续部署和持续交付间的区别。极力推荐这部视频作为部署概念的综述，同时也是对这个系列视频的介绍。</p>
 </li>
 <li>
-<p><a href="http://engineering.instagram.com/posts/1125308487520335/continuous-deployment-at-instagram/">Continuous deployment at Instagram</a>
-  is the story of how their deployment process evolved over time from a 
-  large Fabric script to continous deployments. Along the way they 
-  encountered issues with code reviews, test failures, canary builds and
-  rollbacks. It's a great read that sheds some light on how Python 
-  deployments can be done well at large scale.</p>
+<p><a href="http://engineering.instagram.com/posts/1125308487520335/continuous-deployment-at-instagram/">在 Instagram 使用持续部署</a>
+讲述了他们在部署上的成长故事，即从单一的大结构脚本到持续部署的改进历程。在成长过程中，他们遭遇了在代码审查、测试失败、候选版本构建以及回滚这些方面的问题。这是一篇佳作，阐述了如何才能很好地部署大规模的 Python 应用。</p>
 </li>
 <li>
-<p>Stack Overflow's guide on 
-  <a href="http://nickcraver.com/blog/2016/05/03/stack-overflow-how-we-do-deployment-2016-edition/">how they do deployment</a>
-  is an awesome in-depth read covering topics ranging from git branching
-  to database migrations.</p>
+<p>Stack Overflow 上关于 
+  <a href="http://nickcraver.com/blog/2016/05/03/stack-overflow-how-we-do-deployment-2016-edition/">他们如何部署</a> 的指南是一篇很有深度的文章，它涵盖了从 git 分支到数据库整合的有关话题。</p>
 </li>
 <li>
-<p>If you're using Flask this 
-  <a href="https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/">detailed post on deploying it to Ubuntu</a>
-  is a great way to familiarize yourself with the deployment process.</p>
+<p>如果你正在使用 Flask 的话，那么阅读这篇 <a href="https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/">在 Ubuntu 上部署 Flask 应用详解</a>
+  是让你熟悉部署过程的良好途径。</p>
 </li>
 </ul>
-<h2>Deployment learning checklist</h2>
+<h2>部署学习清单</h2>
 <ol>
 <li>
-<p>If you're tight on time look at the 
-   <a href="/platform-as-a-service.html">platform-as-a-service (PaaS)</a> options. You 
-   can deploy a low traffic project web app for free or low cost. You won't 
-   have to worry about setting up the operating system and web server 
-   compared to going the traditional server route. In theory you should be 
-   able to get your application live on the web sooner with PaaS hosting.</p>
+<p>如果你赶时间的话，看看这个 
+   <a href="/platform-as-a-service.html">平台即服务（PaaS）</a> 方案吧。你可以以免费或者较低的成本部署一款低流量的 web 应用。相比使用传统服务器的方案，你根本不用担心设置操作系统及 web 服务器这样的问题。理论上来说，使用 PasS 托管，你可以更快地在网上看到你的 web 应用在运行。</p>
 </li>
 <li>
-<p><a href="/servers.html">Traditional server options</a> are your best bet for learning
-   how the entire Python web stack works. You'll often save money with a 
-   virtual private server instead of a platform-as-a-service as you scale up.</p>
+<p><a href="/servers.html">传统服务器方案</a> 是你学习完整的 Python 网络栈工作方式的最佳选择。随着你的应用规模逐渐扩大，相对使用 PaaS 方案，你会发现使用虚拟私有服务器通常会更省钱。</p>
 </li>
 <li>
-<p>Read about servers, <a href="/operating-systems.html">operating systems</a>, 
-   <a href="/web-servers.html">web servers</a> and <a href="/wsgi-servers.html">WSGI servers</a> 
-   to get a broad picture of what components need to be set up to run a 
-   Python web application.</p>
+<p>阅读有关服务器、<a href="/operating-systems.html">操作系统</a>、
+   <a href="/web-servers.html">web 服务器</a> 以及 <a href="/wsgi-servers.html">WSGI 服务器</a> 的内容，从而对运行一款 Python web 应用需要配置那些组件有更宽泛的了解。</p>
 </li>
 </ol>
           <h1>Servers</h1>
