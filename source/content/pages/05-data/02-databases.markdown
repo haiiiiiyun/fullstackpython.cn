@@ -1,194 +1,113 @@
-title: Databases
+title: 数据库
 category: page
 slug: databases
 sortorder: 0502
 toc: False
-sidebartitle: Relational Databases
-meta: Relational databases serve the critical role of persisting data in many Python applications.
+sidebartitle: 关系型数据库
+meta: 关系型数据库在很多 Python 应用的数据存储中起来了至关重要的作用。
+updated: 2016-07-09 20:34--23:28
 
 
-# Databases
-A database is an abstraction on top of an operating system's file system to 
-ease creating, reading, updating, and deleting persistent data. 
+# 数据库
+数据库是建立在操作系统的文件系统之上的一种抽象，它使得对持久性数据的创建、读取、更新和删除等的操作变得更加容易。
+
+## 为什么说数据库很有必要？
+Web 应用在更高的层次上存储数据并以更有用的方式将数据呈现给用户。例如，Google 存储道路相关的数据，但它通过 [地图](https://www.google.com/maps/) 应用可向我们提供从一个地点到另一个地点的驾驶向导。因为数据是按结构化方式存储的，因此提供驾驶向导是可能的。
+
+数据库使得结构化存储变得即可靠又快速。它们还提供了一种数据应该如何被保存和提取的认知模型，因而你无需在每次创建新应用时都要指出如何处理数据。
+
+<div class="well see-also">对数据库这个概念的实现有很多种，包括 <a href="/postgresql.html">PostgreSQL</a>、 <a href="/mysql.html">MySQL</a> 和 <a href="/sqlite.html">SQLite</a> 等。 还存在被称为 <a href="/no-sql-datastore.html">NoSQL 数据存储</a> 的非关系型数据库。到 <a href="/data.html">数据</a> 这一章学习更多的相关知识，或者到 <a href="/table-of-contents.html">总目录页</a> 去查看全部主题。</div>
 
 
-## Why are databases necessary?
-At a high level web applications store data and present it to users in a 
-useful way. For example, Google stores data about roads and provides 
-directions to get from one location to another by driving through the 
-[Maps](https://www.google.com/maps/) application. Driving directions are 
-possible because the data is stored in a structured format. 
+## 关系型数据库
+Python Web 应用中用得最多的数据存储抽象是一组关系型数据表。另外的存储抽象会在 [NoSQL](/no-sql-datastore.html) 页讲解。
 
-Databases make structured storage reliable and fast. They also give you a 
-mental framework for how the data should be saved and retrieved instead of 
-having to figure out what to do with the data every time you build a new 
-application.
+关系型数据库将数据存储在一系列的数据表中。数据表之间的互连关系通过 *外键* 指定。外键是从一个关系型数据表的一行指向某表的另一行的一个唯一引用，被指向的某表可以和指向的表相同，但是通常是不同的表。
 
-<div class="well see-also">Databases are a concept with many implementations, including <a href="/postgresql.html">PostgreSQL</a>, <a href="/mysql.html">MySQL</a> and <a href="/sqlite.html">SQLite</a>. Non-relational databases called <a href="/no-sql-datastore.html">NoSQL data stores</a> also exist.  Learn more in the <a href="/data.html">data</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+数据库存储的实现在复杂度上各有不同。SQLite，是一种包含在 Python 中的数据库系统，它为每个数据库创建一个单独的文件来存放数据。其它的数据库系统，如 [PostgreSQL](/postgresql.html)、 [MySQL](/mysql.html)、 Oracle 和 Microsoft SQL Server 都具有更加复杂的持久化方案，并且提供对 Web 应用很有用的额外高级功能。这些高级功能包括但不限于：
 
+1. 一个主数据库和一个或多个只读从数据库实例之间的数据复制功能
+1. 能高效存储如 JavaScript 对象标记 (JSON) 等半结构化数据的高级列类型
+1. 允许在多个数据库间进行水平扩展的数据分片，分片以数据一致性的延迟为代价，使得每个分片都能作为一个可读写的实例使用。
+1. 监测、分析及能提供数据库模式和表的其它有用的运行时信息的功能。
 
-## Relational databases
-The database storage abstraction most commonly used in Python web development 
-is sets of relational tables. Alternative storage abstractions are explained 
-on the [NoSQL](/no-sql-datastore.html) page.
-
-Relational databases store data in a series of tables. Interconnections
-between the tables are specified as *foreign keys*. A foreign key is a
-unique reference from one row in a relational table to another row in
-a table, which can be the same table but is most commonly a different table.
-
-Databases storage implementations vary in complexity. SQLite, a database 
-included with Python, creates a single file for all data per database. 
-Other databases such as [PostgreSQL](/postgresql.html),
-[MySQL](/mysql.html), Oracle and Microsoft SQL Server have more 
-complicated persistence schemes while offering additional advanced features 
-that are useful for web application data storage. These advanced
-features include but are not limited to:
-
-1. data replication between a master database and one or more read-only slave 
-   instances
-1. advanced column types that can efficiently store semi-structured data
-   such as JavaScript Object Notation (JSON)
-1. sharding, which allows horizontal scaling of multiple databases that 
-   each serve as read-write instances at the cost of latency in data
-   consistency
-1. monitoring, statistics and other useful runtime information for
-   database schemas and tables
-
-Typically web applications start with a single database instance such
-as PostgreSQL with a straightforward schema. Over time the database 
-schema evolves to a more complex structure using schema migrations and 
-advanced features such as replication, sharding and monitoring become
-more useful as database utilization increases based on the application
-users' needs.
+通常， Web 应用开始时只使用一个数据库实例，比如用只有一个直接模式的 PostgreSQL。随着时间的推移，数据库模式演变成了使用模式迁移的更加复杂的结构，而像复制、分片、监测等高级功能，随着应用用户的需求及数据库使用的增加，也变得越来越有用。
 
 
-## Most common databases for Python web apps
-[PostgreSQL](http://www.postgresql.org/) and 
-[MySQL](http://www.mysql.com/) are two of the most common open source
-databases for storing Python web applications' data.
+## Python Web 应用最常用的数据库
+[PostgreSQL](http://www.postgresql.org/) 和 [MySQL](http://www.mysql.com/) 是用于存储 Python Web 应用数据的两个最常用的开源数据库。
 
-[SQLite](http://www.sqlite.org/) is a database that is stored in a single
-file on disk. SQLite is built into Python but is only built for access
-by a single connection at a time. Therefore is highly recommended to not
-[run a production web application with SQLite](https://docs.djangoproject.com/en/dev/ref/databases/#database-is-locked-errors).
+[SQLite](http://www.sqlite.org/) 是一种将数据存储在存储器的单个文件上的数据库。 SQLite 内置在 Python 中，但是每次允许一个连接对它进行存取。因此强烈建议不要 [在 Web 应用的生产环境中使用 SQLite](https://docs.djangoproject.com/en/dev/ref/databases/#database-is-locked-errors)。
 
 
 ## PostgreSQL
-PostgreSQL is the recommended relational database for working with Python
-web applications. PostgreSQL's feature set, active development and stability
-contribute to its usage as the backend for millions of applications live
-on the Web today.
+PostgreSQL 是被推荐在 Python Web 应用中使用的一种关系型数据库。它的功能集、活跃的开发及稳定性使得当今数以百万计的 Web 应用都将它作为后端使用。
 
-Learn more about using PostgreSQL with Python on the 
-[PostgreSQL page](/postgresql.html).
+在 [PostgreSQL 页](/postgresql.html) 上了解更多关于在 Python 中使用 PostgreSQL 的知识。
 
 
 ## MySQL
-MySQL is another viable open source database implementation for Python 
-applications. MySQL has a slightly easier initial learning curve than 
-PostgreSQL but is not as feature rich.
+MySQL 是能在 Python 应用中使用的另一种可靠的开源数据库实现。MySQL 相比 PostgreSQL 更易入门，但是它没有 PostgreSQL 功能丰富。
 
-Find out about Python applications with a MySQL backed on the dedicated 
-[MySQL page](/mysql.html).
+到专门的 [MySQL 页](/mysql.html) 上了解有关在 Python 应用中使用 MySQL 的知识。
 
 
-## Connecting to a database with Python
-To work with a relational database using Python, you need to use a code 
-library. The most common libraries for relational databases are:
+## 用 Python 连接数据库
+要通过 Python 来处理关系型数据库，你需要使用代码库。 连接关系型数据库的最常用库是：
 
-* [psycopg2](http://initd.org/psycopg/) for PostgreSQL
+* 连接 PostgreSQL 的 [psycopg2](http://initd.org/psycopg/)
 
-* [MySQLdb](https://pypi.python.org/pypi/MySQL-python/1.2.5) for MySQL
+* 连接 MySQL 的 [MySQLdb](https://pypi.python.org/pypi/MySQL-python/1.2.5)
 
-* [cx\_Oracle](http://cx-oracle.sourceforge.net/) for Oracle
+* 连接 Oracle 的 [cx\_Oracle](http://cx-oracle.sourceforge.net/)
 
-SQLite support is built into Python 2.7+ and therefore a separate library
-is not necessary. Simply "import sqlite3" to begin interfacing with the 
-single file-based database.
+对 SQLite 的支持已内置于 Python 2.7+ 中，因此不需要另外的库。只需 "import sqlite3" 就能开始与这个基于单文件的数据库进行交互了。
 
 
-## Object-relational Mapping
-Object-relational mappers (ORMs) allow developers to access data from a 
-backend by writing Python code instead of SQL queries. Each web 
-application framework handles integrating ORMs differently. There's 
-[an entire page on object-relational mapping](/object-relational-mappers-orms.html) 
-(ORMs) that you should read to get a handle on this subject.
+## 对象-关系 映射
+对象-关系 映射器 (ORM) 使得开发人员无需写 SQL 查询语句，而只需编写 Python 代码就能从后端存取数据。每个 Web 应用框架对 ORM 的集成处理都有所不同。有 [一整页是专门讲述对象-关系 映射](/object-relational-mappers-orms.html) (ORM) 的，你应该可以通过它来了解这个主题知识。
 
 
-## Database third-party services
-Numerous companies run scalable database servers as a hosted service.
-Hosted databases can often provide automated backups and recovery,
-tightened security configurations and easy vertical scaling, depending on the
-provider.
+## 数据库第三方服务
+许多公司运营着可扩展的数据库服务器来提供托管服务。托管的数据库，根据提供商的不同，通常能提供自动化的备份和恢复，强化了的安全配置和方便的垂直扩展等功能。
 
-* [Amazon Relational Database Service (RDS)](http://aws.amazon.com/rds/)
-  provides pre-configured MySQL and PostgreSQL instances. The instances can
-  be scaled to larger or smaller configurations based on storage and performance
-  needs.
+* [Amazon 关系型数据库服务 (RDS)](http://aws.amazon.com/rds/) 提供预配置的 MySQL 和 PostgreSQL 实例。根据存储和性能的需求，这些实例可以按需扩大或缩小配置。
 
-* [Google Cloud SQL](https://developers.google.com/cloud-sql/) is a service
-  with managed, backed up, replicated, and auto-patched MySQL instances. Cloud
-  SQL integrates with Google App Engine but can be used independently as well.
+* [Google 云 SQL](https://developers.google.com/cloud-sql/) 服务提供受控的、可备份、可复制和自动进行补丁更新的 MySQL 实例。云 SQL 与 Google App Engine 集成在一起，但是也可以单独使用。
 
-* [BitCan](http://www.gobitcan.com/) provides both MySQL and MongoDB hosted
-  databases with extensive backup services.
+* [BitCan](http://www.gobitcan.com/) 同时提供 MySQL 和 MongoDB 托管服务器，并具有可扩展的备份服务。
 
-* [ElephantSQL](https://www.elephantsql.com/) is a software-as-a-service company
-  that hosts PostgreSQL databases and handles the server configuration, backups
-  and data connections on top of Amazon Web Services instances.
+* [ElephantSQL](https://www.elephantsql.com/) 是一家 “服务即服务” 的公司，它托管 PostgreSQL 数据库，并且基于 Amazon Web 服务实例对服务器的配置、备份和数据连接进行处理。
 
 
-## General database resources
-* [How does a relational database work?](http://coding-geek.com/how-databases-work/)
-  is a detailed longform post on the sorting, searching, merging and other
-  operations we often take for granted when using an established relational 
-  database such as PostgreSQL.
+## 通用数据库相关资源
+* [关系型数据库是如何运作的？](http://coding-geek.com/how-databases-work/) 这篇长文详细讲述了排序、查询、合并及其它我们使用像 PostgreSQL 等已连接的关系型数据库时常常熟视无睹的这些操作。
 
-* [Why I Love Databases](https://medium.com/@jeeyoungk/why-i-love-databases-1d4cc433685f)
-  is a great read on the CAP Theorem, distributed systems and other topics
-  that are at the core of database theory and implementation. Well worth
-  the time to read.
+* [我为什么喜欢数据库](https://medium.com/@jeeyoungk/why-i-love-databases-1d4cc433685f) 是一篇非常精彩的文章，讲述了 CAP 原理（CAP Theorem）、分布式系统以及有关数据库理论和实现的核心知识的其它主题。
 
-* [Writing better SQL](http://www.craigkerstiens.com/2016/01/08/writing-better-sql/)
-  is a short code styling guide to make your queries easier to read.
+* [编写更好的 SQL 代码](http://www.craigkerstiens.com/2016/01/08/writing-better-sql/) 这篇简短的代码风格指南能教你编写出更加易读的查询语句。
 
-* [DB-Engines](http://db-engines.com/en/ranking) ranks the most popular
-  database management systems.
+* [数据库引擎](http://db-engines.com/en/ranking) 对最流行的数据库管理系统进行了排序。
 
-* [DB Weekly](http://dbweekly.com/) is a weekly roundup of general database 
-  articles and resources.
+* [数据库周刊](http://dbweekly.com/) 是一份关于通用数据库的文章和资源的每周集锦。
 
-* [Databases integration testing strategies](https://julien.danjou.info/blog/2014/db-integration-testing-strategies-python)
-  covers a difficult topic that comes up on every real world project.
+* [数据库集成测试策略](https://julien.danjou.info/blog/2014/db-integration-testing-strategies-python) 讲述的这个不一样的主题，在每一个现实项目中都会碰到。
 
-* [Asynchronous Python and Databases](http://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/)
-  is an in-depth article covering why many Python database drivers cannot
-  be used without modification due to the differences in blocking versus
-  asychronous event models. Definitely worth a read if you are using
-  [WebSockets](/websockets.html) via Tornado or gevent.
+* [异步 Python 和数据库](http://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/) 这篇文章就阻塞与异步事件模型的差异，导致许多 Python 数据库驱动不进行修改不能使用这个问题进行了深入的讲解。假如你想通过 Tornado 或 gevent 使用 [WebSockets](/websockets.html) 的话，绝对值得一读。
 
-* [PostgreSQL vs. MS SQL Server](http://www.pg-versus-ms.com/) is one
-  perspective on the differences between the two database servers from a
-  data analyst.
+* [PostgreSQL vs. MS SQL 服务器](http://www.pg-versus-ms.com/) 以一个数据分析师的视角对这两个数据库服务器之间的区别进行了说明。
 
 
-## Databases learning checklist
-1. Install PostgreSQL on your server. Assuming you went with Ubuntu run 
-   ``sudo apt-get install postgresql``.
+## 数据库学习清单
+1. 在你的服务器上安装 PostgreSQL。假设你在 Ubuntu 上使用以下命令安装：
+   ``sudo apt-get install postgresql``。
 
-1. Make sure the [psycopg2](http://initd.org/psycopg/) library is in your
-   application's dependencies.
+1. 确保 [psycopg2](http://initd.org/psycopg/) 库在你的应用的依赖文件中。
 
-1. Configure your web application to connect to the PostgreSQL instance.
+1. 配置你的 Web 应用，使其连接到这个 PostgreSQL 实例。
 
-1. Create models in your ORM, either with Django's 
-   [built-in ORM](https://docs.djangoproject.com/en/dev/topics/db/) or
-   [SQLAlchemy with Flask](http://www.sqlalchemy.org/). 
+1. 可以通过 Django [内置的 ORM](https://docs.djangoproject.com/en/dev/topics/db/) 或者 [Flask 的 SQLAlchemy](http://www.sqlalchemy.org/)，在你的 ORM 中创建数据模型。
 
-1. Build your database tables or sync the ORM models with the PostgreSQL 
-   instance, if you're using an ORM.
+1. 创建数据库表，或者如果使用了 ORM 的话，将你的 ORM 模型与 PostgreSQL 实例进行同步。
 
-1. Start creating, reading, updating and deleting data in the database 
-   from your web application.
-
+1. 通过你的 Web 应用，开始在数据库中创建、读取、更新和删除数据。

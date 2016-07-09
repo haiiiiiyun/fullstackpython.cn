@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Relational databases serve the critical role of persisting data in many Python applications.">
+    <meta name="description" content="关系型数据库在很多 Python 应用的数据存储中起来了至关重要的作用。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Databases - Full Stack Python 简体中文网站</title>
+    <title>数据库 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,195 +36,115 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Databases</h1>
-<p>A database is an abstraction on top of an operating system's file system to 
-ease creating, reading, updating, and deleting persistent data. </p>
-<h2>Why are databases necessary?</h2>
-<p>At a high level web applications store data and present it to users in a 
-useful way. For example, Google stores data about roads and provides 
-directions to get from one location to another by driving through the 
-<a href="https://www.google.com/maps/">Maps</a> application. Driving directions are 
-possible because the data is stored in a structured format. </p>
-<p>Databases make structured storage reliable and fast. They also give you a 
-mental framework for how the data should be saved and retrieved instead of 
-having to figure out what to do with the data every time you build a new 
-application.</p>
-<div class="well see-also">Databases are a concept with many implementations, including <a href="/postgresql.html">PostgreSQL</a>, <a href="/mysql.html">MySQL</a> and <a href="/sqlite.html">SQLite</a>. Non-relational databases called <a href="/no-sql-datastore.html">NoSQL data stores</a> also exist.  Learn more in the <a href="/data.html">data</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+          <h1>数据库</h1>
+<p>数据库是建立在操作系统的文件系统之上的一种抽象，它使得对持久性数据的创建、读取、更新和删除等的操作变得更加容易。</p>
+<h2>为什么说数据库很有必要？</h2>
+<p>Web 应用在更高的层次上存储数据并以更有用的方式将数据呈现给用户。例如，Google 存储道路相关的数据，但它通过 <a href="https://www.google.com/maps/">地图</a> 应用可向我们提供从一个地点到另一个地点的驾驶向导。因为数据是按结构化方式存储的，因此提供驾驶向导是可能的。</p>
+<p>数据库使得结构化存储变得即可靠又快速。它们还提供了一种数据应该如何被保存和提取的认知模型，因而你无需在每次创建新应用时都要指出如何处理数据。</p>
+<div class="well see-also">对数据库这个概念的实现有很多种，包括 <a href="/postgresql.html">PostgreSQL</a>、 <a href="/mysql.html">MySQL</a> 和 <a href="/sqlite.html">SQLite</a> 等。 还存在被称为 <a href="/no-sql-datastore.html">NoSQL 数据存储</a> 的非关系型数据库。到 <a href="/data.html">数据</a> 这一章学习更多的相关知识，或者到 <a href="/table-of-contents.html">总目录页</a> 去查看全部主题。</div>
 
-<h2>Relational databases</h2>
-<p>The database storage abstraction most commonly used in Python web development 
-is sets of relational tables. Alternative storage abstractions are explained 
-on the <a href="/no-sql-datastore.html">NoSQL</a> page.</p>
-<p>Relational databases store data in a series of tables. Interconnections
-between the tables are specified as <em>foreign keys</em>. A foreign key is a
-unique reference from one row in a relational table to another row in
-a table, which can be the same table but is most commonly a different table.</p>
-<p>Databases storage implementations vary in complexity. SQLite, a database 
-included with Python, creates a single file for all data per database. 
-Other databases such as <a href="/postgresql.html">PostgreSQL</a>,
-<a href="/mysql.html">MySQL</a>, Oracle and Microsoft SQL Server have more 
-complicated persistence schemes while offering additional advanced features 
-that are useful for web application data storage. These advanced
-features include but are not limited to:</p>
+<h2>关系型数据库</h2>
+<p>Python Web 应用中用得最多的数据存储抽象是一组关系型数据表。另外的存储抽象会在 <a href="/no-sql-datastore.html">NoSQL</a> 页讲解。</p>
+<p>关系型数据库将数据存储在一系列的数据表中。数据表之间的互连关系通过 <em>外键</em> 指定。外键是从一个关系型数据表的一行指向某表的另一行的一个唯一引用，被指向的某表可以和指向的表相同，但是通常是不同的表。</p>
+<p>数据库存储的实现在复杂度上各有不同。SQLite，是一种包含在 Python 中的数据库系统，它为每个数据库创建一个单独的文件来存放数据。其它的数据库系统，如 <a href="/postgresql.html">PostgreSQL</a>、 <a href="/mysql.html">MySQL</a>、 Oracle 和 Microsoft SQL Server 都具有更加复杂的持久化方案，并且提供对 Web 应用很有用的额外高级功能。这些高级功能包括但不限于：</p>
 <ol>
-<li>data replication between a master database and one or more read-only slave 
-   instances</li>
-<li>advanced column types that can efficiently store semi-structured data
-   such as JavaScript Object Notation (JSON)</li>
-<li>sharding, which allows horizontal scaling of multiple databases that 
-   each serve as read-write instances at the cost of latency in data
-   consistency</li>
-<li>monitoring, statistics and other useful runtime information for
-   database schemas and tables</li>
+<li>一个主数据库和一个或多个只读从数据库实例之间的数据复制功能</li>
+<li>能高效存储如 JavaScript 对象标记 (JSON) 等半结构化数据的高级列类型</li>
+<li>允许在多个数据库间进行水平扩展的数据分片，分片以数据一致性的延迟为代价，使得每个分片都能作为一个可读写的实例使用。</li>
+<li>监测、分析及能提供数据库模式和表的其它有用的运行时信息的功能。</li>
 </ol>
-<p>Typically web applications start with a single database instance such
-as PostgreSQL with a straightforward schema. Over time the database 
-schema evolves to a more complex structure using schema migrations and 
-advanced features such as replication, sharding and monitoring become
-more useful as database utilization increases based on the application
-users' needs.</p>
-<h2>Most common databases for Python web apps</h2>
-<p><a href="http://www.postgresql.org/">PostgreSQL</a> and 
-<a href="http://www.mysql.com/">MySQL</a> are two of the most common open source
-databases for storing Python web applications' data.</p>
-<p><a href="http://www.sqlite.org/">SQLite</a> is a database that is stored in a single
-file on disk. SQLite is built into Python but is only built for access
-by a single connection at a time. Therefore is highly recommended to not
-<a href="https://docs.djangoproject.com/en/dev/ref/databases/#database-is-locked-errors">run a production web application with SQLite</a>.</p>
+<p>通常， Web 应用开始时只使用一个数据库实例，比如用只有一个直接模式的 PostgreSQL。随着时间的推移，数据库模式演变成了使用模式迁移的更加复杂的结构，而像复制、分片、监测等高级功能，随着应用用户的需求及数据库使用的增加，也变得越来越有用。</p>
+<h2>Python Web 应用最常用的数据库</h2>
+<p><a href="http://www.postgresql.org/">PostgreSQL</a> 和 <a href="http://www.mysql.com/">MySQL</a> 是用于存储 Python Web 应用数据的两个最常用的开源数据库。</p>
+<p><a href="http://www.sqlite.org/">SQLite</a> 是一种将数据存储在存储器的单个文件上的数据库。 SQLite 内置在 Python 中，但是每次允许一个连接对它进行存取。因此强烈建议不要 <a href="https://docs.djangoproject.com/en/dev/ref/databases/#database-is-locked-errors">在 Web 应用的生产环境中使用 SQLite</a>。</p>
 <h2>PostgreSQL</h2>
-<p>PostgreSQL is the recommended relational database for working with Python
-web applications. PostgreSQL's feature set, active development and stability
-contribute to its usage as the backend for millions of applications live
-on the Web today.</p>
-<p>Learn more about using PostgreSQL with Python on the 
-<a href="/postgresql.html">PostgreSQL page</a>.</p>
+<p>PostgreSQL 是被推荐在 Python Web 应用中使用的一种关系型数据库。它的功能集、活跃的开发及稳定性使得当今数以百万计的 Web 应用都将它作为后端使用。</p>
+<p>在 <a href="/postgresql.html">PostgreSQL 页</a> 上了解更多关于在 Python 中使用 PostgreSQL 的知识。</p>
 <h2>MySQL</h2>
-<p>MySQL is another viable open source database implementation for Python 
-applications. MySQL has a slightly easier initial learning curve than 
-PostgreSQL but is not as feature rich.</p>
-<p>Find out about Python applications with a MySQL backed on the dedicated 
-<a href="/mysql.html">MySQL page</a>.</p>
-<h2>Connecting to a database with Python</h2>
-<p>To work with a relational database using Python, you need to use a code 
-library. The most common libraries for relational databases are:</p>
+<p>MySQL 是能在 Python 应用中使用的另一种可靠的开源数据库实现。MySQL 相比 PostgreSQL 更易入门，但是它没有 PostgreSQL 功能丰富。</p>
+<p>到专门的 <a href="/mysql.html">MySQL 页</a> 上了解有关在 Python 应用中使用 MySQL 的知识。</p>
+<h2>用 Python 连接数据库</h2>
+<p>要通过 Python 来处理关系型数据库，你需要使用代码库。 连接关系型数据库的最常用库是：</p>
 <ul>
 <li>
-<p><a href="http://initd.org/psycopg/">psycopg2</a> for PostgreSQL</p>
+<p>连接 PostgreSQL 的 <a href="http://initd.org/psycopg/">psycopg2</a></p>
 </li>
 <li>
-<p><a href="https://pypi.python.org/pypi/MySQL-python/1.2.5">MySQLdb</a> for MySQL</p>
+<p>连接 MySQL 的 <a href="https://pypi.python.org/pypi/MySQL-python/1.2.5">MySQLdb</a></p>
 </li>
 <li>
-<p><a href="http://cx-oracle.sourceforge.net/">cx_Oracle</a> for Oracle</p>
+<p>连接 Oracle 的 <a href="http://cx-oracle.sourceforge.net/">cx_Oracle</a></p>
 </li>
 </ul>
-<p>SQLite support is built into Python 2.7+ and therefore a separate library
-is not necessary. Simply "import sqlite3" to begin interfacing with the 
-single file-based database.</p>
-<h2>Object-relational Mapping</h2>
-<p>Object-relational mappers (ORMs) allow developers to access data from a 
-backend by writing Python code instead of SQL queries. Each web 
-application framework handles integrating ORMs differently. There's 
-<a href="/object-relational-mappers-orms.html">an entire page on object-relational mapping</a> 
-(ORMs) that you should read to get a handle on this subject.</p>
-<h2>Database third-party services</h2>
-<p>Numerous companies run scalable database servers as a hosted service.
-Hosted databases can often provide automated backups and recovery,
-tightened security configurations and easy vertical scaling, depending on the
-provider.</p>
+<p>对 SQLite 的支持已内置于 Python 2.7+ 中，因此不需要另外的库。只需 "import sqlite3" 就能开始与这个基于单文件的数据库进行交互了。</p>
+<h2>对象-关系 映射</h2>
+<p>对象-关系 映射器 (ORM) 使得开发人员无需写 SQL 查询语句，而只需编写 Python 代码就能从后端存取数据。每个 Web 应用框架对 ORM 的集成处理都有所不同。有 <a href="/object-relational-mappers-orms.html">一整页是专门讲述对象-关系 映射</a> (ORM) 的，你应该可以通过它来了解这个主题知识。</p>
+<h2>数据库第三方服务</h2>
+<p>许多公司运营着可扩展的数据库服务器来提供托管服务。托管的数据库，根据提供商的不同，通常能提供自动化的备份和恢复，强化了的安全配置和方便的垂直扩展等功能。</p>
 <ul>
 <li>
-<p><a href="http://aws.amazon.com/rds/">Amazon Relational Database Service (RDS)</a>
-  provides pre-configured MySQL and PostgreSQL instances. The instances can
-  be scaled to larger or smaller configurations based on storage and performance
-  needs.</p>
+<p><a href="http://aws.amazon.com/rds/">Amazon 关系型数据库服务 (RDS)</a> 提供预配置的 MySQL 和 PostgreSQL 实例。根据存储和性能的需求，这些实例可以按需扩大或缩小配置。</p>
 </li>
 <li>
-<p><a href="https://developers.google.com/cloud-sql/">Google Cloud SQL</a> is a service
-  with managed, backed up, replicated, and auto-patched MySQL instances. Cloud
-  SQL integrates with Google App Engine but can be used independently as well.</p>
+<p><a href="https://developers.google.com/cloud-sql/">Google 云 SQL</a> 服务提供受控的、可备份、可复制和自动进行补丁更新的 MySQL 实例。云 SQL 与 Google App Engine 集成在一起，但是也可以单独使用。</p>
 </li>
 <li>
-<p><a href="http://www.gobitcan.com/">BitCan</a> provides both MySQL and MongoDB hosted
-  databases with extensive backup services.</p>
+<p><a href="http://www.gobitcan.com/">BitCan</a> 同时提供 MySQL 和 MongoDB 托管服务器，并具有可扩展的备份服务。</p>
 </li>
 <li>
-<p><a href="https://www.elephantsql.com/">ElephantSQL</a> is a software-as-a-service company
-  that hosts PostgreSQL databases and handles the server configuration, backups
-  and data connections on top of Amazon Web Services instances.</p>
+<p><a href="https://www.elephantsql.com/">ElephantSQL</a> 是一家 “服务即服务” 的公司，它托管 PostgreSQL 数据库，并且基于 Amazon Web 服务实例对服务器的配置、备份和数据连接进行处理。</p>
 </li>
 </ul>
-<h2>General database resources</h2>
+<h2>通用数据库相关资源</h2>
 <ul>
 <li>
-<p><a href="http://coding-geek.com/how-databases-work/">How does a relational database work?</a>
-  is a detailed longform post on the sorting, searching, merging and other
-  operations we often take for granted when using an established relational 
-  database such as PostgreSQL.</p>
+<p><a href="http://coding-geek.com/how-databases-work/">关系型数据库是如何运作的？</a> 这篇长文详细讲述了排序、查询、合并及其它我们使用像 PostgreSQL 等已连接的关系型数据库时常常熟视无睹的这些操作。</p>
 </li>
 <li>
-<p><a href="https://medium.com/@jeeyoungk/why-i-love-databases-1d4cc433685f">Why I Love Databases</a>
-  is a great read on the CAP Theorem, distributed systems and other topics
-  that are at the core of database theory and implementation. Well worth
-  the time to read.</p>
+<p><a href="https://medium.com/@jeeyoungk/why-i-love-databases-1d4cc433685f">我为什么喜欢数据库</a> 是一篇非常精彩的文章，讲述了 CAP 原理（CAP Theorem）、分布式系统以及有关数据库理论和实现的核心知识的其它主题。</p>
 </li>
 <li>
-<p><a href="http://www.craigkerstiens.com/2016/01/08/writing-better-sql/">Writing better SQL</a>
-  is a short code styling guide to make your queries easier to read.</p>
+<p><a href="http://www.craigkerstiens.com/2016/01/08/writing-better-sql/">编写更好的 SQL 代码</a> 这篇简短的代码风格指南能教你编写出更加易读的查询语句。</p>
 </li>
 <li>
-<p><a href="http://db-engines.com/en/ranking">DB-Engines</a> ranks the most popular
-  database management systems.</p>
+<p><a href="http://db-engines.com/en/ranking">数据库引擎</a> 对最流行的数据库管理系统进行了排序。</p>
 </li>
 <li>
-<p><a href="http://dbweekly.com/">DB Weekly</a> is a weekly roundup of general database 
-  articles and resources.</p>
+<p><a href="http://dbweekly.com/">数据库周刊</a> 是一份关于通用数据库的文章和资源的每周集锦。</p>
 </li>
 <li>
-<p><a href="https://julien.danjou.info/blog/2014/db-integration-testing-strategies-python">Databases integration testing strategies</a>
-  covers a difficult topic that comes up on every real world project.</p>
+<p><a href="https://julien.danjou.info/blog/2014/db-integration-testing-strategies-python">数据库集成测试策略</a> 讲述的这个不一样的主题，在每一个现实项目中都会碰到。</p>
 </li>
 <li>
-<p><a href="http://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/">Asynchronous Python and Databases</a>
-  is an in-depth article covering why many Python database drivers cannot
-  be used without modification due to the differences in blocking versus
-  asychronous event models. Definitely worth a read if you are using
-  <a href="/websockets.html">WebSockets</a> via Tornado or gevent.</p>
+<p><a href="http://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/">异步 Python 和数据库</a> 这篇文章就阻塞与异步事件模型的差异，导致许多 Python 数据库驱动不进行修改不能使用这个问题进行了深入的讲解。假如你想通过 Tornado 或 gevent 使用 <a href="/websockets.html">WebSockets</a> 的话，绝对值得一读。</p>
 </li>
 <li>
-<p><a href="http://www.pg-versus-ms.com/">PostgreSQL vs. MS SQL Server</a> is one
-  perspective on the differences between the two database servers from a
-  data analyst.</p>
+<p><a href="http://www.pg-versus-ms.com/">PostgreSQL vs. MS SQL 服务器</a> 以一个数据分析师的视角对这两个数据库服务器之间的区别进行了说明。</p>
 </li>
 </ul>
-<h2>Databases learning checklist</h2>
+<h2>数据库学习清单</h2>
 <ol>
 <li>
-<p>Install PostgreSQL on your server. Assuming you went with Ubuntu run 
-   <code>sudo apt-get install postgresql</code>.</p>
+<p>在你的服务器上安装 PostgreSQL。假设你在 Ubuntu 上使用以下命令安装：
+   <code>sudo apt-get install postgresql</code>。</p>
 </li>
 <li>
-<p>Make sure the <a href="http://initd.org/psycopg/">psycopg2</a> library is in your
-   application's dependencies.</p>
+<p>确保 <a href="http://initd.org/psycopg/">psycopg2</a> 库在你的应用的依赖文件中。</p>
 </li>
 <li>
-<p>Configure your web application to connect to the PostgreSQL instance.</p>
+<p>配置你的 Web 应用，使其连接到这个 PostgreSQL 实例。</p>
 </li>
 <li>
-<p>Create models in your ORM, either with Django's 
-   <a href="https://docs.djangoproject.com/en/dev/topics/db/">built-in ORM</a> or
-   <a href="http://www.sqlalchemy.org/">SQLAlchemy with Flask</a>. </p>
+<p>可以通过 Django <a href="https://docs.djangoproject.com/en/dev/topics/db/">内置的 ORM</a> 或者 <a href="http://www.sqlalchemy.org/">Flask 的 SQLAlchemy</a>，在你的 ORM 中创建数据模型。</p>
 </li>
 <li>
-<p>Build your database tables or sync the ORM models with the PostgreSQL 
-   instance, if you're using an ORM.</p>
+<p>创建数据库表，或者如果使用了 ORM 的话，将你的 ORM 模型与 PostgreSQL 实例进行同步。</p>
 </li>
 <li>
-<p>Start creating, reading, updating and deleting data in the database 
-   from your web application.</p>
+<p>通过你的 Web 应用，开始在数据库中创建、读取、更新和删除数据。</p>
 </li>
 </ol>
-<h3>What's next to get your app running?</h3>
+<h3>还需要什么才能运行你的应用？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
@@ -286,10 +206,10 @@ provider.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Relational Databases</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL Data Stores</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Servers</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Databases</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">数据库</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -302,7 +222,7 @@ provider.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a>  <a href="/databases.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Relational Databases</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a>  <a href="/databases.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; 关系型数据库</a>
 <a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. Deployment</a><a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>
