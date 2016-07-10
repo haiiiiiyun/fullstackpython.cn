@@ -3865,256 +3865,166 @@ equivalent of browser testing in the web application world.</p>
    initial API use case.</p>
 </li>
 </ol>
-          <h1>Deployment</h1>
-<p>Deployment involves packaging up your web application and putting it in a 
-production environment that can run the app.</p>
-<h2>Why is deployment necessary?</h2>
-<p>Your web application must live somewhere other than your own desktop or 
-laptop. A production environment is the canonical version of your current 
-application and its associated data.</p>
-<h2>Deployment topics map</h2>
-<p>Python web application deployments are comprised of many pieces that need to
-be individually configured. Here is a map that visually depicts how each
-deployment topic relates to each other. Click the image to pull up a PDF 
-version.</p>
+          <h1>部署</h1>
+<p>部署是一项涉及了为你的 web 应用打包，并且在生产环境下运行的技术。</p>
+<h2>为何部署是必要的？</h2>
+<p>你的 web 应用必须存在于除了你的台式机或者笔记本之外的设备上。生产环境是指正式版本，它包含了你当前的应用及其相关数据。</p>
+<h2>部署主题框图</h2>
+<p>Python web 应用部署由多个环节构成，并且每个环节都需要独立配置好。下面这幅图清晰地描述了部署的各个环节是如何相互联系的。点击这幅图片可以获得对应的 PDF 版本。</p>
 <p><a href="/full-stack-python-map.pdf" target="_blank" style="border: none;"><img src="/img/full-stack-python-map.png" width="100%" alt="Full Stack Python site map." class="technical-diagram" /></a></p>
-<h2>Deployment hosting options</h2>
-<p>There are four options for deploying and hosting a web application:</p>
+<h2>部署托管方案</h2>
+<p>这里提供了四种部署并托管 web 应用的方案：</p>
 <ol>
 <li>
-<p><a href="/servers.html">"Bare metal" servers</a></p>
+<p><a href="/servers.html">“裸机”服务器</a></p>
 </li>
 <li>
-<p><a href="/servers.html">Virtualized servers</a></p>
+<p><a href="/servers.html">虚拟化服务器</a></p>
 </li>
 <li>
-<p><a href="/servers.html">Infrastructure-as-a-service</a></p>
+<p><a href="/servers.html">基础设施即服务（IaaS）</a></p>
 </li>
 <li>
-<p><a href="/platform-as-a-service.html">Platform-as-a-service</a></p>
+<p><a href="/platform-as-a-service.html">平台即服务（PaaS）</a></p>
 </li>
 </ol>
-<p>The first three options are similar. The deployer needs to provision one or
-more servers with a Linux distribution. System packages, a web server, 
-WSGI server, database and the Python environment are then installed. Finally
-the application can be pulled from source and installed in the environment.</p>
-<p>Note that there are other ways of installing a Python web application through
-system-specific package management systems. We won't cover those in this
-guide as they are considered advanced deployment techniques.</p>
-<h2>Deployment resources</h2>
+<p>前三种方案是类似的。开发者首先需要准备一台或多台安装了 Linux 发行版的服务器。然后要在服务器上安装系统程序包、Web 服务器、WSGI 服务器、数据库以及 Python 运行环境。最后，将从源码生成的应用安装到配置好的环境中即可。</p>
+<p>需要注意的是，可以通过系统特定的程序包管理系统来安装一个 Python web 应用。因为它们是比较高级的部署技术，所以我们没有包含进来。</p>
+<h2>部署有关的资源</h2>
 <ul>
 <li>
-<p>If you need a step-by-step guide to deploying a Python web application,
-  I wrote <a href="http://www.deploypython.com/">a whole book</a> on exactly this topic 
-  called 
-  <a href="https://gumroad.com/l/WOvyt">The Full Stack Python Guide to Deployments</a>
-  that you'll find super helpful.</p>
+<p>如果你需要一个渐进式的 Python web 应用部署指南，
+  我刚好写了 <a href="http://www.deploypython.com/">一本书</a> 是专门针对应用部署的，它叫
+  <a href="https://gumroad.com/l/WOvyt">全栈 Python 指南之部署</a>，
+  会对你有很大的帮助。</p>
 </li>
 <li>
-<p><a href="http://talkpython.fm/episodes/show/26/deploying-python-web-applications-updated">Deploying Python web applications</a>
-  is an episode of the great Talk Python to Me podcast series where I
-  discuss deploying web applications based on a fairly traditional virtual 
-  private server, Nginx and Green Unicorn stack.</p>
+<p><a href="http://talkpython.fm/episodes/show/26/deploying-python-web-applications-updated">部署 Python web 应用</a>
+  是著名的“和我讨论 Python” 播客系列中的一节，我在那儿讨论了在基于很传统的虚拟私有服务器、Nginx 以及“绿色独角兽（Green Unicorn）” 的栈上部署 web 应用。</p>
 </li>
 <li>
-<p><a href="http://omniti.com/seeds/thoughts-on-web-application-deployment">Thoughts on web application deployment</a>
-  walks through stages of deployment with source control, planning, 
-  continuous deployment and monitoring the results.</p>
+<p><a href="http://omniti.com/seeds/thoughts-on-web-application-deployment">Web 应用部署沉思录</a>
+  讲解了应用部署的各个环节，包括源码控制，制定计划，持续部署以及监测结果等。</p>
 </li>
 <li>
-<p><a href="https://zachholman.com/posts/deploying-software">Deploying Software</a>
-  is a long must-read for understanding how to deploy software properly.</p>
+<p><a href="https://zachholman.com/posts/deploying-software">部署软件</a>
+  是理解如何恰当地部署软件的必读长文。</p>
 </li>
 <li>
-<p><a href="http://blogs.atlassian.com/2014/04/practical-continuous-deployment/">Practical continuous deployment</a>
-  defines delivery versus deployment and walks through a continuous deployment
-  workflow.</p>
+<p><a href="http://blogs.atlassian.com/2014/04/practical-continuous-deployment/">持续部署实践</a>
+  给出了交付与部署的定义，同时讲解了部署的流程图。</p>
 </li>
 <li>
-<p>In <a href="http://player.oreilly.com/videos/9781491908181?toc_id=210188">this free video by Neal Ford</a>,
-  he talks about engineering practices for continuous delivery. He explains
-  the difference between 
-  <a href="/continuous-integration.html">continuous integration</a>,
-  continuous deployment and continuous delivery. Highly recommended for an
-  overview of deployment concepts and as an introduction to the other videos
-  on those subjects in that series.</p>
+<p>在这个 <a href="http://player.oreilly.com/videos/9781491908181?toc_id=210188">Neal Ford 制作的免费视频</a> 中，
+  他谈论了持续交付在工程上的实践。他解释了关于
+  <a href="/continuous-integration.html">持续集成</a>、持续部署和持续交付间的区别。极力推荐这部视频作为部署概念的综述，同时也是对这个系列视频的介绍。</p>
 </li>
 <li>
-<p><a href="http://engineering.instagram.com/posts/1125308487520335/continuous-deployment-at-instagram/">Continuous deployment at Instagram</a>
-  is the story of how their deployment process evolved over time from a 
-  large Fabric script to continous deployments. Along the way they 
-  encountered issues with code reviews, test failures, canary builds and
-  rollbacks. It's a great read that sheds some light on how Python 
-  deployments can be done well at large scale.</p>
+<p><a href="http://engineering.instagram.com/posts/1125308487520335/continuous-deployment-at-instagram/">在 Instagram 使用持续部署</a>
+讲述了他们在部署上的成长故事，即从单一的大结构脚本到持续部署的改进历程。在成长过程中，他们遭遇了在代码审查、测试失败、候选版本构建以及回滚这些方面的问题。这是一篇佳作，阐述了如何才能很好地部署大规模的 Python 应用。</p>
 </li>
 <li>
-<p>Stack Overflow's guide on 
-  <a href="http://nickcraver.com/blog/2016/05/03/stack-overflow-how-we-do-deployment-2016-edition/">how they do deployment</a>
-  is an awesome in-depth read covering topics ranging from git branching
-  to database migrations.</p>
+<p>Stack Overflow 上关于 
+  <a href="http://nickcraver.com/blog/2016/05/03/stack-overflow-how-we-do-deployment-2016-edition/">他们如何部署</a> 的指南是一篇很有深度的文章，它涵盖了从 git 分支到数据库整合的有关话题。</p>
 </li>
 <li>
-<p>If you're using Flask this 
-  <a href="https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/">detailed post on deploying it to Ubuntu</a>
-  is a great way to familiarize yourself with the deployment process.</p>
+<p>如果你正在使用 Flask 的话，那么阅读这篇 <a href="https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/">在 Ubuntu 上部署 Flask 应用详解</a>
+  是让你熟悉部署过程的良好途径。</p>
 </li>
 </ul>
-<h2>Deployment learning checklist</h2>
+<h2>部署学习清单</h2>
 <ol>
 <li>
-<p>If you're tight on time look at the 
-   <a href="/platform-as-a-service.html">platform-as-a-service (PaaS)</a> options. You 
-   can deploy a low traffic project web app for free or low cost. You won't 
-   have to worry about setting up the operating system and web server 
-   compared to going the traditional server route. In theory you should be 
-   able to get your application live on the web sooner with PaaS hosting.</p>
+<p>如果你赶时间的话，看看这个 
+   <a href="/platform-as-a-service.html">平台即服务（PaaS）</a> 方案吧。你可以以免费或者较低的成本部署一款低流量的 web 应用。相比使用传统服务器的方案，你根本不用担心设置操作系统及 web 服务器这样的问题。理论上来说，使用 PasS 托管，你可以更快地在网上看到你的 web 应用在运行。</p>
 </li>
 <li>
-<p><a href="/servers.html">Traditional server options</a> are your best bet for learning
-   how the entire Python web stack works. You'll often save money with a 
-   virtual private server instead of a platform-as-a-service as you scale up.</p>
+<p><a href="/servers.html">传统服务器方案</a> 是你学习完整的 Python 网络栈工作方式的最佳选择。随着你的应用规模逐渐扩大，相对使用 PaaS 方案，你会发现使用虚拟私有服务器通常会更省钱。</p>
 </li>
 <li>
-<p>Read about servers, <a href="/operating-systems.html">operating systems</a>, 
-   <a href="/web-servers.html">web servers</a> and <a href="/wsgi-servers.html">WSGI servers</a> 
-   to get a broad picture of what components need to be set up to run a 
-   Python web application.</p>
+<p>阅读有关服务器、<a href="/operating-systems.html">操作系统</a>、
+   <a href="/web-servers.html">web 服务器</a> 以及 <a href="/wsgi-servers.html">WSGI 服务器</a> 的内容，从而对运行一款 Python web 应用需要配置那些组件有更宽泛的了解。</p>
 </li>
 </ol>
-          <h1>Servers</h1>
-<p>Servers are the physical infrastructure to run all the layers of software
-so your web application can respond to requests from clients such as web 
-browsers.</p>
-<h2>Why are servers necessary?</h2>
-<p>Your web application must live somewhere other than your own desktop or 
-laptop. Servers should ideally be accessible 24 hours a day, 7 days a week, 
-with no unplanned downtime. The servers that host your web application for
-actual users (as opposed to test users) are known as <em>production</em> servers.
-Production servers hold real data (again as opposed to test data) and must be 
-secure against unauthorized access.</p>
-<h2>Bare metal servers</h2>
-<p>The term <em>bare metal</em> refers to purchasing the actual hardware and hooking 
-it up to the Internet either through a business-class internet service 
-provider (ISP) or 
-<a href="http://webdesign.about.com/od/colocation/a/what_colocation.htm">co-locating the server</a>
-with other servers. A "business-class" ISP is necessary because
-most residential Internet service agreements explicitly prohibit running
-web servers on their networks. You may be able to get away with low traffic
-volume but if your site serves a lot of traffic it will alert an ISP's
-filters.</p>
-<p>The bare metal option offers the most control over the server configuration,
-usually has the highest performance for the price, but also is the most
-expensive upfront option and the highest ongoing maintenance. With bare
-metal servers the ongoing operating cost is the electricity the server(s)
-use as well as handling repairs when server components malfunction. You're
-taking on manual labor working with hardware as well as the rest of the
-software stack.</p>
-<p>Buy actual hardware from a vendor either pre-built or as a collection of 
-components that you assemble yourself. You can also buy 
-pre-configured servers from Dell or HP. Those servers tend to be in
-smaller case form factors (called "blades") but are correspondingly more 
-expensive than putting off-the-shelf components together yourself in a 
-standard computer case.</p>
-<h2>Virtualized servers</h2>
-<p>Virtual private servers (VPSs) are slices of hardware on top of a larger
-bare metal server. Virtualization software such as 
-<a href="http://www.xen.org/">Xen</a> and
+          <h1>服务器</h1>
+<p>服务器是运行所有软件层的物理设施，这样你的 web 应用才能够响应诸如 web 浏览器这样的客户端请求。</p>
+<h2>为何需要服务器？</h2>
+<p>你的 web 应用必须在除了你的台式机或者笔记本以外的设备上运行。 除了安排的关机计划外，理想的服务器应当保证每周 7 天，每天 24 小时能够正常访问。这台托管了针对真实用户（相对于测试用户）的 web 应用的主机就是所谓的<em>生产</em>服务器。
+生产服务器保存了真实的数据（同样相对测试数据），并且必须安全，能够拒绝非授权的访问。</p>
+<h2>裸机服务器</h2>
+<p><em>裸机</em>是指购买真实的硬件，然后通过商业级别的因特网服务供应商（ISP）或者是
+<a href="http://webdesign.about.com/od/colocation/a/what_colocation.htm">连接服务器</a>
+到其它服务器上的方式连接到因特网。选择一个“商业级别”的 ISP 是有必要的，因为多数住宅因特网服务协议明文禁止在它们的网络上运行 web 服务器。如果网站的访问流量较低，那或许可以；但如果你的网站服务流量很大，那将会引起一个 ISP 的过滤警告。</p>
+<p>采用裸机方案可以提供最多的服务器配置控制权限，
+通常可以在相同价格下拥有最高的性能。但它同样也是在前期需要投入最多资金以及后期需要付出最多的服务器日常维护成本的方案。 使用裸机服务器，后期的操作成本包括服务器供电以及修复服务器损坏的部件。你需要承担人工劳动力来配置硬件以及剩余的软件栈的费用。</p>
+<p>你可以从供应商购买组装好的服务器硬件，或者是各种组件集合回来自己组装。你也可以从 Dell 或者 HP 购买预先配置好的服务器。 这些服务器比较小巧紧凑（称为“刀片”服务器）， 但是相应地，和你使用现成的部件组装成普通的计算机相比，这种服务器更加昂贵。</p>
+<h2>虚拟化服务器</h2>
+<p>虚拟私有服务器（VPS） 就是在一个更大的裸机服务器上进行分割。 诸如
+<a href="http://www.xen.org/">Xen</a> 和
 <a href="http://www.vmware.com/virtualization/what-is-virtualization.html">VMWare</a>
-allow providers such as <a href="http://www.linode.com/">Linode</a> and
-<a href="http://prgmr.com/xen/">prgmr</a> (as well as a many others) to provide
-fractions of a full server that appear as their own instances. For example,
-a server with an 8-core Xeon processor and 16 gigabytes of memory can be
-sliced into 8 pieces with the equivalent of 1-core and 2 gigabytes of
-memory.</p>
-<p>The primary disadvantage of virtualized servers is that there is resource
-overhead in the virtualization process. In addition, physical constraints
-such as heavy I/O operations by a single virtualized instance on persistent 
-storage can cause performance bottlenecks for other virtualized instances on
-the shared server. Choosing virtualized server hosting should be based on
-your needs for urgency of service ticket requests and the frequency you
-require for ongoing maintenance such as persistent storage backups.</p>
-<h3>Virtualized servers resources</h3>
+这样的虚拟化软件，允许像 <a href="http://www.linode.com/">Linode</a> 和
+<a href="http://prgmr.com/xen/">prgmr</a> （以及许多其他的供应商） 这样的供应商把一个完整服务器的一部分能够像一个完全独立的服务器实例提供给用户。例如，一台拥有 8 核 Xeon 处理器和 16 GB 内存的服务器，可以分割成 8 片，每片都拥有等同的 1 核处理器和 2 GB 内存。</p>
+<p>虚拟化服务器最大的缺点在于虚拟进程有一定的资源开销。此外，一些物理限制，如某个虚拟化实例对持久化存储设备繁重的 I/O 操作会给共享服务器上其它虚拟化实例带来性能上的瓶颈。应当根据你对服务请求的紧迫性以及后期维护的频率需求，如持久化存储设备的备份，来决定是否选择虚拟化服务器托管方案。</p>
+<h3>与虚拟化服务器有关的资源</h3>
 <ul>
 <li>
-<p><a href="http://blog.redfern.me/choosing-a-low-cost-vps/">Choosing a low cost VPS</a>
-  reviews the factors that you should weigh when deciding on hosting 
-  providers.</p>
+<p><a href="http://blog.redfern.me/choosing-a-low-cost-vps/">选择低成本的 VPS</a>
+  讨论了一些在你决定选择托管供应商之前应当权衡的因素。</p>
 </li>
 <li>
-<p><a href="http://feross.org/how-to-setup-your-linode/">How to set up your Linode for maximum awesomeness</a>
-  shows how to work with a VPS once you've got the server up and running.</p>
+<p><a href="http://feross.org/how-to-setup-your-linode/">如何用最出色的方式设置你的 Linode</a>
+  讲述了一旦你拥有了可以正常运行的 VPS 后，怎样利用它开展工作。</p>
 </li>
 <li>
-<p><a href="http://jvns.ca/blog/2016/02/07/cpu-load-averages/">CPU Load Averages</a>
-  explains how to measure CPU load and what to do about it.</p>
+<p><a href="http://jvns.ca/blog/2016/02/07/cpu-load-averages/">CPU 平均负载</a>
+  说明了如何测量 CPU 负载以及可以利用它来做什么。</p>
 </li>
 </ul>
-<h2>Infrastructure-as-a-service</h2>
-<p>Infrastructure-as-a-service (IaaS) overlaps with virtualized servers 
-because the resources are often presented in the same way. The 
-difference between virtualized servers and IaaS is the granularity of the
-billing cycle. IaaS generally encourages a finer granularity based on minutes
-or hours of server usage instead of on monthly billing cycles.</p>
-<p>IaaS can be used in combination with virtualized servers to provide 
-dynamic upscaling for heavy traffic. When traffic is low then virtualized
-servers can solely be used. This combination of resources reduces cost at
-the expense of greater complexity in the dynamically scaled infrastructure. </p>
-<p>The most common IaaS platforms are 
-<a href="http://aws.amazon.com/">Amazon Web Services</a> and 
-<a href="http://www.rackspace.com/cloud/">Rackspace Cloud</a>.</p>
-<p>The disadvantage to IaaS platforms is the lock-in if you have to write
-custom code to deploy, dynamically scale, and generally understand your
-infrastructure. Every platform has its quirks. For example, 
-Amazon's standard <a href="http://aws.amazon.com/ebs/">Elastic Block Store</a> storage
-infrastructure has at least an order of magnitude worse I/O throughput 
-than working with your local disk. Your application's database queries may 
-work great locally but then when you deploy the performance is inadequate.
-Amazon has <a href="http://aws.amazon.com/about-aws/whats-new/2012/07/31/announcing-provisioned-iops-for-amazon-ebs/">higher throughput EBS instances</a>
-but you will pay correspondingly more for them. EBS throughput is just 
-one of many quirks you need to understand before committing to an 
-IaaS platform.</p>
-<h3>Infrastructure-as-a-service resources</h3>
+<h2>基础设施即服务（IaaS）</h2>
+<p>基础设施即服务（IaaS）与虚拟化服务器有重叠的部分，因为它们通常是用一种方式来呈现资源的。虚拟化服务器和 IaaS 之间的区别在于结算周期的颗粒度。IaaS 通常使用基于服务器使用的分钟数或者小时数这样更细的粒度进行结算，而不是按月结算的方式。</p>
+<p>IaaS 可以和虚拟化服务器结合在一起为大流量访问实现动态倍增的功能。当访问流量较低时，就可以单独使用虚拟化服务器。这种资源组合的方式减少了在更加复杂的具备动态伸缩功能的基础设施上的成本。</p>
+<p>最常见的 IaaS 平台有 
+<a href="http://aws.amazon.com/">Amazon Web 服务</a> 和 
+<a href="http://www.rackspace.com/cloud/">Rackspace 云服务</a>.</p>
+<p>IaaS 平台的缺点在于它的封闭性，如果你必须编写用于部署的自定义代码，动态调整以及想要全面地了解你的基础设施的话，那这将称为一个问题。 每个平台都有怪异的地方。例如，
+Amazon 标准的基础存储设备 <a href="http://aws.amazon.com/ebs/">弹性块存储</a> 的 I/O 吞吐量在最糟糕的情况下会与你本地存储设备相差一个数量级。你的应用程序在本地进行数据库查询时可能会工作地很好，但当你把它部署后会发现它的性能并没有充分发挥出来。
+Amazon 还有 <a href="http://aws.amazon.com/about-aws/whats-new/2012/07/31/announcing-provisioned-iops-for-amazon-ebs/">高吞吐量的 EBS 实例</a>，
+但如果要使用的话，相应地也要支付更高的价格。 EBS 吞吐量只是众多怪异的特点之一，在你正式部署到一个 IaaS 平台之前，你需要了解它们。</p>
+<h3>与 IaaS 有关的资源</h3>
 <ul>
 <li>
-<p><a href="http://www.screamingatmyscreen.com/2012/12/the-cloud-vs-dedicated-servers/">The cloud versus dedicated servers</a></p>
+<p><a href="http://www.screamingatmyscreen.com/2012/12/the-cloud-vs-dedicated-servers/">云服务器对比专用服务器</a>。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/articles/5-common-server-setups-for-your-web-application">5 common server setups for your web application</a>
-  is a great introduction to how hosting can be arranged.</p>
+<p><a href="https://www.digitalocean.com/community/articles/5-common-server-setups-for-your-web-application">Web 应用部署的 5 个常规服务器设置</a>
+   是一个非常好的介绍，告诉你该如何安排托管。</p>
 </li>
 <li>
-<p><a href="http://libcloud.apache.org/">Apache Libcloud</a> is a Python library that
-provides a unified API for many cloud service providers.</p>
+<p><a href="http://libcloud.apache.org/">Apache Libcloud</a> 是一个 Python 库，它提供了针对许多云服务供应商的统一 API 接口。</p>
 </li>
 <li>
-<p><a href="http://aws.amazon.com/python/">Amazon Web Services has official documentation</a> for running Python web applications.</p>
+<p><a href="http://aws.amazon.com/python/">Amazon Web 服务有官方文档</a> 讲解了运行 Python web 应用。</p>
 </li>
 <li>
-<p><a href="https://github.com/boto/boto">boto</a> is an extensive and well-tested 
-Python library for working with Amazon Web Services.</p>
+<p><a href="https://github.com/boto/boto">boto</a> 是一个可扩展并且通过良好测试的 Python 库，可以与 Amazon Web 服务配合工作。</p>
 </li>
 <li>
-<p><a href="https://github.com/changhiskhan/poseidon">Poseidon</a> is a Python commandline
-  interface for managing Digital Ocean droplets (servers).</p>
+<p><a href="https://github.com/changhiskhan/poseidon">Poseidon</a>  是一个用于管理 Digital Ocean 服务器的命令行接口。</p>
 </li>
 </ul>
-<h2>Servers learning checklist</h2>
+<h2>服务器学习清单</h2>
 <ol>
 <li>
-<p>Sign up for a hosting provider. I recommend getting a 
+<p>注册一个托管服务供应商。我推荐获取一个 
    <a href="https://www.linode.com/?r=bfeecaf55a83cd3dd224a5f2a3a001fdf95d4c3d">Linode VPS</a> 
-   to set up your initial infrastructure and deploy your web application 
-   there. <a href="https://www.digitalocean.com/">Digital Ocean</a> and 
-   <a href="http://prgmr.com/xen/">prgrmr</a> are other VPS options. You can change
-   hosting providers later after the deployment process is automated.</p>
+   进行初始化设置， 然后在上面部署你的 web 应用。 <a href="https://www.digitalocean.com/">Digital Ocean</a> 和 
+   <a href="http://prgmr.com/xen/">prgrmr</a> 是其它的 VPS 候选供应商。在实现部署过程自动化后，你能在以后更换托管供应商。</p>
 </li>
 <li>
-<p>Provision your first server. It will be ready but in a shutdown state 
-   while awaiting your instructions.</p>
+<p>准备好你的第一个服务器。 它将处于就绪状态，但在等待你的指令时，会处于关机状态。</p>
 </li>
 <li>
-<p>Move to the <a href="/operating-systems.html">operating systems</a> section to learn
-   how to load Ubuntu 14.04 LTS as a base OS for Python web applications.</p>
+<p>转到 <a href="/operating-systems.html">操作系统</a> 部分去学习如何加载 Ubuntu 14.04 LTS 作为部署 Python web 应用的基础系统。</p>
 </li>
 </ol>
           <h1>Platform-as-a-service</h1>

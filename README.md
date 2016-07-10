@@ -75,8 +75,8 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 ### 七、Web 应用部署
 
-- [ ] content/pages/07-web-app-deployment/01-deployment.markdown
-- [ ] content/pages/07-web-app-deployment/02-servers.markdown
+- [x] content/pages/07-web-app-deployment/01-deployment.markdown (2016-07-08 by [Christopher L](http://blog.chriscabin.com/))
+- [x] content/pages/07-web-app-deployment/02-servers.markdown (2016-07-10 by [Christopher L](http://blog.chriscabin.com/))
 - [ ] content/pages/07-web-app-deployment/04-platform-as-a-service.markdown
 - [ ] content/pages/07-web-app-deployment/05-operating-systems.markdown
 - [ ] content/pages/07-web-app-deployment/06-web-servers.markdown
