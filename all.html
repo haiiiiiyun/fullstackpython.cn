@@ -2305,125 +2305,81 @@ let python_highlight_all = 1
 <p>通过你的 Web 应用，开始在数据库中创建、读取、更新和删除数据。</p>
 </li>
 </ol>
-          <h1>NoSQL Data Stores</h1>
-<p>Relational databases store the vast majority of web application 
-persistent data. However, there are several alternative classifications of 
-storage representations.</p>
+          <h1>NoSQL 数据存储</h1>
+<p>绝大多数的 Web 系统都采用关系型数据库存储系统来持久化数据。但是还有另外几种不同的存储表示形式。</p>
 <ol>
-<li>Key-value pair</li>
-<li>Document-oriented</li>
-<li>Column-family table</li>
-<li>Graph</li>
+<li>键值对</li>
+<li>面向文档</li>
+<li>列簇表</li>
+<li>图</li>
 </ol>
-<p>These persistent data storage representations are commonly used to augment,
-rather than completely replace, relational databases. The underlying 
-persistence type used by the NoSQL database often gives it different
-performance characteristics than a relational database, with better results
-on some types of read/writes and worse performance on others.</p>
-<h2>Key-value Pair</h2>
-<p>Key-value pair data stores are based
-on <a href="http://en.wikipedia.org/wiki/Hash_table">hash map</a> data structures.</p>
-<h3>Key-value pair data stores</h3>
+<p>这些持久化数据存储表示法通常不是用来完全替代关系型数据库的，而是作为辅助使用的。由于 NoSQL 数据库所采用的低层持久化形式与关系型数据库不同，这通常也导致了不同的性能特性：在某些读/写条件下有更好的表现，而在另外一些条件下则性能欠佳。</p>
+<h2>键值对</h2>
+<p>键值对型的数据存储系统基于 <a href="http://en.wikipedia.org/wiki/Hash_table">哈希映射</a> 这个数据结构。</p>
+<h3>键值对数据存储</h3>
 <ul>
 <li>
-<p><a href="http://redis.io/">Redis</a> is an open source in-memory key-value pair data 
-  store. Redis is often called "the Swiss Army Knife of web application
-  development." It can be used for caching, queuing, and storing session data 
-  for faster access than a traditional relational database, among many other
-  use cases. <a href="https://github.com/andymccurdy/redis-py">Redis-py</a> is a solid
-  Python client to use with Redis.</p>
+<p><a href="http://redis.io/">Redis</a> 是一个开源的内存键值对数据存储系统。Redis 经常被称为 ”Web 应用开发的瑞士军刀“。它可用于存储缓存、列队、和会话数据等，在多数案例中，它的存取速度都比传统关系型数据库快。 <a href="https://github.com/andymccurdy/redis-py">Redis-py</a> 是 Python 用于操作 Redis 的一个健壮的客户端。</p>
 </li>
 <li>
-<p><a href="http://www.memcached.org/">Memcached</a> is another widely used in-memory
-  key-value pair storage system.</p>
+<p><a href="http://www.memcached.org/">Memcached</a> 是另一个广泛使用的内存键值对存储系统。</p>
 </li>
 </ul>
-<h3>Key-value pair resources</h3>
+<h3>键值对相关资源</h3>
 <ul>
-<li><a href="http://dba.stackexchange.com/questions/607/what-is-a-key-value-store-database">What is a key-value store database?</a>
-  is a Stack Overflow Q&amp;A that straight on answers this subject.</li>
+<li><a href="http://dba.stackexchange.com/questions/607/what-is-a-key-value-store-database">什么是键值对存储数据库？</a> 这个问题在 Stack Overflow Q&amp;A 上得到了直接地回答。</li>
 </ul>
-<h3>Redis resources</h3>
+<h3>Redis 相关资源</h3>
 <ul>
 <li>
-<p><a href="/blog/install-redis-use-python-3-ubuntu-1604.html">How to Use Redis with Python 3 and redis-py on Ubuntu 16.04</a>
-  contains detailed steps to install and start using Redis in Python.</p>
+<p><a href="/blog/install-redis-use-python-3-ubuntu-1604.html">如何在 Ubuntu 16.04 上通过 Python 3 和 redis-py 使用 Redis</a> 包含了如何安装及在 Python 中起步使用 Redis 的详细步骤。</p>
 </li>
 <li>
-<p>"<a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis">How To Install and Use Redis</a>"
-  is a guide for getting up with the extremely useful in-memory data store.</p>
+<p>"<a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis">如何安装和使用 Redis</a>" 这篇教程讲述了如何开始使用这个极其有用的内存数据存储系统。</p>
 </li>
 <li>
-<p><a href="http://degizmo.com/2010/03/22/getting-started-redis-and-python/">Getting started with Redis and Python</a>
-  is a walkthrough for installing and playing around with the basics of
-  Redis.</p>
+<p><a href="http://degizmo.com/2010/03/22/getting-started-redis-and-python/">开始使用 Redis 和 Python</a> 演示了如何安装并练习使用 Redis 的基本功能。</p>
 </li>
 <li>
-<p>This video on 
-  <a href="https://www.youtube.com/watch?v=rP9EKvWt0zo">Scaling Redis at Twitter</a> is
-  a detailed look behind the scenes with a massive Redis deployment.</p>
+<p>通过 <a href="https://www.youtube.com/watch?v=rP9EKvWt0zo">Twitter 加大 Redis 规模</a> 这个视频可以了解大规模部署 Redis 的幕后详情。</p>
 </li>
 <li>
-<p><a href="http://charlesleifer.com/blog/walrus-lightweight-python-utilities-for-working-with-redis/">Walrus</a>
-  is a higher-level Python wrapper for Redis with some caching, querying
-  and data structure components build into the library.</p>
+<p><a href="http://charlesleifer.com/blog/walrus-lightweight-python-utilities-for-working-with-redis/">Walrus</a> 是针对 Redis 的一个高级 Python 封装库，它加入了缓存、查询和其它的数据结构组件。</p>
 </li>
 <li>
-<p><a href="http://jamesls.com/writing-redis-in-python-with-asyncio-part-1.html">Writing Redis in Python with Asyncio</a>
-  shows a detailed example for how to use the new Asyncio standard library in
-  Python 3.4+ for working with Redis.</p>
+<p><a href="http://jamesls.com/writing-redis-in-python-with-asyncio-part-1.html">在 Python 中通过 Asyncio 存取 Redis</a> 以一个详细的例子展示了如何通过 Asyncio 这个 Python 3.4+ 中的新标准库来使用 Redis。</p>
 </li>
 <li>
-<p><a href="https://www.datadoghq.com/blog/how-to-collect-redis-metrics/">How to collect Redis metrics</a>
-  shows how to use the Redis CLI client to grab key metrics on latency.</p>
+<p><a href="https://www.datadoghq.com/blog/how-to-collect-redis-metrics/">如何获取 Redis 度量值</a> 展示了如何使用 Redis CLI 客户端来获取有关延时的关键度量值。</p>
 </li>
 <li>
-<p><a href="http://averagesecurityguy.info/2015/09/17/pentesting-redis-servers/">Pentesting Redis servers</a>
-  shows that security is important not only on your application but also
-  the databases you're using as well.</p>
+<p><a href="http://averagesecurityguy.info/2015/09/17/pentesting-redis-servers/">针对 Redis 服务器的渗透测试</a> 阐述了安全问题无论在你的应用中还是你使用的数据库上都是非常重要的。</p>
 </li>
 <li>
-<p>Redis, just as with any relational or NoSQL database, needs to be secured
-  based on <a href="http://www.antirez.com/news/96">security guidelines</a>. There is
-  also a post where the main author of Redis 
-  <a href="http://www.antirez.com/news/96">cracks its security</a> to show the tradeoffs
-  purposely made between ease of use and security in the default settings.</p>
+<p>Redis，和其它任何的关系型或者 NoSQL 数据库一样，都需要依据 <a href="http://www.antirez.com/news/96">安全准则</a> 进行安全设置。这有一篇文章讲述了 Redis 的主要作者 <a href="http://www.antirez.com/news/96">通过攻击 Redis</a> 来展示了 Redis 默认配置在易用性和安全性之间进行的权衡。</p>
 </li>
 </ul>
-<h2>Document-oriented</h2>
-<p>A document-oriented database provides a semi-structured representation for
-nested data. </p>
-<h3>Document-oriented data stores</h3>
+<h2>面向文档</h2>
+<p>面向文档的数据库为嵌套数据提供半结构化的表示方式。</p>
+<h3>面向文档的数据存储系统</h3>
 <ul>
 <li>
-<p><a href="http://www.mongodb.org/">MongoDB</a> is an open source document-oriented 
-  data store with a Binary Object Notation (BSON) storage format that is 
-  JSON-style and familiar to web developers. 
-  <a href="http://docs.mongodb.org/ecosystem/drivers/python/">PyMongo</a> is a
-  commonly used client for interfacing with one or more MongoDB 
-  instances through Python code. <a href="http://mongoengine.org/">MongoEngine</a>
-  is a Python ORM specifically written for MongoDB that is built on top
-  of PyMongo.</p>
+<p><a href="http://www.mongodb.org/">MongoDB</a> 是一个开源的面向文档的数据存储系统，它使用二进制对象表示法 (BSON）存储格式，该格式和 JSON 类似，因此 Web 开发人员都很熟悉。<a href="http://docs.mongodb.org/ecosystem/drivers/python/">PyMongo</a> 这个客户端在 Python 代码中通常被用于和一个或多个 MongoDB 实例交互。<a href="http://mongoengine.org/">MongoEngine</a> 是一个针对 MongoDB 的 Python ORM 系统，它基于 PyMongo 开发。</p>
 </li>
 <li>
-<p><a href="http://basho.com/riak/">Riak</a> is an open source distributed data store
-  focused on availability, fault tolerance and large scale deployments.</p>
+<p><a href="http://basho.com/riak/">Riak</a> 是一个开源的分布式数据存储系统，它注重可用性、容错性和大规模可部署性。</p>
 </li>
 <li>
-<p><a href="http://couchdb.apache.org/">Apache CouchDB</a> is also an open source project
-  where the focus is on embracing RESTful-style HTTP access for working with 
-  stored JSON data.</p>
+<p><a href="http://couchdb.apache.org/">Apache CouchDB</a> 也是一个开源项目，它的关注点是倡导使用 RESTful 风格的 HTTP 存取方式来处理存储的 JSON 数据。</p>
 </li>
 </ul>
-<h3>Document-oriented data store resources</h3>
+<h3>面向文档的数据存储系统相关资源</h3>
 <ul>
 <li>
-<p><a href="http://www.optinidus.com/blogs/guide-to-mongodb-for-startups/">MongoDB for startups</a> 
-  is a guide about using non-relational databases in green field environments.</p>
+<p><a href="http://www.optinidus.com/blogs/guide-to-mongodb-for-startups/">初创公司使用 MongoDB</a> 是关于在新兴领域使用非关系型数据库的一篇指南性文章。</p>
 </li>
 <li>
-<p>The creator and maintainers of PyMongo review four decisions they regret
-  from building the widely-used Python MongoDB driver.</p>
+<p>PyMongo 的创造者和维护者总结了他们在创建这个广受使用的 Python MongoDB 驱动时所下的四个错误决定。</p>
 <ol>
 <li><a href="http://emptysqua.re/blog/good-idea-at-the-time-pymongo-start-request/">start_request</a></li>
 <li><a href="http://emptysqua.re/blog/it-seemed-like-a-good-idea-at-the-time-pymongo-use-greenlets/">use_greenlets</a></li>
@@ -2432,23 +2388,15 @@ nested data. </p>
 </ol>
 </li>
 <li>
-<p>The 
-  <a href="https://talkpython.fm/episodes/show/2/python-and-mongodb">Python and MongoDB</a> 
-  Talk Python to Me podcast has a great interview with the maintainer of the 
-  Python driver for MongoDB.</p>
+<p>“和我一起聊 Python” 播客上的 <a href="https://talkpython.fm/episodes/show/2/python-and-mongodb">Python 和 MongoDB</a> 这期节目对 MongoDB 的 Python 驱动维护者进行了一次精彩的采访。</p>
 </li>
 <li>
-<p><a href="https://engineering.meteor.com/mongodb-queries-dont-always-return-all-matching-documents-654b6594a827">MongoDB queries don’t always return all matching documents!</a>
-  is a walkthrough of discovering how MongoDB queries actually work, and
-  shows some potential pitfalls of relying on technologies where you do
-  not fully understand how they operate.</p>
+<p><a href="https://engineering.meteor.com/mongodb-queries-dont-always-return-all-matching-documents-654b6594a827">MongoDB 查询不是总能返回全部的匹配文档！</a> 演示了如何去了解 MongoDB 查询操作的实际工作原理，并阐述了依赖那些你还没有完全理解其运作原理的技术会埋下潜在的意想不到的风险。</p>
 </li>
 </ul>
-<h2>Column-family table</h2>
-<p>A the column-family table class of NoSQL data stores builds on the key-value
-pair type. Each key-value pair is considered a row in the store while the
-column family is similar to a table in the relational database model.</p>
-<h3>Column-family table data stores</h3>
+<h2>列蔟表</h2>
+<p>列蔟表形式的 NoSQL 数据存储系统基于键值对类型。 每个键值对可以被认为是一行，而列蔟则可类比于关系型数据库模型中的一个表。</p>
+<h3>列蔟表数据存储系统</h3>
 <ul>
 <li>
 <p>Apache <a href="https://hbase.apache.org/">HBase</a></p>
@@ -2457,100 +2405,65 @@ column family is similar to a table in the relational database model.</p>
 <p>Apache <a href="http://cassandra.apache.org/">Cassandra</a></p>
 </li>
 </ul>
-<h2>Graph</h2>
-<p>A graph database represents and stores data in three aspects: nodes, edges
-and properties. </p>
-<p>A <em>node</em> is an entity, such as a person or business. </p>
-<p>An <em>edge</em> is the relationship between two entities. For example, an 
-edge could represent that a node for a person entity is an employee of a 
-business entity. </p>
-<p>A <em>property</em> represents information about nodes. For example, an entity 
-representing a person could have a property of "female" or "male".</p>
-<h3>Graph data stores</h3>
+<h2>图</h2>
+<p>图数据库通过三个方面来表示和存储数据：结点、边和属性。</p>
+<p>一个 <em>结点</em> 表示一个实体，如一个人或一家公司。</p>
+<p>一条 <em>边</em> 表示两个实体之间的关系。例如，一条边可以表示人实体结点和公司实体结点之间的雇佣关系。</p>
+<p><em>属性</em> 用于表示结点的相关信息。例如，表示一个人的实体可能会有一个性别属性。</p>
+<h3>图数据存储系统</h3>
 <ul>
 <li>
-<p><a href="http://www.neo4j.org/">Neo4j</a> is one of the most widely used graph 
-  databases and runs on the Java Virtual Machine stack.</p>
+<p><a href="http://www.neo4j.org/">Neo4j</a> 是一个最常用的图数据库，它运行于 Java 虚拟机系统之上。</p>
 </li>
 <li>
-<p><a href="https://github.com/google/cayley">Cayley</a> is an open source graph data
-  store written by Google primarily written in Go.</p>
+<p><a href="https://github.com/google/cayley">Cayley</a> 是一个开源的图数据存储系统，它由 Google 发布，并且主要是用 Go 编写的。</p>
 </li>
 <li>
-<p><a href="http://thinkaurelius.github.io/titan/">Titan</a> is a distributed graph
-  database built for multi-node clusters.</p>
+<p><a href="http://thinkaurelius.github.io/titan/">Titan</a> 是针对多结点簇而开发的一个分布式图数据库。</p>
 </li>
 </ul>
-<h3>Graph data store resources</h3>
+<h3>图数据存储系统相关资源</h3>
 <ul>
-<li><a href="http://www.slideshare.net/maxdemarzi/introduction-to-graph-databases-12735789">Introduction to Graph Databases</a>
-  covers trends in NoSQL data stores and compares graph databases to other 
-  data store types.</li>
+<li><a href="http://www.slideshare.net/maxdemarzi/introduction-to-graph-databases-12735789">图数据库简介</a> 上的内容涵盖了 NoSQL 数据存储的发展趋势以及图数据库与其它类型的数据存储系统的对比。</li>
 </ul>
-<h2>NoSQL third-party services</h2>
+<h2>NoSQL 第三方服务</h2>
 <ul>
-<li><a href="http://www.mongohq.com/home">MongoHQ</a> provides MongoDB as a service. It's
-  easy to set up with either a standard LAMP stack or on Heroku.</li>
+<li><a href="http://www.mongohq.com/home">MongoHQ</a> 提供 MongoDB 服务。 它无论是在标准的 LAMP 堆栈上还是在 Heroku 上都非常容易设置。</li>
 </ul>
-<h2>NoSQL data store resources</h2>
+<h2>NoSQL 数据存储系统相关资源</h2>
 <ul>
 <li>
-<p><a href="http://www.thoughtworks.com/insights/blog/nosql-databases-overview">NoSQL databases: an overview</a>
-  explains what NoSQL means, how data is stored differently than in
-  relational systems and what the Consistency, Availability and 
-  Partition-Tolerance (CAP) Theorem means.</p>
+<p><a href="http://www.thoughtworks.com/insights/blog/nosql-databases-overview">NoSQL 数据库: 概论</a> 讲解了什么是 NoSQL，相较于关系型系统，数据是如何以不同方式被存储的，以及什么是一致性、可用性和分区容忍性 (CAP) 定律。</p>
 </li>
 <li>
-<p><a href="http://natishalom.typepad.com/nati_shaloms_blog/2010/10/nocap.html">CAP Theorem overview</a>
-  presents the basic constraints all databases must trade off in operation.</p>
+<p><a href="http://natishalom.typepad.com/nati_shaloms_blog/2010/10/nocap.html">CAP 定律概述</a> 介绍了所有数据库操作中必须权衡的一些基本限制。</p>
 </li>
 <li>
-<p>This post on <a href="http://jeffknupp.com/blog/2014/09/01/what-is-a-nosql-database-learn-by-writing-one-in-python/">What is a NoSQL database? Learn By Writing One in Python</a>
-  is a detailed article that breaks the mystique behind what some forms
-  of NoSQL databases are doing under the covers.</p>
+<p><a href="http://jeffknupp.com/blog/2014/09/01/what-is-a-nosql-database-learn-by-writing-one-in-python/">什么是 NoSQL 数据库？通过 Python 编写一个来学习</a> 这篇详细的文章揭开了 NoSQL 数据库低层是如何运作的神秘面纱。</p>
 </li>
 <li>
-<p>The <a href="http://blog.thislongrun.com/2015/03/the-cap-theorem-series.html">CAP Theorem series</a>
-  explains concepts related to NoSQL such as what is ACID compared to CAP, CP 
-  versus CA and high availability in large scale deployments.</p>
+<p><a href="http://blog.thislongrun.com/2015/03/the-cap-theorem-series.html">CAP 定律系列</a> 讲解了与 NoSQL 相关的一些概念，如 ACID 与 CAP 的对比， CP 与 CA 的对比，以及大规模部署环境下的高可用性。</p>
 </li>
 <li>
-<p><a href="http://www.nosqlweekly.com/">NoSQL Weekly</a> is a free curated email 
-  newsletter that aggregates articles, tutorials, and videos about 
-  non-relational data stores.</p>
+<p><a href="http://www.nosqlweekly.com/">NoSQL 周刊</a> 这份免费的电子邮件时讯聚合了有关非关系型数据存储的文章、教程和视频内容。</p>
 </li>
 <li>
-<p><a href="http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis">NoSQL comparison</a>
-  is a large list of popular, BigTable-based, special purpose, and other
-  datastores with attributes and the best use cases for each one.</p>
+<p><a href="http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis">NoSQL 比较</a> 列出了大量流行的、基于 BigTable的、特殊用途等的数据库系统，并对每个数据库的特性及其最佳用途做了说明。</p>
 </li>
 <li>
-<p>Relational databases such as MySQL and PostgreSQL have added features in
-  more recent versions that mimic some of the capabilities of NoSQL data
-  stores. For example, check out this blog post on 
-  <a href="http://engineering.wix.com/2015/12/10/scaling-to-100m-mysql-is-a-better-nosql/">using MySQL as a key-value pair store</a>
-  and this post on
-  <a href="https://blog.codeship.com/unleash-the-power-of-storing-json-in-postgres/">storing JSON data in PostgreSQL</a>.</p>
+<p>MySQL 和 PostgreSQL 等关系型数据库在其最近的版本中都加入了一些特性来模仿 NoSQL 数据存储系统的一些功能。例如，可以查看这篇博客 <a href="http://engineering.wix.com/2015/12/10/scaling-to-100m-mysql-is-a-better-nosql/">将 MySQL 作为一个键值对存储系统使用</a> 和这篇文章 <a href="https://blog.codeship.com/unleash-the-power-of-storing-json-in-postgres/">在 PostgreSQL 中存储 JSON</a>。</p>
 </li>
 </ul>
-<h2>NoSQL data stores learning checklist</h2>
+<h2>NoSQL 数据存储系统学习清单</h2>
 <ol>
 <li>
-<p>Understand why NoSQL data stores are better for some use cases than 
-   relational databases. In general these benefits are only seen at large 
-   scale so they may not be applicable to your web application.</p>
+<p>理解 NoSQL 数据存储系统为什么在某些情况下使用会比关系型数据库更适合。但是通常这些优势只能在大规模的情况下才能显现出来，因此可能不太适用于你的 Web 应用。</p>
 </li>
 <li>
-<p>Integrate Redis into your project for a speed boost over slower persistent 
-   storage. Storing session data in memory is generally much faster than 
-   saving that data in a traditional relational database that uses persistent 
-   storage. Note that when memory is flushed the data goes away so anything 
-   that needs to be persistent must still be backed up to disk on a regular 
-   basis.</p>
+<p>将 Redis 整合入你的项目中，相比于较慢的持久化存储系统， 这能提升速度。将会话数据保存在内存中，相比于将数据保存在使用持久化存储器的传统关系型数据库中，通常来说运行会更快。值得注意的是当内存清空后，其中的数据会被删除，因此任何需要持久化保持的数据仍须定期备份到磁盘上。</p>
 </li>
 <li>
-<p>Evaluate other use cases such as storing transient logs in a 
-   document-oriented data store such as MongoDB.</p>
+<p>评估其它的用例，如将临时的日志存储到 MongoDB 等面向文档的数据存储系统中。</p>
 </li>
 </ol>
           <h1>Object-relational mappers (ORMs)</h1>
