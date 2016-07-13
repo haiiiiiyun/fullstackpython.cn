@@ -4152,124 +4152,76 @@ Yellowdog 更新，修改（YUM）。RPM 使用特殊的 .rpm 格式的文件来
 <p>仔细阅读 <a href="/web-servers.html">web 服务器</a>，因为部署环节中的下一个就是安装一个 web 服务器。 </p>
 </li>
 </ol>
-          <h1>Web servers</h1>
-<p>Web servers respond to 
-<a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">Hypertext Transfer Protocol</a> (HTTP)
-requests from clients and send back a response containing a status code and
-often content such as HTML, XML or JSON as well.</p>
-<h2>Why are web servers necessary?</h2>
-<p>Web servers are the ying to the web client's yang. The server and client speak
-the standardized language of the World Wide Web. This standard language
-is why an old Mozilla Netscape browser can still talk to a modern Apache or
-Nginx web server, even if it cannot properly render the page design like a 
-modern web browser can. </p>
-<p>The basic language of the Web with the request and response cycle from 
-client to server then server back to client remains the same as it was when
-the Web was invented by 
-<a href="http://www.w3.org/People/Berners-Lee/">Tim Berners-Lee</a> at CERN in 1989.
-Modern browsers and web servers have simply extended the language of the Web
-to incorporate new standards.</p>
-<h2>Web server implementations</h2>
-<p>The conceptual web server idea can be implemented in various ways. The 
-following web server implementations each have varying features, extensions
-and configurations.</p>
+          <h1>Web 服务器</h1>
+<p>Web 服务器响应来自客户端的
+<a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">超文本传输协议</a> （HTTP）请求，然后给客户端发送回应，包括一个状态码，通常还有诸如 HTML、XML、或 JSON 格式的响应内容。 </p>
+<h2>为何 Web 服务器是必要的？</h2>
+<p>Web 服务器和 web 客户端如同阴和阳。服务器和客户端使用万维网（World Wide Web, WWW）的标准语言沟通。 正式因为有了标准语言，老旧的 Mozilla Netscape 浏览器才依旧能够和一个现代的 web 服务器沟通，例如 Aache 或者 Nginx，即使它不能像现代浏览器那样较好地渲染页面样式。</p>
+<p>采用从客户端到服务器，再从服务器回到客户端的请求和响应模型的 Web 基础语言仍然和 1989 年由 <a href="http://www.w3.org/People/Berners-Lee/">Tim Berners-Lee</a>在 CERN 发明的 Web 基础语言保持一致。现代浏览器和 web 服务器只是简单地扩展了该语言，从而使它符合现代标准。</p>
+<h2>Web 服务器实现</h2>
+<p>Web 服务器的思想概念可以通过不同的方式来实现。以下列出的几种 web 服务器实现都有着不同的特性、扩展和配置。</p>
 <ul>
 <li>
-<p>The <a href="/apache-http-server.html">Apache HTTP Server</a> has been the most 
-  commonly deployed web server on the Internet for 20+ years.</p>
+<p><a href="/apache-http-server.html">Apache HTTP 服务器</a> 在 20 多年里一直是因特网中最常部署的 web 服务器。</p>
 </li>
 <li>
-<p><a href="/nginx.html">Nginx</a> is the second most commonly used server for the
-  top 100,000 websites and often serves as a reverse proxy for 
-  <a href="/wsgi-servers.html">Python WSGI servers</a>.</p>
+<p><a href="/nginx.html">Nginx</a> 是前 100 000 个网站中第二常用的 web 服务器，并且它通常作为 <a href="/wsgi-servers.html">Python WSGI 服务器</a> 的反向代理。</p>
 </li>
 <li>
-<p><a href="/caddy.html">Caddy</a> is a newcomer to the web server scene
-  and is focused on serving the HTTP/2 protocol with HTTPS. </p>
+<p><a href="/caddy.html">Caddy</a> 是 web 服务器中的新星，专注服务启用了 HTTPS 的 HTTP/2 协议。</p>
 </li>
 </ul>
-<h2>Client requests</h2>
-<p>A client that sends a request to a web server is usually a browser such 
-as Internet Explorer, Firefox, or Chrome, but it can also be a</p>
+<h2>客户端请求</h2>
+<p>给 web 服务器发送请求的客户端通常是浏览器，例如 IE、Firefox、Chrome，但是它也可以是：</p>
 <ul>
-<li>headless browser, commonly use for testing, such as 
-  <a href="http://phantomjs.org/">phantomjs</a></li>
-<li>commandline utility, for example <a href="https://www.gnu.org/software/wget/">wget</a>
-  and <a href="http://curl.haxx.se/">cURL</a></li>
-<li>text-based web browser such as 
-  <a href="http://lynx.browser.org/">Lynx</a></li>
-<li>web crawler. </li>
+<li>无头浏览器，通常用于测试，例如
+  <a href="http://phantomjs.org/">phantomjs</a>；</li>
+<li>命令行实用工具，比如 <a href="https://www.gnu.org/software/wget/">wget</a>
+  和 <a href="http://curl.haxx.se/">cURL</a>；</li>
+<li>文本浏览器，如
+  <a href="http://lynx.browser.org/">Lynx</a>；</li>
+<li>web 爬虫。</li>
 </ul>
-<p>Web servers process requests from the above clients. The result of the web
-server's processing is a 
-<a href="https://developer.mozilla.org/en-US/docs/HTTP/Response_codes">response code</a>
-and commonly a content response. Some status codes, such as 204 (No content) 
-and 403 (Forbidden), do not have content responses.</p>
-<p>In a simple case, the client will request a static asset such as a picture
-or JavaScript file. The file sits on the file system in a location the
-web server is authorized to access and the web server sends the file
-to the client with a 200 status code. If the client already requested the
-file and the file has not changed, the web server will pass back a 304 
-"Not modified" response indicating the client already has the latest version
-of that file.</p>
+<p>Web 服务器处理来自上述列出的客户端发出的请求。Web 服务器处理结果是
+<a href="https://developer.mozilla.org/en-US/docs/HTTP/Response_codes">响应码</a>，通常还有响应内容。但有些状态码，例如 204（无内容）和 403（禁止访问），就没有响应内容。</p>
+<p>在一个简单的例子中，客户端会请求静态资源，如一幅图片或者 JavaScript 文件。请求的文件存放在 web 服务器文件系统中的一个位置，并且已被授权访问；然后，web 服务器会给客户端发送这个文件，同时发送一个值为 200 的状态码。如果客户端已经请求过这个文件了，并且文件并没有发生变动，那么 web 服务器将会传递回一个值为 304（未修改）的响应来标记客户端已经获取了最新版本的文件了。</p>
 <p><img src="/img/web-browser-server-requests.png" width="100%" class="technical-diagram" alt="Web server and web browser request-response cycle" /></p>
-<p>A web server sends files to a web browser based on the web browser's 
-request. In the first request, the browser accessed the 
-"www.fullstackpython.com"
-address and the server responded with the index.html HTML-formatted file. 
-That HTML file contained references to other files, such as style.css and 
-script.js that the browser then requested from the server.</p>
-<p>Sending static assets (such as CSS and JavaScript files) can eat up a 
-large amount of bandwidth which is why using a Content Delivery Network 
-(CDN) to <a href="/static-content.html">serve static assets</a> is important when 
-possible.</p>
-<h2>Web server resources</h2>
+<p>Web 服务器会根据浏览器的请求给它发送文件。在第一次请求中，浏览器会访问 "www.fullstackpython.com" 地址，然后服务器作为响应会发送 HTML 格式的 index.html 文件。这个 HTML 文件包含了其他文件的引用，比如 style.css 和 script.js，然后浏览器会向服务器请求那些文件。</p>
+<p>发送静态资源（如 CSS 和 JavaScript 文件）时会占用大量的网络带宽，这就是在可能的情况下使用内容分发网络（CDN）来为 <a href="/static-content.html">静态资源提供服务</a> 非常重要的原因。</p>
+<h2>Web 服务器相关的资源</h2>
 <ul>
 <li>
-<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP/1.1 Specification</a></p>
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP/1.1 规格说明</a></p>
 </li>
 <li>
-<p>A reference with the full list of 
-<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP status codes</a>
-is provided by W3C.</p>
+<p>由 W3C 提供的完整的
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP 状态码</a> 列表资料。</p>
 </li>
 <li>
-<p><a href="http://ibuildings.nl/blog/2013/03/4-http-security-headers-you-should-always-be-using">4 HTTP Security Headers You Should Always Be Using</a></p>
+<p><a href="http://ibuildings.nl/blog/2013/03/4-http-security-headers-you-should-always-be-using">4 个你应当一直使用的 HTTP 安全标头</a></p>
 </li>
 <li>
-<p>If you're looking to learn about web servers by building one, here's
-  <a href="http://ruslanspivak.com/lsbaws-part1/">part one</a>,
-  <a href="http://ruslanspivak.com/lsbaws-part2/">part two</a> and <a href="http://ruslanspivak.com/lsbaws-part3/">part three</a> 
-  of a great tutorial that shows how to code a web server in Python.</p>
+<p>如果你正想通过构建一个 web 服务器来学习它的话，这里列出的
+  <a href="http://ruslanspivak.com/lsbaws-part1/">第一部分</a>,
+  <a href="http://ruslanspivak.com/lsbaws-part2/">第二部分</a> 和 <a href="http://ruslanspivak.com/lsbaws-part3/">第三部分</a> 就是教你如何使用 Python 编写 web 服务器的优秀教程。</p>
 </li>
 <li>
-<p><a href="https://2ton.com.au/rwasa/">rwasa</a> is a newly released web server written
-  in Assembly with no external dependencies that tuned to be faster than Nginx.
-  The benchmarks are worth taking a look at to see if this server could fit
-  your needs if you need the fastest performance trading off for as of yet
-  untested web server.</p>
+<p><a href="https://2ton.com.au/rwasa/">rwasa</a> 是一款新发布的 web 服务器，它采用汇编语言编写，没有额外的依赖，并被证明比 Nginx 还要快。值得看看这个基准，来看看这款服务器是否符合你的需求；当然，得要在最快的性能和未经测试的 web 服务器之间做权衡。</p>
 </li>
 </ul>
-<h2>Web servers learning checklist</h2>
+<h2>Web 服务器学习清单</h2>
 <ol>
 <li>
-<p>Choose a web server. <a href="http://nginx.org/en/">Nginx</a> is often recommended 
-   although <a href="http://httpd.apache.org/">Apache</a> is also a great choice.</p>
+<p>选择一个 web 服务器。通常推荐 <a href="http://nginx.org/en/">Nginx</a>，当然 <a href="http://httpd.apache.org/">Apache</a> 也是一个不错的选择。</p>
 </li>
 <li>
-<p>Create an SSL certificate. For testing use a self-signed certificate 
-   and for a production app buy one from <a href="http://www.digicert.com/">Digicert</a>. 
-   Configure the web server to serve traffic over SSL. You'll need SSL for 
-   serving only HTTPS traffic and preventing security issues that occur with 
-   unencrypted user input.</p>
+<p>创建一个 SSL 证书。对于测试来说，使用一个自签名的证书即可；而对于产品应用，就到 <a href="http://www.digicert.com/">Digicert</a> 上购买一个证书。配置 web 服务器以启用 SSL。你需要 SSL，从而仅提供 HTTPS 的流量服务，这样便可以阻止用户输入未加密的安全问题发生。</p>
 </li>
 <li>
-<p>Configure the web server to serve up static files such as CSS, JavaScript
-   and images.</p>
+<p>配置 web 服务器，从而提供静态文件，如 CSS、JavaScript 和图片的访问服务。</p>
 </li>
 <li>
-<p>Once you set up the <a href="/wsgi-servers.html">WSGI server</a> you'll need to 
-   configure the web server as a pass through for dynamic content.</p>
+<p>一旦你设置了 <a href="/wsgi-servers.html">WSGI 服务器</a>，你就需要配置 web 服务器来传送动态内容。</p>
 </li>
 </ol>
           <h1>WSGI Servers</h1>
