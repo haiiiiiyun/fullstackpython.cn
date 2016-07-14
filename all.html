@@ -4224,118 +4224,71 @@ Yellowdog 更新，修改（YUM）。RPM 使用特殊的 .rpm 格式的文件来
 <p>一旦你设置了 <a href="/wsgi-servers.html">WSGI 服务器</a>，你就需要配置 web 服务器来传送动态内容。</p>
 </li>
 </ol>
-          <h1>WSGI Servers</h1>
-<p>A <a href="http://wsgi.readthedocs.org/en/latest/">Web Server Gateway Interface</a>
-(WSGI) server implements the web server side of the WSGI interface for
-running Python web applications. </p>
-<h2>Why is WSGI necessary?</h2>
-<p>A traditional web server does not understand or have any way to run Python 
-applications. In the late 1990s, a developer named Grisha Trubetskoy 
-<a href="http://grisha.org/blog/2013/10/25/mod-python-the-long-story/">came up with an Apache module called mod_python</a> 
-to execute arbitrary Python code. For several years in the late 1990s 
-and early 2000s, Apache configured with mod_python ran most Python web 
-applications.</p>
-<p>However, mod_python wasn't a standard specification. It was just an 
-implementation that allowed Python code to run on a server. As mod_python's 
-development stalled and security vulnerabilities were discovered there 
-was recognition by the community that a consistent way to execute Python 
-code for web applications was needed.</p>
-<p>Therefore the Python community came up with WSGI as a standard interface that
-modules and containers could implement. WSGI is now the accepted approach 
-for running Python web applications.</p>
+          <h1>WSGI 服务器</h1>
+<p><a href="http://wsgi.readthedocs.org/en/latest/">Web 服务器网关接口</a>
+(WSGI) 服务器通过实现 web 服务器一侧的 WSGI 接口来运行 Python web 应用。</p>
+<h2>为何 WSGI 是必要的？</h2>
+<p>传统的 web 服务器并不懂得或者没有任何方法来运行 Python 应用。 在 1990 年代晚期，一位名叫 Grisha Trubetskoy 的人
+<a href="http://grisha.org/blog/2013/10/25/mod-python-the-long-story/">开发了一个叫做 mod_python 的 Apache 模块</a> 
+来运行任意的 Python 代码。在 1990 年代晚期的几年以及 2000 年代早期，配置了 mod_python 模块的 Apache 服务器运行着大多数的 Python web 应用。</p>
+<p>然而，mod_python 并非标准规范。它仅仅是一个允许在服务器上运行 Python 代码的实现而已。随着 mod_python 开发渐缓并且有不少安全漏洞被发现，社区开始意识到，需要一种运行 Python web 应用的一致性方法。</p>
+<p>因此，Python 社区提出了将 WSGI 作为一个标准接口规范，来实现各种模块和容器。如今，WSGI 已经是用来运行 Python web 应用的公认方法了。</p>
 <p><img src="/img/wsgi-interface.png" alt="WSGI server invoking a WSGI application." width="100%" class="technical-diagram" /></p>
-<p>As shown in the above diagram, a WSGI server simply invokes a callable object
-on the WSGI application as defined by the PEP 3333 standard.</p>
-<h2>WSGI's Purpose</h2>
-<p>Why use WSGI and not just point a web server directly at an application?</p>
+<p>如上图所示，正如 PEP 3333 标准所定义的那样，WSGI 服务器只是简单地调用一个 WSGI 应用的可调用对象。</p>
+<h2>WSGI 的目的</h2>
+<p>为什么要使用 WSGI？而不仅仅是在应用中直接指定一个 web 服务器？</p>
 <ul>
 <li>
-<p><strong>WSGI gives you flexibility</strong>. Application developers can swap out
-  web stack components for others. For example, a developer can switch from 
-  Green Unicorn to uWSGI without modifying the application or framework 
-  that implements WSGI. 
-  From <a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a>:</p>
-<p>The availability and widespread use of such an API in web servers for 
-Python [...] would separate choice of framework from choice of web 
-server, freeing users to choose a pairing that suits them, while 
-freeing framework and server developers to focus on their preferred 
-area of specialization.</p>
+<p><strong>WSGI 为你提供了灵活性</strong>。应用开发者们可以使用其它组件来替换 web 堆栈中相应组件。例如，开发者可以轻易地从 Green Unicorn 切换到 uWSGI，而不用修改实现了 <a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a> 标准定义的 WSGI 的应用或框架：</p>
+<p>在 Python 的 web 服务器中广泛使用这种 API [...] 可以将框架的选择和 web 服务器的选择分开，可以让用户自由地选择适合他们的一对框架和 web 服务器，同时也让框架开发者和服务器开发者们自由地分别聚焦在他们所擅长的特殊领域中。</p>
 </li>
 <li>
-<p><strong>WSGI servers promote scaling</strong>. Serving thousands of requests for dynamic
-  content at once is the domain of WSGI servers, not frameworks.
-  WSGI servers handle processing requests from the web server and deciding
-  how to communicate those requests to an application framework's process.
-  The segregation of responsibilities is important for efficiently scaling 
-  web traffic.</p>
+<p><strong>WSGI 服务器增强了扩展性</strong>。同时提供上千次针对动态内容的请求服务是 WSGI 服务器的责任，而非框架的责任。WSGI 服务器处理来自 web 服务器的请求，并决定如何让这些请求和应用框架进程通信。责任的分离对于有效地扩展 web 流量是非常重要的。</p>
 </li>
 </ul>
 <p><img src="/img/web-browser-server-wsgi.png" alt="WSGI Server - Web server - Browser" width="100%" class="technical-diagram" /></p>
-<p>WSGI is by design a simple standard interface for running Python code. As
-a web developer you won't need to know much more than</p>
+<p>WSGI 的设计宗旨就是为运行 Python 代码提供简单的标准接口。作为一名 web 开发者，你没有必要了解更多下面列出的知识：</p>
 <ul>
 <li>
-<p>what WSGI stands for (Web Server Gateway Inteface)</p>
+<p>WSGI 代表什么（Web 服务器网关接口）</p>
 </li>
 <li>
-<p>that a WSGI container is a separate running process that runs on a
-  different port than your web server</p>
+<p>WSGI 容器是一个分离运行的进程，并且运行在一个不同于你的 web 服务器的端口上</p>
 </li>
 <li>
-<p>your web server is configured to pass requests to the WSGI container which
-  runs your web application, then pass the response (in the form of HTML)
-  back to the requester</p>
+<p>需要配置你的 web 服务器来给运行着你的 web 应用的 WSGI 容器传递请求，然后再将（HTML 形式）的响应传递回请求方</p>
 </li>
 </ul>
-<p>If you're using a standard web framework such as Django, Flask, or
-Bottle, or almost any other current Python framework, you don't need to worry
-about how frameworks implement the application side of the WSGI standard.
-Likewise, if you're using a standard WSGI container such as Green Unicorn,
-uWSGI, mod_wsgi, or gevent, you can get them running without worrying about
-how they implement the WSGI standard.</p>
-<p>However, knowing the WSGI standard and how these frameworks and containers
-implement WSGI should be on your learning checklist though as you become
-a more experienced Python web developer.</p>
-<h2>Official WSGI specifications</h2>
-<p>The WSGI standard v1.0 is specified in
-<a href="http://www.python.org/dev/peps/pep-0333/">PEP 0333</a>. As of September 2010,
-WSGI v1.0 is superseded by
-<a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a>, which defines the
-v1.0.1 WSGI standard. If you're working with Python 2.x and you're compliant
-with PEP 0333, then you're also compliant with 3333. The newer version is
-simply an update for Python 3 and has instructions for how unicode should
-be handled.</p>
-<p><a href="https://docs.python.org/2/library/wsgiref.html">wsgiref in Python 2.x</a> and
-<a href="https://docs.python.org/3.4/library/wsgiref.html">wsgiref in Python 3.x</a>
-are the reference implementations of the WSGI specification built into
-Python's standard library so it can be used to build WSGI servers and
-applications.</p>
-<h2>Example web server configuration</h2>
-<p>A web server's configuration specifies what requests should be passed to
-the WSGI server to process. Once a request is processed and generated by the
-WSGI server, the response is passed back through the web server and onto
-the browser. </p>
-<p>For example, this Nginx web server's configuration specifies that
-Nginx should handle static assets (such as images, JavaScript, and CSS
-files) under the /static directory and pass all other requests to the WSGI
-server running on port 8000:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">this</span> <span class="nt">specifies</span> <span class="nt">that</span> <span class="nt">there</span> <span class="nt">is</span> <span class="nt">a</span> <span class="nt">WSGI</span> <span class="nt">server</span> <span class="nt">running</span> <span class="nt">on</span> <span class="nt">port</span> <span class="nt">8000</span>
+<p>如果你正在使用一个标准的 web 框架，如 Django、Flask、或者 Bottle，亦或是任何当前存在的 Python 框架，你都不用担心框架是如何实现应用层一侧的 WSGI 标准的。类似地，如果你正在使用一个标准的 WSGI 容器，如 Green Unicorn、uWSGI、mod_wsgi 或 gevent，你可以直接让它们运行，而不用担心它们是如何实现 WSGI 标准的。</p>
+<p>然而，当你成为一名更加富有经验的 Python web 开发者后，你应当把了解 WSGI 标准以及那些框架和容器如何实现 WSGI 的知识加入到你的学习清单中。</p>
+<h2>官方 WSGI 规格说明</h2>
+<p>1.0 版本的 WSGI 标准在
+<a href="http://www.python.org/dev/peps/pep-0333/">PEP 0333</a> 中规定。到了 2010 年 9 月，
+WSGI 1.0 版本被
+<a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a> 定义的 WSGI 1.0.1 版本替代。如果你正在使用 Python 2.x 并且适应了 PEP 0333，那么你也会适应 PEP 3333。新的版本只是简单地为了支持 Python 3 而做的更新，并且还有如何处理 unicode 的说明。</p>
+<p><a href="https://docs.python.org/2/library/wsgiref.html">Python 2.x WSGI 资料</a> and
+<a href="https://docs.python.org/3.4/library/wsgiref.html">Python 3.x WSGI 资料</a>
+是内置在 Python 标准库中的 WSGI 规范实现的参考资料，从而来帮助你构建 WSGI 服务器和应用。</p>
+<h2>Web 服务器配置样例</h2>
+<p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
+<p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="nt">端口上的</span> <span class="nt">WSGI</span> <span class="nt">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">is</span> <span class="nt">set</span> <span class="nt">up</span> <span class="nt">to</span> <span class="nt">run</span> <span class="nt">on</span> <span class="nt">the</span> <span class="nt">standard</span> <span class="nt">HTTP</span> <span class="nt">port</span> <span class="nt">and</span> <span class="nt">listen</span> <span class="nt">for</span> <span class="nt">requests</span>
+<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">配置为运行在标准HTTP端口上</span><span class="err">，</span><span class="nt">并监听请求</span>
 <span class="nt">server</span> <span class="p">{</span>
   <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
 
-  <span class="err">#</span> <span class="n">nginx</span> <span class="n">should</span> <span class="n">serve</span> <span class="n">up</span> <span class="nb">static</span> <span class="n">files</span> <span class="n">and</span> <span class="n">never</span> <span class="n">send</span> <span class="n">to</span> <span class="n">the</span> <span class="n">WSGI</span> <span class="n">server</span>
+  <span class="err">#</span> <span class="n">Nginx</span> <span class="err">应当为静态资源提供服务，并且永远不要把它交给</span> <span class="n">WSGI</span> <span class="err">服务器处理</span>
   <span class="n">location</span> <span class="o">/</span><span class="nb">static</span> <span class="err">{</span>
     <span class="n">autoindex</span> <span class="n">on</span><span class="p">;</span>
     <span class="n">alias</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">assets</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="err">#</span> <span class="nt">requests</span> <span class="nt">that</span> <span class="nt">do</span> <span class="nt">not</span> <span class="nt">fall</span> <span class="nt">under</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">are</span> <span class="nt">passed</span> <span class="nt">on</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">WSGI</span>
-  <span class="err">#</span> <span class="nt">server</span> <span class="nt">that</span> <span class="nt">was</span> <span class="nt">specified</span> <span class="nt">above</span> <span class="nt">running</span> <span class="nt">on</span> <span class="nt">port</span> <span class="nt">8000</span>
+  <span class="err">#</span> <span class="nt">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">目录的请求都会交给</span> <span class="nt">WSGI</span>
+  <span class="err">#</span> <span class="nt">服务器</span><span class="err">，</span><span class="nt">即上面配置的运行在</span> <span class="nt">8000</span> <span class="nt">端口上服务器</span>
   <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
     <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="err">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
     <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="err">$</span><span class="n">http_host</span><span class="p">;</span>
@@ -4350,103 +4303,83 @@ server running on port 8000:</p>
 </pre></div>
 
 
-<p>Note that the above code is a simplified version of a production-ready Nginx
-configuration. For real SSL and non-SSL templates, take a look at the
-<a href="https://github.com/makaimc/underwear/tree/master/underwear/roles/web/templates">Underwear web server templates</a> on GitHub.</p>
-<h2>WSGI servers</h2>
-<p>There is a comprehensive list of WSGI servers on the 
-<a href="http://wsgi.readthedocs.org/en/latest/servers.html">WSGI Read the Docs</a> page.
-The following are WSGI servers based on community recommendations.</p>
+<p>需要注意的是，上面的Nginx 配置代码仅仅是准产品级的简化配置版本。对于真实使用了 SSL 和非 SSL 的模板，请参见 Github 上的
+<a href="https://github.com/makaimc/underwear/tree/master/underwear/roles/web/templates">Underwear web server templates</a>。</p>
+<h2>WSGI 服务器</h2>
+<p>在
+<a href="http://wsgi.readthedocs.org/en/latest/servers.html">WSGI 阅读文档</a> 页面中有一个完整的 WSGI 服务器列表。
+以下是社区推荐的 WSGI 服务器：</p>
 <ul>
 <li>
-<p><a href="http://gunicorn.org/">Green Unicorn</a> is a pre-fork worker model based
-  server ported from the Ruby <a href="http://unicorn.bogomips.org/">Unicorn</a> project.</p>
+<p><a href="http://gunicorn.org/">Green Unicorn</a> 是一个采用了工作者模型的 WSGI 服务器，脱胎于 Ruby 的 <a href="http://unicorn.bogomips.org/">Unicorn</a> 项目。</p>
 </li>
 <li>
-<p><a href="http://uwsgi-docs.readthedocs.org/en/latest/">uWSGI</a> is gaining steam as
-  a highly-performant WSGI server implementation.</p>
+<p><a href="http://uwsgi-docs.readthedocs.org/en/latest/">uWSGI</a> 正在掀起浪潮，因为它是一款高性能的 WSGI 服务器实现。</p>
 </li>
 <li>
-<p><a href="https://github.com/GrahamDumpleton/mod_wsgi">mod_wsgi</a> is an Apache 
-  module implementing the WSGI specification.</p>
+<p><a href="https://github.com/GrahamDumpleton/mod_wsgi">mod_wsgi</a> 是一个实现了 WSGI 规格的 Apache 模块。</p>
 </li>
 <li>
-<p><a href="https://github.com/cherrypy/cherrypy">CherryPy</a> is a pure Python web 
-  server that also functions as a WSGI server.</p>
+<p><a href="https://github.com/cherrypy/cherrypy">CherryPy</a> 是一个纯粹的 Python web 服务器，并且也可以作为一个 WSGI 服务器。</p>
 </li>
 </ul>
-<h2>WSGI resources</h2>
+<h2>WSGI 资源</h2>
 <ul>
 <li>
 <p><a href="http://www.python.org/dev/peps/pep-0333/">PEP 0333 WSGI v1.0</a>
-  and
+  和
   <a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333 WSGI v1.0.1</a>
-  specifications.</p>
+  规格说明。</p>
 </li>
 <li>
-<p>This <a href="http://agiliq.com/blog/2013/07/basics-wsgi/">basics of WSGI</a> post
-  contains a simple example of how a WSGI-compatible application works.</p>
+<p>这篇文章 <a href="http://agiliq.com/blog/2013/07/basics-wsgi/">WSGI 基础</a> 
+  包含了一个简单的例子演示了一个 WSGI 兼容的应用是如何工作的。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-web-servers-for-python-based-web-applications">A comparison of web servers for Python web apps</a>
-  is a good read to understand basic information about various WSGI server
-  implementations.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-web-servers-for-python-based-web-applications">针对 Python web 应用的 web 服务器对比</a>
+  是一篇非常好的阅读材料，可以帮助你理解不同的 WSGI 服务器实现的基础知识。</p>
 </li>
 <li>
-<p>A thorough and informative post for LAMP-stack hosting choices is 
-  presented in the 
-  "<a href="http://www.apreche.net/complete-single-server-django-stack-tutorial/">complete single server Django stack tutorial</a>." </p>
+<p>"<a href="http://www.apreche.net/complete-single-server-django-stack-tutorial/">完全单服务器 Django 栈教程</a>" 中有一篇详细讲解了如何使用 LAMP 栈托管网站的文章。</p>
 </li>
 <li>
-<p>The Python community made a long effort to 
-  <a href="http://blog.dscpl.com.au/2010/05/modpython-project-soon-to-be-officially.html">transition from mod_python</a> 
-  to the WSGI standard. That transition period is now complete and an 
-  implementation of WSGI should always be used instead mod_python.</p>
+<p>Python 社区花费了很大的努力才
+  <a href="http://blog.dscpl.com.au/2010/05/modpython-project-soon-to-be-officially.html">从 mod_python 转移</a> 
+  到 WSGI 标准。那个转移周期现在已经完成了，并且总应该使用 WSGI 实现来代替 mod_python。 </p>
 </li>
 <li>
-<p>Nicholas Piël wrote an interesting benchmark blog post of 
-  <a href="http://nichol.as/benchmark-of-python-web-servers">Python WSGI servers</a>.
-  Note that the post is a few years old. Benchmarks should be considered
-  for their specific tested scenarios and not quickly extrapolated as general
-  "this server is faster than this other server" results.</p>
+<p>Nicholas Piël 写了一篇非常有趣的文章给
+  <a href="http://nichol.as/benchmark-of-python-web-servers">Python WSGI 服务器</a> 评分。
+  注意，那篇文章已经有些旧了。评分只是由它们在特定的测试场景下得出的，并不能由此快速地推断出“这个服务器比其它服务器更快”的结论。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/articles/how-to-deploy-python-wsgi-applications-using-a-cherrypy-web-server-behind-nginx">How to Deploy Python WSGI Applications with CherryPy</a>
-  answers why CherryPy is a simple combination web and WSGI server along with 
-  how to use it.</p>
+<p><a href="https://www.digitalocean.com/community/articles/how-to-deploy-python-wsgi-applications-using-a-cherrypy-web-server-behind-nginx">如何使用 CherryPy 部署 Python WSGI 应用</a>
+  回答了为何 CherryPy 是一个简单的 web 和 WSGI 服务器的组合，同时给出了如何使用它的方法。</p>
 </li>
 <li>
-<p>Another Digital Ocean walkthrough goes into
-  <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-apps-using-gunicorn-http-server-behind-nginx">How to Deploy Python WSGI Apps Using Gunicorn HTTP Server Behind Nginx</a>.</p>
+<p>另外一篇由“数字海洋（Digital Ocean）”推出的演练教程讲解了
+  <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-apps-using-gunicorn-http-server-behind-nginx">如何使用 Gunicorn HTTP 服务器部署 Python WSGI 应用，并在背后使用 Nginx 服务器</a>.</p>
 </li>
 <li>
-<p><a href="https://lincolnloop.com/blog/uwsgi-swiss-army-knife/">The uWSGI Swiss Army Knife</a>
-  shows how uWSGI can potentially be used for more than just running the
-  Python web application - it can also serve static files and handle
-  caching in a deployment.</p>
+<p><a href="https://lincolnloop.com/blog/uwsgi-swiss-army-knife/">uWSGI 瑞士军刀</a> 说明了 uWSGI 在部署中是如何做到不仅能运行 Python web 应用，而且还可以提供静态文件访问服务以及处理缓存的。</p>
 </li>
 </ul>
-<h2>WSGI servers learning checklist</h2>
+<h2>WSGI 服务器学习清单</h2>
 <ol>
 <li>
-<p>Understand that WSGI is a standard Python specification for applications 
-   and servers to implement. </p>
+<p>理解 WSGI 是一个需要应用和服务器实现的 Python 标准规范。</p>
 </li>
 <li>
-<p>Pick a WSGI server based on available documentation and tutorials. Green 
-   Unicorn is a good one to start with since it's been around for awhile.</p>
+<p>根据可用的文档和教程选择一个 WSGI 服务器。Green Unicorn 就是非常好的起点，因为它已经出现有段时间了。</p>
 </li>
 <li>
-<p>Add the WSGI server to your server deployment.</p>
+<p>在你的服务器部署中添加 WSGI 服务器。</p>
 </li>
 <li>
-<p>Configure the web server to pass requests to the WSGI server for 
-   appropriate URL patterns.</p>
+<p>配置 web 服务器给 WSGI 服务器传递符合适当 URL 模式的请求。</p>
 </li>
 <li>
-<p>Test that the WSGI server responds to local requests but not direct 
-   requests outside your infrastructure. The web server should be the pass 
-   through for requests to and responses from the WSGI server.</p>
+<p>测试你的 WSGI 服务器响应本地的请求，而不是来自你的设备以外的直接请求。Web 服务器应当能够向 WSGI 服务器传递请求并从那儿获得响应。</p>
 </li>
 </ol>
           <h1>Source control</h1>
