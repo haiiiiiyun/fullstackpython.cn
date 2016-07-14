@@ -80,7 +80,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/07-web-app-deployment/04-platform-as-a-service.markdown (2016-07-11 by [Christopher L](http://blog.chriscabin.com/))
 - [x] content/pages/07-web-app-deployment/05-operating-systems.markdown (2016-07-12 by [Christopher L](http://blog.chriscabin.com/))
 - [x] content/pages/07-web-app-deployment/06-web-servers.markdown (2016-07-13 by [Christopher L](http://blog.chriscabin.com/))
-- [ ] content/pages/07-web-app-deployment/07-wsgi-servers.markdown
+- [x] content/pages/07-web-app-deployment/07-wsgi-servers.markdown (2016-07-14 by [Christopher L](http://blog.chriscabin.com/))
 - [ ] content/pages/07-web-app-deployment/08-source-control.markdown
 - [ ] content/pages/07-web-app-deployment/09-app-dependencies.markdown
 - [ ] content/pages/07-web-app-deployment/10-static-content.markdown
