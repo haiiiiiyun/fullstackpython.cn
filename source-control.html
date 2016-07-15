@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Source control versions and backs up code for when programming problems occur. Learn more about source control on Full Stack Python.">
+    <meta name="description" content="源码控制版本，并且可以在编程问题发生时恢复备份代码。快来 Full Stack Python 学习更多有关源码控制的知识吧。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Source Control - Full Stack Python 简体中文网站</title>
+    <title>源码控制 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,191 +36,127 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Source control</h1>
-<p>Source control, also known as <em>version control</em>, stores software code files
-with a detailed history of every modification made to those files.</p>
-<h2>Why is source control necessary?</h2>
-<p>Version control systems allow developers to modify code without worrying 
-about permanently screwing something up. Unwanted changes can be easily rolled
-back to previous working versions of the code. </p>
-<p>Source control also makes team software development easier. One developer 
-can combine her code modifications with other developers' code through 
-<a href="http://en.wikipedia.org/wiki/Diff">diff</a> views that show line-by-line 
-changes then merge the appropriate code into the main code branch.</p>
-<p>Version control is a necessity on all software projects regardless of 
-development time, codebase size or the programming language used. Every
-project should immediately begin by using a version control system such
-as Git or Mercurial.</p>
-<h2>Source control during deployment</h2>
-<p>Pulling code during a deployment is a potential way source control systems fit
-into the deployment process. </p>
+          <h1>源码控制</h1>
+<p>源码控制，也叫做<em>版本控制</em>，用于保存软件代码文件以及针对这些文件的每次变动的详细历史。</p>
+<h2>为何源码控制是有必要的？</h2>
+<p>版本控制系统允许开发者们修改代码，而不用担心某些情况下把事情彻底搞砸。不想要的变动可以轻松地回滚到之前的代码版本。</p>
+<p>版本控制也使得团队软件开发更加轻松。一个开发者可以通过 <a href="http://en.wikipedia.org/wiki/Diff">diff</a> 命令按行查看代码的变更，然后将合适的代码合并到主代码分支中，这样就可以将他的代码修改和其他开发者的代码合并了。</p>
+<p>版本控制对于所有的软件项目来说都是必要的，不管开发时间、代码库大小或者使用的编程语言。每个项目都应当立即使用一个版本控制系统，例如 Git 或者 Mercurial。</p>
+<h2>开发期间使用源码控制</h2>
+<p>在开发期间拉取代码是源码控制系统适应开发进度的一种潜在方法。</p>
 <p><img src="/img/app-source-control.png" width="100%" class="technical-diagram" alt="App deployment uses a server to pull from the source control system."></p>
-<p>Note that some developers recommend deployment pipelines package the source 
-code to deploy it and never have a production environment touch a source 
-control system directly. However, for small scale deployments it's often
-easiest to pull from source code when you're getting started instead of 
-figuring out how to wrap the Python code in a system installation package.</p>
-<h2>Source control projects</h2>
-<p>Numerous source control systems have been created over the past several
-decades. In the past, proprietary source control software offered features
-tailored to large development teams and specific project workflows. However,
-open source systems are now used for version control on the largest and most
-complicated software projects in existence. There's no reason why your project
-should use anything other than an open source version control system in
-today's Python development world. The two primary choices are:</p>
+<p>需要留意的是，一些开发者推荐在部署流水线中给源码打包并部署，并且永远不要让生产环境和源码控制系统直接接触。然而，对于小规模的软件开发，通常最简单的做法就是在你开始的时候直接从源码中拉取，而不用纠结如何将 Python 代码打包到系统安装包中。</p>
+<h2>源码控制项目</h2>
+<p>在过去的几十年里，人们创造了无数款源码控制系统。过去，专有的源码控制软件提供的功能都是为大型开发团队和特定项目流程定制的。然而，如今开源的源码控制系统正用在现存的最大并且最复杂的软件项目中。在今天的 Python 开发世界，没有理由去使用任何除了开源的源码版本控制系统了。两个主要的选择是：</p>
 <ul>
 <li>
-<p><a href="http://git-scm.com/">Git</a> is a free and open source distributed version
-  control system.</p>
+<p><a href="http://git-scm.com/">Git</a> 是免费并且开源的分布式版本控制系统。</p>
 </li>
 <li>
-<p><a href="http://mercurial.selenic.com/">Mercurial</a> is similar to Git, also a free
-  and open source distributed version control system.</p>
+<p><a href="http://mercurial.selenic.com/">Mercurial</a> 和 Git 类似，也是一款免费开源的分布式版本控制系统。</p>
 </li>
 </ul>
-<h2>Hosted source control services</h2>
-<p>Git and Mercurial can be downloaded and run on your own server. However,
-it's easy and cheap to get started with a hosted version control service.
-You can transition away from the service at a later time by moving your 
-repositories if your needs change. A couple of recommended hosted version
-control services are:</p>
+<h2>源码控制托管服务</h2>
+<p>你可以在你的服务器上下载并运行 Git 和 Mercurial。 然而，开始使用一个托管的版本控制服务也是非常简单又便宜的。如果以后你的需求改变了，你可以通过移动你的仓库来从服务商那儿转移走。几个值得推荐的版本控制托管服务商有：</p>
 <ul>
 <li>
-<p><a href="https://about.gitlab.com/">GitLab</a> has both a self-hosted version of its
-  open source software as well as their hosted version with 
-  <a href="https://about.gitlab.com/pricing/">pricing</a> for businesses that need
-  additional hosting support.</p>
+<p><a href="https://about.gitlab.com/">GitLab</a> 同时提供了针对个人的开源软件托管服务，以及需要额外托管支持的 <a href="https://about.gitlab.com/pricing/">付费</a> 商业服务。</p>
 </li>
 <li>
-<p><a href="https://github.com/">GitHub</a> provides free open source repositories 
-  and paid private repositories for Git.</p>
+<p><a href="https://github.com/">GitHub</a> 为 Git 提供了免费的开源仓库以及付费的私有仓库。</p>
 </li>
 <li>
-<p><a href="https://bitbucket.org/">BitBucket</a> also has free Git and Mercurial 
-  repositories for open projects, but adds private repositories for up to 
-  five users. Users pay for hosting private repositories with more than 
-  five users.</p>
+<p><a href="https://bitbucket.org/">BitBucket</a> 也有支持 Git 和 Mercurial 的免费开源项目仓库，但是还支持最多 5 个用户的私有仓库。超过 5 个用户时，如果需要私有仓库托管服务就需要支付一定的费用了。</p>
 </li>
 </ul>
-<h2>General source control resources</h2>
+<h2>源码控制资料</h2>
 <ul>
 <li>
-<p><a href="http://www.kalzumeus.com/2010/12/12/staging-servers-source-control-deploy-workflows-and-other-stuff-nobody-teaches-you/">Staging Servers, Source Control &amp; Deploy Workflows, And Other Stuff Nobody Teaches You</a> 
-  is a comprehensive overview by Patrick McKenzie of why you need source 
-  control.</p>
+<p><a href="http://www.kalzumeus.com/2010/12/12/staging-servers-source-control-deploy-workflows-and-other-stuff-nobody-teaches-you/">暂存服务器，源码控制和部署工作流程，以及其它一些没人会教你的东西</a> 
+  是由 Patrick McKenzie 编写，是对为何你需要源码控制的全面概述。</p>
 </li>
 <li>
-<p><a href="https://blog.rainforestqa.com/2014-05-28-version-control-best-practices/">Version control best practices</a>
-  is a good write up of how to work with version control systems. The post is 
-  part of an ongoing deployment guide written by the folks at 
-  <a href="https://www.rainforestqa.com/">Rainforest</a>.</p>
+<p><a href="https://blog.rainforestqa.com/2014-05-28-version-control-best-practices/">版本控制最佳实践</a>
+  是一篇非常不错的文章，说明了如何使用版本控制系统。这篇文章是正在由 <a href="https://www.rainforestqa.com/">Rainforest</a> 中的许多人参与编写的部署指南中的一部分。</p>
 </li>
 <li>
-<p>This lighthearted guide to the 
-  <a href="http://www.flourish.org/2011/12/astonishments-ten-in-the-history-of-version-control/">ten astonishments in version control history</a> 
-  is a fun way to learn how systems developed over the past several decades.</p>
+<p>这篇
+  <a href="http://www.flourish.org/2011/12/astonishments-ten-in-the-history-of-version-control/">版本控制发展史中的 10 件惊人的事情</a> 是一篇让人轻松的指南，它提供了一个有趣的途径来学习过去几十年中版本控制系统是如何发展的。</p>
 </li>
 <li>
-<p><a href="http://betterexplained.com/articles/a-visual-guide-to-version-control/">A visual guide to version control</a> 
-  is a detailed article with real-life examples for why version control is
-  necessary in software development.</p>
+<p><a href="http://betterexplained.com/articles/a-visual-guide-to-version-control/">版本控制入门</a> 
+  是一篇含有真实例子的详细文章，它说明了版本控制系统为何在软件开发中很有必要。</p>
 </li>
 <li>
-<p><a href="http://guides.beanstalkapp.com/version-control/intro-to-version-control.html">An introduction to version control</a> 
-  shows the basic concepts behind version control systems.</p>
+<p><a href="http://guides.beanstalkapp.com/version-control/intro-to-version-control.html">版本控制介绍</a> 
+ 展现了版本控制系统背后的概念。</p>
 </li>
 <li>
-<p><a href="http://oss-watch.ac.uk/resources/versioncontrol">What Is Version Control? Why Is It Important For Due Diligence?</a> 
-  explains the benefits and necessity of version control systems.</p>
+<p><a href="http://oss-watch.ac.uk/resources/versioncontrol">什么是版本控制？为何它对于尽职审查非常重要？</a> 
+  解释了版本控制系统的优势和必要性。</p>
 </li>
 <li>
-<p><a href="http://git-scm.com/book/en/Getting-Started-About-Version-Control">About version control</a> 
-reviews the basics of distributed version control systems.</p>
+<p><a href="http://git-scm.com/book/en/Getting-Started-About-Version-Control">关于版本控制</a> 
+回顾了分布式版本控制系统的基础知识。</p>
 </li>
 </ul>
-<h2>Git resources</h2>
+<h2>Git 相关资料</h2>
 <ul>
 <li>
-<p><a href="http://git-scm.com/book">Pro Git</a> is a free open source book that walks 
-  through all aspects of using the version control system.</p>
+<p><a href="http://git-scm.com/book">Pro Git</a> 是一本开源的书籍，介绍了使用版本控制系统所有方面的知识。</p>
 </li>
 <li>
-<p><a href="http://maryrosecook.com/blog/post/git-in-six-hundred-words">Git in Six Hundred Words</a>
-  is a clear and concise essay explaining the fundamental concepts of
-  Git.</p>
+<p><a href="http://maryrosecook.com/blog/post/git-in-six-hundred-words">600 字介绍 Git</a>
+  是一篇解释 Git 基础概念的清晰又简明的文章。</p>
 </li>
 <li>
-<p><a href="http://wildlyinaccurate.com/a-hackers-guide-to-git">A Hacker's Guide to Git</a>
-  covers the basics as well as more advanced Git commands while explaining each
-  step along the way.</p>
+<p><a href="http://wildlyinaccurate.com/a-hackers-guide-to-git">Git 黑客指南</a> 包含了基础和高级的 Git 命令，同时解释了每一步的操作含义。</p>
 </li>
 <li>
-<p><a href="http://think-like-a-git.net/">Think like a Git</a> is another introduction
-  that focuses more on the graph theory and conceptual ideas behind Git
-  to help the reader understand what's happening as they use Git commands.</p>
+<p><a href="http://think-like-a-git.net/">像 Git 一样思考</a> 是另外一篇介绍文章，它更多聚焦在图论和 Git 背后的概念性的思想，从而帮助读者理解在他们使用 Git 命令时究竟发生了什么。</p>
 </li>
 <li>
-<p><a href="http://mrchlblng.me/2014/09/practical-git-introduction/">A practical git introduction</a>
-  is exactly what the title says it is. This is a well written guide with 
-  plenty of code snippets to get you up to speed with Git.</p>
+<p><a href="http://mrchlblng.me/2014/09/practical-git-introduction/">Git 实践介绍</a>
+  内容正如标题所描述的那样。这是一篇非常好的指南，提供了大量的代码片段来让你快速上手 Git。</p>
 </li>
 <li>
-<p><a href="https://codewords.recurse.com/issues/two/git-from-the-inside-out">Git from the inside out</a>
-  demonstrates how Git's graph-based data structure produces certain behavior 
-  through example Git commands. This is a highly recommended read after you've
-  grasped the basics and are looking to go deeper with Git.</p>
+<p><a href="https://codewords.recurse.com/issues/two/git-from-the-inside-out">Git 由内到外</a>
+  通过一些 Git 命令样例展示了基于图的数据结构是如何产生某些行为的。在你已经掌握了 Git 的基础知识后，并且希望能深入 Git 的话，强烈推荐阅读这篇文章。</p>
 </li>
 <li>
-<p><a href="http://gitready.com/">git ready</a> has a nice collection of blog posts based on
-  beginner, intermediate and advanced Git use cases.</p>
+<p><a href="http://gitready.com/">git 就绪</a> 有一个非常不错的针对初级学者、中级学者和高级 Git 用例的博客合集。</p>
 </li>
 <li>
-<p><a href="http://nvie.com/posts/a-successful-git-branching-model/">git-flow</a> details
-  a Git branching model for small teams.</p>
+<p><a href="http://nvie.com/posts/a-successful-git-branching-model/">git 流程</a> 详细描述了针对小团队的 Git 分支模型。</p>
 </li>
 <li>
-<p><a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub Flow</a> builds on
-  git-flow, goes over some of the issues that arise with it and presents a
-  few solutions to those problems.</p>
+<p><a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub 流程</a> 基于“git 流程”构建，重温了一些使用 GitHub 的问题，并且给出了一些针对那些问题的解决方案。</p>
 </li>
 <li>
-<p><a href="http://blog.endpoint.com/2014/05/git-workflows-that-work.html">Git Workflows That Work</a>
-  is a helpful post with diagrams to show how teams can create a Git workflow
-  that will help their development process.</p>
+<p><a href="http://blog.endpoint.com/2014/05/git-workflows-that-work.html">Git可行的工作流程</a>
+  是一篇非常有帮助并且带有图表的文章，它说明了团队如何才能创建一个对他们开发进度有帮助的 Git 流程。</p>
 </li>
 <li>
-<p>"<a href="http://www.braintreepaymentsolutions.com/devblog/our-git-workflow">Our Git Workflow</a>"
-  by Braintree goes over how this payments company uses Git for development
-  and merging source code.</p>
+<p>"<a href="http://www.braintreepaymentsolutions.com/devblog/our-git-workflow">我们的 Git 工作流程</a>" 是 Braintree 编写的，回顾了这家会计公司如何使用 Git 进行开发并合并源码的。</p>
 </li>
 <li>
-<p><a href="https://robots.thoughtbot.com/code-sleuthing-with-git">Code Sleuthing with Git</a>
-  shows how to review past changes when a deployment goes wrong to figure
-  out what the heck happened.</p>
+<p><a href="https://robots.thoughtbot.com/code-sleuthing-with-git">借助 Git 进行代码审查</a>
+  说明了当开发出现问题后，该如何审查过去的变更，从而找出问题。</p>
 </li>
 </ul>
-<h2>Source control learning checklist</h2>
+<h2>源码控制学习清单</h2>
 <ol>
 <li>
-<p>Pick a version control system. Git is recommended because on the web there
-   are a significant number of tutorials to help both new and advanced users.</p>
+<p>选择一个版本控制系统。在这里推荐使用 Git 的原因在于网上有大量帮助新用户和高级用户的教程。</p>
 </li>
 <li>
-<p>Learn basic use cases for version control such as committing changes, 
-   rolling back to earlier file versions and searching for when lines of code 
-   were modified during development history.</p>
+<p>学习一些基本的版本控制用法，比如提交变更、回滚到之前的文件版本以及搜索在开发过程中何时变动了代码行数。</p>
 </li>
 <li>
-<p>Ensure your source code is backed up in a central repository. A central
-   repository is critical not only if your local development version is 
-   corrupted but also for the deployment process.</p>
+<p>确保你的源码备份到了一个中心仓库。中心仓库是非常重要的，不仅是为了防止你本地的开发版本受损，而且也是为了开发进度。</p>
 </li>
 <li>
-<p>Integrate source control into your deployment process in three ways. First,
-   pull the project source code from version control during deployments. 
-   Second, kick off deployments when code is modified by using webhooks or 
-   polling on the repository. Third, ensure you can roll back to a previous 
-   version if a code deployment goes wrong.</p>
+<p>需要三步来集成源码控制到开发过程中。首先，在开发期间，从版本控制系统中拉取项目源码。第二，使用 webhooks 或者轮询仓库的方式在代码修改时启动部署。第三，当开发出现问题时，确保你能够回滚到之前的版本。</p>
 </li>
 </ol>
 <h3>学完代码版本控制后，接下来想学什么？</h3>
@@ -285,10 +221,10 @@ reviews the basics of distributed version control systems.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Object-relational Mappers</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>源码控制</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Source Control</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">源码控制</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -301,7 +237,7 @@ reviews the basics of distributed version control systems.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/source-control.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Source Control</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/source-control.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; 源码控制</a>
 <a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>
