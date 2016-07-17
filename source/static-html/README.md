@@ -62,7 +62,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/05-data/01-data.markdown (2016-07-07)
 - [x] content/pages/05-data/02-databases.markdown (2016-07-09)
 - [x] content/pages/05-data/03-nosql.markdown (2016-07-11)
-- [ ] content/pages/05-data/04-object-relational-mappers.markdown
+- [x] content/pages/05-data/04-object-relational-mappers.markdown (2016-07-17)
 - [ ] content/pages/05-data/05-postgresql.markdown
 - [ ] content/pages/05-data/06-mysql.markdown
 - [ ] content/pages/05-data/07-sqlite.markdown

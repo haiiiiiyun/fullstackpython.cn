@@ -2466,367 +2466,190 @@ let python_highlight_all = 1
 <p>评估其它的用例，如将临时的日志存储到 MongoDB 等面向文档的数据存储系统中。</p>
 </li>
 </ol>
-          <h1>Object-relational mappers (ORMs)</h1>
-<p>An object-relational mapper (ORM) is a code library that automates the
-transfer of data stored in relational databases tables into objects that
-are more commonly used in application code.</p>
-<h2>Why are ORMs useful?</h2>
-<p>ORMs provide a high-level abstraction upon a
-<a href="/databases.html">relational database</a> that allows a developer to write
-Python code instead of SQL to create, read, update and delete data and
-schemas in their database. Developers can use the programming language they
-are comfortable with to work with a database instead of writing SQL
-statements or stored procedures.</p>
-<p>For example, without an ORM a developer would write the following SQL
-statement to retrieve every row in the USERS table where the
-<code>zip_code</code> column is 94107:</p>
+          <h1>对象关系映射器 (ORM)</h1>
+<p>对象关系映射器 (ORM) 是一种代码库，它能自动将存储在关系型数据库表中的数据转化成在应用程序代码中更加常用的对象。</p>
+<h2>为什么 ORM 很有用？</h2>
+<p>ORM 为 <a href="/databases.html">关系型数据库</a> 提供了高级的抽象，它使得开发人员不必写 SQL，只需写 Python 代码就能在数据库中创建、读取、更新和删除数据。开发人员能使用他们熟悉的编程语言来处理数据库，而无需编写 SQL 语句或存储过程。</p>
+<p>例如，如果没有 ORM 的话，开发人员需要编写以下的 SQL 语句来读取 USERS 表中的 <code>zip_code</code> 列的值为 94107 的所有行：</p>
 <div class="highlight"><pre><span></span>SELECT * FROM USERS WHERE zip_code=94107;
 </pre></div>
 
 
-<p>The equivalent Django ORM query would instead look like the following Python
-code:</p>
+<p>而其相应的 Django ORM 查询语句看起来会如下面的 Python 代码：</p>
 <div class="highlight"><pre><span></span># obtain everyone in the 94107 zip code and assign to users variable
 users = Users.objects.filter(zip_code=94107)
 </pre></div>
 
 
-<p>The ability to write Python code instead of SQL can speed up web application
-development, especially at the beginning of a project. The potential
-development speed boost comes from not having to switch from Python code
-into writing declarative paradigm SQL statements. While some software
-developers may not mind switching back and forth between languages, it's
-typically easier to knock out a prototype or start a web application using
-a single programming language.</p>
-<p>ORMs also make it theoretically possible to switch an application between
-various relational databases. For example, a developer could use 
-<a href="/sqlite.html">SQLite</a> for
-local development and <a href="/mysql.html">MySQL</a> in production. A production 
-application could be switched from MySQL to <a href="/postgresql.html">PostgreSQL</a> with 
-minimal code modifications.</p>
-<p>In practice however, it's best to use the same database for local development
-as is used in production. Otherwise unexpected errors could hit in production
-that were not seen in a local development environment. Also, it's rare that
-a project would switch from one database in production to another one unless
-there was a pressing reason.</p>
-<div class="well see-also">While you're learning about ORMs you should also read up on <a href="/deployment.html">deployment</a> and check out the <a href="/application-dependencies.html">application dependencies</a> page.</div>
+<p>编写 Python 代码来代替编写 SQL，能提高 Web 应用的开发速度，特别是在项目前期的时候。开发速度的提升潜力源于无需从编写 Python 代码切换到编写声明式的 SQL 语句。虽然有些开发人员可能不太介意在两种语言间来回切换，但是使用一种编程语言对于捣鼓出一个原型或者开始创建一个 Web 应用通常更加容易。</p>
+<p>从理论上来说，ORM 也使得应用程序在不同的关系型数据库之间切换使用变得可能。比如说，开发人员可以在本地开发中使用 <a href="/sqlite.html">SQLite</a>，然后在生产环境中使用 <a href="/mysql.html">MySQL</a>。 只需进行少量的代码修改，生产环境中的应用就能实现从 MySQL 切换到 <a href="/postgresql.html">PostgreSQL</a>。</p>
+<p>但在实践中，本地开发环境和生产环境最好使用相同的数据库。不然的话，在本地开发环境从未碰到的一些始料未及的错误可能会出现在生产环境中。而且，对于一个项目来说，很少有需将生产环境中的数据库切换到另一个数据库的情况，除非有很紧急的原由。</p>
+<div class="well see-also">学习 ORM 的时候，你也应该学习下 <a href="/deployment.html">部署</a> 和 <a href="/application-dependencies.html">应用依赖</a> 章节。</div>
 
-<h2>Do I have to use an ORM for my web application?</h2>
-<p>Python ORM libraries are not required for accessing relational
-databases. In fact, the low-level access is typically provided by another
-library called a <em>database connector</em>, such as
-<a href="http://initd.org/psycopg/">psycopg</a> (for PostgreSQL)
-or <a href="https://pypi.python.org/pypi/MySQL-python/1.2.5">MySQL-python</a> (for
-MySQL). Take a look at the table below which shows how ORMs can work with
-different web frameworks and connectors and relational databases.</p>
-<p><img src="/img/orm-examples.png" width="100%" alt="Examples of how varying Python ORMs can work with different connectors and backends." class="technical-diagram" /></p>
-<p>The above table shows for example that SQLAlchemy can work with varying
-web frameworks and database connectors. Developers can also use ORMs without
-a web framework, such as when creating a data analysis tool or a batch
-script without a user interface.</p>
-<h2>What are the downsides of using an ORM?</h2>
-<p>There are numerous downsides of ORMs, including</p>
+<h2>我需要在我的 Web 应用使用 ORM 吗？</h2>
+<p>Python ORM 库对于存取关系型数据库来说不是必须的。实现上，低层的存取接口通常是由另一个叫 <em>数据库连接器</em> 的库来提供的，例如 <a href="http://initd.org/psycopg/">psycopg</a> (用于 PostgreSQL) 或 <a href="https://pypi.python.org/pypi/MySQL-python/1.2.5">MySQL-python</a> (用于 MySQL) 等。 下表列出了 ORM 与不同的 Web 框架、连接器及关系型 数据库一起使用的情况。</p>
+<p><img src="/img/orm-examples.png" width="100%" alt="各种 Python ORM 如何能与不同的连接器及后端一起使用的例子。" class="technical-diagram" /></p>
+<p>从上面的表格中可以看出，例如，SQLAlchemy 能与不同的 Web 框架和数据库连接器一起使用。开发人员也可以撇开 Web 框架单独使用 ORM，比如在创建一个数据分析工具或者没有用户界面的批处理脚本时。</p>
+<h2>使用 ORM 有什么缺点？</h2>
+<p>ORM 有很多的缺点，包括：</p>
 <ol>
-<li>Impedance mismatch</li>
-<li>Potential for reduced performance</li>
-<li>Shifting complexity from the database into the application code</li>
+<li>阻抗失配</li>
+<li>有可能降低性能</li>
+<li>将复杂性从数据库转移到了应用程序代码中</li>
 </ol>
-<h3>Impedance mismatch</h3>
-<p>The phrase "impedance mismatch" is commonly used in conjunction with ORMs.
-Impedance mismatch is a catch-all term for the difficulties that occur when
-moving data between relational tables and application objects. The gist
-is that the way a developer uses objects is different from how data is
-stored and joined in relational tables.</p>
-<p><a href="http://www.agiledata.org/essays/impedanceMismatch.html">This article on ORM impedance mismatch</a>
-does a solid job of explaing what the concept is at a high level and
-provides diagrams to visualize why the problem occurs.</p>
-<h3>Potential for reduced performance</h3>
-<p>One of the concerns that's associated with any higher-level abstraction or
-framework is potential for reduced performance. With ORMs, the performance
-hit comes from the translation of application code into a corresponding SQL
-statement which may not be tuned properly.</p>
-<p>ORMs are also often easy to try but difficult to master. For example, a
-beginner using Django might not know about the
-<a href="https://docs.djangoproject.com/en/1.8/ref/models/querysets/#select-related"><code>select_related()</code> function</a>
-and how it can improve some queries' foreign key relationship performance.
-There are dozens of performance tips and tricks for every ORM. It's possible
-that investing time in learning those quirks may be better spent just
-learning SQL and how to write stored procedures.</p>
-<p>There's a lot of hand-waving "may or may not" and "potential for" in this
-section. In large projects ORMs are good enough for roughly 80-90% of use
-cases but in 10-20% of a project's database interactions there can be
-major performance improvements by having a knowledgeable database
-administrator write tuned SQL statements to replace the ORM's generated
-SQL code.</p>
-<h3>Shifting complexity from the database into the app code</h3>
-<p>The code for working with an application's data has to live somewhere. Before
-ORMs were common, database stored procedures were used to encapsulate the
-database logic. With an ORM, the data manipulation code instead lives within
-the application's Python codebase. The addition of data handling logic in the
-codebase generally isn't an issue with a sound application design, but it does
-increase the total amount of Python code instead of splitting code between
-the application and the database stored procedures.</p>
-<h2>Python ORM Implementations</h2>
-<p>There are numerous ORM implementations written in Python, including</p>
+<h3>阻抗失配</h3>
+<p>“阻抗失配” 这个术语通常和 ORM 一起使用。阻抗失配这个术语，是对于数据在关系型数据表与应用程序对象之间变换时的所有难度的总称。其要点是：开发人员使用对象的方式与数据在关系型数据表中如何被存储和关联是有差异的。</p>
+<p><a href="http://www.agiledata.org/essays/impedanceMismatch.html">这篇关于 ORM 阻抗失配的文章</a> 对该概念进行了细致的综述，并提供图表以可视化方式解析了该问题发生的原因。</p>
+<h3>降低性能的潜在可能</h3>
+<p>使用任何一个高级抽象或框架，存在的其中一个顾虑是有存在降低性能的潜在可能性。使用 ORM 时，性能影响因素源自：应用代码会被转化成没有被合理调优过的 SQL 语句。</p>
+<p>ORM 通常是上手容易但真正掌握很难。比如说，一个 Django 新手无需知道 <a href="https://docs.djangoproject.com/en/1.8/ref/models/querysets/#select-related"><code>select_related()</code> function</a> 及其如何能提升某些外键关联型查询的性能等知识，就能使用 ORM 了。每种 ORM 都有许多有关性能的提示和技巧。花时间学习这些技能比只学习 SQL 及如何编写存储过程可能有用的多。</p>
+<p>这章里有许多显而易见的 “可能或可能不” 以及 ”潜在的“ 等字眼。在大型项目中，ORM 非常适用于大约 80-90% 的情况，而项目中剩下 10-20% 的数据库交互操作，可以由经验丰富的数据库管理员编写调优过的 SQL 语句来代码 ORM 生成的 SQL 代码，从而使其性能得到显著提高。</p>
+<h3>将复杂度从数据库转到应用程序代码</h3>
+<p>我们需要编写一些代码来处理应用的数据。在 ORM 之前，数据库存储过程被用于封装数据库逻辑。而在 ORM 中，操作数据的代码存在于应用的 Python 代码中。这些额外的数据操作逻辑，对于一个设计良好的应用来说，通常都不会成为一个问题，但因其没有在应用程序和数据库存储过程之间将代码进行拆分，从而提高了 Python 的总代码量。</p>
+<h2>Python ORM 的实现</h2>
+<p>存在很多个用 Python 编写的 ORM 实现，包括</p>
 <ol>
-<li><a href="https://docs.djangoproject.com/en/1.8/topics/db/">The Django ORM</a></li>
+<li><a href="https://docs.djangoproject.com/en/1.8/topics/db/">Django ORM</a></li>
 <li><a href="http://www.sqlalchemy.org/">SQLAlchemy</a></li>
 <li><a href="https://peewee.readthedocs.org/en/latest/">Peewee</a></li>
 <li><a href="http://ponyorm.com/">PonyORM</a></li>
 <li><a href="http://sqlobject.org/">SQLObject</a></li>
 </ol>
-<p>There are other ORMs, such as Canonical's
-<a href="https://storm.canonical.com/">Storm</a>, but most of them do not appear to
-currently be under active development. Learn more about the major active
-ORMs below.</p>
-<h3>Django's ORM</h3>
-<p>The <a href="/django.html">Django</a> web framework comes with
-its own built-in object-relational mapping module, generally referred to
-as "the Django ORM" or "Django's ORM".</p>
-<p><a href="https://docs.djangoproject.com/en/dev/topics/db/">Django's ORM</a> works well
-for simple and medium-complexity database operations. However, there are often
-complaints that the ORM makes complex queries much more complicated than
-writing straight SQL or using <a href="http://www.sqlalchemy.org/">SQLAlchemy</a>.</p>
-<p>It's technically possible to drop down to SQL but it ties the queries to a
-specific database implementation. The ORM is coupled closely with Django so
-replacing the default ORM with SQLAlchemy is currently a hack workaround. Note
-though that some of the Django core committers believe it is only a matter of
-time before the default ORM is replaced with SQLAlchemy. It will be a large
-effort to get that working though so it's likely to come in
-<a href="https://github.com/makaimc/fullstackpython.com/issues/48">Django 1.9 or later</a>.</p>
-<p>Since the majority of Django projects are tied to the default ORM, it's best to
-read up on advanced use cases and tools for doing your best work within the
-existing framework.</p>
+<p>还有其他一些 ORM, 例如 Canonical 的 <a href="https://storm.canonical.com/">Storm</a>，但是其中大多数现在看来都已经停止开发了。让我们进一步了解以下几个主要的还活跃着的 ORM 吧。</p>
+<h3>Django ORM</h3>
+<p><a href="/django.html">Django</a> Web 框架有自己内置的对象-关系映射模块，通常被称作 "the Django ORM" 或 "Django's ORM"。</p>
+<p><a href="https://docs.djangoproject.com/en/dev/topics/db/">Django 的 ORM</a> 适用于简单或中等复杂度的数据库操作。但是，人们通常抱怨说：该 ORM 基于复杂的查询操作转化而成的 SQL 语句，相比于直接用 SQL 编写或者用 <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> 产生的语句，更加的繁琐。</p>
+<p>从技术上来说可以直接使用低层的 SQL，但是这种方式会将查询与某个特定的数据库绑定在一起。该 ORM 与 Django 是紧密捆绑的，因而要想用 SQLAlchemy 来代替默认的 ORM 当前还是一门技术活。考虑到一些 Django 核心贡献者都认为默认的 ORM 被 SQLAlchemy 替代只是时间问题。但要想实现该目标还有很多路要走，可能会在 <a href="https://github.com/makaimc/fullstackpython.com/issues/48">Django 1.9 或之后</a> 的版本才会实现。</p>
+<p>因为大多数 Django 项目都使用默认的 ORM，因此我们最好多了解下一些高级的使用案例和工具，从而能更好地使用该框架。</p>
 <h3>SQLAlchemy</h3>
-<p><a href="http://www.sqlalchemy.org/">SQLAlchemy</a> is a well-regarded
-Python ORM because it gets the abstraction level "just right" and
-seems to make complex database queries easier to write than the Django
-ORM in most cases. SQLAlchemy is typically used with Flask as the database
-ORM via the <a href="https://pythonhosted.org/Flask-SQLAlchemy/">Flask-SQLAlchemy</a>
-extension.</p>
+<p><a href="http://www.sqlalchemy.org/">SQLAlchemy</a> 是个广受好评的 Python ORM。它的抽象层做的 ”恰当好处“，并且在绝大多数情况下，相比 Django ORM，它能简化复杂数据库查询语句的编写工作。在 Flask 中，SQLAlchemy 通过 <a href="https://pythonhosted.org/Flask-SQLAlchemy/">Flask-SQLAlchemy</a> 扩展而被用作数据库 ORM。</p>
 <h3>Peewee</h3>
-<p><a href="https://peewee.readthedocs.org/en/latest/">Peewee</a> is a Python ORM
-written to be
-"<a href="http://charlesleifer.com/blog/the-case-for-peewee-small-hackable-and-fun/">simpler, smaller and more hackable</a>"
-than SQLAlchemy. The analogy used by the core Peewee author is that Peewee
-is to SQLAlchemy as SQLite is to PostgreSQL. An ORM does not have to work
-for every exhaustive use case in order to be useful.</p>
+<p><a href="https://peewee.readthedocs.org/en/latest/">Peewee</a> 这个 Python ORM 的目标是： 比 SQLAlchemy "<a href="http://charlesleifer.com/blog/the-case-for-peewee-small-hackable-and-fun/">更简单、更小及更加 hackable</a>" 。Peewee 的核心作者使用的比喻为： Peewee 对于 SQLAlchemy，就像 SQLite 对于 PostgreSQL。一个 ORM 无需适用于所有的使用情况也能被认为是有用的。</p>
 <h3>Pony</h3>
-<p><a href="http://ponyorm.com/">Pony ORM</a> is another Python ORM with a slight twist in
-its licensing model. The project is multi-licensed. Pony is free for use
-on open source projects but has a
-<a href="http://ponyorm.com/license-and-pricing.html">commercial license</a> that
-is required for commercial projects. The license is a one-time payment
-and does not necessitate a recurring fee.</p>
+<p><a href="http://ponyorm.com/">Pony ORM</a> 是另一种 Python ORM，它的许可模型有些许不同。该项目使用多种许可。Pony 用于开源项目是免费的，但是用于商业项目需要 <a href="http://ponyorm.com/license-and-pricing.html">商业许可</a>。该许可只需要一次性费用，无需周期付费。</p>
 <h3>SQLObject</h3>
-<p><a href="http://sqlobject.org/">SQLObject</a> is an ORM that has been under active
-open source development since
-<a href="http://sqlobject.org/News1.html#sqlobject-0-5">before 2003</a>.</p>
-<h2>Schema migrations</h2>
-<p>Schema migrations, for example when you need to add a new column to an
-existing table in your database, are not technically part of ORMs. However,
-since ORMs typically lead to a hands-off approach to the database (at the
-developers peril in many cases), libraries to perform schema migrations
-often go hand-in-hand with Python ORM usage on web application projects.</p>
-<p>Database schema migrations are a complex topic and deserve their own page.
-For now, we'll lump schema migration resources under ORM links below.</p>
-<h3>General ORM resources</h3>
+<p><a href="http://sqlobject.org/">SQLObject</a> 这个 ORM 自 <a href="http://sqlobject.org/News1.html#sqlobject-0-5">2003 年前</a> 就已处于活跃的开源开发了。</p>
+<h2>模式迁移</h2>
+<p>模式迁移，例如添加一个列到数据库的某个表格中等操作，从技术上来说都不属于 ORM 范畴。但是，由于 ORM 通常是间接地操作数据库（在多数情况下需开发人员自担风险），因此在应用程序项目中，执行模式迁移的库通常和 Python ORM 一起使用。</p>
+<p>数据库模式迁移是一个复杂的主题，需要专门的一页来讲解。现在，我们粗略地将模式迁移相关资源列在 ORM 链接之后。</p>
+<h3>通用 ORM 相关资源</h3>
 <ul>
 <li>
-<p>There's also a detailed overview of <a href="http://www.agiledata.org/essays/mappingObjects.html">what ORMs are</a>
-  on another page of the website.</p>
+<p>还有一个网页就 <a href="http://www.agiledata.org/essays/mappingObjects.html">什么是 ORM</a> 进行了细致的概述。</p>
 </li>
 <li>
-<p>This <a href="https://github.com/sloria/PythonORMSleepy">example GitHub project</a> 
-  implements the same Flask application with several different ORMs: 
-  SQLAlchemy, Peewee, MongoEngine, stdnet and PonyORM.</p>
+<p>这个 <a href="https://github.com/sloria/PythonORMSleepy">GitHub 上的示例项目</a> 将这个相同的 Flask 应用用多个不同的 ORM 进行了实现： SQLAlchemy、 Peewee、 MongoEngine、 stdnet 及 PonyORM。</p>
 </li>
 <li>
-<p>Martin Fowler addresses the
-  <a href="http://martinfowler.com/bliki/OrmHate.html">ORM hate</a>
-  in an essay about how ORMs are often misused but that they do provide
-  benefits to developers.</p>
+<p>Martin Fowler 在一篇文章中提到了 <a href="http://martinfowler.com/bliki/OrmHate.html">人们对 ORM 的厌恶</a>，讲述了 ORM 是如何被误用的，及说明它们对开发人员其实是有帮助的。</p>
 </li>
 <li>
-<p>If you're confused about the difference between a connector, such as
-  MySQL-python and an ORM like SQLAlchemy, read this
-  <a href="http://stackoverflow.com/questions/2550292/purpose-of-sqlalchemy-over-mysqldb">StackOverflow answer</a>
-  on the topic.</p>
+<p>如果你被连接器之间的区别搞糊涂了，比如 MySQL-python 和一个像 SQLAlchemy 等的 ORM，那么看下针对这个主题的 <a href="http://stackoverflow.com/questions/2550292/purpose-of-sqlalchemy-over-mysqldb">StackOverflow 上的解答</a>。</p>
 </li>
 </ul>
-<h3>Django ORM resources</h3>
+<h3>Django ORM 相关资源</h3>
 <ul>
 <li>
-<p><a href="http://www.dabapps.com/blog/django-models-and-encapsulation/">Django models, encapsulation and data integrity</a>
-  is a detailed article by Tom Christie on encapsulating Django models for
-  data integrity.</p>
+<p><a href="http://www.dabapps.com/blog/django-models-and-encapsulation/">Django 数据模型、封装和数据集成</a> 是一篇由 Tom Christie 写的详实的文章，讲述了如何对 Django 数据模型进行封装以实现数据集成。</p>
 </li>
 <li>
-<p><a href="http://django-debug-toolbar.readthedocs.org/en/1.2/">Django Debug Toolbar</a>
-  is a powerful Django ORM database query inspection tool. Highly recommended
-  during development to ensure you're writing reasonable query code.
-  <a href="http://mtford.co.uk/blog/2/">Django Silk</a> is another inspection tool and
-  has capabilities to do more than just SQL inspection.</p>
+<p><a href="http://django-debug-toolbar.readthedocs.org/en/1.2/">Django 调试工具栏</a> 是一个强大的 Django ORM 数据库查询检测工具。非常推荐在开发环境中使用，以确保你所写的查询代码的合理性。 <a href="http://mtford.co.uk/blog/2/">Django Silk</a> 是另一个检测工作，除了 SQL 检测功能，它还提供其它一些功能。</p>
 </li>
 <li>
-<p><a href="http://reinout.vanrees.org/weblog/2014/05/06/making-faster.html">Making a specific Django app faster</a>
-  is a Django performance blog post with some tips on measuring performance
-  and optimizing based on the measured results.</p>
+<p><a href="http://reinout.vanrees.org/weblog/2014/05/06/making-faster.html">使 Django 应用运行更快</a> 是篇讲述 Django 性能的博文，上面有一些有关如何度量性能及如何基于测试结果进行优化的建议。</p>
 </li>
 <li>
-<p><a href="https://speakerdeck.com/alex/why-i-hate-the-django-orm">Why I Hate the Django ORM</a>
-  is Alex Gaynor's overview of the bad designs decisions, some of which he
-  made, while building the Django ORM.</p>
+<p><a href="https://speakerdeck.com/alex/why-i-hate-the-django-orm">我为什么讨厌 Django ORM</a> 是 Alex Gaynor 对于一些不好的设计决策的总结，这些决策都是他在构建 Django ORM 时做出的。</p>
 </li>
 <li>
-<p><a href="https://speakerdeck.com/craigkerstiens/going-beyond-django-orm-with-postgres">Going Beyond Django ORM with Postgres</a>
-  is specific to using PostgreSQL with Django.</p>
+<p><a href="https://speakerdeck.com/craigkerstiens/going-beyond-django-orm-with-postgres">超越 Django ORM 与 Postgres</a> 是专门讲述如果在 Django 中使用 PostgreSQL 的。</p>
 </li>
 <li>
-<p><a href="http://www.calazan.com/migrating-django-app-from-mysql-to-postgresql/">Migrating a Django app from MySQL to PostgreSQL</a>
-  is a quick look at how to move from MySQL to PostgreSQL. However, my guess
-  is that any Django app that's been running for awhile on one
-  <a href="/databases.html">relational database</a> will require a lot more work to
-  port over to another backend even with the power of the ORM.</p>
+<p><a href="http://www.calazan.com/migrating-django-app-from-mysql-to-postgresql/">将一个 Django 应用从 MySQL 迁移到 PostgreSQL</a> 是一篇关于如果从 MySQL 迁移到 PostgreSQL 的粗略介绍。但是我认为，任何一个已经在某个 <a href="/databases.html">关系型数据库</a> 上运行了一段时候的 Django 应用，要想移植到另一个后端，即便是使用了 ORM，还是需要很多的工作量。</p>
 </li>
 <li>
-<p><a href="http://blog.kevinastone.com/django-model-descriptors.html">Django Model Descriptors</a>
-  discusses and shows how to incorporate business logic into Django models
-  to reduce complexity from the views and make the code easier to reuse across
-  separate views.</p>
+<p><a href="http://blog.kevinastone.com/django-model-descriptors.html">Django 数据模型描述子</a> 讨论并演示了如何通过将业务逻辑合并到 Django 数据模型，从而降低视图的复杂度，它使得代码在各独立的视图间更加易于重用。</p>
 </li>
 <li>
-<p><a href="http://treyhunner.com/2014/03/migrating-to-django-1-dot-7/">Supporting both Django 1.7 and South</a>
-  explains the difficulty of supporting Django 1.7 and maintaining South
-  migrations for Django 1.6 then goes into how it can be done.</p>
+<p><a href="http://treyhunner.com/2014/03/migrating-to-django-1-dot-7/">同时支持 Django 1.7 和 South</a> 首先就支持 Django 1.7 与在 Django 1.6 中修护 South 这个迁移工具之间的区别进行了讲解，然后给出了具体解决方法。</p>
 </li>
 <li>
-<p><a href="https://www.calazan.com/adding-basic-search-to-your-django-site/">Adding basic search to your Django site</a>
-  shows how to write generic queries that'll allow you to provide site
-  search via the Django ORM without relying on another tool like
-  ElasticSearch. This is great for small sites before you scale them up with
-  a more robust search engine.</p>
+<p><a href="https://www.calazan.com/adding-basic-search-to-your-django-site/">为你的 Django 网站添加基本的查询功能</a> 展示了如何通过 Django ORM 编写普通的查询代码，为你的站点提供搜索功能，而无需依赖像 ElasticSearch 等其它工具。它非常适合小型站点，而之后你也可以使用一个更健壮的搜索引擎进行扩展。</p>
 </li>
 <li>
-<p><a href="https://www.wellfireinteractive.com/blog/using-django-proxy-models">How to use Django's Proxy Models</a>
-  is a solid post on a Django ORM concept that doesn't frequently get a lot
-  of love or explanation.</p>
+<p><a href="https://www.wellfireinteractive.com/blog/using-django-proxy-models">如何使用 Django 的代理数据库模型</a> 这篇文章详细地讲解了 Django ORM 中的一个概念，该概念通常不太会被提及或得到解释。</p>
 </li>
 <li>
-<p><a href="http://tech.marksblogg.com/django-admin-logins.html">Tightening Django Admin Logins</a>
-  shows you how to log authentication failures, create an IP addresses white
-  list and combine fail2ban with the authentication failures list.</p>
+<p><a href="http://tech.marksblogg.com/django-admin-logins.html">整合 Django 后台系统的登录功能</a> 展示了如何对身份认证失败日志进行记录，如果创建一份 IP 地址白名单，及如何将 fail2ban 与身份认证失败列表结合使用。</p>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/django-migrations-a-primer/">Django Migrations - a Primer</a>
-  takes you through the new migrations system integrated in the Django core as of Django 1.7, looking specifically at a solid workflow that you can use for creating and applying migrations.</p>
+<p><a href="https://realpython.com/blog/python/django-migrations-a-primer/">Django 数据迁移 - 入门</a> 带你领略了集成到 Django 1.7 内核中的新的迁移系统，并特别介绍了一个固定的工作流程，该流程可用于创建和实施数据迁移。</p>
 </li>
 <li>
-<p><a href="https://markusholtermann.eu/2014/09/django-17-database-migrations-done-right/">Django 1.7: Database Migrations Done Right</a>
-  explains why South was not directly integrated into Django, how migrations
-  are built and shows how backwards migrations work.</p>
+<p><a href="https://markusholtermann.eu/2014/09/django-17-database-migrations-done-right/">Django 1.7: 数据库迁移做得对</a> 讲解了为何 South 不能直接集成进 Django 中，迁移是如何创建的并展示了后退迁移是如何工作的。</p>
 </li>
 <li>
-<p><a href="http://www.rkblog.rk.edu.pl/w/p/squashing-and-optimizing-migrations-django/">Squashing and optimizing migrations in Django</a>
-  shows a simple example with code for how to use the migrations integrated
-  into Django 1.7.</p>
+<p><a href="http://www.rkblog.rk.edu.pl/w/p/squashing-and-optimizing-migrations-django/">压缩及优化 Django 中的迁移操作</a> 以一个简单的示例代码展示了如何使用这个集成到 Django 1.7 中的迁移工具。</p>
 </li>
 <li>
-<p><a href="https://www.isotoma.com/blog/2015/11/23/sorting-querysets-with-nulls-in-django/">Sorting querysets with NULLs in Django</a>
-  shows what to do if you're struggling with the common issue of sorting
-  columns that contain NULL values.</p>
+<p><a href="https://www.isotoma.com/blog/2015/11/23/sorting-querysets-with-nulls-in-django/">在 Django 中对带有 NULL 值的查询集进行排序</a> 展示了对包含有 NULL 值的列进行排序这个常见问题如何进行处理。</p>
 </li>
 </ul>
-<h3>SQLAlchemy resources</h3>
+<h3>SQLAlchemy 相关资源</h3>
 <ul>
 <li>
-<p>If you're interested in the differences between SQLAlchemy and the Django
-  ORM I recommend reading
-  <a href="http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/">SQLAlchemy and You</a>
-  by Armin Ronacher.</p>
+<p>如果你对 SQLAlchemy 与 Django ORM 之间的区别感兴趣，我推荐你读下 Armin Ronacher 写的 <a href="http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/">SQLAlchemy 和你</a>。</p>
 </li>
 <li>
-<p>There is an entire chapter in the 
-  <a href="http://aosabook.org/en/sqlalchemy.html">Architecture of Open Source Applications book on SQLAlchemy </a>.
-  The content is detailed and well worth reading to understand what's 
-  happening under the covers.</p>
+<p><a href="http://aosabook.org/en/sqlalchemy.html">开源应用的体系结构这本书上有完整的一章专门讲述了 SQLAlchemy</a>。内容很详实，非常值得一读，从中可以了解其低层的工作原理。</p>
 </li>
 <li>
-<p><a href="http://www.pythoncentral.io/sqlalchemy-vs-orms/">SQLAlchemy vs Other ORMs</a>
-  provides a detailed comparison of SQLAlchemy against alternatives.</p>
+<p><a href="http://www.pythoncentral.io/sqlalchemy-vs-orms/">SQLAlchemy vs 其它 ORM</a> 提供了 SQLAlchemy 与其它可替代品的详细对比。</p>
 </li>
 <li>
-<p>Most Flask developers use SQLAlchemy as an ORM to relational databases.
-  If you're unfamiliar with SQLAlchemy questions will often come up such as
-  <a href="http://stackoverflow.com/questions/4201455/sqlalchemy-whats-the-difference-between-flush-and-commit">what's the difference between flush and commit?</a>
-  that are important to understand as you build out your app.</p>
+<p>大多数 Flask 开发人员使用 SQLAlchemy 作为关系型数据库的 ORM。如果你不太熟悉 SQLAlchemy 的话，你经常会有 <a href="http://stackoverflow.com/questions/4201455/sqlalchemy-whats-the-difference-between-flush-and-commit">刷新和提交之间有什么不同？</a> 等这样的疑问，领会这些问题对于创建你的应用是至关重要的。</p>
 </li>
 <li>
-<p><a href="https://engineering.betterworks.com/2015/09/03/sqlalchemy-and-django/">SQLAlchemy and Django</a>
-  explains how one development team uses the Django ORM for most of their
-  standard queries but relies on SQLAlchemy for really advanced queries.</p>
+<p><a href="https://engineering.betterworks.com/2015/09/03/sqlalchemy-and-django/">SQLAlchemy 与 Django</a> 讲解了一个开发团队如何用Django ORM 处理大多数情况下的标准查询工作，而在真正高级查询中使用 SQLAlchemy。</p>
 </li>
 </ul>
-<h3>Peewee resources</h3>
+<h3>Peewee 相关资源</h3>
 <ul>
 <li>
-<p><a href="http://charlesleifer.com/blog/managing-database-connections-with-peewee/">Managing database connections with Peewee</a>
-  explains the connection pool and ExecutionContext of the ORM.</p>
+<p><a href="http://charlesleifer.com/blog/managing-database-connections-with-peewee/">使用 Peewee 进行数据库连接管理</a> 对 ORM 的连接池及 ExecutionContext 进行了讲解。</p>
 </li>
 <li>
-<p><a href="http://charlesleifer.com/blog/dear-diary-an-encrypted-command-line-diary-with-python/">An encrypted command-line diary with Python</a>
-  is an awesome walkthrough explaining how to use SQLite, SQLCipher and
-  Peewee to create an encrypted file with your contents, diary or otherwise.</p>
+<p><a href="http://charlesleifer.com/blog/dear-diary-an-encrypted-command-line-diary-with-python/">用 Python 实现一个加密命令行日记程序</a> 这篇精彩的文章，演示并讲解了如何使用 SQLite, SQLCipher 及 Peewee 来创建一个包含目录、日记及其它内容的加密文件。</p>
 </li>
 <li>
-<p>The <a href="http://docs.peewee-orm.com/en/latest/peewee/quickstart.html">official Peewee quickstart documentation</a>
-  along with the 
-  <a href="http://docs.peewee-orm.com/en/latest/peewee/example.html">example Twitter clone app</a>
-  will walk you through the ins and outs of your first couple Peewee-powered
-  projects.</p>
+<p>通过 <a href="http://docs.peewee-orm.com/en/latest/peewee/quickstart.html">官方的 Peewee 快速入门文档</a> 及这个 <a href="http://docs.peewee-orm.com/en/latest/peewee/example.html">Twitter 克隆示例应用</a>，你会学到创建 Peewee 项目所需的各方面知识。</p>
 </li>
 <li>
-<p><a href="http://charlesleifer.com/blog/shortcomings-in-the-django-orm-and-a-look-at-peewee-a-lightweight-alternative/">Shortcomings in the Django ORM and a look at Peewee</a>
-  from the author of the Peewee ORM explains how some of the design
-  decisions made in Peewee were in reaction to parts of the Django ORM
-  that didn't work so well in practice.</p>
+<p><a href="http://charlesleifer.com/blog/shortcomings-in-the-django-orm-and-a-look-at-peewee-a-lightweight-alternative/">Django ORM 的短板及对 Peewee 的审视</a> 这篇来自 Peewee ORM 作者的文章，讲解了 Peewee 中的一些设计决策，是如何应对 Django ORM 的相应实践短板的。</p>
 </li>
 <li>
-<p><a href="http://charlesleifer.com/blog/how-to-make-a-flask-blog-in-one-hour-or-less/">How to make a Flask blog in one hour or less</a>
-  is a well written tutorial that uses the
-  <a href="https://peewee.readthedocs.org/en/latest/">Peewee ORM</a> instead of
-  SQLAlchemy for the blog back end.</p>
+<p><a href="http://charlesleifer.com/blog/how-to-make-a-flask-blog-in-one-hour-or-less/">如何只用一小时或更少时间用 Flask 创建一个博客系统</a> 这篇教程写得相当不错，里面的博客系统后端使用了 <a href="https://peewee.readthedocs.org/en/latest/">Peewee ORM</a> 来代替 SQLAlchemy。</p>
 </li>
 </ul>
-<h3>Pony ORM resources</h3>
+<h3>Pony ORM 相关资源</h3>
 <ul>
 <li>
-<p><a href="http://jakeaustwick.me/why-you-should-give-ponyorm-a-chance/">Why you should give Pony ORM a chance</a>
-  explains some of the benefits of Pony ORM that make it worth trying out.</p>
+<p><a href="http://jakeaustwick.me/why-you-should-give-ponyorm-a-chance/">为什么说你应该尝试下 Pony ORM</a> 讲解了 Pony ORM 的一些优点，这些特性使得 Pony ORM 值得一试。</p>
 </li>
 <li>
-<p><a href="http://www.blog.pythonlibrary.org/2014/07/21/python-101-an-intro-to-pony-orm/">An intro to Pony ORM</a>
-  shows the basics of how to use the library, such as creating databases
-  and manipulating data.</p>
+<p><a href="http://www.blog.pythonlibrary.org/2014/07/21/python-101-an-intro-to-pony-orm/">Pony ORM 简介</a> 讲解了该库的基本用法，例如创建数据库和处理数据等。</p>
 </li>
 <li>
-<p>The Pony ORM author explains on a Stack Overflow answer
-  <a href="http://stackoverflow.com/questions/16115713/how-pony-orm-does-its-tricks">how Pony ORM works behind the scenes</a>.
-  Worth a read whether or not you're using the ORM just to find out how
-  some of the magic coding works.</p>
+<p>Pony ORM 的作者在 Stack Overflow 上对 <a href="http://stackoverflow.com/questions/16115713/how-pony-orm-does-its-tricks">Pony ORM 是如何运作的</a> 的解答，无论你是否使用该 ORM，还是只想找出这些优秀代码的工作原理，都值得一读。</p>
 </li>
 </ul>
-<h3>SQLObject resources</h3>
+<h3>SQLObject 相关资源</h3>
 <ul>
 <li>
-<p>This post on
-  <a href="http://www.andypatterns.com/index.php/blog/object_relational_mapping_pattern_-_using_sqlobj/">Object-Relational Mapping with SQLObject</a>
-  explains the concept behind ORMs and shows the Python code for how they
-  can be used.</p>
+<p>这篇关于 <a href="http://www.andypatterns.com/index.php/blog/object_relational_mapping_pattern_-_using_sqlobj/">使用 SQLObject 进行对象-关系映射</a> 的文章对 ORM 背后的相关概念进行了讲解，并且展示了如何使用的相关 Python 代码。</p>
 </li>
 <li>
-<p>Ian Bicking presented on SQLObject back in 2004 with a talk on
-  <a href="http://www.ianbicking.org/docs/sqlobject-presentation/sqlobject-and-database-programming.html">SQLObject and Database Programming in Python</a>.</p>
+<p>Ian Bicking 早在 2004 年就发表了关于 SQLObject 的一次演讲： <a href="http://www.ianbicking.org/docs/sqlobject-presentation/sqlobject-and-database-programming.html">SQLObject 及 Python 的数据库编程</a>。</p>
 </li>
 </ul>
           <h1>PostgreSQL</h1>
