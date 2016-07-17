@@ -3763,38 +3763,18 @@ Amazon 还有 <a href="http://aws.amazon.com/about-aws/whats-new/2012/07/31/anno
 <p>转到 <a href="/operating-systems.html">操作系统</a> 部分去学习如何加载 Ubuntu 14.04 LTS 作为部署 Python web 应用的基础系统。</p>
 </li>
 </ol>
-          <h1>Platform-as-a-service</h1>
-<p>A platform-as-a-service (PaaS) provides infrastructure and a software layer
-on which a web application is deployed. Running your web application from
-a PaaS removes the need to know as much about the underlying servers, 
-operating system, web server, and often the WSGI server. </p>
-<p><em>Note</em>: If you are not interested in deploying to a PaaS you can move 
-ahead to the <a href="/wsgi-servers.html">WSGI servers</a> section.</p>
-<p>The PaaS layer defines how the application accesses resources such as 
-computing time, files, and external services. The PaaS provides a 
-higher-level abstraction for working with computing resources than deploying 
-an application to a server or IaaS.</p>
-<p>A PaaS makes deployment and operations easier because it forces the developer
-to conform applications to the PaaS architecture. For example, Heroku looks 
-for Python's <code>requirements.txt</code> file in the base directory of the repository 
-during deployment because that is the file's de facto community standard
-location.</p>
-<p><img src="/img/servers-versus-paas.png" width="100%" alt="Traditional LAMP server stack versus a Platform-as-a-Service stack" class="technical-diagram" /></p>
-<p>If you go the PaaS route, you can skip configuring an operating system
-and web server prebaked into PaaS offerings. PaaS offerings generally start 
-at the WSGI server layer. </p>
-<h2>Platform-as-a-service responsibilities</h2>
-<p>Although PaaS offerings simplify setting up and maintaining the servers,
-operating system, and web server, developers still have responsibilities for other
-layers of their web stack.</p>
-<p>While it's useful to know the operating system that underpins your PaaS, for 
-example Heroku uses Ubuntu 10.04, you will not have to know as much about 
-securing the operating system and server level. However, web applications deployed
-to a PaaS are just as vulnerable to security breaches at the application level
-as a standard LAMP stack. It's still your responsibility to ensure the web
-application framework and your app itself is up to date and secured. See the
-<a href="/web-application-security.html">security section</a> for further information.</p>
-<h2>Platforms-as-a-service that support Python</h2>
+          <h1>平台即服务（PaaS）</h1>
+<p>平台即服务（PaaS）提供了硬件基础设施和软件层，这样可以在它上面部署 web 应用。使用 PaaS 方案部署你的 web 应用，就意味着你不必了解更多关于服务器基础、操作系统、web 服务器、以及常提到的 WSGI 服务器的相关知识。</p>
+<p><em>注意</em>：如果你对使用 PaaS 方案部署 web 应用没什么兴趣的话，可以去阅读 <a href="/wsgi-servers.html">WSGI 服务器</a> 一节的内容。</p>
+<p>PaaS 层定义了应用程序应该如何访问诸如计算时间、文件以及外部服务这样的资源。相对于在一台服务器或者在 IaaS 上部署应用的方案，PaaS 为使用计算资源提供了更高层次的抽象。</p>
+<p>使用 PaaS 方案使得部署和操作变得更加简单，因为它会强迫开发者让应用程序符合 PaaS 架构。例如，在部署应用期间，Heroku 会在仓库的基目录查找 Python <code>requirements.txt</code> 文件，因为基目录就是那个文件的实际社区标准位置。</p>
+<p><img src="/img/servers-versus-paas.png" width="100%" alt="传统 LAMP 服务栈对比基础设施即服务（PaaS）栈" class="technical-diagram" /></p>
+<p>如果你走的是使用 PaaS 的路线，那你就可以跳过配置操作系统和 web 服务器的步骤，它们都由 PaaS 预先配置并提供了。 PaaS 提供的服务通常起始于 WSGI 服务层。</p>
+<h2>平台即服务（PaaS）的职责所在</h2>
+<p>虽说 PaaS 提供的服务会简化服务器、操作系统和 web 服务器的设置和维护，但开发者们仍然需要对他们的 web 栈中其他各层负责。</p>
+<p>虽然了解一些用于支撑你的 PaaS 的操作系统知识是有好处的，例如 Heroku 使用的是 Ubuntu 10.04，但是你不必学习很多关于操作系统和服务器层面的安全知识。然而，部署到 PaaS 的 web 应用在在作为 LAMP 堆栈上的应用层依然会因为安全漏洞而易受攻击。这依旧是你的职责去保证你的 web 应用框架和应用能够及时更新并且保证它们的安全。阅读
+<a href="/web-application-security.html">安全部分</a> 获取更多信息。</p>
+<h2>支持 Python 的平台即服务（PaaS）</h2>
 <ul>
 <li>
 <p><a href="http://www.heroku.com/">Heroku</a></p>
@@ -3815,486 +3795,323 @@ application framework and your app itself is up to date and secured. See the
 <p><a href="https://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a></p>
 </li>
 </ul>
-<h2>Platform-as-a-service resources</h2>
+<h2>与平台即服务（PaaS）有关的资源</h2>
 <ul>
 <li>
-<p><a href="http://appsembler.com/blog/paas-bakeoff-comparing-stackato-openshift-dotcloud-and-heroku-for-django-hosting-and-deployment/">PaaS bakeoff: Comparing Stackato, OpenShift, Dotcloud and Heroku for Django hosting and deployment</a> by <a href="https://twitter.com/natea">Nate Aune</a>.</p>
+<p><a href="http://appsembler.com/blog/paas-bakeoff-comparing-stackato-openshift-dotcloud-and-heroku-for-django-hosting-and-deployment/">PaaS 测评：对比在 Stackato, OpenShift, Dotcloud 和 Heroku 上托管和部署 Django 应用</a> ，由 <a href="https://twitter.com/natea">Nate Aune</a> 编写。</p>
 </li>
 <li>
-<p><a href="http://www.rdegges.com/deploying-django/">Deploying Django</a> by 
-  Randall Degges is another great free resource about Heroku.</p>
+<p><a href="http://www.rdegges.com/deploying-django/">部署 Django</a> 由
+  Randall Degges 编写， 是另外一篇有关 Heroku 的免费并且优秀的文章。</p>
 </li>
 <li>
-<p><a href="https://www.expeditedssl.com/aws-in-plain-english">AWS in Plain English</a>
-  shows what current Amazon Web Services individual services are
-  currently called and what they could've been called to be more 
-  clear to users.</p>
+<p><a href="https://www.expeditedssl.com/aws-in-plain-english">浅说 AWS</a>
+  说明了当前 Amazon Web Services 的独立服务的称呼，以及它们应当称呼什么才能让用户觉得更加清晰。</p>
 </li>
 <li>
-<p><a href="https://cloudonaut.io/5-aws-mistakes-you-should-avoid/">5 AWS mistakes you should avoid</a>
-  explains how common beginner practices such as manually managing 
-  infrastructure, not using scaling groups and underutilizing instances can 
-  create problems you'd be better off avoiding altogether.</p>
+<p><a href="https://cloudonaut.io/5-aws-mistakes-you-should-avoid/">5个你应当避免的 AWS 错误</a>
+  说明了普通的新手的在进行一些诸如手工管理设施、不使用扩展组以及未充分利用实例这样的实践时是如何产生问题的，你最好同时避免这些问题。</p>
 </li>
 <li>
-<p>Heroku's 
-  <a href="https://devcenter.heroku.com/articles/getting-started-with-python">Python deployment documentation</a>
-  provides clear examples for how to work with virtualenv, pip and 
-  <code>requirements.txt</code> to get a applications deployed to their platform.</p>
+<p>Heroku 的
+  <a href="https://devcenter.heroku.com/articles/getting-started-with-python">Python 部署文档</a>
+   提供了清晰的例子展示了如何使用 virtualenv, pip 和 <code>requirements.txt</code> 将应用部署到他们的平台。</p>
 </li>
 <li>
-<p>Miguel Grinberg's Flask tutorial contains an entire post on deploying 
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-the-heroku-cloud">Flask applications to Heroku</a>.</p>
+<p>Miguel Grinberg 编写的 Flask 教程中包含了一篇完整的文章讲述了部署
+  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-the-heroku-cloud">Flask 应用到 Heroku</a>。</p>
 </li>
 <li>
-<p>This series on DevOps Django by 
-  <a href="https://twitter.com/rdegges">Randall Degges</a> is great reading for 
-  using the Heroku service:</p>
+<p>由 
+  <a href="https://twitter.com/rdegges">Randall Degges</a> 编写的 DevOps Django 系列是学习使用 Heroku 服务非常好的阅读资料：</p>
 <ul>
-<li><a href="http://www.rdegges.com/devops-django-part-1-goals/">Part One: Goals</a></li>
-<li><a href="http://www.rdegges.com/devops-django-part-2-the-pain-of-deployment/">Part Two: The Pain of Deployment</a></li>
-<li><a href="http://www.rdegges.com/devops-django-part-3-the-heroku-way/">Part Three: The Heroku Way</a></li>
-<li><a href="http://rdegges.com/devops-django-part-4-choosing-heroku">Part Four: Choosing Heroku</a></li>
+<li><a href="http://www.rdegges.com/devops-django-part-1-goals/">第一部分：目标</a></li>
+<li><a href="http://www.rdegges.com/devops-django-part-2-the-pain-of-deployment/">第二部分：部署之痛</a></li>
+<li><a href="http://www.rdegges.com/devops-django-part-3-the-heroku-way/">第三部分：Heroku 方式</a></li>
+<li><a href="http://rdegges.com/devops-django-part-4-choosing-heroku">第四部分：选择 Heroku</a></li>
 </ul>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/deploying-a-django-app-to-aws-elastic-beanstalk/">Deploying a Django App to AWS Elastic Beanstalk</a>
-  is a fantastic post that shows how to deploy to Amazon Web Service's own
-  PaaS.</p>
+<p><a href="https://realpython.com/blog/python/deploying-a-django-app-to-aws-elastic-beanstalk/">在 AWS Elastic Beanstalk 上部署 Django 应用</a>
+  是一篇非常精辟的文章，讲述了如何在 Amazon Web 服务提供的 PaaS 上进行部署。</p>
 </li>
 <li>
-<p><a href="https://news.mlh.io/deploy-your-hack-in-3-steps-intro-to-aws-and-elastic-beanstalk-02-20-2015">Deploy your hack in 3 steps: Intro to AWS and Elastic Beanstalk</a>
-  shows how to deploy a simple Ruby Sinatra app, but the steps are generally
-  applicable to Python web apps as well. </p>
+<p><a href="https://news.mlh.io/deploy-your-hack-in-3-steps-intro-to-aws-and-elastic-beanstalk-02-20-2015">三步完成部署：针对 AWS 和 Elastic Beanstalk 的介绍</a>
+  展示了如何部署一个简单的 Ruby Sinatra 应用，但是这些步骤对于 Python web 应用来说通常也是适用的。</p>
 </li>
 <li>
-<p>Are you wondering what it will cost to deploy a reasonable sized production 
-  app on a platform-as-a-service like Heroku? Check out Cushion's 
-  <a href="http://cushionapp.com/expenses/">transparent costs list</a> where they
-  include their expenses from using a PaaS as well as other services.</p>
+<p>你还在为在一个类似 Heroku 的平台即服务（PaaS）上部署一个合理大小的产品应用的花费而纳闷吗？ 看看 Cushion 的
+  <a href="http://cushionapp.com/expenses/">透明开销清单</a>，它们包含了使用 PaaS 以及其它服务的开支详情。</p>
 </li>
 <li>
-<p>The <a href="http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html">beginner's guide to scaling to 11 million users on AWS</a>
-  is a useful list of services you'll need to look at as you grow an
-  application from 10 to 100 to 1000 to 500,000 and beyond to millions 
-  of users.</p>
+<p>这篇 <a href="http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html">新手指南：在 AWS 上扩展支持 1100 万用户</a>
+  是一些非常有用的服务清单。当你的应用从拥有 10 人、100 人到 1000 人再到 50 万人以及超过百万用户后，你需要去阅读这篇指南。</p>
 </li>
 <li>
-<p><a href="http://blog.codeship.com/separate-aws-production-and-development-accounts/">How to Separate Your AWS Production and Development Accounts</a>
-  is a basic post on keeping developer sandbox accounts separate from
-  production AWS environments.</p>
+<p><a href="http://blog.codeship.com/separate-aws-production-and-development-accounts/">如何隔离你的 AWS 产品和开发账户</a>
+  是一篇基础的文章，讲述了如何将开发者沙盒账户和产品级别的 AWS 环境保持隔离。</p>
 </li>
 <li>
-<p><a href="https://medium.com/@davidmytton/how-much-is-spotify-paying-google-cloud-ebb3bf180f15">How much is Spotify Paying Google Cloud?</a>
-  provides some insight into how Spotify runs all of their infrastructure
-  on Google Cloud and posits what they may be paying to run their
-  service.</p>
+<p><a href="https://medium.com/@davidmytton/how-much-is-spotify-paying-google-cloud-ebb3bf180f15">Spotify 给 Google 云支付了多少？</a>
+  深入洞悉了 Spotify 如何在 Goole 云上运行它们所有的基础设施服务，并假想了它们要为此可能支付的费用。</p>
 </li>
 <li>
-<p>Two blog posts on using AWS Autoscaling in <a href="https://mcristi.wordpress.com/2016/04/21/my-approach-at-making-aws-ec2-affordable-automatic-replacement-of-autoscaling-nodes-with-equivalent-spot-instances/">Automatic replacement of Autoscaling nodes with equivalent spot instances</a>
-  and
-  <a href="https://mcristi.wordpress.com/2016/04/27/automatic-replacement-of-autoscaling-nodes-with-equivalent-spot-instances-seeing-it-in-action/">Autoscaling nodes: seeing it in action</a>
-  provides a fairly complicated but potential approach for making AWS 
-  cheaper, depending on whether the majority of your cost is in compute
-  nodes.</p>
+<p>有两篇博客是关于 AWS 自动扩展功能的， 它们分别是 <a href="https://mcristi.wordpress.com/2016/04/21/my-approach-at-making-aws-ec2-affordable-automatic-replacement-of-autoscaling-nodes-with-equivalent-spot-instances/">自动使用等价的 Spot 实例替换自动扩展的节点</a>
+  以及
+  <a href="https://mcristi.wordpress.com/2016/04/27/automatic-replacement-of-autoscaling-nodes-with-equivalent-spot-instances-seeing-it-in-action/">自动扩展的节点：在实践中学习</a>
+  提供了一种很复杂但潜在方法来让 AWS 更加便宜，不过这取决于你的大多数花费是否在计算节点上。</p>
 </li>
 </ul>
-<h2>Platform-as-a-service learning checklist</h2>
+<h2>平台即服务（PaaS）学习清单</h2>
 <ol>
 <li>
-<p>Review the potential Python platform-as-a-service options listed above.</p>
+<p>回顾上述列出的一些潜在的 Python 平台即服务（PaaS）选项。</p>
 </li>
 <li>
-<p>Sign up for a PaaS account at the provider that appears to best fit your
-   application needs. Heroku is the PaaS option recommended for starters due 
-   to their detailed documentation and walkthroughs available on the web. 
-   However, the other options are also viable since their purpose is to make 
-   deploying applications as easy as possible.</p>
+<p>找一个最适合你的应用需求的 PaaS 供应商，并在那儿注册一个账户。Heroku 是推荐给初学者的 PaaS 选择，因为它提供了详细的文档，并且在网上有很多不错的教程。当然，其他的选择也是可行的，因为他们的目的就是让应用部署尽可能地简单。</p>
 </li>
 <li>
-<p>Check if there are any PaaS-specific configuration files needed for your 
-   app to run properly on the PaaS after it is deployed.</p>
+<p>在 PaaS 上部署应用后，检查一下是否有任何需要的 PaaS 相关的详细配置文件，从而让你的应用以适当的方式运行。</p>
 </li>
 <li>
-<p>Deploy your app to the PaaS. </p>
+<p>在 PaaS 上部署应用。</p>
 </li>
 <li>
-<p>Sync your application's configuration with the database.</p>
+<p>将你的应用配置与数据库同步。</p>
 </li>
 <li>
-<p>Set up a content delivery network for your application's 
-   <a href="/static-content.html">static content</a> unless your PaaS provider already
-   handles this deployment step for you.</p>
+<p>为你应用的 <a href="/static-content.html">静态内容</a> 设置内容分发网络（CDN）
+  ，除非你的 PaaS 供应商已经帮你完成了这个部署步骤。</p>
 </li>
 <li>
-<p>Check if the application's functionality is working and tweak as necessary.</p>
+<p>检查你的应用是否正常工作，并在必要时进行调整。</p>
 </li>
 </ol>
-          <h1>Operating Systems</h1>
-<p>An operating system runs on the server or virtual server and controls access 
-to computing resources. The operating system also includes a way to install
-programs necessary for running your Python web application.</p>
-<h2>Why are operating systems necessary?</h2>
-<p>An operating system makes many of the computing tasks we take for granted 
-easy. For example, the operating system enables writing to files, 
-communicating over a network and running multiple programs at once. 
-Otherwise you'd need to control the CPU, memory, network, graphics card, 
-and many other components with your own low-level implementation.</p>
-<p>Without using an existing operating system like Linux, Mac OS X or Windows,
-you'd be forced to write a new operating system as part of your web 
-application.  It would be impossible to write features for your Python 
-web application because you'd be too busy hunting down a memory leak in 
-your assembly code, if you even were able to get that far.</p>
-<p>Fortunately, the open source community provides Linux to the Python world 
-as a rock solid free operating system for running our applications.</p>
-<h2>Recommended operating systems</h2>
-<p>The only recommended operating system for production Python web stack 
-deployments is Linux. There are several Linux distributions commonly used 
-for running production servers. Ubuntu Long Term Support (LTS) releases, 
-Red Hat Enterprise Linux, and CentOS are all viable options. </p>
-<p>Mac OS X is fine for development activities. Windows and Mac 
-OS X are not appropriate for production deployments unless there is a 
-major reason why you must use them in lieu of Linux.</p>
+          <h1>操作系统</h1>
+<p>操作系统运行在服务器主机或者虚拟服务器主机上，并且控制计算资源的使用。操作系统当然也包括一种安装必要程序的途径，好让你的 Python web 应用能够运行。</p>
+<h2>为何操作系统是必要的？</h2>
+<p>操作系统使得我们觉得理所当然的许多计算任务变得简单。例如，操作系统能够写入文件、进行网络通信以及同时运行多个程序。否则的话，你需要自己完成底层的实现来控制 CPU、内存、网卡以及许多其它的硬件。</p>
+<p>如果不使用现有的诸如 Linux、Mac OS X 或者 Windows 操作系统的话，那你就不得不为你的 web 应用编写一个新的操作系统。 如此一来，你就不可能再为你的 Python web 应用增加新功能了，因为你会忙于在你的汇编代码中追踪内存泄露问题，前提是你能够走到这一步。</p>
+<p>幸运的是，开源社区为 Python 世界提供了坚若磐石的免费操作系统 Linux 来运行我们的应用程序。</p>
+<h2>操作系统推荐</h2>
+<p>唯一推荐用于在生产环境中部署 Python web 堆栈的操作系统是 Linux。有好几种常见的 Linux 发行版可以运行在生产服务器上。Ubuntu 长期支持版（LTS）、Red Hat Linux 企业版以及 CentOS 都是可行的选择。</p>
+<p>Mac OS X 适合用于开发。 Windows 和 Mac 
+OS X 都不适合在生产环境下部署，除非你有必须要替代 Linux 的充足理由。</p>
 <h3>Ubuntu</h3>
-<p>Ubuntu is a Linux distribution packaged by the 
-<a href="http://www.canonical.com/">Canonical Ltd</a> company. Ubuntu uses the
-Debian distribution as a base for packages, including the 
-<a href="http://wiki.debian.org/Apt">aptitude package manager</a>. For desktop versions 
-of Ubuntu, GNOME (until the 11.04 release) or Unity (11.10 through current)
-is bundled with the distribution to provide a user interface.</p>
-<p>Ubuntu <a href="https://wiki.ubuntu.com/LTS">Long Term Support</a> (LTS) releases
-are the recommended versions to use for deployments. LTS versions receive
-five years of post-release updates from Canonical. Every two years, Canonical 
-creates a new LTS release, which allows for an easy upgrade path as well 
-as flexibility in skipping every other LTS release if necessary. As of
-April 2016, 
+<p>Ubuntu 是由
+<a href="http://www.canonical.com/">Canonical</a> 公司推出的 Linux 发行版。 Ubuntu 软件包基于 Debian 发行版，包括这个 
+<a href="http://wiki.debian.org/Apt">aptitude 包管理器</a>。桌面版 Ubuntu 绑定了 GNOME（直到 11.04）或者 Unity（11.10 到现在）来提供用户界面。</p>
+<p>Ubuntu <a href="https://wiki.ubuntu.com/LTS">长期支持</a> (LTS) 发行版是推荐用于部署的发行版本。Canonical 会为 LTS 版本提供长达 5 年的后期更新支持。Canonical 每两年就会推出新的 LTS 发行版，这就为升级提供了非常方便的途径，同时灵活地允许在必要的情况下跳过其他的 LTS 发行版进行升级。截至 2016 年 4 月，
 <a href="https://wiki.ubuntu.com/XenialXerus/ReleaseNotes">16.04 Xenial Xerus</a>
-is the latest Ubuntu LTS release. Xenial Xerus includes 
-<a href="/python-2-or-3.html">Python 3.5</a> as its default Python version, which is
-a major update compared with 2.7 in Ubuntu 14.04 LTS.</p>
-<h4>Ubuntu Python Packages</h4>
-<p>There are several 
+是最新的 Ubuntu LTS 发行版。 Xenial Xerus 包括了
+<a href="/python-2-or-3.html">Python 3.5</a> 作为其默认的 Python 版本，与 Ubuntu 14.04 LTS 上的 2.7 版本相比，这是一个主要的更新。 </p>
+<h4>Ubuntu Python 软件包</h4>
+<p>在 Linux 服务器上有好几种
 <a href="https://help.ubuntu.com/12.04/serverguide/aptitude.html">Aptitude</a>
-packages found on Linux servers running a Python stack. These packages are: </p>
+软件包来运行 Python 栈。这些包是： </p>
 <ul>
 <li>
-<p><a href="http://packages.ubuntu.com/precise/python-dev">python-dev</a> for header
-  files and static library for Python</p>
+<p><a href="http://packages.ubuntu.com/precise/python-dev">python-dev</a> 用于头文件和 Python 静态库。</p>
 </li>
 <li>
 <p><a href="http://packages.ubuntu.com/precise/python-virtualenv">python-virtualenv</a>
-  for creating and managing Python 
-  <a href="https://virtualenv.pypa.io/en/latest/">virtualenvs</a> to isolate library
-  dependencies</p>
+  用于创建并管理 Python 
+  <a href="https://virtualenv.pypa.io/en/latest/">virtualenvs</a> 来隔离库的依赖。</p>
 </li>
 </ul>
-<h3>Red Hat and CentOS</h3>
-<p><a href="http://www.redhat.com/products/enterprise-linux/">Red Hat Enterprise Linux</a>
-(RHEL) and <a href="http://www.centos.org/">Community ENTerprise Operating System</a>
-(CentOS) are the same distribution. The primary difference between the two 
-is that CentOS is an open source, liberally licensed free derivative of RHEL.</p>
-<p>RHEL and CentOS use a different package manager and command-line interface 
-from Debian-based Linux distributions: RPM Package Manager (RPM) and the 
-Yellowdog Updater, Modified (YUM). RPM has a specific .rpm file format
-to handle the packaging and installation of libraries and applications. YUM
-provides a command-line interface for interacting with the RPM system.</p>
-<h2>Operating system resources</h2>
+<h3>Red Hat 和 CentOS</h3>
+<p><a href="http://www.redhat.com/products/enterprise-linux/">Red Hat Linux 企业版</a>
+(RHEL) 以及 <a href="http://www.centos.org/">社区企业版操作系统</a>
+(CentOS) 都是同一个发行版。这两个版本的主要区别是 CentOS 是开源的操作系统，它继承自 RHEL，并且是自由授权，免费使用的。</p>
+<p>RHEL 和 CentOS 与基于 Debian 的 Linux 发行版相比，使用了不同的包管理器和命令行界面： RPM 包管理器（RPM）以及 
+Yellowdog 更新，修改（YUM）。RPM 使用特殊的 .rpm 格式的文件来管理库以及应用程序的打包和安装。YUM
+提供了命令行界面用于和 RPM 系统交互。</p>
+<h2>操作系统相关的资源</h2>
 <ul>
 <li>
-<p><a href="http://www.linux.org/threads/selecting-a-linux-distribution.4087/">What is a Linux distribution and how do I choose the right one?</a></p>
+<p><a href="http://www.linux.org/threads/selecting-a-linux-distribution.4087/">Linux 发行版是什么？我该怎样选择正确的发行版？</a></p>
 </li>
 <li>
-<p>Lifehacker's <a href="http://lifehacker.com/5889950/how-to-find-the-perfect-linux-distribution-for-you">guide to choosing a Linux distro</a>.</p>
+<p>Lifehacker 的 <a href="http://lifehacker.com/5889950/how-to-find-the-perfect-linux-distribution-for-you">Linux 发行版选择指南</a>.</p>
 </li>
 <li>
-<p><a href="https://linuxjourney.com/">Linux Journey</a> is a really well designed
-  curriculum for learning Linux basics such as the command line, package
-  management, text handling. There are also courses for more advanced topics
-  such as how the kernel works, setting up logging and device management.</p>
+<p><a href="https://linuxjourney.com/">Linux 之旅</a> 是非常不错的 Linux 基础学习课程，比如可以学习命令行、包管理、文本处理。当然也有更多涉及高级话题的课程，比如内核是如何工作的，怎样设置日志以及管理设备。</p>
 </li>
 <li>
-<p>The <a href="http://www.opsschool.org/en/latest/">Ops School curriculum</a> is a
-  comprehensive resource for learning about Linux fundamentals and how to
-  perform the work that system administrators typically handle.</p>
+<p><a href="http://www.opsschool.org/en/latest/">Ops 学校课程</a> 是学习 Linux 基本原理以及系统管理员通常会怎样开展工作的综合资源。</p>
 </li>
 <li>
-<p>Since Linux is your go-to production operating system, it's important to
-  get comfortable with the Unix/Linux commands and philosophy. Study up on
-  <a href="http://www.oliverelliott.org/article/computing/tut_unix/">this introduction to Unix tutorial</a>
-  to become more familiar with the operating system.</p>
+<p>既然你的将要使用 Linux 作为生产环境下的操作系统，那么熟悉 Unix/Linux 命令和它的哲学就是非常重要的事情了。学习
+  <a href="http://www.oliverelliott.org/article/computing/tut_unix/">这篇 Unix 教程</a>
+  来对这个操作系统更加熟悉。</p>
 </li>
 <li>
-<p><a href="http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers">First 5 Minutes on a Server</a>
-  shows the first several <a href="/web-application-security.html">security steps</a>
-  that should be done manually or automatically on any server you stand up.</p>
+<p><a href="http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers">使用服务器的最初 5 分钟</a>
+  说明了最初几个需要在你使用的任何服务器上应当手动或者自动完成的 <a href="/web-application-security.html">安全步骤</a>。</p>
 </li>
 <li>
-<p>Digital Ocean has a detailed 
-  <a href="https://www.digitalocean.com/community/articles/how-to-set-up-ubuntu-cloud-servers-for-python-web-applications">walkthrough for setting up Python web applications on Ubuntu</a>.</p>
+<p>“数字海洋（Digital Ocean）”有一篇文章详细介绍了
+  <a href="https://www.digitalocean.com/community/articles/how-to-set-up-ubuntu-cloud-servers-for-python-web-applications">在 Ubuntu 上配置 Python web 应用的步骤</a>。</p>
 </li>
 <li>
-<p><a href="http://0xax.gitbooks.io/linux-insides/content/index.html">linux-internals</a> is
-  a series of posts about how Linux works under the covers, starting from the
-  low level booting process.</p>
+<p><a href="http://0xax.gitbooks.io/linux-insides/content/index.html">深入 Linux</a> 是一系列讲解 Linux 在幕后是如何工作的文章，它从低层的启动过程开始介绍。</p>
 </li>
 </ul>
-<h2>Operating system learning checklist</h2>
+<h2>操作系统学习清单</h2>
 <ol>
 <li>
-<p>Choose either a Debian-based Linux distribution such as Ubuntu or a 
-   Fedora-based distribution like CentOS.</p>
+<p>选择一款 Linux 操作系统，可以是基于 Debian 的发行版如 Ubuntu，或者是基于 Fedora 的发行版如 CentOS。</p>
 </li>
 <li>
-<p>Harden the security through a few basic steps. Install basic security 
-   packages such as 
-   <a href="http://www.fail2ban.org/wiki/index.php/Main_Page">fail2ban</a> and
-   <a href="https://help.ubuntu.com/community/AutomaticSecurityUpdates">unattended-upgrades</a>.
-   Create a new user account with sudo privileges and disable
-   root logins. Disable password-only logins and use a public-private keypair 
-   instead. Read more about hardening systems in the resources listed below.</p>
+<p>通过一些基础的步骤加强系统的安全性。 安装一些基本的安全软件包，如 
+   <a href="http://www.fail2ban.org/wiki/index.php/Main_Page">fail2ban</a> 和
+   <a href="https://help.ubuntu.com/community/AutomaticSecurityUpdates">unattended-upgrades</a>。
+   创建一个拥有 sudo 特权的新用户，并且禁用 root 登录。禁止仅使用密码登录选项，并且使用一个公私钥对来替换。 阅读下面列出的更多关于增强系统安全的资源。</p>
 </li>
 <li>
-<p>Install Python-specific packages to prepare the environment for running a
-   Python application. Which packages you'll need to install depends on the 
-   distribution you've selected.</p>
+<p>安装特定的 Python 软件包为 Python 应用准备好运行环境。根据你选择的发行版来安装所需要的软件包。</p>
 </li>
 <li>
-<p>Read up on <a href="/web-servers.html">web servers</a> as installing one will be the 
-   next step in the deployment process.</p>
+<p>仔细阅读 <a href="/web-servers.html">web 服务器</a>，因为部署环节中的下一个就是安装一个 web 服务器。 </p>
 </li>
 </ol>
-          <h1>Web servers</h1>
-<p>Web servers respond to 
-<a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">Hypertext Transfer Protocol</a> (HTTP)
-requests from clients and send back a response containing a status code and
-often content such as HTML, XML or JSON as well.</p>
-<h2>Why are web servers necessary?</h2>
-<p>Web servers are the ying to the web client's yang. The server and client speak
-the standardized language of the World Wide Web. This standard language
-is why an old Mozilla Netscape browser can still talk to a modern Apache or
-Nginx web server, even if it cannot properly render the page design like a 
-modern web browser can. </p>
-<p>The basic language of the Web with the request and response cycle from 
-client to server then server back to client remains the same as it was when
-the Web was invented by 
-<a href="http://www.w3.org/People/Berners-Lee/">Tim Berners-Lee</a> at CERN in 1989.
-Modern browsers and web servers have simply extended the language of the Web
-to incorporate new standards.</p>
-<h2>Web server implementations</h2>
-<p>The conceptual web server idea can be implemented in various ways. The 
-following web server implementations each have varying features, extensions
-and configurations.</p>
+          <h1>Web 服务器</h1>
+<p>Web 服务器响应来自客户端的
+<a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">超文本传输协议</a> （HTTP）请求，然后给客户端发送回应，包括一个状态码，通常还有诸如 HTML、XML、或 JSON 格式的响应内容。 </p>
+<h2>为何 Web 服务器是必要的？</h2>
+<p>Web 服务器和 web 客户端如同阴和阳。服务器和客户端使用万维网（World Wide Web, WWW）的标准语言沟通。 正式因为有了标准语言，老旧的 Mozilla Netscape 浏览器才依旧能够和一个现代的 web 服务器沟通，例如 Aache 或者 Nginx，即使它不能像现代浏览器那样较好地渲染页面样式。</p>
+<p>采用从客户端到服务器，再从服务器回到客户端的请求和响应模型的 Web 基础语言仍然和 1989 年由 <a href="http://www.w3.org/People/Berners-Lee/">Tim Berners-Lee</a>在 CERN 发明的 Web 基础语言保持一致。现代浏览器和 web 服务器只是简单地扩展了该语言，从而使它符合现代标准。</p>
+<h2>Web 服务器实现</h2>
+<p>Web 服务器的思想概念可以通过不同的方式来实现。以下列出的几种 web 服务器实现都有着不同的特性、扩展和配置。</p>
 <ul>
 <li>
-<p>The <a href="/apache-http-server.html">Apache HTTP Server</a> has been the most 
-  commonly deployed web server on the Internet for 20+ years.</p>
+<p><a href="/apache-http-server.html">Apache HTTP 服务器</a> 在 20 多年里一直是因特网中最常部署的 web 服务器。</p>
 </li>
 <li>
-<p><a href="/nginx.html">Nginx</a> is the second most commonly used server for the
-  top 100,000 websites and often serves as a reverse proxy for 
-  <a href="/wsgi-servers.html">Python WSGI servers</a>.</p>
+<p><a href="/nginx.html">Nginx</a> 是前 100 000 个网站中第二常用的 web 服务器，并且它通常作为 <a href="/wsgi-servers.html">Python WSGI 服务器</a> 的反向代理。</p>
 </li>
 <li>
-<p><a href="/caddy.html">Caddy</a> is a newcomer to the web server scene
-  and is focused on serving the HTTP/2 protocol with HTTPS. </p>
+<p><a href="/caddy.html">Caddy</a> 是 web 服务器中的新星，专注服务启用了 HTTPS 的 HTTP/2 协议。</p>
 </li>
 </ul>
-<h2>Client requests</h2>
-<p>A client that sends a request to a web server is usually a browser such 
-as Internet Explorer, Firefox, or Chrome, but it can also be a</p>
+<h2>客户端请求</h2>
+<p>给 web 服务器发送请求的客户端通常是浏览器，例如 IE、Firefox、Chrome，但是它也可以是：</p>
 <ul>
-<li>headless browser, commonly use for testing, such as 
-  <a href="http://phantomjs.org/">phantomjs</a></li>
-<li>commandline utility, for example <a href="https://www.gnu.org/software/wget/">wget</a>
-  and <a href="http://curl.haxx.se/">cURL</a></li>
-<li>text-based web browser such as 
-  <a href="http://lynx.browser.org/">Lynx</a></li>
-<li>web crawler. </li>
+<li>无头浏览器，通常用于测试，例如
+  <a href="http://phantomjs.org/">phantomjs</a>；</li>
+<li>命令行实用工具，比如 <a href="https://www.gnu.org/software/wget/">wget</a>
+  和 <a href="http://curl.haxx.se/">cURL</a>；</li>
+<li>文本浏览器，如
+  <a href="http://lynx.browser.org/">Lynx</a>；</li>
+<li>web 爬虫。</li>
 </ul>
-<p>Web servers process requests from the above clients. The result of the web
-server's processing is a 
-<a href="https://developer.mozilla.org/en-US/docs/HTTP/Response_codes">response code</a>
-and commonly a content response. Some status codes, such as 204 (No content) 
-and 403 (Forbidden), do not have content responses.</p>
-<p>In a simple case, the client will request a static asset such as a picture
-or JavaScript file. The file sits on the file system in a location the
-web server is authorized to access and the web server sends the file
-to the client with a 200 status code. If the client already requested the
-file and the file has not changed, the web server will pass back a 304 
-"Not modified" response indicating the client already has the latest version
-of that file.</p>
+<p>Web 服务器处理来自上述列出的客户端发出的请求。Web 服务器处理结果是
+<a href="https://developer.mozilla.org/en-US/docs/HTTP/Response_codes">响应码</a>，通常还有响应内容。但有些状态码，例如 204（无内容）和 403（禁止访问），就没有响应内容。</p>
+<p>在一个简单的例子中，客户端会请求静态资源，如一幅图片或者 JavaScript 文件。请求的文件存放在 web 服务器文件系统中的一个位置，并且已被授权访问；然后，web 服务器会给客户端发送这个文件，同时发送一个值为 200 的状态码。如果客户端已经请求过这个文件了，并且文件并没有发生变动，那么 web 服务器将会传递回一个值为 304（未修改）的响应来标记客户端已经获取了最新版本的文件了。</p>
 <p><img src="/img/web-browser-server-requests.png" width="100%" class="technical-diagram" alt="Web server and web browser request-response cycle" /></p>
-<p>A web server sends files to a web browser based on the web browser's 
-request. In the first request, the browser accessed the 
-"www.fullstackpython.com"
-address and the server responded with the index.html HTML-formatted file. 
-That HTML file contained references to other files, such as style.css and 
-script.js that the browser then requested from the server.</p>
-<p>Sending static assets (such as CSS and JavaScript files) can eat up a 
-large amount of bandwidth which is why using a Content Delivery Network 
-(CDN) to <a href="/static-content.html">serve static assets</a> is important when 
-possible.</p>
-<h2>Web server resources</h2>
+<p>Web 服务器会根据浏览器的请求给它发送文件。在第一次请求中，浏览器会访问 "www.fullstackpython.com" 地址，然后服务器作为响应会发送 HTML 格式的 index.html 文件。这个 HTML 文件包含了其他文件的引用，比如 style.css 和 script.js，然后浏览器会向服务器请求那些文件。</p>
+<p>发送静态资源（如 CSS 和 JavaScript 文件）时会占用大量的网络带宽，这就是在可能的情况下使用内容分发网络（CDN）来为 <a href="/static-content.html">静态资源提供服务</a> 非常重要的原因。</p>
+<h2>Web 服务器相关的资源</h2>
 <ul>
 <li>
-<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP/1.1 Specification</a></p>
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP/1.1 规格说明</a></p>
 </li>
 <li>
-<p>A reference with the full list of 
-<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP status codes</a>
-is provided by W3C.</p>
+<p>由 W3C 提供的完整的
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP 状态码</a> 列表资料。</p>
 </li>
 <li>
-<p><a href="http://ibuildings.nl/blog/2013/03/4-http-security-headers-you-should-always-be-using">4 HTTP Security Headers You Should Always Be Using</a></p>
+<p><a href="http://ibuildings.nl/blog/2013/03/4-http-security-headers-you-should-always-be-using">4 个你应当一直使用的 HTTP 安全标头</a></p>
 </li>
 <li>
-<p>If you're looking to learn about web servers by building one, here's
-  <a href="http://ruslanspivak.com/lsbaws-part1/">part one</a>,
-  <a href="http://ruslanspivak.com/lsbaws-part2/">part two</a> and <a href="http://ruslanspivak.com/lsbaws-part3/">part three</a> 
-  of a great tutorial that shows how to code a web server in Python.</p>
+<p>如果你正想通过构建一个 web 服务器来学习它的话，这里列出的
+  <a href="http://ruslanspivak.com/lsbaws-part1/">第一部分</a>,
+  <a href="http://ruslanspivak.com/lsbaws-part2/">第二部分</a> 和 <a href="http://ruslanspivak.com/lsbaws-part3/">第三部分</a> 就是教你如何使用 Python 编写 web 服务器的优秀教程。</p>
 </li>
 <li>
-<p><a href="https://2ton.com.au/rwasa/">rwasa</a> is a newly released web server written
-  in Assembly with no external dependencies that tuned to be faster than Nginx.
-  The benchmarks are worth taking a look at to see if this server could fit
-  your needs if you need the fastest performance trading off for as of yet
-  untested web server.</p>
+<p><a href="https://2ton.com.au/rwasa/">rwasa</a> 是一款新发布的 web 服务器，它采用汇编语言编写，没有额外的依赖，并被证明比 Nginx 还要快。值得看看这个基准，来看看这款服务器是否符合你的需求；当然，得要在最快的性能和未经测试的 web 服务器之间做权衡。</p>
 </li>
 </ul>
-<h2>Web servers learning checklist</h2>
+<h2>Web 服务器学习清单</h2>
 <ol>
 <li>
-<p>Choose a web server. <a href="http://nginx.org/en/">Nginx</a> is often recommended 
-   although <a href="http://httpd.apache.org/">Apache</a> is also a great choice.</p>
+<p>选择一个 web 服务器。通常推荐 <a href="http://nginx.org/en/">Nginx</a>，当然 <a href="http://httpd.apache.org/">Apache</a> 也是一个不错的选择。</p>
 </li>
 <li>
-<p>Create an SSL certificate. For testing use a self-signed certificate 
-   and for a production app buy one from <a href="http://www.digicert.com/">Digicert</a>. 
-   Configure the web server to serve traffic over SSL. You'll need SSL for 
-   serving only HTTPS traffic and preventing security issues that occur with 
-   unencrypted user input.</p>
+<p>创建一个 SSL 证书。对于测试来说，使用一个自签名的证书即可；而对于产品应用，就到 <a href="http://www.digicert.com/">Digicert</a> 上购买一个证书。配置 web 服务器以启用 SSL。你需要 SSL，从而仅提供 HTTPS 的流量服务，这样便可以阻止用户输入未加密的安全问题发生。</p>
 </li>
 <li>
-<p>Configure the web server to serve up static files such as CSS, JavaScript
-   and images.</p>
+<p>配置 web 服务器，从而提供静态文件，如 CSS、JavaScript 和图片的访问服务。</p>
 </li>
 <li>
-<p>Once you set up the <a href="/wsgi-servers.html">WSGI server</a> you'll need to 
-   configure the web server as a pass through for dynamic content.</p>
+<p>一旦你设置了 <a href="/wsgi-servers.html">WSGI 服务器</a>，你就需要配置 web 服务器来传送动态内容。</p>
 </li>
 </ol>
-          <h1>WSGI Servers</h1>
-<p>A <a href="http://wsgi.readthedocs.org/en/latest/">Web Server Gateway Interface</a>
-(WSGI) server implements the web server side of the WSGI interface for
-running Python web applications. </p>
-<h2>Why is WSGI necessary?</h2>
-<p>A traditional web server does not understand or have any way to run Python 
-applications. In the late 1990s, a developer named Grisha Trubetskoy 
-<a href="http://grisha.org/blog/2013/10/25/mod-python-the-long-story/">came up with an Apache module called mod_python</a> 
-to execute arbitrary Python code. For several years in the late 1990s 
-and early 2000s, Apache configured with mod_python ran most Python web 
-applications.</p>
-<p>However, mod_python wasn't a standard specification. It was just an 
-implementation that allowed Python code to run on a server. As mod_python's 
-development stalled and security vulnerabilities were discovered there 
-was recognition by the community that a consistent way to execute Python 
-code for web applications was needed.</p>
-<p>Therefore the Python community came up with WSGI as a standard interface that
-modules and containers could implement. WSGI is now the accepted approach 
-for running Python web applications.</p>
+          <h1>WSGI 服务器</h1>
+<p><a href="http://wsgi.readthedocs.org/en/latest/">Web 服务器网关接口</a>
+(WSGI) 服务器通过实现 web 服务器一侧的 WSGI 接口来运行 Python web 应用。</p>
+<h2>为何 WSGI 是必要的？</h2>
+<p>传统的 web 服务器并不懂得或者没有任何方法来运行 Python 应用。 在 1990 年代晚期，一位名叫 Grisha Trubetskoy 的人
+<a href="http://grisha.org/blog/2013/10/25/mod-python-the-long-story/">开发了一个叫做 mod_python 的 Apache 模块</a> 
+来运行任意的 Python 代码。在 1990 年代晚期的几年以及 2000 年代早期，配置了 mod_python 模块的 Apache 服务器运行着大多数的 Python web 应用。</p>
+<p>然而，mod_python 并非标准规范。它仅仅是一个允许在服务器上运行 Python 代码的实现而已。随着 mod_python 开发渐缓并且有不少安全漏洞被发现，社区开始意识到，需要一种运行 Python web 应用的一致性方法。</p>
+<p>因此，Python 社区提出了将 WSGI 作为一个标准接口规范，来实现各种模块和容器。如今，WSGI 已经是用来运行 Python web 应用的公认方法了。</p>
 <p><img src="/img/wsgi-interface.png" alt="WSGI server invoking a WSGI application." width="100%" class="technical-diagram" /></p>
-<p>As shown in the above diagram, a WSGI server simply invokes a callable object
-on the WSGI application as defined by the PEP 3333 standard.</p>
-<h2>WSGI's Purpose</h2>
-<p>Why use WSGI and not just point a web server directly at an application?</p>
+<p>如上图所示，正如 PEP 3333 标准所定义的那样，WSGI 服务器只是简单地调用一个 WSGI 应用的可调用对象。</p>
+<h2>WSGI 的目的</h2>
+<p>为什么要使用 WSGI？而不仅仅是在应用中直接指定一个 web 服务器？</p>
 <ul>
 <li>
-<p><strong>WSGI gives you flexibility</strong>. Application developers can swap out
-  web stack components for others. For example, a developer can switch from 
-  Green Unicorn to uWSGI without modifying the application or framework 
-  that implements WSGI. 
-  From <a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a>:</p>
-<p>The availability and widespread use of such an API in web servers for 
-Python [...] would separate choice of framework from choice of web 
-server, freeing users to choose a pairing that suits them, while 
-freeing framework and server developers to focus on their preferred 
-area of specialization.</p>
+<p><strong>WSGI 为你提供了灵活性</strong>。应用开发者们可以使用其它组件来替换 web 堆栈中相应组件。例如，开发者可以轻易地从 Green Unicorn 切换到 uWSGI，而不用修改实现了 <a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a> 标准定义的 WSGI 的应用或框架：</p>
+<p>在 Python 的 web 服务器中广泛使用这种 API [...] 可以将框架的选择和 web 服务器的选择分开，可以让用户自由地选择适合他们的一对框架和 web 服务器，同时也让框架开发者和服务器开发者们自由地分别聚焦在他们所擅长的特殊领域中。</p>
 </li>
 <li>
-<p><strong>WSGI servers promote scaling</strong>. Serving thousands of requests for dynamic
-  content at once is the domain of WSGI servers, not frameworks.
-  WSGI servers handle processing requests from the web server and deciding
-  how to communicate those requests to an application framework's process.
-  The segregation of responsibilities is important for efficiently scaling 
-  web traffic.</p>
+<p><strong>WSGI 服务器增强了扩展性</strong>。同时提供上千次针对动态内容的请求服务是 WSGI 服务器的责任，而非框架的责任。WSGI 服务器处理来自 web 服务器的请求，并决定如何让这些请求和应用框架进程通信。责任的分离对于有效地扩展 web 流量是非常重要的。</p>
 </li>
 </ul>
 <p><img src="/img/web-browser-server-wsgi.png" alt="WSGI Server - Web server - Browser" width="100%" class="technical-diagram" /></p>
-<p>WSGI is by design a simple standard interface for running Python code. As
-a web developer you won't need to know much more than</p>
+<p>WSGI 的设计宗旨就是为运行 Python 代码提供简单的标准接口。作为一名 web 开发者，你没有必要了解更多下面列出的知识：</p>
 <ul>
 <li>
-<p>what WSGI stands for (Web Server Gateway Inteface)</p>
+<p>WSGI 代表什么（Web 服务器网关接口）</p>
 </li>
 <li>
-<p>that a WSGI container is a separate running process that runs on a
-  different port than your web server</p>
+<p>WSGI 容器是一个分离运行的进程，并且运行在一个不同于你的 web 服务器的端口上</p>
 </li>
 <li>
-<p>your web server is configured to pass requests to the WSGI container which
-  runs your web application, then pass the response (in the form of HTML)
-  back to the requester</p>
+<p>需要配置你的 web 服务器来给运行着你的 web 应用的 WSGI 容器传递请求，然后再将（HTML 形式）的响应传递回请求方</p>
 </li>
 </ul>
-<p>If you're using a standard web framework such as Django, Flask, or
-Bottle, or almost any other current Python framework, you don't need to worry
-about how frameworks implement the application side of the WSGI standard.
-Likewise, if you're using a standard WSGI container such as Green Unicorn,
-uWSGI, mod_wsgi, or gevent, you can get them running without worrying about
-how they implement the WSGI standard.</p>
-<p>However, knowing the WSGI standard and how these frameworks and containers
-implement WSGI should be on your learning checklist though as you become
-a more experienced Python web developer.</p>
-<h2>Official WSGI specifications</h2>
-<p>The WSGI standard v1.0 is specified in
-<a href="http://www.python.org/dev/peps/pep-0333/">PEP 0333</a>. As of September 2010,
-WSGI v1.0 is superseded by
-<a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a>, which defines the
-v1.0.1 WSGI standard. If you're working with Python 2.x and you're compliant
-with PEP 0333, then you're also compliant with 3333. The newer version is
-simply an update for Python 3 and has instructions for how unicode should
-be handled.</p>
-<p><a href="https://docs.python.org/2/library/wsgiref.html">wsgiref in Python 2.x</a> and
-<a href="https://docs.python.org/3.4/library/wsgiref.html">wsgiref in Python 3.x</a>
-are the reference implementations of the WSGI specification built into
-Python's standard library so it can be used to build WSGI servers and
-applications.</p>
-<h2>Example web server configuration</h2>
-<p>A web server's configuration specifies what requests should be passed to
-the WSGI server to process. Once a request is processed and generated by the
-WSGI server, the response is passed back through the web server and onto
-the browser. </p>
-<p>For example, this Nginx web server's configuration specifies that
-Nginx should handle static assets (such as images, JavaScript, and CSS
-files) under the /static directory and pass all other requests to the WSGI
-server running on port 8000:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">this</span> <span class="nt">specifies</span> <span class="nt">that</span> <span class="nt">there</span> <span class="nt">is</span> <span class="nt">a</span> <span class="nt">WSGI</span> <span class="nt">server</span> <span class="nt">running</span> <span class="nt">on</span> <span class="nt">port</span> <span class="nt">8000</span>
+<p>如果你正在使用一个标准的 web 框架，如 Django、Flask、或者 Bottle，亦或是任何当前存在的 Python 框架，你都不用担心框架是如何实现应用层一侧的 WSGI 标准的。类似地，如果你正在使用一个标准的 WSGI 容器，如 Green Unicorn、uWSGI、mod_wsgi 或 gevent，你可以直接让它们运行，而不用担心它们是如何实现 WSGI 标准的。</p>
+<p>然而，当你成为一名更加富有经验的 Python web 开发者后，你应当把了解 WSGI 标准以及那些框架和容器如何实现 WSGI 的知识加入到你的学习清单中。</p>
+<h2>官方 WSGI 规格说明</h2>
+<p>1.0 版本的 WSGI 标准在
+<a href="http://www.python.org/dev/peps/pep-0333/">PEP 0333</a> 中规定。到了 2010 年 9 月，
+WSGI 1.0 版本被
+<a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a> 定义的 WSGI 1.0.1 版本替代。如果你正在使用 Python 2.x 并且适应了 PEP 0333，那么你也会适应 PEP 3333。新的版本只是简单地为了支持 Python 3 而做的更新，并且还有如何处理 unicode 的说明。</p>
+<p><a href="https://docs.python.org/2/library/wsgiref.html">Python 2.x WSGI 资料</a> and
+<a href="https://docs.python.org/3.4/library/wsgiref.html">Python 3.x WSGI 资料</a>
+是内置在 Python 标准库中的 WSGI 规范实现的参考资料，从而来帮助你构建 WSGI 服务器和应用。</p>
+<h2>Web 服务器配置样例</h2>
+<p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
+<p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">is</span> <span class="nt">set</span> <span class="nt">up</span> <span class="nt">to</span> <span class="nt">run</span> <span class="nt">on</span> <span class="nt">the</span> <span class="nt">standard</span> <span class="nt">HTTP</span> <span class="nt">port</span> <span class="nt">and</span> <span class="nt">listen</span> <span class="nt">for</span> <span class="nt">requests</span>
+<span class="err">#</span> <span class="nt">Nginx</span> <span class="err">配置为运行在标准</span><span class="nt">HTTP</span><span class="err">端口上，并监听请求</span>
 <span class="nt">server</span> <span class="p">{</span>
   <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
 
-  <span class="err">#</span> <span class="n">nginx</span> <span class="n">should</span> <span class="n">serve</span> <span class="n">up</span> <span class="nb">static</span> <span class="n">files</span> <span class="n">and</span> <span class="n">never</span> <span class="n">send</span> <span class="n">to</span> <span class="n">the</span> <span class="n">WSGI</span> <span class="n">server</span>
+  <span class="err">#</span> <span class="n">Nginx</span> <span class="err">应当为静态资源提供服务，并且永远不要把它交给</span> <span class="n">WSGI</span> <span class="err">服务器处理</span>
   <span class="n">location</span> <span class="o">/</span><span class="nb">static</span> <span class="err">{</span>
     <span class="n">autoindex</span> <span class="n">on</span><span class="p">;</span>
     <span class="n">alias</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">assets</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="err">#</span> <span class="nt">requests</span> <span class="nt">that</span> <span class="nt">do</span> <span class="nt">not</span> <span class="nt">fall</span> <span class="nt">under</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">are</span> <span class="nt">passed</span> <span class="nt">on</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">WSGI</span>
-  <span class="err">#</span> <span class="nt">server</span> <span class="nt">that</span> <span class="nt">was</span> <span class="nt">specified</span> <span class="nt">above</span> <span class="nt">running</span> <span class="nt">on</span> <span class="nt">port</span> <span class="nt">8000</span>
+  <span class="err">#</span> <span class="err">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="err">目录的请求都会交给</span> <span class="nt">WSGI</span>
+  <span class="err">#</span> <span class="err">服务器，即上面配置的运行在</span> <span class="nt">8000</span> <span class="err">端口上服务器</span>
   <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
     <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="err">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
     <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="err">$</span><span class="n">http_host</span><span class="p">;</span>
@@ -4309,290 +4126,206 @@ server running on port 8000:</p>
 </pre></div>
 
 
-<p>Note that the above code is a simplified version of a production-ready Nginx
-configuration. For real SSL and non-SSL templates, take a look at the
-<a href="https://github.com/makaimc/underwear/tree/master/underwear/roles/web/templates">Underwear web server templates</a> on GitHub.</p>
-<h2>WSGI servers</h2>
-<p>There is a comprehensive list of WSGI servers on the 
-<a href="http://wsgi.readthedocs.org/en/latest/servers.html">WSGI Read the Docs</a> page.
-The following are WSGI servers based on community recommendations.</p>
+<p>需要注意的是，上面的Nginx 配置代码仅仅是准产品级的简化配置版本。对于真实使用了 SSL 和非 SSL 的模板，请参见 Github 上的
+<a href="https://github.com/makaimc/underwear/tree/master/underwear/roles/web/templates">Underwear web server templates</a>。</p>
+<h2>WSGI 服务器</h2>
+<p>在
+<a href="http://wsgi.readthedocs.org/en/latest/servers.html">WSGI 阅读文档</a> 页面中有一个完整的 WSGI 服务器列表。
+以下是社区推荐的 WSGI 服务器：</p>
 <ul>
 <li>
-<p><a href="http://gunicorn.org/">Green Unicorn</a> is a pre-fork worker model based
-  server ported from the Ruby <a href="http://unicorn.bogomips.org/">Unicorn</a> project.</p>
+<p><a href="http://gunicorn.org/">Green Unicorn</a> 是一个采用了工作者模型的 WSGI 服务器，脱胎于 Ruby 的 <a href="http://unicorn.bogomips.org/">Unicorn</a> 项目。</p>
 </li>
 <li>
-<p><a href="http://uwsgi-docs.readthedocs.org/en/latest/">uWSGI</a> is gaining steam as
-  a highly-performant WSGI server implementation.</p>
+<p><a href="http://uwsgi-docs.readthedocs.org/en/latest/">uWSGI</a> 正在掀起浪潮，因为它是一款高性能的 WSGI 服务器实现。</p>
 </li>
 <li>
-<p><a href="https://github.com/GrahamDumpleton/mod_wsgi">mod_wsgi</a> is an Apache 
-  module implementing the WSGI specification.</p>
+<p><a href="https://github.com/GrahamDumpleton/mod_wsgi">mod_wsgi</a> 是一个实现了 WSGI 规格的 Apache 模块。</p>
 </li>
 <li>
-<p><a href="https://github.com/cherrypy/cherrypy">CherryPy</a> is a pure Python web 
-  server that also functions as a WSGI server.</p>
+<p><a href="https://github.com/cherrypy/cherrypy">CherryPy</a> 是一个纯粹的 Python web 服务器，并且也可以作为一个 WSGI 服务器。</p>
 </li>
 </ul>
-<h2>WSGI resources</h2>
+<h2>WSGI 资源</h2>
 <ul>
 <li>
 <p><a href="http://www.python.org/dev/peps/pep-0333/">PEP 0333 WSGI v1.0</a>
-  and
+  和
   <a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333 WSGI v1.0.1</a>
-  specifications.</p>
+  规格说明。</p>
 </li>
 <li>
-<p>This <a href="http://agiliq.com/blog/2013/07/basics-wsgi/">basics of WSGI</a> post
-  contains a simple example of how a WSGI-compatible application works.</p>
+<p>这篇文章 <a href="http://agiliq.com/blog/2013/07/basics-wsgi/">WSGI 基础</a> 
+  包含了一个简单的例子演示了一个 WSGI 兼容的应用是如何工作的。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-web-servers-for-python-based-web-applications">A comparison of web servers for Python web apps</a>
-  is a good read to understand basic information about various WSGI server
-  implementations.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-web-servers-for-python-based-web-applications">针对 Python web 应用的 web 服务器对比</a>
+  是一篇非常好的阅读材料，可以帮助你理解不同的 WSGI 服务器实现的基础知识。</p>
 </li>
 <li>
-<p>A thorough and informative post for LAMP-stack hosting choices is 
-  presented in the 
-  "<a href="http://www.apreche.net/complete-single-server-django-stack-tutorial/">complete single server Django stack tutorial</a>." </p>
+<p>"<a href="http://www.apreche.net/complete-single-server-django-stack-tutorial/">完全单服务器 Django 栈教程</a>" 中有一篇详细讲解了如何使用 LAMP 栈托管网站的文章。</p>
 </li>
 <li>
-<p>The Python community made a long effort to 
-  <a href="http://blog.dscpl.com.au/2010/05/modpython-project-soon-to-be-officially.html">transition from mod_python</a> 
-  to the WSGI standard. That transition period is now complete and an 
-  implementation of WSGI should always be used instead mod_python.</p>
+<p>Python 社区花费了很大的努力才
+  <a href="http://blog.dscpl.com.au/2010/05/modpython-project-soon-to-be-officially.html">从 mod_python 转移</a> 
+  到 WSGI 标准。那个转移周期现在已经完成了，并且总应该使用 WSGI 实现来代替 mod_python。 </p>
 </li>
 <li>
-<p>Nicholas Piël wrote an interesting benchmark blog post of 
-  <a href="http://nichol.as/benchmark-of-python-web-servers">Python WSGI servers</a>.
-  Note that the post is a few years old. Benchmarks should be considered
-  for their specific tested scenarios and not quickly extrapolated as general
-  "this server is faster than this other server" results.</p>
+<p>Nicholas Piël 写了一篇非常有趣的文章给
+  <a href="http://nichol.as/benchmark-of-python-web-servers">Python WSGI 服务器</a> 评分。
+  注意，那篇文章已经有些旧了。评分只是由它们在特定的测试场景下得出的，并不能由此快速地推断出“这个服务器比其它服务器更快”的结论。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/articles/how-to-deploy-python-wsgi-applications-using-a-cherrypy-web-server-behind-nginx">How to Deploy Python WSGI Applications with CherryPy</a>
-  answers why CherryPy is a simple combination web and WSGI server along with 
-  how to use it.</p>
+<p><a href="https://www.digitalocean.com/community/articles/how-to-deploy-python-wsgi-applications-using-a-cherrypy-web-server-behind-nginx">如何使用 CherryPy 部署 Python WSGI 应用</a>
+  回答了为何 CherryPy 是一个简单的 web 和 WSGI 服务器的组合，同时给出了如何使用它的方法。</p>
 </li>
 <li>
-<p>Another Digital Ocean walkthrough goes into
-  <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-apps-using-gunicorn-http-server-behind-nginx">How to Deploy Python WSGI Apps Using Gunicorn HTTP Server Behind Nginx</a>.</p>
+<p>另外一篇由“数字海洋（Digital Ocean）”推出的演练教程讲解了
+  <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-apps-using-gunicorn-http-server-behind-nginx">如何使用 Gunicorn HTTP 服务器部署 Python WSGI 应用，并在背后使用 Nginx 服务器</a>.</p>
 </li>
 <li>
-<p><a href="https://lincolnloop.com/blog/uwsgi-swiss-army-knife/">The uWSGI Swiss Army Knife</a>
-  shows how uWSGI can potentially be used for more than just running the
-  Python web application - it can also serve static files and handle
-  caching in a deployment.</p>
+<p><a href="https://lincolnloop.com/blog/uwsgi-swiss-army-knife/">uWSGI 瑞士军刀</a> 说明了 uWSGI 在部署中是如何做到不仅能运行 Python web 应用，而且还可以提供静态文件访问服务以及处理缓存的。</p>
 </li>
 </ul>
-<h2>WSGI servers learning checklist</h2>
+<h2>WSGI 服务器学习清单</h2>
 <ol>
 <li>
-<p>Understand that WSGI is a standard Python specification for applications 
-   and servers to implement. </p>
+<p>理解 WSGI 是一个需要应用和服务器实现的 Python 标准规范。</p>
 </li>
 <li>
-<p>Pick a WSGI server based on available documentation and tutorials. Green 
-   Unicorn is a good one to start with since it's been around for awhile.</p>
+<p>根据可用的文档和教程选择一个 WSGI 服务器。Green Unicorn 就是非常好的起点，因为它已经出现有段时间了。</p>
 </li>
 <li>
-<p>Add the WSGI server to your server deployment.</p>
+<p>在你的服务器部署中添加 WSGI 服务器。</p>
 </li>
 <li>
-<p>Configure the web server to pass requests to the WSGI server for 
-   appropriate URL patterns.</p>
+<p>配置 web 服务器给 WSGI 服务器传递符合适当 URL 模式的请求。</p>
 </li>
 <li>
-<p>Test that the WSGI server responds to local requests but not direct 
-   requests outside your infrastructure. The web server should be the pass 
-   through for requests to and responses from the WSGI server.</p>
+<p>测试你的 WSGI 服务器响应本地的请求，而不是来自你的设备以外的直接请求。Web 服务器应当能够向 WSGI 服务器传递请求并从那儿获得响应。</p>
 </li>
 </ol>
-          <h1>Source control</h1>
-<p>Source control, also known as <em>version control</em>, stores software code files
-with a detailed history of every modification made to those files.</p>
-<h2>Why is source control necessary?</h2>
-<p>Version control systems allow developers to modify code without worrying 
-about permanently screwing something up. Unwanted changes can be easily rolled
-back to previous working versions of the code. </p>
-<p>Source control also makes team software development easier. One developer 
-can combine her code modifications with other developers' code through 
-<a href="http://en.wikipedia.org/wiki/Diff">diff</a> views that show line-by-line 
-changes then merge the appropriate code into the main code branch.</p>
-<p>Version control is a necessity on all software projects regardless of 
-development time, codebase size or the programming language used. Every
-project should immediately begin by using a version control system such
-as Git or Mercurial.</p>
-<h2>Source control during deployment</h2>
-<p>Pulling code during a deployment is a potential way source control systems fit
-into the deployment process. </p>
+          <h1>源码控制</h1>
+<p>源码控制，也叫做<em>版本控制</em>，用于保存软件代码文件以及针对这些文件的每次变动的详细历史。</p>
+<h2>为何源码控制是有必要的？</h2>
+<p>版本控制系统允许开发者们修改代码，而不用担心某些情况下把事情彻底搞砸。不想要的变动可以轻松地回滚到之前的代码版本。</p>
+<p>版本控制也使得团队软件开发更加轻松。一个开发者可以通过 <a href="http://en.wikipedia.org/wiki/Diff">diff</a> 命令按行查看代码的变更，然后将合适的代码合并到主代码分支中，这样就可以将他的代码修改和其他开发者的代码合并了。</p>
+<p>版本控制对于所有的软件项目来说都是必要的，不管开发时间、代码库大小或者使用的编程语言。每个项目都应当立即使用一个版本控制系统，例如 Git 或者 Mercurial。</p>
+<h2>开发期间使用源码控制</h2>
+<p>在开发期间拉取代码是源码控制系统适应开发进度的一种潜在方法。</p>
 <p><img src="/img/app-source-control.png" width="100%" class="technical-diagram" alt="App deployment uses a server to pull from the source control system."></p>
-<p>Note that some developers recommend deployment pipelines package the source 
-code to deploy it and never have a production environment touch a source 
-control system directly. However, for small scale deployments it's often
-easiest to pull from source code when you're getting started instead of 
-figuring out how to wrap the Python code in a system installation package.</p>
-<h2>Source control projects</h2>
-<p>Numerous source control systems have been created over the past several
-decades. In the past, proprietary source control software offered features
-tailored to large development teams and specific project workflows. However,
-open source systems are now used for version control on the largest and most
-complicated software projects in existence. There's no reason why your project
-should use anything other than an open source version control system in
-today's Python development world. The two primary choices are:</p>
+<p>需要留意的是，一些开发者推荐在部署流水线中给源码打包并部署，并且永远不要让生产环境和源码控制系统直接接触。然而，对于小规模的软件开发，通常最简单的做法就是在你开始的时候直接从源码中拉取，而不用纠结如何将 Python 代码打包到系统安装包中。</p>
+<h2>源码控制项目</h2>
+<p>在过去的几十年里，人们创造了无数款源码控制系统。过去，专有的源码控制软件提供的功能都是为大型开发团队和特定项目流程定制的。然而，如今开源的源码控制系统正用在现存的最大并且最复杂的软件项目中。在今天的 Python 开发世界，没有理由去使用任何除了开源的源码版本控制系统了。两个主要的选择是：</p>
 <ul>
 <li>
-<p><a href="http://git-scm.com/">Git</a> is a free and open source distributed version
-  control system.</p>
+<p><a href="http://git-scm.com/">Git</a> 是免费并且开源的分布式版本控制系统。</p>
 </li>
 <li>
-<p><a href="http://mercurial.selenic.com/">Mercurial</a> is similar to Git, also a free
-  and open source distributed version control system.</p>
+<p><a href="http://mercurial.selenic.com/">Mercurial</a> 和 Git 类似，也是一款免费开源的分布式版本控制系统。</p>
 </li>
 </ul>
-<h2>Hosted source control services</h2>
-<p>Git and Mercurial can be downloaded and run on your own server. However,
-it's easy and cheap to get started with a hosted version control service.
-You can transition away from the service at a later time by moving your 
-repositories if your needs change. A couple of recommended hosted version
-control services are:</p>
+<h2>源码控制托管服务</h2>
+<p>你可以在你的服务器上下载并运行 Git 和 Mercurial。 然而，开始使用一个托管的版本控制服务也是非常简单又便宜的。如果以后你的需求改变了，你可以通过移动你的仓库来从服务商那儿转移走。几个值得推荐的版本控制托管服务商有：</p>
 <ul>
 <li>
-<p><a href="https://about.gitlab.com/">GitLab</a> has both a self-hosted version of its
-  open source software as well as their hosted version with 
-  <a href="https://about.gitlab.com/pricing/">pricing</a> for businesses that need
-  additional hosting support.</p>
+<p><a href="https://about.gitlab.com/">GitLab</a> 同时提供了针对个人的开源软件托管服务，以及需要额外托管支持的 <a href="https://about.gitlab.com/pricing/">付费</a> 商业服务。</p>
 </li>
 <li>
-<p><a href="https://github.com/">GitHub</a> provides free open source repositories 
-  and paid private repositories for Git.</p>
+<p><a href="https://github.com/">GitHub</a> 为 Git 提供了免费的开源仓库以及付费的私有仓库。</p>
 </li>
 <li>
-<p><a href="https://bitbucket.org/">BitBucket</a> also has free Git and Mercurial 
-  repositories for open projects, but adds private repositories for up to 
-  five users. Users pay for hosting private repositories with more than 
-  five users.</p>
+<p><a href="https://bitbucket.org/">BitBucket</a> 也有支持 Git 和 Mercurial 的免费开源项目仓库，但是还支持最多 5 个用户的私有仓库。超过 5 个用户时，如果需要私有仓库托管服务就需要支付一定的费用了。</p>
 </li>
 </ul>
-<h2>General source control resources</h2>
+<h2>源码控制资料</h2>
 <ul>
 <li>
-<p><a href="http://www.kalzumeus.com/2010/12/12/staging-servers-source-control-deploy-workflows-and-other-stuff-nobody-teaches-you/">Staging Servers, Source Control &amp; Deploy Workflows, And Other Stuff Nobody Teaches You</a> 
-  is a comprehensive overview by Patrick McKenzie of why you need source 
-  control.</p>
+<p><a href="http://www.kalzumeus.com/2010/12/12/staging-servers-source-control-deploy-workflows-and-other-stuff-nobody-teaches-you/">暂存服务器，源码控制和部署工作流程，以及其它一些没人会教你的东西</a> 
+  是由 Patrick McKenzie 编写，是对为何你需要源码控制的全面概述。</p>
 </li>
 <li>
-<p><a href="https://blog.rainforestqa.com/2014-05-28-version-control-best-practices/">Version control best practices</a>
-  is a good write up of how to work with version control systems. The post is 
-  part of an ongoing deployment guide written by the folks at 
-  <a href="https://www.rainforestqa.com/">Rainforest</a>.</p>
+<p><a href="https://blog.rainforestqa.com/2014-05-28-version-control-best-practices/">版本控制最佳实践</a>
+  是一篇非常不错的文章，说明了如何使用版本控制系统。这篇文章是正在由 <a href="https://www.rainforestqa.com/">Rainforest</a> 中的许多人参与编写的部署指南中的一部分。</p>
 </li>
 <li>
-<p>This lighthearted guide to the 
-  <a href="http://www.flourish.org/2011/12/astonishments-ten-in-the-history-of-version-control/">ten astonishments in version control history</a> 
-  is a fun way to learn how systems developed over the past several decades.</p>
+<p>这篇
+  <a href="http://www.flourish.org/2011/12/astonishments-ten-in-the-history-of-version-control/">版本控制发展史中的 10 件惊人的事情</a> 是一篇让人轻松的指南，它提供了一个有趣的途径来学习过去几十年中版本控制系统是如何发展的。</p>
 </li>
 <li>
-<p><a href="http://betterexplained.com/articles/a-visual-guide-to-version-control/">A visual guide to version control</a> 
-  is a detailed article with real-life examples for why version control is
-  necessary in software development.</p>
+<p><a href="http://betterexplained.com/articles/a-visual-guide-to-version-control/">版本控制入门</a> 
+  是一篇含有真实例子的详细文章，它说明了版本控制系统为何在软件开发中很有必要。</p>
 </li>
 <li>
-<p><a href="http://guides.beanstalkapp.com/version-control/intro-to-version-control.html">An introduction to version control</a> 
-  shows the basic concepts behind version control systems.</p>
+<p><a href="http://guides.beanstalkapp.com/version-control/intro-to-version-control.html">版本控制介绍</a> 
+ 展现了版本控制系统背后的概念。</p>
 </li>
 <li>
-<p><a href="http://oss-watch.ac.uk/resources/versioncontrol">What Is Version Control? Why Is It Important For Due Diligence?</a> 
-  explains the benefits and necessity of version control systems.</p>
+<p><a href="http://oss-watch.ac.uk/resources/versioncontrol">什么是版本控制？为何它对于尽职审查非常重要？</a> 
+  解释了版本控制系统的优势和必要性。</p>
 </li>
 <li>
-<p><a href="http://git-scm.com/book/en/Getting-Started-About-Version-Control">About version control</a> 
-reviews the basics of distributed version control systems.</p>
+<p><a href="http://git-scm.com/book/en/Getting-Started-About-Version-Control">关于版本控制</a> 
+回顾了分布式版本控制系统的基础知识。</p>
 </li>
 </ul>
-<h2>Git resources</h2>
+<h2>Git 相关资料</h2>
 <ul>
 <li>
-<p><a href="http://git-scm.com/book">Pro Git</a> is a free open source book that walks 
-  through all aspects of using the version control system.</p>
+<p><a href="http://git-scm.com/book">Pro Git</a> 是一本开源的书籍，介绍了使用版本控制系统所有方面的知识。</p>
 </li>
 <li>
-<p><a href="http://maryrosecook.com/blog/post/git-in-six-hundred-words">Git in Six Hundred Words</a>
-  is a clear and concise essay explaining the fundamental concepts of
-  Git.</p>
+<p><a href="http://maryrosecook.com/blog/post/git-in-six-hundred-words">600 字介绍 Git</a>
+  是一篇解释 Git 基础概念的清晰又简明的文章。</p>
 </li>
 <li>
-<p><a href="http://wildlyinaccurate.com/a-hackers-guide-to-git">A Hacker's Guide to Git</a>
-  covers the basics as well as more advanced Git commands while explaining each
-  step along the way.</p>
+<p><a href="http://wildlyinaccurate.com/a-hackers-guide-to-git">Git 黑客指南</a> 包含了基础和高级的 Git 命令，同时解释了每一步的操作含义。</p>
 </li>
 <li>
-<p><a href="http://think-like-a-git.net/">Think like a Git</a> is another introduction
-  that focuses more on the graph theory and conceptual ideas behind Git
-  to help the reader understand what's happening as they use Git commands.</p>
+<p><a href="http://think-like-a-git.net/">像 Git 一样思考</a> 是另外一篇介绍文章，它更多聚焦在图论和 Git 背后的概念性的思想，从而帮助读者理解在他们使用 Git 命令时究竟发生了什么。</p>
 </li>
 <li>
-<p><a href="http://mrchlblng.me/2014/09/practical-git-introduction/">A practical git introduction</a>
-  is exactly what the title says it is. This is a well written guide with 
-  plenty of code snippets to get you up to speed with Git.</p>
+<p><a href="http://mrchlblng.me/2014/09/practical-git-introduction/">Git 实践介绍</a>
+  内容正如标题所描述的那样。这是一篇非常好的指南，提供了大量的代码片段来让你快速上手 Git。</p>
 </li>
 <li>
-<p><a href="https://codewords.recurse.com/issues/two/git-from-the-inside-out">Git from the inside out</a>
-  demonstrates how Git's graph-based data structure produces certain behavior 
-  through example Git commands. This is a highly recommended read after you've
-  grasped the basics and are looking to go deeper with Git.</p>
+<p><a href="https://codewords.recurse.com/issues/two/git-from-the-inside-out">Git 由内到外</a>
+  通过一些 Git 命令样例展示了基于图的数据结构是如何产生某些行为的。在你已经掌握了 Git 的基础知识后，并且希望能深入 Git 的话，强烈推荐阅读这篇文章。</p>
 </li>
 <li>
-<p><a href="http://gitready.com/">git ready</a> has a nice collection of blog posts based on
-  beginner, intermediate and advanced Git use cases.</p>
+<p><a href="http://gitready.com/">git 就绪</a> 有一个非常不错的针对初级学者、中级学者和高级 Git 用例的博客合集。</p>
 </li>
 <li>
-<p><a href="http://nvie.com/posts/a-successful-git-branching-model/">git-flow</a> details
-  a Git branching model for small teams.</p>
+<p><a href="http://nvie.com/posts/a-successful-git-branching-model/">git 流程</a> 详细描述了针对小团队的 Git 分支模型。</p>
 </li>
 <li>
-<p><a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub Flow</a> builds on
-  git-flow, goes over some of the issues that arise with it and presents a
-  few solutions to those problems.</p>
+<p><a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub 流程</a> 基于“git 流程”构建，重温了一些使用 GitHub 的问题，并且给出了一些针对那些问题的解决方案。</p>
 </li>
 <li>
-<p><a href="http://blog.endpoint.com/2014/05/git-workflows-that-work.html">Git Workflows That Work</a>
-  is a helpful post with diagrams to show how teams can create a Git workflow
-  that will help their development process.</p>
+<p><a href="http://blog.endpoint.com/2014/05/git-workflows-that-work.html">Git可行的工作流程</a>
+  是一篇非常有帮助并且带有图表的文章，它说明了团队如何才能创建一个对他们开发进度有帮助的 Git 流程。</p>
 </li>
 <li>
-<p>"<a href="http://www.braintreepaymentsolutions.com/devblog/our-git-workflow">Our Git Workflow</a>"
-  by Braintree goes over how this payments company uses Git for development
-  and merging source code.</p>
+<p>"<a href="http://www.braintreepaymentsolutions.com/devblog/our-git-workflow">我们的 Git 工作流程</a>" 是 Braintree 编写的，回顾了这家会计公司如何使用 Git 进行开发并合并源码的。</p>
 </li>
 <li>
-<p><a href="https://robots.thoughtbot.com/code-sleuthing-with-git">Code Sleuthing with Git</a>
-  shows how to review past changes when a deployment goes wrong to figure
-  out what the heck happened.</p>
+<p><a href="https://robots.thoughtbot.com/code-sleuthing-with-git">借助 Git 进行代码审查</a>
+  说明了当开发出现问题后，该如何审查过去的变更，从而找出问题。</p>
 </li>
 </ul>
-<h2>Source control learning checklist</h2>
+<h2>源码控制学习清单</h2>
 <ol>
 <li>
-<p>Pick a version control system. Git is recommended because on the web there
-   are a significant number of tutorials to help both new and advanced users.</p>
+<p>选择一个版本控制系统。在这里推荐使用 Git 的原因在于网上有大量帮助新用户和高级用户的教程。</p>
 </li>
 <li>
-<p>Learn basic use cases for version control such as committing changes, 
-   rolling back to earlier file versions and searching for when lines of code 
-   were modified during development history.</p>
+<p>学习一些基本的版本控制用法，比如提交变更、回滚到之前的文件版本以及搜索在开发过程中何时变动了代码行数。</p>
 </li>
 <li>
-<p>Ensure your source code is backed up in a central repository. A central
-   repository is critical not only if your local development version is 
-   corrupted but also for the deployment process.</p>
+<p>确保你的源码备份到了一个中心仓库。中心仓库是非常重要的，不仅是为了防止你本地的开发版本受损，而且也是为了开发进度。</p>
 </li>
 <li>
-<p>Integrate source control into your deployment process in three ways. First,
-   pull the project source code from version control during deployments. 
-   Second, kick off deployments when code is modified by using webhooks or 
-   polling on the repository. Third, ensure you can roll back to a previous 
-   version if a code deployment goes wrong.</p>
+<p>需要三步来集成源码控制到开发过程中。首先，在开发期间，从版本控制系统中拉取项目源码。第二，使用 webhooks 或者轮询仓库的方式在代码修改时启动部署。第三，当开发出现问题时，确保你能够回滚到之前的版本。</p>
 </li>
 </ol>
           <h1>Application Dependencies</h1>

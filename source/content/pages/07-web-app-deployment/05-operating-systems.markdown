@@ -1,139 +1,96 @@
-title: Operating Systems
+title: 操作系统
 category: page
 slug: operating-systems
 sortorder: 0705
 toc: False
-sidebartitle: Operating Systems
-meta: Learn what operating system you should be using for you web application and resources to configure the OS on Full Stack Python.
+sidebartitle: 操作系统
+meta: 快来 Full Stack Python 为你的 web 应用学习应当使用何种操作系统以及怎样配置操作系统的知识吧。
+translators: blog.chriscabin.com
+updated: 2016-07-12 08:00
 
 
-# Operating Systems
-An operating system runs on the server or virtual server and controls access 
-to computing resources. The operating system also includes a way to install
-programs necessary for running your Python web application.
+# 操作系统
+操作系统运行在服务器主机或者虚拟服务器主机上，并且控制计算资源的使用。操作系统当然也包括一种安装必要程序的途径，好让你的 Python web 应用能够运行。
 
 
-## Why are operating systems necessary?
-An operating system makes many of the computing tasks we take for granted 
-easy. For example, the operating system enables writing to files, 
-communicating over a network and running multiple programs at once. 
-Otherwise you'd need to control the CPU, memory, network, graphics card, 
-and many other components with your own low-level implementation.
+## 为何操作系统是必要的？
+操作系统使得我们觉得理所当然的许多计算任务变得简单。例如，操作系统能够写入文件、进行网络通信以及同时运行多个程序。否则的话，你需要自己完成底层的实现来控制 CPU、内存、网卡以及许多其它的硬件。
 
-Without using an existing operating system like Linux, Mac OS X or Windows,
-you'd be forced to write a new operating system as part of your web 
-application.  It would be impossible to write features for your Python 
-web application because you'd be too busy hunting down a memory leak in 
-your assembly code, if you even were able to get that far.
+如果不使用现有的诸如 Linux、Mac OS X 或者 Windows 操作系统的话，那你就不得不为你的 web 应用编写一个新的操作系统。 如此一来，你就不可能再为你的 Python web 应用增加新功能了，因为你会忙于在你的汇编代码中追踪内存泄露问题，前提是你能够走到这一步。
 
-Fortunately, the open source community provides Linux to the Python world 
-as a rock solid free operating system for running our applications.
+幸运的是，开源社区为 Python 世界提供了坚若磐石的免费操作系统 Linux 来运行我们的应用程序。
 
 
-## Recommended operating systems
-The only recommended operating system for production Python web stack 
-deployments is Linux. There are several Linux distributions commonly used 
-for running production servers. Ubuntu Long Term Support (LTS) releases, 
-Red Hat Enterprise Linux, and CentOS are all viable options. 
+## 操作系统推荐
+唯一推荐用于在生产环境中部署 Python web 堆栈的操作系统是 Linux。有好几种常见的 Linux 发行版可以运行在生产服务器上。Ubuntu 长期支持版（LTS）、Red Hat Linux 企业版以及 CentOS 都是可行的选择。
 
-Mac OS X is fine for development activities. Windows and Mac 
-OS X are not appropriate for production deployments unless there is a 
-major reason why you must use them in lieu of Linux.
+Mac OS X 适合用于开发。 Windows 和 Mac 
+OS X 都不适合在生产环境下部署，除非你有必须要替代 Linux 的充足理由。
 
 ### Ubuntu
-Ubuntu is a Linux distribution packaged by the 
-[Canonical Ltd](http://www.canonical.com/) company. Ubuntu uses the
-Debian distribution as a base for packages, including the 
-[aptitude package manager](http://wiki.debian.org/Apt). For desktop versions 
-of Ubuntu, GNOME (until the 11.04 release) or Unity (11.10 through current)
-is bundled with the distribution to provide a user interface.
+Ubuntu 是由
+[Canonical](http://www.canonical.com/) 公司推出的 Linux 发行版。 Ubuntu 软件包基于 Debian 发行版，包括这个 
+[aptitude 包管理器](http://wiki.debian.org/Apt)。桌面版 Ubuntu 绑定了 GNOME（直到 11.04）或者 Unity（11.10 到现在）来提供用户界面。
 
-Ubuntu [Long Term Support](https://wiki.ubuntu.com/LTS) (LTS) releases
-are the recommended versions to use for deployments. LTS versions receive
-five years of post-release updates from Canonical. Every two years, Canonical 
-creates a new LTS release, which allows for an easy upgrade path as well 
-as flexibility in skipping every other LTS release if necessary. As of
-April 2016, 
+Ubuntu [长期支持](https://wiki.ubuntu.com/LTS) (LTS) 发行版是推荐用于部署的发行版本。Canonical 会为 LTS 版本提供长达 5 年的后期更新支持。Canonical 每两年就会推出新的 LTS 发行版，这就为升级提供了非常方便的途径，同时灵活地允许在必要的情况下跳过其他的 LTS 发行版进行升级。截至 2016 年 4 月，
 [16.04 Xenial Xerus](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes)
-is the latest Ubuntu LTS release. Xenial Xerus includes 
-[Python 3.5](/python-2-or-3.html) as its default Python version, which is
-a major update compared with 2.7 in Ubuntu 14.04 LTS.
+是最新的 Ubuntu LTS 发行版。 Xenial Xerus 包括了
+[Python 3.5](/python-2-or-3.html) 作为其默认的 Python 版本，与 Ubuntu 14.04 LTS 上的 2.7 版本相比，这是一个主要的更新。 
 
 
-#### Ubuntu Python Packages
-There are several 
+#### Ubuntu Python 软件包
+在 Linux 服务器上有好几种
 [Aptitude](https://help.ubuntu.com/12.04/serverguide/aptitude.html)
-packages found on Linux servers running a Python stack. These packages are: 
+软件包来运行 Python 栈。这些包是： 
 
-* [python-dev](http://packages.ubuntu.com/precise/python-dev) for header
-  files and static library for Python
+* [python-dev](http://packages.ubuntu.com/precise/python-dev) 用于头文件和 Python 静态库。
 
 * [python-virtualenv](http://packages.ubuntu.com/precise/python-virtualenv)
-  for creating and managing Python 
-  [virtualenvs](https://virtualenv.pypa.io/en/latest/) to isolate library
-  dependencies
+  用于创建并管理 Python 
+  [virtualenvs](https://virtualenv.pypa.io/en/latest/) 来隔离库的依赖。
 
 
-### Red Hat and CentOS
-[Red Hat Enterprise Linux](http://www.redhat.com/products/enterprise-linux/)
-(RHEL) and [Community ENTerprise Operating System](http://www.centos.org/)
-(CentOS) are the same distribution. The primary difference between the two 
-is that CentOS is an open source, liberally licensed free derivative of RHEL.
+### Red Hat 和 CentOS
+[Red Hat Linux 企业版](http://www.redhat.com/products/enterprise-linux/)
+(RHEL) 以及 [社区企业版操作系统](http://www.centos.org/)
+(CentOS) 都是同一个发行版。这两个版本的主要区别是 CentOS 是开源的操作系统，它继承自 RHEL，并且是自由授权，免费使用的。
 
-RHEL and CentOS use a different package manager and command-line interface 
-from Debian-based Linux distributions: RPM Package Manager (RPM) and the 
-Yellowdog Updater, Modified (YUM). RPM has a specific .rpm file format
-to handle the packaging and installation of libraries and applications. YUM
-provides a command-line interface for interacting with the RPM system.
+RHEL 和 CentOS 与基于 Debian 的 Linux 发行版相比，使用了不同的包管理器和命令行界面： RPM 包管理器（RPM）以及 
+Yellowdog 更新，修改（YUM）。RPM 使用特殊的 .rpm 格式的文件来管理库以及应用程序的打包和安装。YUM
+提供了命令行界面用于和 RPM 系统交互。
 
 
-## Operating system resources
-* [What is a Linux distribution and how do I choose the right one?](http://www.linux.org/threads/selecting-a-linux-distribution.4087/)
+## 操作系统相关的资源
+* [Linux 发行版是什么？我该怎样选择正确的发行版？](http://www.linux.org/threads/selecting-a-linux-distribution.4087/)
 
-* Lifehacker's [guide to choosing a Linux distro](http://lifehacker.com/5889950/how-to-find-the-perfect-linux-distribution-for-you).
+* Lifehacker 的 [Linux 发行版选择指南](http://lifehacker.com/5889950/how-to-find-the-perfect-linux-distribution-for-you).
 
-* [Linux Journey](https://linuxjourney.com/) is a really well designed
-  curriculum for learning Linux basics such as the command line, package
-  management, text handling. There are also courses for more advanced topics
-  such as how the kernel works, setting up logging and device management.
+* [Linux 之旅](https://linuxjourney.com/) 是非常不错的 Linux 基础学习课程，比如可以学习命令行、包管理、文本处理。当然也有更多涉及高级话题的课程，比如内核是如何工作的，怎样设置日志以及管理设备。
 
-* The [Ops School curriculum](http://www.opsschool.org/en/latest/) is a
-  comprehensive resource for learning about Linux fundamentals and how to
-  perform the work that system administrators typically handle.
+* [Ops 学校课程](http://www.opsschool.org/en/latest/) 是学习 Linux 基本原理以及系统管理员通常会怎样开展工作的综合资源。
 
-* Since Linux is your go-to production operating system, it's important to
-  get comfortable with the Unix/Linux commands and philosophy. Study up on
-  [this introduction to Unix tutorial](http://www.oliverelliott.org/article/computing/tut_unix/)
-  to become more familiar with the operating system.
+* 既然你的将要使用 Linux 作为生产环境下的操作系统，那么熟悉 Unix/Linux 命令和它的哲学就是非常重要的事情了。学习
+  [这篇 Unix 教程](http://www.oliverelliott.org/article/computing/tut_unix/)
+  来对这个操作系统更加熟悉。
 
-* [First 5 Minutes on a Server](http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers)
-  shows the first several [security steps](/web-application-security.html)
-  that should be done manually or automatically on any server you stand up.
+* [使用服务器的最初 5 分钟](http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers)
+  说明了最初几个需要在你使用的任何服务器上应当手动或者自动完成的 [安全步骤](/web-application-security.html)。
 
-* Digital Ocean has a detailed 
-  [walkthrough for setting up Python web applications on Ubuntu](https://www.digitalocean.com/community/articles/how-to-set-up-ubuntu-cloud-servers-for-python-web-applications).
+* “数字海洋（Digital Ocean）”有一篇文章详细介绍了
+  [在 Ubuntu 上配置 Python web 应用的步骤](https://www.digitalocean.com/community/articles/how-to-set-up-ubuntu-cloud-servers-for-python-web-applications)。
 
-* [linux-internals](http://0xax.gitbooks.io/linux-insides/content/index.html) is
-  a series of posts about how Linux works under the covers, starting from the
-  low level booting process.
+* [深入 Linux](http://0xax.gitbooks.io/linux-insides/content/index.html) 是一系列讲解 Linux 在幕后是如何工作的文章，它从低层的启动过程开始介绍。
 
 
-## Operating system learning checklist
-1. Choose either a Debian-based Linux distribution such as Ubuntu or a 
-   Fedora-based distribution like CentOS.
+## 操作系统学习清单
+1. 选择一款 Linux 操作系统，可以是基于 Debian 的发行版如 Ubuntu，或者是基于 Fedora 的发行版如 CentOS。
 
-1. Harden the security through a few basic steps. Install basic security 
-   packages such as 
-   [fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page) and
-   [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecurityUpdates).
-   Create a new user account with sudo privileges and disable
-   root logins. Disable password-only logins and use a public-private keypair 
-   instead. Read more about hardening systems in the resources listed below.
+1. 通过一些基础的步骤加强系统的安全性。 安装一些基本的安全软件包，如 
+   [fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page) 和
+   [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecurityUpdates)。
+   创建一个拥有 sudo 特权的新用户，并且禁用 root 登录。禁止仅使用密码登录选项，并且使用一个公私钥对来替换。 阅读下面列出的更多关于增强系统安全的资源。
 
-1. Install Python-specific packages to prepare the environment for running a
-   Python application. Which packages you'll need to install depends on the 
-   distribution you've selected.
+1. 安装特定的 Python 软件包为 Python 应用准备好运行环境。根据你选择的发行版来安装所需要的软件包。
 
-1. Read up on [web servers](/web-servers.html) as installing one will be the 
-   next step in the deployment process.
+1. 仔细阅读 [web 服务器](/web-servers.html)，因为部署环节中的下一个就是安装一个 web 服务器。 
 

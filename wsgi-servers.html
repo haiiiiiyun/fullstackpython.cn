@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="A Web Server Gateway Interface (WSGI) server runs Python code to create a web application. Learn more about WSGI servers on Full Stack Python.">
+    <meta name="description" content="通过在一个 web 服务器网关接口（WSGI）服务器上运行 Python 代码来创建 web 应用。快来 Full Stack Python 学习更多有关 WSGI 服务器的知识吧。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>WSGI Servers - Full Stack Python 简体中文网站</title>
+    <title>WSGI 服务器 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,118 +36,71 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>WSGI Servers</h1>
-<p>A <a href="http://wsgi.readthedocs.org/en/latest/">Web Server Gateway Interface</a>
-(WSGI) server implements the web server side of the WSGI interface for
-running Python web applications. </p>
-<h2>Why is WSGI necessary?</h2>
-<p>A traditional web server does not understand or have any way to run Python 
-applications. In the late 1990s, a developer named Grisha Trubetskoy 
-<a href="http://grisha.org/blog/2013/10/25/mod-python-the-long-story/">came up with an Apache module called mod_python</a> 
-to execute arbitrary Python code. For several years in the late 1990s 
-and early 2000s, Apache configured with mod_python ran most Python web 
-applications.</p>
-<p>However, mod_python wasn't a standard specification. It was just an 
-implementation that allowed Python code to run on a server. As mod_python's 
-development stalled and security vulnerabilities were discovered there 
-was recognition by the community that a consistent way to execute Python 
-code for web applications was needed.</p>
-<p>Therefore the Python community came up with WSGI as a standard interface that
-modules and containers could implement. WSGI is now the accepted approach 
-for running Python web applications.</p>
+          <h1>WSGI 服务器</h1>
+<p><a href="http://wsgi.readthedocs.org/en/latest/">Web 服务器网关接口</a>
+(WSGI) 服务器通过实现 web 服务器一侧的 WSGI 接口来运行 Python web 应用。</p>
+<h2>为何 WSGI 是必要的？</h2>
+<p>传统的 web 服务器并不懂得或者没有任何方法来运行 Python 应用。 在 1990 年代晚期，一位名叫 Grisha Trubetskoy 的人
+<a href="http://grisha.org/blog/2013/10/25/mod-python-the-long-story/">开发了一个叫做 mod_python 的 Apache 模块</a> 
+来运行任意的 Python 代码。在 1990 年代晚期的几年以及 2000 年代早期，配置了 mod_python 模块的 Apache 服务器运行着大多数的 Python web 应用。</p>
+<p>然而，mod_python 并非标准规范。它仅仅是一个允许在服务器上运行 Python 代码的实现而已。随着 mod_python 开发渐缓并且有不少安全漏洞被发现，社区开始意识到，需要一种运行 Python web 应用的一致性方法。</p>
+<p>因此，Python 社区提出了将 WSGI 作为一个标准接口规范，来实现各种模块和容器。如今，WSGI 已经是用来运行 Python web 应用的公认方法了。</p>
 <p><img src="/img/wsgi-interface.png" alt="WSGI server invoking a WSGI application." width="100%" class="technical-diagram" /></p>
-<p>As shown in the above diagram, a WSGI server simply invokes a callable object
-on the WSGI application as defined by the PEP 3333 standard.</p>
-<h2>WSGI's Purpose</h2>
-<p>Why use WSGI and not just point a web server directly at an application?</p>
+<p>如上图所示，正如 PEP 3333 标准所定义的那样，WSGI 服务器只是简单地调用一个 WSGI 应用的可调用对象。</p>
+<h2>WSGI 的目的</h2>
+<p>为什么要使用 WSGI？而不仅仅是在应用中直接指定一个 web 服务器？</p>
 <ul>
 <li>
-<p><strong>WSGI gives you flexibility</strong>. Application developers can swap out
-  web stack components for others. For example, a developer can switch from 
-  Green Unicorn to uWSGI without modifying the application or framework 
-  that implements WSGI. 
-  From <a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a>:</p>
-<p>The availability and widespread use of such an API in web servers for 
-Python [...] would separate choice of framework from choice of web 
-server, freeing users to choose a pairing that suits them, while 
-freeing framework and server developers to focus on their preferred 
-area of specialization.</p>
+<p><strong>WSGI 为你提供了灵活性</strong>。应用开发者们可以使用其它组件来替换 web 堆栈中相应组件。例如，开发者可以轻易地从 Green Unicorn 切换到 uWSGI，而不用修改实现了 <a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a> 标准定义的 WSGI 的应用或框架：</p>
+<p>在 Python 的 web 服务器中广泛使用这种 API [...] 可以将框架的选择和 web 服务器的选择分开，可以让用户自由地选择适合他们的一对框架和 web 服务器，同时也让框架开发者和服务器开发者们自由地分别聚焦在他们所擅长的特殊领域中。</p>
 </li>
 <li>
-<p><strong>WSGI servers promote scaling</strong>. Serving thousands of requests for dynamic
-  content at once is the domain of WSGI servers, not frameworks.
-  WSGI servers handle processing requests from the web server and deciding
-  how to communicate those requests to an application framework's process.
-  The segregation of responsibilities is important for efficiently scaling 
-  web traffic.</p>
+<p><strong>WSGI 服务器增强了扩展性</strong>。同时提供上千次针对动态内容的请求服务是 WSGI 服务器的责任，而非框架的责任。WSGI 服务器处理来自 web 服务器的请求，并决定如何让这些请求和应用框架进程通信。责任的分离对于有效地扩展 web 流量是非常重要的。</p>
 </li>
 </ul>
 <p><img src="/img/web-browser-server-wsgi.png" alt="WSGI Server - Web server - Browser" width="100%" class="technical-diagram" /></p>
-<p>WSGI is by design a simple standard interface for running Python code. As
-a web developer you won't need to know much more than</p>
+<p>WSGI 的设计宗旨就是为运行 Python 代码提供简单的标准接口。作为一名 web 开发者，你没有必要了解更多下面列出的知识：</p>
 <ul>
 <li>
-<p>what WSGI stands for (Web Server Gateway Inteface)</p>
+<p>WSGI 代表什么（Web 服务器网关接口）</p>
 </li>
 <li>
-<p>that a WSGI container is a separate running process that runs on a
-  different port than your web server</p>
+<p>WSGI 容器是一个分离运行的进程，并且运行在一个不同于你的 web 服务器的端口上</p>
 </li>
 <li>
-<p>your web server is configured to pass requests to the WSGI container which
-  runs your web application, then pass the response (in the form of HTML)
-  back to the requester</p>
+<p>需要配置你的 web 服务器来给运行着你的 web 应用的 WSGI 容器传递请求，然后再将（HTML 形式）的响应传递回请求方</p>
 </li>
 </ul>
-<p>If you're using a standard web framework such as Django, Flask, or
-Bottle, or almost any other current Python framework, you don't need to worry
-about how frameworks implement the application side of the WSGI standard.
-Likewise, if you're using a standard WSGI container such as Green Unicorn,
-uWSGI, mod_wsgi, or gevent, you can get them running without worrying about
-how they implement the WSGI standard.</p>
-<p>However, knowing the WSGI standard and how these frameworks and containers
-implement WSGI should be on your learning checklist though as you become
-a more experienced Python web developer.</p>
-<h2>Official WSGI specifications</h2>
-<p>The WSGI standard v1.0 is specified in
-<a href="http://www.python.org/dev/peps/pep-0333/">PEP 0333</a>. As of September 2010,
-WSGI v1.0 is superseded by
-<a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a>, which defines the
-v1.0.1 WSGI standard. If you're working with Python 2.x and you're compliant
-with PEP 0333, then you're also compliant with 3333. The newer version is
-simply an update for Python 3 and has instructions for how unicode should
-be handled.</p>
-<p><a href="https://docs.python.org/2/library/wsgiref.html">wsgiref in Python 2.x</a> and
-<a href="https://docs.python.org/3.4/library/wsgiref.html">wsgiref in Python 3.x</a>
-are the reference implementations of the WSGI specification built into
-Python's standard library so it can be used to build WSGI servers and
-applications.</p>
-<h2>Example web server configuration</h2>
-<p>A web server's configuration specifies what requests should be passed to
-the WSGI server to process. Once a request is processed and generated by the
-WSGI server, the response is passed back through the web server and onto
-the browser. </p>
-<p>For example, this Nginx web server's configuration specifies that
-Nginx should handle static assets (such as images, JavaScript, and CSS
-files) under the /static directory and pass all other requests to the WSGI
-server running on port 8000:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">this</span> <span class="nt">specifies</span> <span class="nt">that</span> <span class="nt">there</span> <span class="nt">is</span> <span class="nt">a</span> <span class="nt">WSGI</span> <span class="nt">server</span> <span class="nt">running</span> <span class="nt">on</span> <span class="nt">port</span> <span class="nt">8000</span>
+<p>如果你正在使用一个标准的 web 框架，如 Django、Flask、或者 Bottle，亦或是任何当前存在的 Python 框架，你都不用担心框架是如何实现应用层一侧的 WSGI 标准的。类似地，如果你正在使用一个标准的 WSGI 容器，如 Green Unicorn、uWSGI、mod_wsgi 或 gevent，你可以直接让它们运行，而不用担心它们是如何实现 WSGI 标准的。</p>
+<p>然而，当你成为一名更加富有经验的 Python web 开发者后，你应当把了解 WSGI 标准以及那些框架和容器如何实现 WSGI 的知识加入到你的学习清单中。</p>
+<h2>官方 WSGI 规格说明</h2>
+<p>1.0 版本的 WSGI 标准在
+<a href="http://www.python.org/dev/peps/pep-0333/">PEP 0333</a> 中规定。到了 2010 年 9 月，
+WSGI 1.0 版本被
+<a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333</a> 定义的 WSGI 1.0.1 版本替代。如果你正在使用 Python 2.x 并且适应了 PEP 0333，那么你也会适应 PEP 3333。新的版本只是简单地为了支持 Python 3 而做的更新，并且还有如何处理 unicode 的说明。</p>
+<p><a href="https://docs.python.org/2/library/wsgiref.html">Python 2.x WSGI 资料</a> and
+<a href="https://docs.python.org/3.4/library/wsgiref.html">Python 3.x WSGI 资料</a>
+是内置在 Python 标准库中的 WSGI 规范实现的参考资料，从而来帮助你构建 WSGI 服务器和应用。</p>
+<h2>Web 服务器配置样例</h2>
+<p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
+<p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">is</span> <span class="nt">set</span> <span class="nt">up</span> <span class="nt">to</span> <span class="nt">run</span> <span class="nt">on</span> <span class="nt">the</span> <span class="nt">standard</span> <span class="nt">HTTP</span> <span class="nt">port</span> <span class="nt">and</span> <span class="nt">listen</span> <span class="nt">for</span> <span class="nt">requests</span>
+<span class="err">#</span> <span class="nt">Nginx</span> <span class="err">配置为运行在标准</span><span class="nt">HTTP</span><span class="err">端口上，并监听请求</span>
 <span class="nt">server</span> <span class="p">{</span>
   <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
 
-  <span class="err">#</span> <span class="n">nginx</span> <span class="n">should</span> <span class="n">serve</span> <span class="n">up</span> <span class="nb">static</span> <span class="n">files</span> <span class="n">and</span> <span class="n">never</span> <span class="n">send</span> <span class="n">to</span> <span class="n">the</span> <span class="n">WSGI</span> <span class="n">server</span>
+  <span class="err">#</span> <span class="n">Nginx</span> <span class="err">应当为静态资源提供服务，并且永远不要把它交给</span> <span class="n">WSGI</span> <span class="err">服务器处理</span>
   <span class="n">location</span> <span class="o">/</span><span class="nb">static</span> <span class="err">{</span>
     <span class="n">autoindex</span> <span class="n">on</span><span class="p">;</span>
     <span class="n">alias</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">assets</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="err">#</span> <span class="nt">requests</span> <span class="nt">that</span> <span class="nt">do</span> <span class="nt">not</span> <span class="nt">fall</span> <span class="nt">under</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">are</span> <span class="nt">passed</span> <span class="nt">on</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">WSGI</span>
-  <span class="err">#</span> <span class="nt">server</span> <span class="nt">that</span> <span class="nt">was</span> <span class="nt">specified</span> <span class="nt">above</span> <span class="nt">running</span> <span class="nt">on</span> <span class="nt">port</span> <span class="nt">8000</span>
+  <span class="err">#</span> <span class="err">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="err">目录的请求都会交给</span> <span class="nt">WSGI</span>
+  <span class="err">#</span> <span class="err">服务器，即上面配置的运行在</span> <span class="nt">8000</span> <span class="err">端口上服务器</span>
   <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
     <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="err">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
     <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="err">$</span><span class="n">http_host</span><span class="p">;</span>
@@ -162,106 +115,86 @@ server running on port 8000:</p>
 </pre></div>
 
 
-<p>Note that the above code is a simplified version of a production-ready Nginx
-configuration. For real SSL and non-SSL templates, take a look at the
-<a href="https://github.com/makaimc/underwear/tree/master/underwear/roles/web/templates">Underwear web server templates</a> on GitHub.</p>
-<h2>WSGI servers</h2>
-<p>There is a comprehensive list of WSGI servers on the 
-<a href="http://wsgi.readthedocs.org/en/latest/servers.html">WSGI Read the Docs</a> page.
-The following are WSGI servers based on community recommendations.</p>
+<p>需要注意的是，上面的Nginx 配置代码仅仅是准产品级的简化配置版本。对于真实使用了 SSL 和非 SSL 的模板，请参见 Github 上的
+<a href="https://github.com/makaimc/underwear/tree/master/underwear/roles/web/templates">Underwear web server templates</a>。</p>
+<h2>WSGI 服务器</h2>
+<p>在
+<a href="http://wsgi.readthedocs.org/en/latest/servers.html">WSGI 阅读文档</a> 页面中有一个完整的 WSGI 服务器列表。
+以下是社区推荐的 WSGI 服务器：</p>
 <ul>
 <li>
-<p><a href="http://gunicorn.org/">Green Unicorn</a> is a pre-fork worker model based
-  server ported from the Ruby <a href="http://unicorn.bogomips.org/">Unicorn</a> project.</p>
+<p><a href="http://gunicorn.org/">Green Unicorn</a> 是一个采用了工作者模型的 WSGI 服务器，脱胎于 Ruby 的 <a href="http://unicorn.bogomips.org/">Unicorn</a> 项目。</p>
 </li>
 <li>
-<p><a href="http://uwsgi-docs.readthedocs.org/en/latest/">uWSGI</a> is gaining steam as
-  a highly-performant WSGI server implementation.</p>
+<p><a href="http://uwsgi-docs.readthedocs.org/en/latest/">uWSGI</a> 正在掀起浪潮，因为它是一款高性能的 WSGI 服务器实现。</p>
 </li>
 <li>
-<p><a href="https://github.com/GrahamDumpleton/mod_wsgi">mod_wsgi</a> is an Apache 
-  module implementing the WSGI specification.</p>
+<p><a href="https://github.com/GrahamDumpleton/mod_wsgi">mod_wsgi</a> 是一个实现了 WSGI 规格的 Apache 模块。</p>
 </li>
 <li>
-<p><a href="https://github.com/cherrypy/cherrypy">CherryPy</a> is a pure Python web 
-  server that also functions as a WSGI server.</p>
+<p><a href="https://github.com/cherrypy/cherrypy">CherryPy</a> 是一个纯粹的 Python web 服务器，并且也可以作为一个 WSGI 服务器。</p>
 </li>
 </ul>
-<h2>WSGI resources</h2>
+<h2>WSGI 资源</h2>
 <ul>
 <li>
 <p><a href="http://www.python.org/dev/peps/pep-0333/">PEP 0333 WSGI v1.0</a>
-  and
+  和
   <a href="http://www.python.org/dev/peps/pep-3333/">PEP 3333 WSGI v1.0.1</a>
-  specifications.</p>
+  规格说明。</p>
 </li>
 <li>
-<p>This <a href="http://agiliq.com/blog/2013/07/basics-wsgi/">basics of WSGI</a> post
-  contains a simple example of how a WSGI-compatible application works.</p>
+<p>这篇文章 <a href="http://agiliq.com/blog/2013/07/basics-wsgi/">WSGI 基础</a> 
+  包含了一个简单的例子演示了一个 WSGI 兼容的应用是如何工作的。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-web-servers-for-python-based-web-applications">A comparison of web servers for Python web apps</a>
-  is a good read to understand basic information about various WSGI server
-  implementations.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-web-servers-for-python-based-web-applications">针对 Python web 应用的 web 服务器对比</a>
+  是一篇非常好的阅读材料，可以帮助你理解不同的 WSGI 服务器实现的基础知识。</p>
 </li>
 <li>
-<p>A thorough and informative post for LAMP-stack hosting choices is 
-  presented in the 
-  "<a href="http://www.apreche.net/complete-single-server-django-stack-tutorial/">complete single server Django stack tutorial</a>." </p>
+<p>"<a href="http://www.apreche.net/complete-single-server-django-stack-tutorial/">完全单服务器 Django 栈教程</a>" 中有一篇详细讲解了如何使用 LAMP 栈托管网站的文章。</p>
 </li>
 <li>
-<p>The Python community made a long effort to 
-  <a href="http://blog.dscpl.com.au/2010/05/modpython-project-soon-to-be-officially.html">transition from mod_python</a> 
-  to the WSGI standard. That transition period is now complete and an 
-  implementation of WSGI should always be used instead mod_python.</p>
+<p>Python 社区花费了很大的努力才
+  <a href="http://blog.dscpl.com.au/2010/05/modpython-project-soon-to-be-officially.html">从 mod_python 转移</a> 
+  到 WSGI 标准。那个转移周期现在已经完成了，并且总应该使用 WSGI 实现来代替 mod_python。 </p>
 </li>
 <li>
-<p>Nicholas Piël wrote an interesting benchmark blog post of 
-  <a href="http://nichol.as/benchmark-of-python-web-servers">Python WSGI servers</a>.
-  Note that the post is a few years old. Benchmarks should be considered
-  for their specific tested scenarios and not quickly extrapolated as general
-  "this server is faster than this other server" results.</p>
+<p>Nicholas Piël 写了一篇非常有趣的文章给
+  <a href="http://nichol.as/benchmark-of-python-web-servers">Python WSGI 服务器</a> 评分。
+  注意，那篇文章已经有些旧了。评分只是由它们在特定的测试场景下得出的，并不能由此快速地推断出“这个服务器比其它服务器更快”的结论。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/articles/how-to-deploy-python-wsgi-applications-using-a-cherrypy-web-server-behind-nginx">How to Deploy Python WSGI Applications with CherryPy</a>
-  answers why CherryPy is a simple combination web and WSGI server along with 
-  how to use it.</p>
+<p><a href="https://www.digitalocean.com/community/articles/how-to-deploy-python-wsgi-applications-using-a-cherrypy-web-server-behind-nginx">如何使用 CherryPy 部署 Python WSGI 应用</a>
+  回答了为何 CherryPy 是一个简单的 web 和 WSGI 服务器的组合，同时给出了如何使用它的方法。</p>
 </li>
 <li>
-<p>Another Digital Ocean walkthrough goes into
-  <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-apps-using-gunicorn-http-server-behind-nginx">How to Deploy Python WSGI Apps Using Gunicorn HTTP Server Behind Nginx</a>.</p>
+<p>另外一篇由“数字海洋（Digital Ocean）”推出的演练教程讲解了
+  <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-apps-using-gunicorn-http-server-behind-nginx">如何使用 Gunicorn HTTP 服务器部署 Python WSGI 应用，并在背后使用 Nginx 服务器</a>.</p>
 </li>
 <li>
-<p><a href="https://lincolnloop.com/blog/uwsgi-swiss-army-knife/">The uWSGI Swiss Army Knife</a>
-  shows how uWSGI can potentially be used for more than just running the
-  Python web application - it can also serve static files and handle
-  caching in a deployment.</p>
+<p><a href="https://lincolnloop.com/blog/uwsgi-swiss-army-knife/">uWSGI 瑞士军刀</a> 说明了 uWSGI 在部署中是如何做到不仅能运行 Python web 应用，而且还可以提供静态文件访问服务以及处理缓存的。</p>
 </li>
 </ul>
-<h2>WSGI servers learning checklist</h2>
+<h2>WSGI 服务器学习清单</h2>
 <ol>
 <li>
-<p>Understand that WSGI is a standard Python specification for applications 
-   and servers to implement. </p>
+<p>理解 WSGI 是一个需要应用和服务器实现的 Python 标准规范。</p>
 </li>
 <li>
-<p>Pick a WSGI server based on available documentation and tutorials. Green 
-   Unicorn is a good one to start with since it's been around for awhile.</p>
+<p>根据可用的文档和教程选择一个 WSGI 服务器。Green Unicorn 就是非常好的起点，因为它已经出现有段时间了。</p>
 </li>
 <li>
-<p>Add the WSGI server to your server deployment.</p>
+<p>在你的服务器部署中添加 WSGI 服务器。</p>
 </li>
 <li>
-<p>Configure the web server to pass requests to the WSGI server for 
-   appropriate URL patterns.</p>
+<p>配置 web 服务器给 WSGI 服务器传递符合适当 URL 模式的请求。</p>
 </li>
 <li>
-<p>Test that the WSGI server responds to local requests but not direct 
-   requests outside your infrastructure. The web server should be the pass 
-   through for requests to and responses from the WSGI server.</p>
+<p>测试你的 WSGI 服务器响应本地的请求，而不是来自你的设备以外的直接请求。Web 服务器应当能够向 WSGI 服务器传递请求并从那儿获得响应。</p>
 </li>
 </ol>
-<h3>What's next after your Python app is running?</h3>
+<h3>你的 Python 应用运行后，接下来该做什么？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
@@ -271,7 +204,7 @@ The following are WSGI servers based on community recommendations.</p>
     <div class="col-md-4">
         <div class="well select-next">
 <a href="/docker.html" class="btn btn-success btn-full"><svg width="28" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M512 1248v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm-640-1024v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm-640-1024v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68z" fill="#fff"/></svg></a>
-<p class="under-btn">What is Docker and how does it fit with Python deployments?</p>        </div>
+<p class="under-btn">什么是 Docker 以及如何使它适合 Python 部署？</p>        </div>
     </div>
     <div class="col-md-4">
         <div class="well select-next">
@@ -323,10 +256,10 @@ The following are WSGI servers based on community recommendations.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>源码控制</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">WSGI Servers</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">WSGI 服务器</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -339,7 +272,7 @@ The following are WSGI servers based on community recommendations.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/wsgi-servers.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; WSGI Servers</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/wsgi-servers.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; WSGI 服务器</a>
 <a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>

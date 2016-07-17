@@ -1,172 +1,104 @@
-title: Source Control
+title: 源码控制
 category: page
 slug: source-control
 sortorder: 0708
 toc: False
-sidebartitle: Source Control
-meta: Source control versions and backs up code for when programming problems occur. Learn more about source control on Full Stack Python.
+sidebartitle: 源码控制
+meta: 源码控制版本，并且可以在编程问题发生时恢复备份代码。快来 Full Stack Python 学习更多有关源码控制的知识吧。
 
 
-# Source control
-Source control, also known as *version control*, stores software code files
-with a detailed history of every modification made to those files.
+# 源码控制
+源码控制，也叫做*版本控制*，用于保存软件代码文件以及针对这些文件的每次变动的详细历史。
 
-## Why is source control necessary?
-Version control systems allow developers to modify code without worrying 
-about permanently screwing something up. Unwanted changes can be easily rolled
-back to previous working versions of the code. 
+## 为何源码控制是有必要的？
+版本控制系统允许开发者们修改代码，而不用担心某些情况下把事情彻底搞砸。不想要的变动可以轻松地回滚到之前的代码版本。
 
-Source control also makes team software development easier. One developer 
-can combine her code modifications with other developers' code through 
-[diff](http://en.wikipedia.org/wiki/Diff) views that show line-by-line 
-changes then merge the appropriate code into the main code branch.
+版本控制也使得团队软件开发更加轻松。一个开发者可以通过 [diff](http://en.wikipedia.org/wiki/Diff) 命令按行查看代码的变更，然后将合适的代码合并到主代码分支中，这样就可以将他的代码修改和其他开发者的代码合并了。
 
-Version control is a necessity on all software projects regardless of 
-development time, codebase size or the programming language used. Every
-project should immediately begin by using a version control system such
-as Git or Mercurial.
+版本控制对于所有的软件项目来说都是必要的，不管开发时间、代码库大小或者使用的编程语言。每个项目都应当立即使用一个版本控制系统，例如 Git 或者 Mercurial。
 
-## Source control during deployment
-Pulling code during a deployment is a potential way source control systems fit
-into the deployment process. 
+## 开发期间使用源码控制
+在开发期间拉取代码是源码控制系统适应开发进度的一种潜在方法。
 
 <img src="/img/app-source-control.png" width="100%" class="technical-diagram" alt="App deployment uses a server to pull from the source control system.">
 
-Note that some developers recommend deployment pipelines package the source 
-code to deploy it and never have a production environment touch a source 
-control system directly. However, for small scale deployments it's often
-easiest to pull from source code when you're getting started instead of 
-figuring out how to wrap the Python code in a system installation package.
+需要留意的是，一些开发者推荐在部署流水线中给源码打包并部署，并且永远不要让生产环境和源码控制系统直接接触。然而，对于小规模的软件开发，通常最简单的做法就是在你开始的时候直接从源码中拉取，而不用纠结如何将 Python 代码打包到系统安装包中。
+
+## 源码控制项目
+在过去的几十年里，人们创造了无数款源码控制系统。过去，专有的源码控制软件提供的功能都是为大型开发团队和特定项目流程定制的。然而，如今开源的源码控制系统正用在现存的最大并且最复杂的软件项目中。在今天的 Python 开发世界，没有理由去使用任何除了开源的源码版本控制系统了。两个主要的选择是：
+
+* [Git](http://git-scm.com/) 是免费并且开源的分布式版本控制系统。
+
+* [Mercurial](http://mercurial.selenic.com/) 和 Git 类似，也是一款免费开源的分布式版本控制系统。
+
+## 源码控制托管服务
+你可以在你的服务器上下载并运行 Git 和 Mercurial。 然而，开始使用一个托管的版本控制服务也是非常简单又便宜的。如果以后你的需求改变了，你可以通过移动你的仓库来从服务商那儿转移走。几个值得推荐的版本控制托管服务商有：
+
+* [GitLab](https://about.gitlab.com/) 同时提供了针对个人的开源软件托管服务，以及需要额外托管支持的 [付费](https://about.gitlab.com/pricing/) 商业服务。
+
+* [GitHub](https://github.com/) 为 Git 提供了免费的开源仓库以及付费的私有仓库。
+
+* [BitBucket](https://bitbucket.org/) 也有支持 Git 和 Mercurial 的免费开源项目仓库，但是还支持最多 5 个用户的私有仓库。超过 5 个用户时，如果需要私有仓库托管服务就需要支付一定的费用了。
+
+## 源码控制资料
+* [暂存服务器，源码控制和部署工作流程，以及其它一些没人会教你的东西](http://www.kalzumeus.com/2010/12/12/staging-servers-source-control-deploy-workflows-and-other-stuff-nobody-teaches-you/) 
+  是由 Patrick McKenzie 编写，是对为何你需要源码控制的全面概述。
+
+* [版本控制最佳实践](https://blog.rainforestqa.com/2014-05-28-version-control-best-practices/)
+  是一篇非常不错的文章，说明了如何使用版本控制系统。这篇文章是正在由 [Rainforest](https://www.rainforestqa.com/) 中的许多人参与编写的部署指南中的一部分。
+
+* 这篇
+  [版本控制发展史中的 10 件惊人的事情](http://www.flourish.org/2011/12/astonishments-ten-in-the-history-of-version-control/) 是一篇让人轻松的指南，它提供了一个有趣的途径来学习过去几十年中版本控制系统是如何发展的。
+
+* [版本控制入门](http://betterexplained.com/articles/a-visual-guide-to-version-control/) 
+  是一篇含有真实例子的详细文章，它说明了版本控制系统为何在软件开发中很有必要。
+
+* [版本控制介绍](http://guides.beanstalkapp.com/version-control/intro-to-version-control.html) 
+ 展现了版本控制系统背后的概念。
+
+* [什么是版本控制？为何它对于尽职审查非常重要？](http://oss-watch.ac.uk/resources/versioncontrol) 
+  解释了版本控制系统的优势和必要性。
+
+* [关于版本控制](http://git-scm.com/book/en/Getting-Started-About-Version-Control) 
+回顾了分布式版本控制系统的基础知识。
 
 
-## Source control projects
-Numerous source control systems have been created over the past several
-decades. In the past, proprietary source control software offered features
-tailored to large development teams and specific project workflows. However,
-open source systems are now used for version control on the largest and most
-complicated software projects in existence. There's no reason why your project
-should use anything other than an open source version control system in
-today's Python development world. The two primary choices are:
+## Git 相关资料
+* [Pro Git](http://git-scm.com/book) 是一本开源的书籍，介绍了使用版本控制系统所有方面的知识。
 
-* [Git](http://git-scm.com/) is a free and open source distributed version
-  control system.
+* [600 字介绍 Git](http://maryrosecook.com/blog/post/git-in-six-hundred-words)
+  是一篇解释 Git 基础概念的清晰又简明的文章。
 
-* [Mercurial](http://mercurial.selenic.com/) is similar to Git, also a free
-  and open source distributed version control system.
+* [Git 黑客指南](http://wildlyinaccurate.com/a-hackers-guide-to-git) 包含了基础和高级的 Git 命令，同时解释了每一步的操作含义。
 
+* [像 Git 一样思考](http://think-like-a-git.net/) 是另外一篇介绍文章，它更多聚焦在图论和 Git 背后的概念性的思想，从而帮助读者理解在他们使用 Git 命令时究竟发生了什么。
 
-## Hosted source control services
-Git and Mercurial can be downloaded and run on your own server. However,
-it's easy and cheap to get started with a hosted version control service.
-You can transition away from the service at a later time by moving your 
-repositories if your needs change. A couple of recommended hosted version
-control services are:
+* [Git 实践介绍](http://mrchlblng.me/2014/09/practical-git-introduction/)
+  内容正如标题所描述的那样。这是一篇非常好的指南，提供了大量的代码片段来让你快速上手 Git。
 
-* [GitLab](https://about.gitlab.com/) has both a self-hosted version of its
-  open source software as well as their hosted version with 
-  [pricing](https://about.gitlab.com/pricing/) for businesses that need
-  additional hosting support.
+* [Git 由内到外](https://codewords.recurse.com/issues/two/git-from-the-inside-out)
+  通过一些 Git 命令样例展示了基于图的数据结构是如何产生某些行为的。在你已经掌握了 Git 的基础知识后，并且希望能深入 Git 的话，强烈推荐阅读这篇文章。
 
-* [GitHub](https://github.com/) provides free open source repositories 
-  and paid private repositories for Git.
+* [git 就绪](http://gitready.com/) 有一个非常不错的针对初级学者、中级学者和高级 Git 用例的博客合集。
 
-* [BitBucket](https://bitbucket.org/) also has free Git and Mercurial 
-  repositories for open projects, but adds private repositories for up to 
-  five users. Users pay for hosting private repositories with more than 
-  five users.
+* [git 流程](http://nvie.com/posts/a-successful-git-branching-model/) 详细描述了针对小团队的 Git 分支模型。
 
+* [GitHub 流程](http://scottchacon.com/2011/08/31/github-flow.html) 基于“git 流程”构建，重温了一些使用 GitHub 的问题，并且给出了一些针对那些问题的解决方案。
 
-## General source control resources
-* [Staging Servers, Source Control & Deploy Workflows, And Other Stuff Nobody Teaches You](http://www.kalzumeus.com/2010/12/12/staging-servers-source-control-deploy-workflows-and-other-stuff-nobody-teaches-you/) 
-  is a comprehensive overview by Patrick McKenzie of why you need source 
-  control.
+* [Git可行的工作流程](http://blog.endpoint.com/2014/05/git-workflows-that-work.html)
+  是一篇非常有帮助并且带有图表的文章，它说明了团队如何才能创建一个对他们开发进度有帮助的 Git 流程。
 
-* [Version control best practices](https://blog.rainforestqa.com/2014-05-28-version-control-best-practices/)
-  is a good write up of how to work with version control systems. The post is 
-  part of an ongoing deployment guide written by the folks at 
-  [Rainforest](https://www.rainforestqa.com/).
+* "[我们的 Git 工作流程](http://www.braintreepaymentsolutions.com/devblog/our-git-workflow)" 是 Braintree 编写的，回顾了这家会计公司如何使用 Git 进行开发并合并源码的。
 
-* This lighthearted guide to the 
-  [ten astonishments in version control history](http://www.flourish.org/2011/12/astonishments-ten-in-the-history-of-version-control/) 
-  is a fun way to learn how systems developed over the past several decades.
+* [借助 Git 进行代码审查](https://robots.thoughtbot.com/code-sleuthing-with-git)
+  说明了当开发出现问题后，该如何审查过去的变更，从而找出问题。
 
-* [A visual guide to version control](http://betterexplained.com/articles/a-visual-guide-to-version-control/) 
-  is a detailed article with real-life examples for why version control is
-  necessary in software development.
+##源码控制学习清单
+1. 选择一个版本控制系统。在这里推荐使用 Git 的原因在于网上有大量帮助新用户和高级用户的教程。
 
-* [An introduction to version control](http://guides.beanstalkapp.com/version-control/intro-to-version-control.html) 
-  shows the basic concepts behind version control systems.
+1. 学习一些基本的版本控制用法，比如提交变更、回滚到之前的文件版本以及搜索在开发过程中何时变动了代码行数。
 
-* [What Is Version Control? Why Is It Important For Due Diligence?](http://oss-watch.ac.uk/resources/versioncontrol) 
-  explains the benefits and necessity of version control systems.
+1. 确保你的源码备份到了一个中心仓库。中心仓库是非常重要的，不仅是为了防止你本地的开发版本受损，而且也是为了开发进度。
 
-* [About version control](http://git-scm.com/book/en/Getting-Started-About-Version-Control) 
-reviews the basics of distributed version control systems.
-
-
-## Git resources
-* [Pro Git](http://git-scm.com/book) is a free open source book that walks 
-  through all aspects of using the version control system.
-
-* [Git in Six Hundred Words](http://maryrosecook.com/blog/post/git-in-six-hundred-words)
-  is a clear and concise essay explaining the fundamental concepts of
-  Git.
-
-* [A Hacker's Guide to Git](http://wildlyinaccurate.com/a-hackers-guide-to-git)
-  covers the basics as well as more advanced Git commands while explaining each
-  step along the way.
-
-* [Think like a Git](http://think-like-a-git.net/) is another introduction
-  that focuses more on the graph theory and conceptual ideas behind Git
-  to help the reader understand what's happening as they use Git commands.
-
-* [A practical git introduction](http://mrchlblng.me/2014/09/practical-git-introduction/)
-  is exactly what the title says it is. This is a well written guide with 
-  plenty of code snippets to get you up to speed with Git.
-
-* [Git from the inside out](https://codewords.recurse.com/issues/two/git-from-the-inside-out)
-  demonstrates how Git's graph-based data structure produces certain behavior 
-  through example Git commands. This is a highly recommended read after you've
-  grasped the basics and are looking to go deeper with Git.
-
-* [git ready](http://gitready.com/) has a nice collection of blog posts based on
-  beginner, intermediate and advanced Git use cases.
-
-* [git-flow](http://nvie.com/posts/a-successful-git-branching-model/) details
-  a Git branching model for small teams.
-
-* [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html) builds on
-  git-flow, goes over some of the issues that arise with it and presents a
-  few solutions to those problems.
-
-* [Git Workflows That Work](http://blog.endpoint.com/2014/05/git-workflows-that-work.html)
-  is a helpful post with diagrams to show how teams can create a Git workflow
-  that will help their development process.
-
-* "[Our Git Workflow](http://www.braintreepaymentsolutions.com/devblog/our-git-workflow)"
-  by Braintree goes over how this payments company uses Git for development
-  and merging source code.
-
-* [Code Sleuthing with Git](https://robots.thoughtbot.com/code-sleuthing-with-git)
-  shows how to review past changes when a deployment goes wrong to figure
-  out what the heck happened.
-
-
-## Source control learning checklist
-1. Pick a version control system. Git is recommended because on the web there
-   are a significant number of tutorials to help both new and advanced users.
-
-1. Learn basic use cases for version control such as committing changes, 
-   rolling back to earlier file versions and searching for when lines of code 
-   were modified during development history.
-
-1. Ensure your source code is backed up in a central repository. A central
-   repository is critical not only if your local development version is 
-   corrupted but also for the deployment process.
-
-1. Integrate source control into your deployment process in three ways. First,
-   pull the project source code from version control during deployments. 
-   Second, kick off deployments when code is modified by using webhooks or 
-   polling on the repository. Third, ensure you can roll back to a previous 
-   version if a code deployment goes wrong.
+1. 需要三步来集成源码控制到开发过程中。首先，在开发期间，从版本控制系统中拉取项目源码。第二，使用 webhooks 或者轮询仓库的方式在代码修改时启动部署。第三，当开发出现问题时，确保你能够回滚到之前的版本。
 

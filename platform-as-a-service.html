@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="A platform-as-a-service simplifies the deployment of application code while risking other tradeoffs. Learn more on Full Stack Python.">
+    <meta name="description" content="使用 PaaS 部署应用代码的方案会有其它方面需要权衡的风险。快来 Full Stack Python 学习更多相关知识吧。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Platform-as-a-service - Full Stack Python 简体中文网站</title>
+    <title>平台即服务（PaaS） - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,38 +36,18 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Platform-as-a-service</h1>
-<p>A platform-as-a-service (PaaS) provides infrastructure and a software layer
-on which a web application is deployed. Running your web application from
-a PaaS removes the need to know as much about the underlying servers, 
-operating system, web server, and often the WSGI server. </p>
-<p><em>Note</em>: If you are not interested in deploying to a PaaS you can move 
-ahead to the <a href="/wsgi-servers.html">WSGI servers</a> section.</p>
-<p>The PaaS layer defines how the application accesses resources such as 
-computing time, files, and external services. The PaaS provides a 
-higher-level abstraction for working with computing resources than deploying 
-an application to a server or IaaS.</p>
-<p>A PaaS makes deployment and operations easier because it forces the developer
-to conform applications to the PaaS architecture. For example, Heroku looks 
-for Python's <code>requirements.txt</code> file in the base directory of the repository 
-during deployment because that is the file's de facto community standard
-location.</p>
-<p><img src="/img/servers-versus-paas.png" width="100%" alt="Traditional LAMP server stack versus a Platform-as-a-Service stack" class="technical-diagram" /></p>
-<p>If you go the PaaS route, you can skip configuring an operating system
-and web server prebaked into PaaS offerings. PaaS offerings generally start 
-at the WSGI server layer. </p>
-<h2>Platform-as-a-service responsibilities</h2>
-<p>Although PaaS offerings simplify setting up and maintaining the servers,
-operating system, and web server, developers still have responsibilities for other
-layers of their web stack.</p>
-<p>While it's useful to know the operating system that underpins your PaaS, for 
-example Heroku uses Ubuntu 10.04, you will not have to know as much about 
-securing the operating system and server level. However, web applications deployed
-to a PaaS are just as vulnerable to security breaches at the application level
-as a standard LAMP stack. It's still your responsibility to ensure the web
-application framework and your app itself is up to date and secured. See the
-<a href="/web-application-security.html">security section</a> for further information.</p>
-<h2>Platforms-as-a-service that support Python</h2>
+          <h1>平台即服务（PaaS）</h1>
+<p>平台即服务（PaaS）提供了硬件基础设施和软件层，这样可以在它上面部署 web 应用。使用 PaaS 方案部署你的 web 应用，就意味着你不必了解更多关于服务器基础、操作系统、web 服务器、以及常提到的 WSGI 服务器的相关知识。</p>
+<p><em>注意</em>：如果你对使用 PaaS 方案部署 web 应用没什么兴趣的话，可以去阅读 <a href="/wsgi-servers.html">WSGI 服务器</a> 一节的内容。</p>
+<p>PaaS 层定义了应用程序应该如何访问诸如计算时间、文件以及外部服务这样的资源。相对于在一台服务器或者在 IaaS 上部署应用的方案，PaaS 为使用计算资源提供了更高层次的抽象。</p>
+<p>使用 PaaS 方案使得部署和操作变得更加简单，因为它会强迫开发者让应用程序符合 PaaS 架构。例如，在部署应用期间，Heroku 会在仓库的基目录查找 Python <code>requirements.txt</code> 文件，因为基目录就是那个文件的实际社区标准位置。</p>
+<p><img src="/img/servers-versus-paas.png" width="100%" alt="传统 LAMP 服务栈对比基础设施即服务（PaaS）栈" class="technical-diagram" /></p>
+<p>如果你走的是使用 PaaS 的路线，那你就可以跳过配置操作系统和 web 服务器的步骤，它们都由 PaaS 预先配置并提供了。 PaaS 提供的服务通常起始于 WSGI 服务层。</p>
+<h2>平台即服务（PaaS）的职责所在</h2>
+<p>虽说 PaaS 提供的服务会简化服务器、操作系统和 web 服务器的设置和维护，但开发者们仍然需要对他们的 web 栈中其他各层负责。</p>
+<p>虽然了解一些用于支撑你的 PaaS 的操作系统知识是有好处的，例如 Heroku 使用的是 Ubuntu 10.04，但是你不必学习很多关于操作系统和服务器层面的安全知识。然而，部署到 PaaS 的 web 应用在在作为 LAMP 堆栈上的应用层依然会因为安全漏洞而易受攻击。这依旧是你的职责去保证你的 web 应用框架和应用能够及时更新并且保证它们的安全。阅读
+<a href="/web-application-security.html">安全部分</a> 获取更多信息。</p>
+<h2>支持 Python 的平台即服务（PaaS）</h2>
 <ul>
 <li>
 <p><a href="http://www.heroku.com/">Heroku</a></p>
@@ -88,122 +68,99 @@ application framework and your app itself is up to date and secured. See the
 <p><a href="https://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a></p>
 </li>
 </ul>
-<h2>Platform-as-a-service resources</h2>
+<h2>与平台即服务（PaaS）有关的资源</h2>
 <ul>
 <li>
-<p><a href="http://appsembler.com/blog/paas-bakeoff-comparing-stackato-openshift-dotcloud-and-heroku-for-django-hosting-and-deployment/">PaaS bakeoff: Comparing Stackato, OpenShift, Dotcloud and Heroku for Django hosting and deployment</a> by <a href="https://twitter.com/natea">Nate Aune</a>.</p>
+<p><a href="http://appsembler.com/blog/paas-bakeoff-comparing-stackato-openshift-dotcloud-and-heroku-for-django-hosting-and-deployment/">PaaS 测评：对比在 Stackato, OpenShift, Dotcloud 和 Heroku 上托管和部署 Django 应用</a> ，由 <a href="https://twitter.com/natea">Nate Aune</a> 编写。</p>
 </li>
 <li>
-<p><a href="http://www.rdegges.com/deploying-django/">Deploying Django</a> by 
-  Randall Degges is another great free resource about Heroku.</p>
+<p><a href="http://www.rdegges.com/deploying-django/">部署 Django</a> 由
+  Randall Degges 编写， 是另外一篇有关 Heroku 的免费并且优秀的文章。</p>
 </li>
 <li>
-<p><a href="https://www.expeditedssl.com/aws-in-plain-english">AWS in Plain English</a>
-  shows what current Amazon Web Services individual services are
-  currently called and what they could've been called to be more 
-  clear to users.</p>
+<p><a href="https://www.expeditedssl.com/aws-in-plain-english">浅说 AWS</a>
+  说明了当前 Amazon Web Services 的独立服务的称呼，以及它们应当称呼什么才能让用户觉得更加清晰。</p>
 </li>
 <li>
-<p><a href="https://cloudonaut.io/5-aws-mistakes-you-should-avoid/">5 AWS mistakes you should avoid</a>
-  explains how common beginner practices such as manually managing 
-  infrastructure, not using scaling groups and underutilizing instances can 
-  create problems you'd be better off avoiding altogether.</p>
+<p><a href="https://cloudonaut.io/5-aws-mistakes-you-should-avoid/">5个你应当避免的 AWS 错误</a>
+  说明了普通的新手的在进行一些诸如手工管理设施、不使用扩展组以及未充分利用实例这样的实践时是如何产生问题的，你最好同时避免这些问题。</p>
 </li>
 <li>
-<p>Heroku's 
-  <a href="https://devcenter.heroku.com/articles/getting-started-with-python">Python deployment documentation</a>
-  provides clear examples for how to work with virtualenv, pip and 
-  <code>requirements.txt</code> to get a applications deployed to their platform.</p>
+<p>Heroku 的
+  <a href="https://devcenter.heroku.com/articles/getting-started-with-python">Python 部署文档</a>
+   提供了清晰的例子展示了如何使用 virtualenv, pip 和 <code>requirements.txt</code> 将应用部署到他们的平台。</p>
 </li>
 <li>
-<p>Miguel Grinberg's Flask tutorial contains an entire post on deploying 
-  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-the-heroku-cloud">Flask applications to Heroku</a>.</p>
+<p>Miguel Grinberg 编写的 Flask 教程中包含了一篇完整的文章讲述了部署
+  <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-the-heroku-cloud">Flask 应用到 Heroku</a>。</p>
 </li>
 <li>
-<p>This series on DevOps Django by 
-  <a href="https://twitter.com/rdegges">Randall Degges</a> is great reading for 
-  using the Heroku service:</p>
+<p>由 
+  <a href="https://twitter.com/rdegges">Randall Degges</a> 编写的 DevOps Django 系列是学习使用 Heroku 服务非常好的阅读资料：</p>
 <ul>
-<li><a href="http://www.rdegges.com/devops-django-part-1-goals/">Part One: Goals</a></li>
-<li><a href="http://www.rdegges.com/devops-django-part-2-the-pain-of-deployment/">Part Two: The Pain of Deployment</a></li>
-<li><a href="http://www.rdegges.com/devops-django-part-3-the-heroku-way/">Part Three: The Heroku Way</a></li>
-<li><a href="http://rdegges.com/devops-django-part-4-choosing-heroku">Part Four: Choosing Heroku</a></li>
+<li><a href="http://www.rdegges.com/devops-django-part-1-goals/">第一部分：目标</a></li>
+<li><a href="http://www.rdegges.com/devops-django-part-2-the-pain-of-deployment/">第二部分：部署之痛</a></li>
+<li><a href="http://www.rdegges.com/devops-django-part-3-the-heroku-way/">第三部分：Heroku 方式</a></li>
+<li><a href="http://rdegges.com/devops-django-part-4-choosing-heroku">第四部分：选择 Heroku</a></li>
 </ul>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/deploying-a-django-app-to-aws-elastic-beanstalk/">Deploying a Django App to AWS Elastic Beanstalk</a>
-  is a fantastic post that shows how to deploy to Amazon Web Service's own
-  PaaS.</p>
+<p><a href="https://realpython.com/blog/python/deploying-a-django-app-to-aws-elastic-beanstalk/">在 AWS Elastic Beanstalk 上部署 Django 应用</a>
+  是一篇非常精辟的文章，讲述了如何在 Amazon Web 服务提供的 PaaS 上进行部署。</p>
 </li>
 <li>
-<p><a href="https://news.mlh.io/deploy-your-hack-in-3-steps-intro-to-aws-and-elastic-beanstalk-02-20-2015">Deploy your hack in 3 steps: Intro to AWS and Elastic Beanstalk</a>
-  shows how to deploy a simple Ruby Sinatra app, but the steps are generally
-  applicable to Python web apps as well. </p>
+<p><a href="https://news.mlh.io/deploy-your-hack-in-3-steps-intro-to-aws-and-elastic-beanstalk-02-20-2015">三步完成部署：针对 AWS 和 Elastic Beanstalk 的介绍</a>
+  展示了如何部署一个简单的 Ruby Sinatra 应用，但是这些步骤对于 Python web 应用来说通常也是适用的。</p>
 </li>
 <li>
-<p>Are you wondering what it will cost to deploy a reasonable sized production 
-  app on a platform-as-a-service like Heroku? Check out Cushion's 
-  <a href="http://cushionapp.com/expenses/">transparent costs list</a> where they
-  include their expenses from using a PaaS as well as other services.</p>
+<p>你还在为在一个类似 Heroku 的平台即服务（PaaS）上部署一个合理大小的产品应用的花费而纳闷吗？ 看看 Cushion 的
+  <a href="http://cushionapp.com/expenses/">透明开销清单</a>，它们包含了使用 PaaS 以及其它服务的开支详情。</p>
 </li>
 <li>
-<p>The <a href="http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html">beginner's guide to scaling to 11 million users on AWS</a>
-  is a useful list of services you'll need to look at as you grow an
-  application from 10 to 100 to 1000 to 500,000 and beyond to millions 
-  of users.</p>
+<p>这篇 <a href="http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html">新手指南：在 AWS 上扩展支持 1100 万用户</a>
+  是一些非常有用的服务清单。当你的应用从拥有 10 人、100 人到 1000 人再到 50 万人以及超过百万用户后，你需要去阅读这篇指南。</p>
 </li>
 <li>
-<p><a href="http://blog.codeship.com/separate-aws-production-and-development-accounts/">How to Separate Your AWS Production and Development Accounts</a>
-  is a basic post on keeping developer sandbox accounts separate from
-  production AWS environments.</p>
+<p><a href="http://blog.codeship.com/separate-aws-production-and-development-accounts/">如何隔离你的 AWS 产品和开发账户</a>
+  是一篇基础的文章，讲述了如何将开发者沙盒账户和产品级别的 AWS 环境保持隔离。</p>
 </li>
 <li>
-<p><a href="https://medium.com/@davidmytton/how-much-is-spotify-paying-google-cloud-ebb3bf180f15">How much is Spotify Paying Google Cloud?</a>
-  provides some insight into how Spotify runs all of their infrastructure
-  on Google Cloud and posits what they may be paying to run their
-  service.</p>
+<p><a href="https://medium.com/@davidmytton/how-much-is-spotify-paying-google-cloud-ebb3bf180f15">Spotify 给 Google 云支付了多少？</a>
+  深入洞悉了 Spotify 如何在 Goole 云上运行它们所有的基础设施服务，并假想了它们要为此可能支付的费用。</p>
 </li>
 <li>
-<p>Two blog posts on using AWS Autoscaling in <a href="https://mcristi.wordpress.com/2016/04/21/my-approach-at-making-aws-ec2-affordable-automatic-replacement-of-autoscaling-nodes-with-equivalent-spot-instances/">Automatic replacement of Autoscaling nodes with equivalent spot instances</a>
-  and
-  <a href="https://mcristi.wordpress.com/2016/04/27/automatic-replacement-of-autoscaling-nodes-with-equivalent-spot-instances-seeing-it-in-action/">Autoscaling nodes: seeing it in action</a>
-  provides a fairly complicated but potential approach for making AWS 
-  cheaper, depending on whether the majority of your cost is in compute
-  nodes.</p>
+<p>有两篇博客是关于 AWS 自动扩展功能的， 它们分别是 <a href="https://mcristi.wordpress.com/2016/04/21/my-approach-at-making-aws-ec2-affordable-automatic-replacement-of-autoscaling-nodes-with-equivalent-spot-instances/">自动使用等价的 Spot 实例替换自动扩展的节点</a>
+  以及
+  <a href="https://mcristi.wordpress.com/2016/04/27/automatic-replacement-of-autoscaling-nodes-with-equivalent-spot-instances-seeing-it-in-action/">自动扩展的节点：在实践中学习</a>
+  提供了一种很复杂但潜在方法来让 AWS 更加便宜，不过这取决于你的大多数花费是否在计算节点上。</p>
 </li>
 </ul>
-<h2>Platform-as-a-service learning checklist</h2>
+<h2>平台即服务（PaaS）学习清单</h2>
 <ol>
 <li>
-<p>Review the potential Python platform-as-a-service options listed above.</p>
+<p>回顾上述列出的一些潜在的 Python 平台即服务（PaaS）选项。</p>
 </li>
 <li>
-<p>Sign up for a PaaS account at the provider that appears to best fit your
-   application needs. Heroku is the PaaS option recommended for starters due 
-   to their detailed documentation and walkthroughs available on the web. 
-   However, the other options are also viable since their purpose is to make 
-   deploying applications as easy as possible.</p>
+<p>找一个最适合你的应用需求的 PaaS 供应商，并在那儿注册一个账户。Heroku 是推荐给初学者的 PaaS 选择，因为它提供了详细的文档，并且在网上有很多不错的教程。当然，其他的选择也是可行的，因为他们的目的就是让应用部署尽可能地简单。</p>
 </li>
 <li>
-<p>Check if there are any PaaS-specific configuration files needed for your 
-   app to run properly on the PaaS after it is deployed.</p>
+<p>在 PaaS 上部署应用后，检查一下是否有任何需要的 PaaS 相关的详细配置文件，从而让你的应用以适当的方式运行。</p>
 </li>
 <li>
-<p>Deploy your app to the PaaS. </p>
+<p>在 PaaS 上部署应用。</p>
 </li>
 <li>
-<p>Sync your application's configuration with the database.</p>
+<p>将你的应用配置与数据库同步。</p>
 </li>
 <li>
-<p>Set up a content delivery network for your application's 
-   <a href="/static-content.html">static content</a> unless your PaaS provider already
-   handles this deployment step for you.</p>
+<p>为你应用的 <a href="/static-content.html">静态内容</a> 设置内容分发网络（CDN）
+  ，除非你的 PaaS 供应商已经帮你完成了这个部署步骤。</p>
 </li>
 <li>
-<p>Check if the application's functionality is working and tweak as necessary.</p>
+<p>检查你的应用是否正常工作，并在必要时进行调整。</p>
 </li>
 </ol>
-<h3>What deployment topic do you want to learn about next?</h3>
+<h3>接下来你想要学习与部署相关的什么话题？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
@@ -265,10 +222,10 @@ application framework and your app itself is up to date and secured. See the
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Platform-as-a-Service</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Operating Systems</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Servers</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI Servers</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Source Control</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>源码控制</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Platform-as-a-service</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">平台即服务（PaaS）</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -281,7 +238,7 @@ application framework and your app itself is up to date and secured. See the
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/platform-as-a-service.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Platform-as-a-Service</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/platform-as-a-service.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; 平台即服务（PaaS）</a>
 <a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>
