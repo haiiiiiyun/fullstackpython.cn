@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Python web applications depend on many code libraries. Learn more about application dependencies on Full Stack Python.">
+    <meta name="description" content="Python web 应用依赖于许多代码库。快来 Full Stack Python 学习更多有关应用程序依赖的知识吧。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Application Dependencies - Full Stack Python 简体中文网站</title>
+    <title>应用程序依赖 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,71 +36,40 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Application Dependencies</h1>
-<p>Application dependencies are the libraries other than your project code
-that are required to create and run your application. </p>
-<h2>Why are application dependencies important?</h2>
-<p>Python web applications are built upon the work done by thousands of open
-source programmers. Application dependencies include not only web frameworks but
-also libraries for scraping, parsing, processing, analyzing, visualizing, 
-and many other tasks. Python's ecosystem facilitates discovery, retrieval and 
-installation so applications are easier for developers to create.</p>
-<h2>Finding libraries</h2>
-<p>Python libraries are stored in a central location known as the 
-<a href="https://pypi.python.org/pypi">Python Package Index</a> (PyPi). PyPi contains
-search functionality with results weighted by usage and relevance based on
-keyword terms.</p>
-<p>Besides PyPi there are numerous resources that list common or "must-have" 
-libraries. Ultimately the decision for which application dependencies are
-necessary for your project is up to you and the functionality you're looking
-to build. However, it's useful to browse through these lists in case you come 
-across a library to solve a problem by reusing the code instead of writing it
-all yourself. A few of the best collections of Python libraries are</p>
+          <h1>应用程序依赖</h1>
+<p>应用程序依赖是指除了你的项目代码外，其它用于创建和运行你的应用所必须的库。</p>
+<h2>为何应用程序依赖很重要？</h2>
+<p>Python web 应用程序是建立在由无数开源程序员已经完成的工作基础上的。应用程序依赖包括但不限于 web 框架，还有很多用于抓取、解析、处理、分析、可视化以及其它库。Python 的生态环境对于发现、检索和安装依赖库很有帮助，从而使得开发者可以更加轻松地创建应用。</p>
+<h2>查找库</h2>
+<p>Python 的包都被存储在为人熟知的 <a href="https://pypi.python.org/pypi">Python 包索引</a>（PyPI）上。PyPI 包含了搜索的功能，它可以根据关键词条目返回根据使用频度和相关性排序的结果。</p>
+<p>除了 PyPI，还有无数的资源中列出了常用的或者“必备”的库。当然，最终使用什么样的应用程序依赖库还是取决于你自己以及你想要构建的功能。然而，浏览一下这些库的列表还是非常有帮助的，万一你会发现一个可以用于解决问题的库呢。这样你就可以复用别人的代码而不是自己完全重写。一些最好的 Python 库合集如下：</p>
 <ul>
 <li>
-<p><a href="https://wiki.python.org/moin/UsefulModules">Python.org's useful modules</a>
-  which groups modules into categories.</p>
+<p><a href="https://wiki.python.org/moin/UsefulModules">Python.org 上有用的模块</a>
+  它给模块按照目录进行分组。</p>
 </li>
 <li>
-<p><a href="https://github.com/trending?l=python">GitHub Explore Trending repositories</a>
-  shows the open source Python projects trending today, this week, and this 
-  month.</p>
+<p><a href="https://github.com/trending?l=python">GitHub 上探索流行的仓库</a>
+  展示了 GitHub 上最近一天、一周和一个月流行的 Python 开源项目。</p>
 </li>
 <li>
-<p>This list of <a href="http://freepythontips.wordpress.com/2013/07/30/20-python-libraries-you-cant-live-without/">20 Python libraries you can’t live without</a>
-  is a wide-ranging collection from data analysis to testing tools.</p>
+<p>这有个列表： <a href="http://freepythontips.wordpress.com/2013/07/30/20-python-libraries-you-cant-live-without/">20 个你必须拥有的 Python 库</a>
+  ，它是一个包含了从数据分析到测试工具的大范围的库合集。</p>
 </li>
 <li>
-<p>Wikipedia actually has an extensive 
-  <a href="http://en.wikipedia.org/wiki/List_of_Python_software">page dedicated to Python libraries</a> 
-  grouped by categories.</p>
+<p>事实上，维基百科也有一个扩展的 <a href="http://en.wikipedia.org/wiki/List_of_Python_software">页面专门讲解了 Python 库</a> ，并且是按照目录分组的。</p>
 </li>
 </ul>
-<h2>Isolating dependencies</h2>
-<p>Dependencies are installed separately from system-level packages to prevent 
-library version conflicts. The most common isolation method is 
-<a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>. Each virtualenv is its
-own copy of the Python interpreter and dependencies in the site-packages
-directory. To use a virtualenv it must first be created with the virtualenv
-command and then activated.</p>
-<p>The virtualenv stores dependencies in an isolated environment. The web 
-application then relies only on that virtualenv instance which has a separate
-copy of the Python interpreter and site-packages directory. A high level of
-how a server configured with virtualenv can look is shown in the picture below.</p>
+<h2>隔离依赖</h2>
+<p>将依赖与系统级别的包分开安装的，可以防止库版本冲突的问题发生。最常见的隔离手段是采用虚拟环境 <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>。每个虚拟环境（virtualenv）都有一个独立的 Python 解释器以及来自 site-packages 目录的依赖库的副本。为了使用虚拟环境（virtualenv），你必须首先使用 virtualenv 命令创建并激活虚拟环境。</p>
+<p>Virtualenv 会在隔离的环境下存储依赖库。然后，web 应用就会依靠创建的那个含有独立的 Python 解释器副本和来自 site-packages 目录拷贝的虚拟环境来运行。下面的这幅图片可以从更高层次看一个配有 virtualenv 的服务器是怎样工作的。</p>
 <p><img src="/img/server-setup.png" alt="How the virtualenv separates dependencies on the server." width="100%" class="technical-diagram" /></p>
-<h2>Installing Python dependencies</h2>
-<p>The recommended way to install Python library dependencies is with the 
-<a href="http://www.pip-installer.org/en/latest/">pip</a> command when a virtualenv
-is activated.</p>
-<p>Pip and virtualenv work together and have complementary responsibilities.
-Pip downloads and installs application dependencies from the central
-<a href="https://pypi.python.org/pypi">PyPi</a> repository. </p>
+<h2>安装 Python 依赖</h2>
+<p>当一个虚拟环境（virtualenv）激活后，安装 Python 库依赖的推荐方法就是使用 <a href="http://www.pip-installer.org/en/latest/">pip</a> 命令。</p>
+<p>Pip 和 virtualenv 工作在一起，并且责任互补。Pip 负责从 <a href="https://pypi.python.org/pypi">PyPi</a> 中心仓库下载并安装应用依赖。</p>
 <h2>requirements.txt</h2>
-<p>The pip convention for specifying application dependencies is with a 
-<code>requirements.txt</code> file. When you build a Python web application you 
-should include <code>requirements.txt</code> in the base directory of your project.</p>
-<p>Python projects' dependencies for a web application should be specified 
-with pegged dependencies like the following:</p>
+<p>Pip 的使用惯例是，可以使用一个<code>requirements.txt</code>文件指定应用程序依赖。当你构建一个 web 应用时，你应当在项目的主目录下包含一个<code>requirements.txt</code>文件。</p>
+<p>Python web 应用的项目依赖库应当指定相应的版本号，如下：</p>
 <div class="highlight"><pre><span></span>django==1.6
 bpython==0.12
 django-braces==0.2.1
@@ -115,114 +84,81 @@ djangorestframework==2.3.1
 </pre></div>
 
 
-<p>Pegged dependencies with precise version numbers or Git tags are important 
-because otherwise the latest version of a dependency will be used. While
-it may sound good to stay up to date, there's no telling if your application
-actually works with the latest versions of all dependencies. Developers should 
-deliberately upgrade and test to make sure there were no backwards-incompatible
-modifications in newer dependency library versions.</p>
+<p>带有精确版本号或者 Git 标签的依赖是非常重要的，因为如果不那样的话，将会使用最新版本的依赖库。虽说保持更新听起来不错，但是实际上，你没法保证你的应用可以在所有的依赖都使用最新版本后还能继续工作。开发者们对升级应当慎重，并且要通过测试确保新版的依赖库没有向后兼容方面的修改。</p>
 <h2>setup.py</h2>
-<p>There is another type of dependency specification for Python libraries
-known as 
-<a href="http://stackoverflow.com/questions/1471994/what-is-setup-py">setup.py</a>.
-Setup.py is a standard for distributing and installing Python libraries.
-If you're building a Python library, such as 
-<a href="http://www.python-requests.org/en/latest/">requests</a> or
-<a href="https://github.com/makaimc/underwear">underwear</a> you must include setup.py
-so a dependency manager can correctly install both the library as well as
-additional dependencies for the library. There's still quite a bit of 
-confusion in the Python community over the difference between 
-requirements.txt and setup.py, so read this 
-<a href="https://caremad.io/2013/07/setup-vs-requirement/">well written post</a> for
-further clarification.</p>
-<h2>Application dependency resources</h2>
+<p>还有一种指定 Python 库和依赖的方式，就是使用 <a href="http://stackoverflow.com/questions/1471994/what-is-setup-py">setup.py</a> 。
+Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一个 Python 库，如
+<a href="http://www.python-requests.org/en/latest/">requests</a> 或者 <a href="https://github.com/makaimc/underwear">underwear</a>，你就必须要包含一个 setup.py 脚本，这样依赖管理器就可以正确地安装应用库及其依赖。在 Python 社区，仍然有一些关于 requirements.txt 和 setup.py 的区别的疑惑，所以请阅读这篇
+<a href="https://caremad.io/2013/07/setup-vs-requirement/">不错的文章</a> 来了解更多内容。</p>
+<h2>应用程序依赖相关的资源</h2>
 <ul>
 <li>
-<p><a href="https://twitter.com/jonathanchu">Jon Chu</a> wrote a great introduction on 
-  <a href="http://jonathanchu.is/posts/virtualenv-and-pip-basics/">virtualenv and pip basics</a>.</p>
+<p><a href="https://twitter.com/jonathanchu">Jon Chu</a> 写的
+  <a href="http://jonathanchu.is/posts/virtualenv-and-pip-basics/">virtualenv 和 pip 基础</a> 是非常不错的介绍。</p>
 </li>
 <li>
-<p><a href="http://dabapps.com/blog/introduction-to-pip-and-virtualenv-python/">A non-magical introduction to virtualenv and pip</a> 
-  breaks down what problems these tools solve and how to use them.</p>
+<p><a href="http://dabapps.com/blog/introduction-to-pip-and-virtualenv-python/">关于 virtualenv 和 pip 的介绍</a> 
+  分析了这些工具可以解决什么问题以及如何使用它们。</p>
 </li>
 <li>
-<p><a href="http://www.clemesha.org/blog/modern-python-hacker-tools-virtualenv-fabric-pip/">Tools of the modern Python hacker</a> 
-  contains detailed explanations of virtualenv, Fabric, and pip.</p>
+<p><a href="http://www.clemesha.org/blog/modern-python-hacker-tools-virtualenv-fabric-pip/">现代 Python 黑客工具</a> 
+  包括了针对 virtualenv、Fabric 和 pip 非常详细的说明。</p>
 </li>
 <li>
-<p>Occasionally arguments about using Python's dependency manager versus
-  one of Linux's dependency managers comes up. This provides
-  <a href="http://notes.pault.ag/debian-python/">one perspective on that debate</a>.</p>
+<p>有时候，会产生究竟该使用 Python 的依赖管理器，还是该使用一个 Linux 依赖管理器的争论。 这篇文章给出了 <a href="http://notes.pault.ag/debian-python/">一个有关那个争论的观点</a>。</p>
 </li>
 <li>
 <p><a href="http://lucumr.pocoo.org/2016/3/24/open-source-trust-scaling/">Open source trust scaling</a>
-  is a good piece for the Python community (and other communities) that is
-  based on the 
-  <a href="https://medium.com/@azerbike/i-ve-just-liberated-my-modules-9045c06be67c">left-pad NPM situation</a>
-  that broke many dependent packages in the Node.JS community.</p>
+  是一篇针对 Python 社区（和其他社区）的好文章，它是基于另一篇文章
+  <a href="https://medium.com/@azerbike/i-ve-just-liberated-my-modules-9045c06be67c">left-pad NPM 的情况</a>，那篇文章作者撤出了许多位于 Node.JS 社区的依赖包。</p>
 </li>
 <li>
-<p>This Stack Overflow question details how to set up a 
-  <a href="http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu">virtual environment for Python development</a>.</p>
+<p>这个在 Stack Overflow 上的问题详细地说明了如何
+  <a href="http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu">为 Python 应用开发设置虚拟环境</a>。</p>
 </li>
 <li>
-<p>Another Stack Overflow page answers 
-  <a href="http://stackoverflow.com/questions/9554087/setting-an-environment-variable-in-virtualenv">how to set environment variables when using virtualenv</a>.</p>
+<p>还有一个在 Stack Overflow 上的页面回答了
+  <a href="http://stackoverflow.com/questions/9554087/setting-an-environment-variable-in-virtualenv">在使用虚拟环境时如何设置环境变量</a>。</p>
 </li>
 <li>
-<p><a href="http://mrcoles.com/tips-using-pip-virtualenv-virtualenvwrapper/">Tips for using pip + virtualenv + virtualenvwrapper</a>
-  shows how to use shell aliases and postactivate virtualenvwrapper hooks to
-  make life easier when using these tools.</p>
+<p><a href="http://mrcoles.com/tips-using-pip-virtualenv-virtualenvwrapper/">使用 pip + virtualenv + virtualenvwrapper 的小贴士</a>
+  展示了在使用这些工具时如何通过 shell 别名和 postactivate virtualenvwrapper 钩子函数来改善使用体验。</p>
 </li>
 <li>
-<p>Major speed improvements were made in pip 7 over previous versions. Read 
-  <a href="https://lincolnloop.com/blog/fast-immutable-python-deployments/">this article about the differences</a>
-  and be sure to upgrade.</p>
+<p>和之前的版本相比，pip 7 主要在速度上有了改进。参阅
+  <a href="https://lincolnloop.com/blog/fast-immutable-python-deployments/">这篇文章来了解有哪些不同之处</a>
+  ，还有，记得一定要升级。</p>
 </li>
 <li>
-<p><a href="http://peterdowns.com/posts/first-time-with-pypi.html">How to submit a package to PyPI</a>
-  is a short and sweet introduction that'll help you quickly get your first
-  package on PyPI.</p>
+<p><a href="http://peterdowns.com/posts/first-time-with-pypi.html">如何向 PyPI 提交包</a>
+  是一个简单明了的介绍，它会快速地帮助你在 PyPI 上获得你的第一个 Python 包。</p>
 </li>
 </ul>
-<h2>Open source app dependency projects</h2>
+<h2>开源应用依赖项目</h2>
 <ul>
 <li>
-<p><a href="https://github.com/kennethreitz/autoenv">Autoenv</a> is a tool for activating
-  environment variables stored in a <code>.env</code> file in your projects' home
-  directories. Environment variables aren't managed by virtualenv and although
-  virtualenvwrapper has some hooks for handling them, it's often easiest to
-  use a shell script or <code>.env</code> file to set them in a development environment.</p>
+<p><a href="https://github.com/kennethreitz/autoenv">Autoenv</a> 是一个小工具，用激活位于你的项目主目录下的 <code>.env</code> 文件中存储的环境变量。virtualenv 并不会管理环境变量，虽然 virtualenvwrapper 提供了处理它们的钩子函数，但通常在开发环境中设置它们的最简单方法就是使用 shell 脚本或者 <code>.env</code> 文件。</p>
 </li>
 <li>
-<p><a href="https://github.com/bndr/pipreqs">Pipreqs</a> searches through a project for
-  dependencies based on imports. It then generates a <code>requirements.txt</code> file
-  based on the libraries necessary to run those dependencies. Note though that
-  while this could come in handy with a legacy project, the version numbers
-  for those libraries will not be generated with the output.</p>
+<p><a href="https://github.com/bndr/pipreqs">Pipreqs</a> 会根据导入自动在一个项目中搜索依赖。然后，它会基于运行这些依赖所必须的库生成一个 <code>requirements.txt</code> 文件。需要注意的是，虽然在一个遗留项目使用它很方便，但是它并不会在输出中生成那些库的具体版本号。</p>
 </li>
 </ul>
-<h2>Application dependencies learning checklist</h2>
+<h2>应用程序依赖学习清单</h2>
 <ol>
 <li>
-<p>Ensure the libraries your web application depends on are all captured in 
-   a requirement.txt file with pegged versions. </p>
+<p>确保你的 web 应用所需要的依赖库都包含在一个 requirement.txt 文件中，并且指定了版本号。</p>
 </li>
 <li>
-<p>An easy way to capture currently installed dependencies is with the 
-   <code>pip freeze</code> command.</p>
+<p>获取最近安装的依赖库最简单的方法就是使用 <code>pip freeze</code> 命令。</p>
 </li>
 <li>
-<p>Create a fresh virtualenv and install the dependencies from your 
-   <code>requirements.txt</code> file by using the <code>pip install -r requirements.txt</code> 
-   command.</p>
+<p>创建一个新的虚拟环境（virtualenv），然后使用命令 <code>pip install -r requirements.txt</code> 从你的  <code>requirements.txt</code> 文件中安装依赖。</p>
 </li>
 <li>
-<p>Check that your application runs properly with the fresh virtualenv and 
-   only the installed dependencies from the <code>requirements.txt</code> file.</p>
+<p>检查你的应用程序在新的虚拟环境（virtualenv）中能否正常工作，并且是否只是安装了来自  <code>requirements.txt</code> 文件中列出的依赖。</p>
 </li>
 </ol>
-<h3>What's next after installing app dependencies?</h3>
+<h3>安装好应用依赖库后该做什么？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
@@ -284,10 +220,10 @@ further clarification.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>源码控制</a><a href="/application-dependencies.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Application Dependencies</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>源码控制</a><a href="/application-dependencies.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>应用程序依赖</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Static Content</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Application Dependencies</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">应用程序依赖</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -300,7 +236,7 @@ further clarification.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/application-dependencies.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Application Dependencies</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/application-dependencies.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; 应用程序依赖</a>
 <a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>
