@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Task queues handle asynchronous jobs outside a Python web application HTTP request-response cycle.">
+    <meta name="description" content="任务队列异步处理在 Python web 应用 HTTP 请求-响应循环外的工作。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Task Queues - Full Stack Python 简体中文网站</title>
+    <title>任务队列 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,251 +36,181 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Task queues</h1>
-<p>Task queues manage background work that must be executed outside the usual
-HTTP request-response cycle.</p>
-<h2>Why are task queues necessary?</h2>
-<p>Tasks are handled asynchronously either because they are not initiated by 
-an HTTP request or because they are long-running jobs that would dramatically
-reduce the performance of an HTTP response.</p>
-<p>For example, a web application could poll the GitHub API every 10 minutes to
-collect the names of the top 100 starred repositories. A task queue would
-handle invoking code to call the GitHub API, process the results and store them
-in a persistent database for later use.</p>
-<p>Another example is when a database query would take too long during the HTTP
-request-response cycle. The query could be performed in the background on a
-fixed interval with the results stored in the database. When an
-HTTP request comes in that needs those results a query would simply fetch the
-precalculated result instead of re-executing the longer query.
-This precalculation scenario is a form of <a href="/caching.html">caching</a> enabled 
-by task queues.</p>
-<p>Other types of jobs for task queues include</p>
+          <h1>任务队列</h1>
+<p>任务队列负责管理后台工作，后台工作必须要在常规的 HTTP 请求-响应周期外执行。</p>
+<h2>任务队列为何是必要的？</h2>
+<p>任务需要异步执行的原因有两点：第一，它们并非由 HTTP 请求引发；第二，它们都是需要长时间运行并且会严重削弱 HTTP 响应性能的任务。</p>
+<p>例如，某个 web 应用可以每 10 分钟去调用 GitHub API 来收集最受关注的 100 个仓库的名称。任务队列可以触发调用 GitHub API 的代码，然后处理返回的结果并存放在一个固定的数据库中，以便后期使用。</p>
+<p>另外一个例子就是，在 HTTP 请求-响应周期中，当数据库查询需要花费太长时间时，就可以将查询任务放在后台执行，让它每隔一个固定时间就执行一次查询，并将结果存储在数据库中。当一个 HTTP 请求到来时，如果需要那些结果，只需要进行一次查询即可轻松地获取预先计算好的结果来，而不是再次执行长时间的查询任务。这种预先计算的情景就是一种在任务队列中启用 <a href="/caching.html">缓存</a> 的例子。</p>
+<p>其他需要任务队列的情形包括：</p>
 <ul>
 <li>
-<p>spreading out large numbers of independent database inserts over time 
-  instead of inserting everything at once</p>
+<p>将大量独立的数据库插入操作分开在一段时间内插入完成，而不是一次全部插入；</p>
 </li>
 <li>
-<p>aggregating collected data values on a fixed interval, such as every
-  15 minutes</p>
+<p>在一个固定的时间间隔后收集一次数据值，例如每 15 分钟；</p>
 </li>
 <li>
-<p>scheduling periodic jobs such as batch processes</p>
+<p>安排周期性的工作，例如批处理。</p>
 </li>
 </ul>
-<h2>Task queue projects</h2>
-<p>The defacto standard Python task queue is Celery. The other task queue 
-projects that arise tend to come from the perspective that Celery is overly
-complicated for simple use cases. My recommendation is to put the effort into
-Celery's reasonable learning curve as it is worth the time it takes to 
-understand how to use the project.</p>
+<h2>任务队列的项目</h2>
+<p>Celery 是 Python 任务队列事实上的标准。其它任务队列项目的诞生往往是因为 Celery 在一些简单的案例中使用显得过于复杂。我的建议是将精力花费在 Celery 的合理学习曲线上，因为花费这些时间是值得的，它可以帮助理解如何使用这个项目。</p>
 <ul>
 <li>
-<p>The <a href="http://www.celeryproject.org/">Celery</a> distributed task queue is the
-  most commonly used Python library for handling asynchronous tasks and 
-  scheduling.</p>
+<p>分布式任务队列 <a href="http://www.celeryproject.org/">Celery</a> 是最常使用的 Python 库，它用于执行异步任务和周期性任务。 </p>
 </li>
 <li>
-<p>The <a href="http://python-rq.org/">RQ (Redis Queue)</a> is a simple Python
-  library for queueing jobs and processing them in the background with workers.
-  RQ is backed by Redis and is designed to have a low barrier to entry.
-  The <a href="http://nvie.com/posts/introducing-rq/">intro post</a> contains information
-  on design decisions and how to use RQ.</p>
+<p><a href="http://python-rq.org/">RQ (Redis Queue)</a> 是一个简单的 Python 库，用于给工作排队，并在后台处理它们。RQ 由 Redis 提供支持，并且学习门槛较低。
+  这篇 <a href="http://nvie.com/posts/introducing-rq/">介绍文章</a> 包含了 RQ 的设计决策以及如何使用它的相关信息。</p>
 </li>
 <li>
-<p><a href="https://github.com/dcramer/taskmaster">Taskmaster</a> is a lightweight simple
-  distributed queue for handling large volumes of one-off tasks. </p>
+<p><a href="https://github.com/dcramer/taskmaster">Taskmaster</a> 是一个简单的轻量级分布式任务队列，用于处理大量的一次性执行任务。</p>
 </li>
 <li>
-<p><a href="http://huey.readthedocs.org/en/latest/">Huey</a> is a simple task queue that
-  uses Redis on the backend but otherwise does not depend on other libraries. 
-  The project was previously known as Invoker and the author changed the name.</p>
+<p><a href="http://huey.readthedocs.org/en/latest/">Huey</a> 是一个简单的任务队列，由 Redis 提供后台支持，但除此之外并不依赖于其它库。这个项目是曾经知名的 Invoker，但是后来作者改名为 Huey 了。</p>
 </li>
 <li>
-<p><a href="http://huey.readthedocs.org/en/latest/">Huey</a> is a Redis-based task 
-  queue that aims to provide a simple, yet flexible framework for 
-  executing tasks. Huey supports task scheduling, crontab-like repeating 
-  tasks, result storage and automatic retry in the event of failure.</p>
+<p><a href="http://huey.readthedocs.org/en/latest/">Huey</a> 是一个基于 Redis 的任务队列，旨在提供一个用于执行任务的简单灵活的框架。Huey 支持任务调度、类 crontab 的重复性任务执行、结果存储和在失败时自动重试等功能。</p>
 </li>
 </ul>
-<h2>Hosted message and task queue services</h2>
-<p>Task queue third party services aim to solve the complexity issues that arise
-when scaling out a large deployment of distributed task queues.</p>
+<h2>托管消息和任务队列服务</h2>
+<p>第三方任务队列服务旨在解决当扩展部署大量分布式任务队列时产生的问题。</p>
 <ul>
 <li>
-<p><a href="http://www.iron.io/">Iron.io</a> is a distributed messaging service platform 
-  that works with many types of task queues such as Celery. It also is built
-  to work with other IaaS and PaaS environments such as Amazon Web Services
-  and Heroku.</p>
+<p><a href="http://www.iron.io/">Iron.io</a> 是一个分布式消息服务平台，它可以和很多类型的任务队列配合工作，例如 Celery。它同样也是可以和其它 IaaS 和 PaaS 环境配合工作的，例如 Amazon Web 服务 和 Heroku。</p>
 </li>
 <li>
-<p><a href="http://aws.amazon.com/sqs/">Amazon Simple Queue Service (SQS)</a> is a
-  set of five APIs for creating, sending, receiving, modifying and deleting
-  messages.</p>
+<p><a href="http://aws.amazon.com/sqs/">Amazon 简单队列服务 (SQS)</a> 是五种 API 的集合，分别用于创建、发送、接收、修改和删除消息。</p>
 </li>
 <li>
-<p><a href="http://www.cloudamqp.com/">CloudAMQP</a> is at its core managed servers with
-  RabbitMQ installed and configured. This service is an option if you are 
-  using RabbitMQ and do not want to maintain RabbitMQ installations on your 
-  own servers.</p>
+<p><a href="http://www.cloudamqp.com/">CloudAMQP</a> 是在它的核心管理服务器上安装并配置了 RabbitMQ。如果你正在使用 RabbitMQ，并且不想在你自己的服务器上维护 RabbitMQ 的安装，你可以选择这个服务。</p>
 </li>
 </ul>
-<h2>Open source examples that use task queues</h2>
+<h2>使用任务队列的开源案例</h2>
 <ul>
 <li>
-<p>Take a look at the code in this open source 
-  <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/flask">Flask application</a> 
-  and 
-  <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/django">this Django application</a> 
-  for examples of how to use and deploy Celery with a Redis broker to
-  send text messages with these frameworks. </p>
+<p>看看这个开放源码的
+  <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/flask">Flask 应用</a> 
+  和 
+  <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/django">这个 Django 应用</a> 
+  例子，它们说明了如何使用并部署使用 Redis 作为代理中间件的 Celery 应用，从而使用这些框架发送消息。</p>
 </li>
 <li>
-<p><a href="https://github.com/thrisp/flask-celery-example">flask-celery-example</a> is
-  a simple Flask application with Celery as a task queue and Redis as
-  the broker.</p>
+<p><a href="https://github.com/thrisp/flask-celery-example">flask-celery 例子</a> 是一个简单的 Flask 应用，并且使用 Celery 作为任务队列，Redis 作为代理中间件。</p>
 </li>
 </ul>
-<h2>Task queue resources</h2>
+<h2>任务队列相关资源</h2>
 <ul>
 <li>
-<p><a href="http://www.caktusgroup.com/blog/2014/06/23/scheduling-tasks-celery/">Getting Started Scheduling Tasks with Celery</a>
-  is a detailed walkthrough for setting up Celery with Django (although
-  Celery can also be used without a problem with other frameworks).</p>
+<p><a href="http://www.caktusgroup.com/blog/2014/06/23/scheduling-tasks-celery/">入门学习使用 Celery 进行调度任务</a>
+  是一个详细讲解了在 Django 中设置并使用 Celery 的教程（虽然在其它框架中使用 Celery 也没有任何问题）。</p>
 </li>
 <li>
-<p><a href="https://www.twilio.com/blog/2015/11/international-space-station-notifications-with-python-redis-queue-and-twilio-copilot.html">International Space Station notifications with Python and Redis Queue (RQ)</a>
-  shows how to combine the RQ task queue library with Flask to send 
-  text message notifications every time a condition is met - in this blog
-  post's case that the ISS is currently flying over your location on
-  Earth.</p>
+<p><a href="https://www.twilio.com/blog/2015/11/international-space-station-notifications-with-python-redis-queue-and-twilio-copilot.html">国际空间站上使用 Python 和 Redis 队列（RQ）发送通知</a>
+  说明了如何将 RQ 任务队列库和 Flask 组合在一起，从而每当满足一个条件时就发送相应的文本消息通知。就这篇博客来说，国际空间站（ISS）正飞过你所在的地理位置。</p>
 </li>
 <li>
-<p><a href="http://www.warski.org/blog/2014/07/evaluating-persistent-replicated-message-queues/">Evaluating persistent, replicated message queues</a>
-  is a detailed comparison of Amazon SQS, MongoDB, RabbitMQ, HornetQ and
-  Kafka's designs and performance.</p>
+<p><a href="http://www.warski.org/blog/2014/07/evaluating-persistent-replicated-message-queues/">针对持久、重复性的消息队列的评估</a>
+  是一篇针对 Amazon SQS、MongoDB、RabbitMQ、HornetQ 和 Kafka 设计和性能的详细对比的文章。</p>
 </li>
 <li>
-<p><a href="http://queues.io/">Queues.io</a> is a collection of task queue systems with
-  short summaries for each one. The task queues are not all compatible with
-  Python but ones that work with it are tagged with the "Python" keyword.</p>
+<p><a href="http://queues.io/">Queues.io</a> 是一个包含任务队列系统的集合，并且每个系统都有简短的介绍。这些任务队列并非都和 Python 兼容，但是那些可以在 Python 中工作的任务队列都带有 "Python" 关键字。</p>
 </li>
 <li>
-<p><a href="http://www.slideshare.net/bryanhelmig/task-queues-comorichweb-12962619">Why Task Queues</a> 
-  is a presentation for what task queues are and why they are needed. </p>
+<p><a href="http://www.slideshare.net/bryanhelmig/task-queues-comorichweb-12962619">为什么是任务队列</a> 
+  是一篇介绍什么是任务队列以及为何需要它们的文章。</p>
 </li>
 <li>
-<p>Flask by Example <a href="https://realpython.com/blog/python/flask-by-example-implementing-a-redis-task-queue/">Implementing a Redis Task Queue</a>
-  provides a detailed walkthrough of setting up workers to use RQ with
-  Redis.</p>
+<p>Flask 例子 <a href="https://realpython.com/blog/python/flask-by-example-implementing-a-redis-task-queue/">使用 Redis 任务队列</a>
+  说明了在工作者中设置和使用 Redis RQ 的详细过程。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/articles/how-to-use-celery-with-rabbitmq-to-queue-tasks-on-an-ubuntu-vps">How to use Celery with RabbitMQ</a>
-  is a detailed walkthrough for using these tools on an Ubuntu VPS.</p>
+<p><a href="https://www.digitalocean.com/community/articles/how-to-use-celery-with-rabbitmq-to-queue-tasks-on-an-ubuntu-vps">如何在 RabbitMQ 中使用 Celery</a>
+  是一篇介绍在 Ubuntu VPS 上使用这些工具的详细教程。</p>
 </li>
 <li>
-<p>Heroku has a clear walkthrough for using 
-  <a href="https://devcenter.heroku.com/articles/python-rq">RQ for background tasks</a>.</p>
+<p>Heroku 中有一篇详细的教程说明了如何使用 
+  <a href="https://devcenter.heroku.com/articles/python-rq">RQ 实现后台任务运行</a>。</p>
 </li>
 <li>
-<p><a href="http://www.linuxforu.com/2013/12/introducing-celery-pythondjango/">Introducing Celery for Python+Django</a> 
-  provides an introduction to the Celery task queue.</p>
+<p><a href="http://www.linuxforu.com/2013/12/introducing-celery-pythondjango/">在 Python+Django 中使用 Celery 介绍</a> 
+  提供了针对 Celery 任务队列的介绍。</p>
 </li>
 <li>
-<p><a href="https://denibertovic.com/posts/celery-best-practices/">Celery - Best Practices</a>
-  explains things you should not do with Celery and shows some underused 
-  features for making task queues easier to work with.</p>
+<p><a href="https://denibertovic.com/posts/celery-best-practices/">Celery 最佳实践</a>
+  说明了一些你使用 Celery 不可以做的事情，并且展示了一些未充分使用的 Celery 特性来让你的工作更加容易。</p>
 </li>
 <li>
-<p>The "Django in Production" series by 
-  <a href="https://twitter.com/robgolding63">Rob Golding</a> contains a post 
-  specifically on <a href="http://www.robgolding.com/blog/2011/11/27/django-in-production-part-2---background-tasks/">Background Tasks</a>.</p>
+<p>由 <a href="https://twitter.com/robgolding63">Rob Golding</a> 编写的“在生产环境中使用 Django”系列中包含一篇专门介绍 <a href="http://www.robgolding.com/blog/2011/11/27/django-in-production-part-2---background-tasks/">后台任务</a> 的文章。</p>
 </li>
 <li>
-<p><a href="http://blog.thecodepath.com/2012/11/15/asynchronous-processing-in-web-applications-part-1-a-database-is-not-a-queue/">Asynchronous Processing in Web Applications Part One</a> 
-  and <a href="http://blog.thecodepath.com/2013/01/06/asynchronous-processing-in-web-applications-part-2-developers-need-to-understand-message-queues/">Part Two</a>
-  are great reads for understanding the difference between a task queue and
-  why you shouldn't use your database as one.</p>
+<p><a href="http://blog.thecodepath.com/2012/11/15/asynchronous-processing-in-web-applications-part-1-a-database-is-not-a-queue/">Web 应用中使用异步处理（第一部分）</a> 
+  和 <a href="http://blog.thecodepath.com/2013/01/06/asynchronous-processing-in-web-applications-part-2-developers-need-to-understand-message-queues/">第二部分</a>
+  是理解任务队列与为什么你不应该在你的数据库中使用单一任务区别的优秀阅读材料。</p>
 </li>
 <li>
-<p><a href="http://www.caktusgroup.com/blog/2014/09/29/celery-production/">Celery in Production</a>
-  on the Caktus Group blog contains good practices from their experience 
-  using Celery with RabbitMQ, monitoring tools and other aspects not often
-  discussed in existing documentation.</p>
+<p>Caktus Group 的博文 <a href="http://www.caktusgroup.com/blog/2014/09/29/celery-production/">在生成环境中使用 Celery</a>
+  讲解了很多来自他们的良好实践经验，包括在 RabbitMQ 中使用 Celery、使用监控工具以及其它一些在现有文档中并不常见方方面面知识。</p>
 </li>
 <li>
-<p><a href="https://www.youtube.com/watch?v=68QWZU_gCDA">A 4 Minute Intro to Celery</a> is
-  a short introductory task queue screencast.</p>
+<p><a href="https://www.youtube.com/watch?v=68QWZU_gCDA">Celery 4 分钟介绍</a> 是一个介绍任务队列的简短视频。</p>
 </li>
 <li>
-<p>Heroku wrote about how to 
-  <a href="https://engineering.heroku.com/blogs/2014-09-15-securing-celery">secure Celery</a>
-  when tasks are otherwise sent over unencrypted networks.</p>
+<p>Heroku 有一篇文章说明了当任务在非加密的网络中发送时，如何
+  <a href="https://engineering.heroku.com/blogs/2014-09-15-securing-celery">为 Celery 提供安全保障</a>。</p>
 </li>
 <li>
-<p>Miguel Grinberg wrote a nice post on using the 
-  <a href="http://blog.miguelgrinberg.com/post/using-celery-with-flask">task queue Celery with Flask</a>. 
-  He gives an overview of Celery followed by specific code to set up the task
-  queue and integrate it with Flask.</p>
+<p>Miguel Grinberg 写了一篇有关
+  <a href="http://blog.miguelgrinberg.com/post/using-celery-with-flask">在 Flask 中使用 Celery 任务队列</a> 的优秀文章。
+  他概要地介绍了设置任务队列的特定代码，从而把任务队列集成到 Flask中。</p>
 </li>
 <li>
-<p><a href="https://wiredcraft.com/blog/3-gotchas-for-celery/">3 Gotchas for Working with Celery</a>
-  are things to keep in mind when you're new to the Celery task queue 
-  implementation.</p>
+<p>当你是一个使用 Celery 任务队列的新手时，你需要记住这 <a href="https://wiredcraft.com/blog/3-gotchas-for-celery/">3 个 Celery 使用陷阱</a>。</p>
 </li>
 <li>
-<p><a href="https://godjango.com/63-deferred-tasks-and-scheduled-jobs-with-celery-31-django-17-and-redis/">Deferred Tasks and Scheduled Jobs with Celery 3.1, Django 1.7 and Redis</a>
-  is a video along with code that shows how to set up Celery with Redis as the
-  broker in a Django application.</p>
+<p><a href="https://godjango.com/63-deferred-tasks-and-scheduled-jobs-with-celery-31-django-17-and-redis/">Celery 3.1, Django 1.7 和 Redis 配合使用延期任务和周期任务</a>
+  是一个用代码展示如何将 Redis Celery 设置为 Django 应用代理中间件的视频。</p>
 </li>
 <li>
-<p><a href="http://michal.karzynski.pl/blog/2014/05/18/setting-up-an-asynchronous-task-queue-for-django-using-celery-redis/">Setting up an asynchronous task queue for Django using Celery and Redis</a>
-  is a straightforward tutorial for setting up the Celery task queue for 
-  Django web applications using the Redis broker on the back end.</p>
+<p><a href="http://michal.karzynski.pl/blog/2014/05/18/setting-up-an-asynchronous-task-queue-for-django-using-celery-redis/">在 Django 中使用 Redis Celery 设置异步任务</a>
+  是一个简单的教程，它讲解了为 Django web 应用设置 Celery 任务队列，并使用 Redis 作为后端代理。</p>
 </li>
 <li>
-<p><a href="http://django.zone/blog/posts/background-jobs-django-and-celery/">Background jobs with Django and Celery</a>
-  shows the code and a simple explanation of how to use Celery with 
-  <a href="/django.html">Django</a>.</p>
+<p><a href="http://django.zone/blog/posts/background-jobs-django-and-celery/"> Django 中使用 Celery 实现后台任务</a>
+  配合代码简要说明了如何在 <a href="/django.html">Django</a> 中使用 Celery。</p>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/asynchronous-tasks-with-django-and-celery/">Asynchronous Tasks With Django and Celery</a>
-  shows how to integrate Celery with <a href="/django.html">Django</a> and create Periodic Tasks.</p>
+<p><a href="https://realpython.com/blog/python/asynchronous-tasks-with-django-and-celery/">Django 和 Celery 实现异步任务</a>
+  说明了如何将 Celery 集成到 <a href="/django.html">Django</a> 中，并创建周期性的任务。</p>
 </li>
 <li>
-<p><a href="https://library.launchkit.io/three-quick-tips-from-two-years-with-celery-c05ff9d7f9eb">Three quick tips from two years with Celery</a>
-  provides some solid advice on retry delays, the -Ofair flag and global
-  task timeouts for Celery.</p>
+<p><a href="https://library.launchkit.io/three-quick-tips-from-two-years-with-celery-c05ff9d7f9eb">使用 Celery 两年所总结的三个小技巧</a>
+  提供了关于 Celery 在重试延时、Ofair 标志和全局任务超时三个方面的中肯建议。</p>
 </li>
 </ul>
-<h2>Task queue learning checklist</h2>
+<h2>任务队列学习清单</h2>
 <ol>
 <li>
-<p>Pick a slow function in your project that is called during an HTTP 
-   request.</p>
+<p>从你的项目中选择一个在 HTTP 请求期间执行缓慢的函数。</p>
 </li>
 <li>
-<p>Determine if you can precompute the results on a fixed interval instead 
-   of during the HTTP request. If so, create a separate function you can call
-   from elsewhere then store the precomputed value in the database.</p>
+<p>确定你能否在一个固定的时间间隔中预先计算出结果，而不是在 HTTP 请求发生时再计算。如果可以的话，再在别处创建一个可以调用的函数，再将预先计算好的值存储到数据库中。</p>
 </li>
 <li>
-<p>Read the Celery documentation and the links in the resources section below
-   to understand how the project works.</p>
+<p>阅读 Celery 的文档以及相关资源一节列出的链接文章来理解这个项目是如何工作的。</p>
 </li>
 <li>
-<p>Install a message broker such as RabbitMQ or Redis and then add Celery to 
-   your project. Configure Celery to work with the installed message broker.</p>
+<p>安装一个消息代理中间件，如 RabbitMQ 或者 Redis，然后将 Celery 添加到你的项目中。配置 Celery 从而让它可以和安装的消息代理中间件一起工作。</p>
 </li>
 <li>
-<p>Use Celery to invoke the function from step one on a regular basis.</p>
+<p>使用 Celery 周期性地调用来自步骤一中的函数。</p>
 </li>
 <li>
-<p>Have the HTTP request function use the precomputed value instead of the 
-   slow running code it originally relied upon.</p>
+<p>让 HTTP 请求函数使用预先计算好的值，而不是像它之前那样依赖运行缓慢的代码获得结果。</p>
 </li>
 </ol>
-<h3>What's next to learn after task queues?</h3>
+<h3>学完任务队列后再学习什么？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
@@ -295,7 +225,7 @@ when scaling out a large deployment of distributed task queues.</p>
     <div class="col-md-4">
         <div class="well select-next">
 <a href="/monitoring.html" class="btn btn-success btn-full"><svg width="36" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M512 896v512h-256v-512h256zm384-512v1024h-256v-1024h256zm1024 1152v128h-2048v-1536h128v1408h1920zm-640-896v768h-256v-768h256zm384-384v1152h-256v-1152h256z" fill="#fff"/></svg></a>
-<p class="under-btn">What tools exist for monitoring a deployed web app?</p>        </div>
+<p class="under-btn">现有什么工具可以监控部署好的 web 应用？</p>        </div>
     </div>
 </div><div id="mc_embed_signup">
 <form action="//mattmakai.us2.list-manage.com/subscribe/post?u=b7e774f0c4f05dcebbfee183d&amp;id=b22335388d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -342,10 +272,10 @@ when scaling out a large deployment of distributed task queues.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>源码控制</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>应用程序依赖</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态内容</a><a href="/task-queues.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Task Queues</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>源码控制</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>应用程序依赖</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态内容</a><a href="/task-queues.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>任务队列</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Configuration Management</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Continuous Integration</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Logging</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Monitoring</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web Analytics</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Task Queues</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">任务队列</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
@@ -358,7 +288,7 @@ when scaling out a large deployment of distributed task queues.</p>
     <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
   </div>
   <div class="list-group">
-<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/task-queues.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Task Queues</a>
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/task-queues.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; 任务队列</a>
 <a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
   </div>
 </div></div></div>
