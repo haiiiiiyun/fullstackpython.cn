@@ -4897,152 +4897,108 @@ Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一
   从更高的层面说明了在一个集团中如何使用 CI 构建起开发者与开发者之间、开发者与非技术人员之间的信任。这篇文章同时也讨论了设置可靠 CI 的任务，如测试环境、<a href="/integration-testing.html">集成测试</a> 以及 CI 结果的可见性。</p>
 </li>
 </ul>
-          <h1>Logging</h1>
-<p>Logging saves output such as errors, warnings and event information to 
-persistent storage for debugging purposes. </p>
-<h2>Why is logging important?</h2>
-<p>Runtime exceptions that prevent code from running are important to log to 
-investigate and fix the source of the problems. Informational and debugging 
-logging also helps to understand how the application is performing even if 
-code is working as intended.</p>
-<h2>Logging levels</h2>
-<p>Logging is often grouped into several categories:</p>
+          <h1>日志</h1>
+<p>日志将诸如错误、警告以及事件信息保存到永久存储器中，以便后期调试。</p>
+<h2>日志为何很重要？</h2>
+<p>将中断代码运行的异常信息通过日志输出是非常重要的，它可以用来观察并修复源码问题。
+此外，信息日志和调试日志也可以帮助理解应用程序是如何执行的，即使代码能够正常工作。</p>
+<h2>日志等级</h2>
+<p>日志通常分为四类：</p>
 <ol>
-<li>Information</li>
-<li>Debug</li>
-<li>Warning</li>
-<li>Error</li>
+<li>信息</li>
+<li>调试</li>
+<li>警告</li>
+<li>错误</li>
 </ol>
-<p>Logging errors that occur while a web framework is running is crucial to
-understanding how your application is performing. </p>
-<h2>Logging aggregators</h2>
-<p>When you are running your application on several servers, it is helpful
-to have a monitoring tool called a "logging aggregator". You can configure 
-your application to forward your system and application logs to one location 
-that provides tools for viewing, searching, and monitoring logging events 
-across your cluster. </p>
-<p>Another advantage of log aggregation tools is they allow you to set up 
-custom alerts and alarms so you can get notified when error rates breach a 
-certain threshold.</p>
-<h3>Open source log aggregators</h3>
+<p>当 web 框架在运行时通过日志输出出错信息，对于理解你的应用是如何执行的是至关重要的。</p>
+<h2>日志聚合器</h2>
+<p>当你的应用运行在多个服务器上时，拥有一款叫做“日志聚合器”的工具是非常有帮助的。你可以配置你的应用程序将系统和应用日志重定向到一个地点，在那儿有很多工具用于查看、搜索以及监控你的集群服务器上的日志事件。</p>
+<p>使用日志聚合器工具的另外一个优势是，它们允许你自定义设置警报，这样当错误率超出某个阈值时就能获得警报通知。</p>
+<h3>开源日志聚合器</h3>
 <ul>
 <li>
-<p><a href="https://github.com/getsentry/sentry">Sentry</a> started as a Django-only
-  exception handling service but now has separate logging clients to cover 
-  almost all major languages and frameworks. It still works really well for 
-  Python-powered web applications and is often used in conjunction with other 
-  monitoring tools. <a href="http://raven.readthedocs.org/en/latest/">Raven</a> is open
-  source Python client for Sentry.</p>
+<p><a href="https://github.com/getsentry/sentry">Sentry</a> 起初只提供 Django 异常处理服务，但现在拥有几乎所有主要编程语言和框架的对应日志客户端。它仍然可以和 Python 驱动的 web 应用工作的很好，并且通常用于和其它监控工具连接。<a href="http://raven.readthedocs.org/en/latest/">Raven</a> 是用于 Sentry 的开源 Python 客户端。</p>
 </li>
 <li>
-<p><a href="http://graylog2.org/">Graylog2</a> provides a central server for log 
-  aggregation as well as a GUI for browsing and searching through log events. 
-  There are libraries for most major languages, including python. Saves data 
-  in Elasticache.</p>
+<p><a href="http://graylog2.org/">Graylog2</a> 提供了一个用于日志聚合的中央服务器，以及一个用于浏览和搜索日志事件的图形化工具。它拥有针对大多数主要语言的库，包括 Python。它把数据保存在 Elasticache。</p>
 </li>
 <li>
-<p><a href="http://logstash.net/">Logstash</a> Similar to Graylog2, logstash offers 
-  features to programmatically configure log data workflows.</p>
+<p><a href="http://logstash.net/">Logstash</a> 与 Graylog2 类似，它提供一些通过编程控制日志数据流的特性。</p>
 </li>
 <li>
-<p><a href="https://github.com/facebook/scribe">Scribe</a> A project written by Facebook 
-  to aggregate logs. It's designed to run on multiple servers and scale with 
-  the rest of your cluster. Uses the Thrift messaging format so it can be 
-  used with any language. </p>
+<p><a href="https://github.com/facebook/scribe">Scribe</a> 是一个由 Facebook 实现的日志聚合器项目。它旨在运行于多个服务器上，并能够根据你剩余的集群进行扩展。它使用 Thrift 消息格式，所以可以用于任何语言。</p>
 </li>
 </ul>
-<h3>Hosted logging services</h3>
+<h3>托管的日志服务</h3>
 <ul>
 <li>
-<p><a href="https://www.loggly.com/">Loggly</a> is a third party cloud based 
-  application that aggregates logs. They have instructions for every major 
-  language, including python. It includes email alerting on custom searches. </p>
+<p><a href="https://www.loggly.com/">Loggly</a> 是一个第三方基于云的日志聚合器应用。它们提供了针对每种主要语言的说明，包括 Python。它还在自定义搜索中提供了邮件警报的功能。</p>
 </li>
 <li>
-<p><a href="http://www.splunk.com/">Splunk</a> offers third party cloud and self 
-  hosted solutions for event aggregation. It excels at searching and data 
-  mining any text based data. </p>
+<p><a href="http://www.splunk.com/">Splunk</a> 用于事件聚集，提供了第三方云以及自定义托管的方案。它擅长于搜索以及对任何基于文本数据的数据挖掘。</p>
 </li>
 <li>
-<p><a href="https://papertrailapp.com/">Papertrail</a> is similar to both 
-  Loggly and Splunk and provides integration with S3 for long term storage.</p>
+<p><a href="https://papertrailapp.com/">Papertrail</a> 和 Loggly 和 Splunk 都很像，它提供了集成到 S3 的功能，用于长期存储日志。</p>
 </li>
 <li>
-<p><a href="http://raygun.io/">Raygun</a> logs errors and provides immediate notification
-  when issues arise.</p>
+<p><a href="http://raygun.io/">Raygun</a> 用于输出错误日志，并且当问题发生时会及时报告。</p>
 </li>
 <li>
-<p><a href="https://www.scalyr.com/">Scalyr</a> provides log aggregation, dashboards,
-  alerts and search in a user interface on top of standard logs.</p>
+<p><a href="https://www.scalyr.com/">Scalyr</a> 在标准日志层面上添加了用户界面，提供了日志聚集、面板操作、警报以及搜索等功能。</p>
 </li>
 <li>
-<p>There is a <a href="https://www.getsentry.com/welcome/">hosted version of Sentry</a>
-  in case you do not have the time to set up the open source project yourself.</p>
+<p>若是你没时间设置开源版本的 Sentry 的话，这儿有一个 <a href="https://www.getsentry.com/welcome/">托管版本的 Sentry</a>。</p>
 </li>
 </ul>
-<h2>Logging resources</h2>
+<h2>日志相关资源</h2>
 <ul>
 <li>
-<p>This 
-  <a href="http://www.blog.pythonlibrary.org/2012/08/02/python-101-an-intro-to-logging/">intro to logging</a>
-  presents the Python logging module and how to use it.</p>
+<p>这篇 
+  <a href="http://www.blog.pythonlibrary.org/2012/08/02/python-101-an-intro-to-logging/">介绍日志</a> 的文章演示了如何使用 Python 的日志模块。</p>
 </li>
 <li>
-<p><a href="https://clusterhq.com/2013/12/04/logging-storytelling/">Logging as Storytelling</a>
-  is a multi-part series working the analogy that logs should read like
-  a story so you can better understand what's taking place in your web
-  application. 
-  <a href="https://clusterhq.com/2014/01/21/logging-storytelling-lets-add-action/">Part 2 describes actions</a>
-  and 
-  <a href="https://clusterhq.com/2014/03/25/logging-storytelling-3-types/">part 3 talks about types</a>.</p>
+<p><a href="https://clusterhq.com/2013/12/04/logging-storytelling/">像讲故事一样看待日志</a>
+  拥有多个系列，它采用类比的方式说明阅读日志应当像阅读故事一样，从而让你能够更好地理解你的 web 应用正在发生什么。
+  <a href="https://clusterhq.com/2014/01/21/logging-storytelling-lets-add-action/">第二部分：描述动作</a>
+  还有 
+  <a href="https://clusterhq.com/2014/03/25/logging-storytelling-3-types/">第三部分：讨论类型</a>。</p>
 </li>
 <li>
-<p><a href="https://lukasa.co.uk/2014/05/A_Brief_Digression_About_Logging/">A Brief Digression About Logging</a>
-  is a short post that gets Python logging up and running quickly.</p>
+<p><a href="https://lukasa.co.uk/2014/05/A_Brief_Digression_About_Logging/">一个有关日志的简要题外话</a>
+  是一篇简短的文章，讲解了如何设置 Python 日志并快速运行起来。</p>
 </li>
 <li>
-<p><a href="https://hynek.me/articles/taking-some-pain-out-of-python-logging/">Taking the pain out of Python logging</a>
-  shows a logging set up with uWSGI.</p>
+<p><a href="https://hynek.me/articles/taking-some-pain-out-of-python-logging/">摆脱 Python 日志的痛苦</a>
+  说明了如何在 uWSGI 中设置日志。</p>
 </li>
 <li>
-<p><a href="http://victorlin.me/posts/2012/08/26/good-logging-practice-in-python">Good logging practice in Python</a>
-  shows how to use the standard library to log data from your application.
-  Definitely worth a read as most applications do not log nearly enough
-  output to help debuggin when things go wrong, or to determine if something
-  is going wrong.</p>
+<p><a href="http://victorlin.me/posts/2012/08/26/good-logging-practice-in-python">Python 日志最佳实践</a>
+  说明了如何使用标准的日志模块从的应用中输出日志数据。这绝对是一篇值得阅读的文章，因为多数应用程序都没能输出足够多的日志信息，用于在出错时帮助开发者调试或者做决策。</p>
 </li>
 <li>
-<p>Django's 1.3 release brought unified logging into project configurations. 
-  This <a href="http://www.djm.org.uk/how-to-log-file-django-13-and-above/">post shows how to set up logging</a>
-  in a project's settings.py file. Caktus Group also has a nice tutorial on
-  <a href="http://www.caktusgroup.com/blog/2013/09/18/central-logging-django-graylog2-and-graypy/">central logging with graypy and Graylog2</a>.</p>
+<p>Django 1.3 发行版为项目带来了统一标准的日志配置。这篇文章说明了如何在项目的 settings.py 文件中 <a href="http://www.djm.org.uk/how-to-log-file-django-13-and-above/">设置日志</a>
+  Caktus 也有一篇非常棒的教程说明了
+  <a href="http://www.caktusgroup.com/blog/2013/09/18/central-logging-django-graylog2-and-graypy/">使用 graypy 和 Graylog2 聚集日志</a>。</p>
 </li>
 <li>
-<p><a href="http://www.caktusgroup.com/blog/2015/01/27/Django-Logging-Configuration-logging_config-default-settings-logger/">Django Logging Configuration: How the Default Settings Interfere with Yours</a>
-  explains a problem with the default Django logging configuration and what
-  to do about in your project.</p>
+<p><a href="http://www.caktusgroup.com/blog/2015/01/27/Django-Logging-Configuration-logging_config-default-settings-logger/">Django 日志配置：默认设置是如何干扰你的？</a>
+  指出了使用 Django 默认日志配置的一个问题，并说明了在你的项目中该为此做些什么。</p>
 </li>
 <li>
-<p><a href="https://www.loggly.com/blog/exceptional-logging-of-exceptions-in-python/">Exceptional Logging of Exceptions in Python</a>
-  shows how to log errors more accurately to pinpoint the problem instead of
-  receiving generic exceptions in your logs.</p>
+<p><a href="https://www.loggly.com/blog/exceptional-logging-of-exceptions-in-python/">Python 异常日志</a>
+  说明了如何用日志输出更加精确的错误信息来定位问题，而非在日志中接收通用的异常信息。</p>
 </li>
 </ul>
-<h2>Logging learning checklist</h2>
+<h2>日志学习清单</h2>
 <ol>
 <li>
-<p>Read how to integrate logging into your web application framework. </p>
+<p>阅读材料学习如何在你的 web 应用框架中集成日志输出的功能。</p>
 </li>
 <li>
-<p>Ensure errors and anomalous results are logged. While these logs can be 
-   stored in <a href="/monitoring.html">monitoring</a> solutions, it's best to have your 
-   own log storage location to debug issues as they arise to complement other 
-   monitoring systems.</p>
+<p>确保错误和异常都被日志输出了。虽说这些日志可以采用 <a href="/monitoring.html">监视器</a> 方案存储，但最好还是能拥有你自己的日志存储位置，这样便于在问题发生时调试，并且也能作为其它监视器系统的补充。</p>
 </li>
 <li>
-<p>Integrate logging for system events you may need to use for debugging 
-   purposes later. For example, you may want to know the return values on 
-   functions when they are above a certain threshold. </p>
+<p>为你可能需要使用的系统事件集成日志输出功能以便后期调试。例如，当函数超出某个阈值时，你可能想知道它们的返回值。</p>
 </li>
 </ol>
           <h1>Monitoring</h1>
