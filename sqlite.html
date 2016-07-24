@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="SQLite is an relational database built into the Python standard library that uses a single file to store data.">
+    <meta name="description" content="SQLite 是一款内置于 Python 标准库的关系型数据库，它使用单个文件存储数据。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
     <title>SQLite - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
@@ -37,67 +37,41 @@
 </div><div class="row">
     <div class="col-md-8">
           <h1>SQLite</h1>
-<p>SQLite is an open source relational database included with the Python standard
-library as of Python 2.5. The pysqlite database driver is also included with
-the standard library so that no further external dependencies are required to
-access a SQLite database from within Python applications.</p>
+<p>SQLite 是一款开源的关系型数据库，它自 Python 2.5 开始就已包含于 Python 标准库中。pysqlite 这个数据库驱动器也已包含在了标准库中，因此在 Python 应用中访问一个 SQLite 数据库不再需要任何的外部依赖包。</p>
 <p><img src="/img/sqlite.jpg" width="100%" alt="SQLite logo." class="technical-diagram" /></p>
-<div class="well see-also">SQLite is an implementation of the <a href="/databases.html">relational database</a> concept. Learn more in the <a href="/data.html">data</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+<div class="well see-also">SQLite 是对 <a href="/databases.html">关系型数据库</a> 概念的一种实现。 在 <a href="/data.html">数据</a> 那一章学习更多相关知识，或者到 <a href="/table-of-contents.html"> 总目录页</a> 了解所有主题。</div>
 
-<h3>SQLite resources</h3>
+<h3>SQLite 相关资源</h3>
 <ul>
 <li>
-<p><a href="https://pymotw.com/2/sqlite3/">sqlite3 - embedded relational database</a> is an
-  extensive tutorial showing many of the common create, read, update and delete 
-  operations a developer would want to do with SQLite.</p>
+<p><a href="https://pymotw.com/2/sqlite3/">sqlite3 - 嵌入式关系型数据库</a> 是一篇内容丰富的教程，展示了创建、读取、更新和删除等开发者在使用 SQLite 过程中经常会用到的一些操作。</p>
 </li>
 <li>
-<p><a href="http://www.blog.pythonlibrary.org/2012/07/18/python-a-simple-step-by-step-sqlite-tutorial/">A simple step-by-step SQLite tutorial</a>
-  walks through creating databases as well as inserting, updating, querying and
-  deleting data.</p>
+<p><a href="http://www.blog.pythonlibrary.org/2012/07/18/python-a-simple-step-by-step-sqlite-tutorial/">一份简单的按步 SQLite 教程</a> 演示了如何创建数据库，以及如何插入、更新、查询和删除数据等操作。</p>
 </li>
 <li>
-<p><a href="http://www.jarchitect.com/Blog/?p=2392">SQLite: The art of keep it simple</a>
-  uses C code examples from SQLite's codebase to show how its design has been
-  kept consistent and tight throughout 15+ years of active development.
-  There's also a 
-  <a href="http://sqlite.org/src4/doc/trunk/www/design.wiki">great design document on the SQLite site</a> 
-  that covers many of these principles.</p>
+<p><a href="http://www.jarchitect.com/Blog/?p=2392">SQLite: 保持简单的艺术</a> 通过 SQLite 代码库中的 C 示例代码，向我们展示了为何经过了 15+ 年的活跃开发后，它的设计还能保护如此地一致和紧凑。 <a href="http://sqlite.org/src4/doc/trunk/www/design.wiki">在 SQLite 网站上还有一篇非常好的设计文档</a>，讲解了它的很多设计准则。</p>
 </li>
 <li>
-<p><a href="http://charlesleifer.com/blog/my-list-of-python-and-sqlite-resources/">My list of SQLite resources</a>
-  is a nice roundup of useful tools to use with SQLite and tutorials for
-  learning more about the database.</p>
+<p><a href="http://charlesleifer.com/blog/my-list-of-python-and-sqlite-resources/">我的 SQLite 资源列表</a> 是一份有关 SQLite 的有用工具及学习该数据库的相关教程的资源列表。</p>
 </li>
 <li>
-<p><a href="http://charlesleifer.com/blog/extending-sqlite-with-python/">Extending SQLite with Python</a>
-  uses the Peewee 
-  <a href="/object-relational-mappers-orms.html">object-relational mapper (ORM)</a>
-  to implement virtual tables and aggregates on top of SQLite.</p>
+<p><a href="http://charlesleifer.com/blog/extending-sqlite-with-python/">用 Python 扩展 SQLite</a> 使用 Peewee 这个 <a href="/object-relational-mappers-orms.html">对象-关系 映射器 (ORM)</a> 来实现虚拟表并且在 SQLite 之后进行了数据聚合。</p>
 </li>
 <li>
-<p><a href="http://flask.pocoo.org/docs/0.10/patterns/sqlite3/">Using SQLite with Flask</a>
-  explains how Flask code can directly query a SQLite database without an ORM.</p>
+<p><a href="http://flask.pocoo.org/docs/0.10/patterns/sqlite3/">在 Flask 中使用 SQLite</a> 讲解了如果在 Flask 中抛开 ORM 而直接查询 SQLite 数据库。</p>
 </li>
 <li>
-<p><a href="http://sqlitebrowser.org/">SQLite Browser</a> is an open source graphical user 
-  interface for working with SQLite.</p>
+<p><a href="http://sqlitebrowser.org/">SQLite 浏览器</a> 是 SQLite 的一款开源图形界面软件。</p>
 </li>
 <li>
-<p>The official 
-  <a href="https://docs.python.org/3/library/sqlite3.html">sqlite3 module in the Python stdlib docs</a>
-  contains a bunch of scenarios with code for how to use the database from
-  a Python application.</p>
+<p><a href="https://docs.python.org/3/library/sqlite3.html">Python 标准库官方文档中的 sqlite3 模块页</a> 包含了大量有关如何在 Python 应用中使用该数据库的情景代码示例。</p>
 </li>
 <li>
-<p><a href="http://charlesleifer.com/blog/using-the-sqlite-json1-and-fts5-extensions-with-python/">Using the SQLite JSON1 and FTS5 Extensions with Python</a>
-  shows how to compile SQLite 3.9.0+ with json1 and fts5 (full-text search)
-  support to use these new features.</p>
+<p><a href="http://charlesleifer.com/blog/using-the-sqlite-json1-and-fts5-extensions-with-python/">在 Python 中使用 SQLite JSON1 和 FTS5 扩展</a> 展示了如何将 json1 和 fts5 (全文检索) 编译到 SQLite 3.9.0+ 中以及如何使用这些新特性。</p>
 </li>
 <li>
-<p><a href="http://blog.regehr.org/archives/1292">SQLite with a fine-toothed comb</a>
-  digs into the internals of SQLite and shows some bugs found (and 
-  since fixed) while the author was researching the SQLite source code.</p>
+<p><a href="http://blog.regehr.org/archives/1292">深入研究 SQLite</a> 该文的作者在对 SQLite 源码进行研究时，对其内部机理进行了深入分析，并展示了发现的一些 Bug （然后修复）。</p>
 </li>
 </ul>
 <h3>有关数据方面，接下来想学什么？</h3>
