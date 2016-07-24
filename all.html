@@ -3870,12 +3870,12 @@ WSGI 1.0 版本被
 <h2>Web 服务器配置样例</h2>
 <p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
 <p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="nt">端口上的</span> <span class="nt">WSGI</span> <span class="nt">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="err">#</span> <span class="nt">Nginx</span> <span class="err">配置为运行在标准</span><span class="nt">HTTP</span><span class="err">端口上，并监听请求</span>
+<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">配置为运行在标准HTTP端口上</span><span class="err">，</span><span class="nt">并监听请求</span>
 <span class="nt">server</span> <span class="p">{</span>
   <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
 
@@ -3885,8 +3885,8 @@ WSGI 1.0 版本被
     <span class="n">alias</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">assets</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="err">#</span> <span class="err">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="err">目录的请求都会交给</span> <span class="nt">WSGI</span>
-  <span class="err">#</span> <span class="err">服务器，即上面配置的运行在</span> <span class="nt">8000</span> <span class="err">端口上服务器</span>
+  <span class="err">#</span> <span class="nt">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">目录的请求都会交给</span> <span class="nt">WSGI</span>
+  <span class="err">#</span> <span class="nt">服务器</span><span class="err">，</span><span class="nt">即上面配置的运行在</span> <span class="nt">8000</span> <span class="nt">端口上服务器</span>
   <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
     <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="err">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
     <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="err">$</span><span class="n">http_host</span><span class="p">;</span>
@@ -4776,179 +4776,130 @@ Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一
 <p>为你可能需要使用的系统事件集成日志输出功能以便后期调试。例如，当函数超出某个阈值时，你可能想知道它们的返回值。</p>
 </li>
 </ol>
-          <h1>Monitoring</h1>
-<p>Monitoring tools capture, analyze and display information for a web 
-application's execution. Every application has issues arise throughout
-all levels of the web stack. Monitoring tools provide transparency so
-developers and operations teams can respond and fix problems.</p>
-<h2>Why is monitoring necessary?</h2>
-<p>Capturing and analyzing data about your production environment is critical
-to proactively deal with stability, performance, and errors in a web 
-application.</p>
-<h2>Difference between monitoring and logging</h2>
-<p>Monitoring and logging are very similar in their purpose of helping to 
-diagnose issues with an application and aid the debugging process. One way
-to think about the difference is that logging happens based on explicit events
-while monitoring is a passive background collection of data. </p>
-<p>For example, when an error occurs, that event is explicitly logged through
-code in an exception handler. Meanwhile, a monitoring agent instruments the
-code and gathers data not only about the logged exception but also the 
-performance of the functions.</p>
-<p>This distinction between logging and monitoring is vague and not necessarily
-the only way to look at it. Pragmatically, both are useful for maintaining a
-production web application.</p>
-<h2>Monitoring layers</h2>
-<p>There are several important resources to monitor on the operating system 
-and network level of a web stack.</p>
+          <h1>监控</h1>
+<p>监控工具用于收集、分析并展现来自 web 应用执行时的信息。每个应用程序在所有等级的 web 堆栈都会发生问题。
+监控工具为开发者和运维团队提供了透明度，使他们能（及时）响应并修复问题。</p>
+<h2>监控为何是必要的？</h2>
+<p>收集并分析你的生产环境数据是非常重要的，它能帮助积极地解决 web 应用的稳定性、性能和错误等问题。</p>
+<h2>监控与日志的区别</h2>
+<p>监控和日志的目的是非常类似的，它们能够帮助诊断应用程序的问题并为调试过程提供帮助。
+关于它们的区别的一种看法是，日志是在特定的事件发生时产生，而监控则在后台被动地收集数据。</p>
+<p>例如，当一个错误发生时，代码中的异常处理函数会将特定的事件通过日志输出。与此同时，监控代理会测量代码并收集数据，这些数据不仅含有异常日志，而且还有函数的运行性能。</p>
+<p>日志和监控的这点区别是模糊的，这也并不是区分它们的唯一一种方式。事实上，它们对于维护一个生产环境的 web 应用都是非常有帮助的。</p>
+<h2>监控层</h2>
+<p>操作系统和 web 堆栈网络级中有好几种重要的资源需要监控。</p>
 <ol>
-<li>CPU utilization</li>
-<li>Memory utilization</li>
-<li>Persistence storage consumed versus free</li>
-<li>Network bandwidth and latency</li>
+<li>CPU 利用率</li>
+<li>Memory 利用率</li>
+<li>永久性存储器使用占比</li>
+<li>网络带宽和延迟</li>
 </ol>
-<p>Application level monitoring encompasses several aspects. The amount of time
-and resources dedicated to each aspect will vary based on whether an 
-application is read-heavy, write-heavy, or subject to rapid swings in traffic.</p>
+<p>应用级的监控包含多个方面。每个方面对应的时间量和资源量都是不同的，这些取决于应用程序是否有大量的读操作、大量的写操作或者是流量快速波动等特性。</p>
 <ol>
-<li>Application warnings and errors (500-level HTTP errors)</li>
-<li>Application code performance</li>
-<li>Template rendering time</li>
-<li>Browser rendering time for the application</li>
-<li>Database querying performance</li>
+<li>应用程序警告和错误（HTTP 500 错误）</li>
+<li>应用程序代码性能</li>
+<li>模板渲染时间</li>
+<li>应用程序的浏览器渲染时间</li>
+<li>数据库查询性能</li>
 </ol>
-<h2>Open source monitoring projects</h2>
+<h2>开源监控项目</h2>
 <ul>
 <li>
-<p><a href="https://github.com/etsy/statsd/">statsd</a> is a node.js network daemon that
-  listens for metrics and aggregates them for transfer into another service
-  such as Graphite.</p>
+<p><a href="https://github.com/etsy/statsd/">statsd</a> 是一个 node.js 的网络后台服务，它能够监听测量数据并收集它们，用于传送到其它服务中，如 Graphite。</p>
 </li>
 <li>
-<p><a href="https://graphite.readthedocs.org/en/latest/overview.html">Graphite</a> stores
-  time-series data and displays them in graphs through a Django web application.</p>
+<p><a href="https://graphite.readthedocs.org/en/latest/overview.html">Graphite</a> 存储基于时间序列的数据并将它们在一个 Django web 应用的图表中显示出来。</p>
 </li>
 <li>
-<p><a href="http://github.hubspot.com/bucky/">Bucky</a> measures the performance of a
-  web application from end user's browsers and sends that data back to the
-  server for collection.</p>
+<p><a href="http://github.hubspot.com/bucky/">Bucky</a> 测量 web 应用在终端用户浏览器中的运行性能，并把测量数据发送回服务器收集起来。</p>
 </li>
 <li>
-<p><a href="http://sensuapp.org/">Sensu</a> is an open source monitoring framework
-  written in Ruby but applicable to any programming language web application.</p>
+<p><a href="http://sensuapp.org/">Sensu</a> 是一款使用 Ruby 编写的开源监控框架，但它兼容其它任何语言编写的 web 应用。</p>
 </li>
 <li>
-<p><a href="http://vimeo.github.io/graph-explorer/">Graph Explorer</a> by Vimeo is a
-  Graphite-based dashboard with added features and a slick design.</p>
+<p><a href="http://vimeo.github.io/graph-explorer/">Graph Explorer</a> ，由 Vimeo 编写，它是基于 Graphite 的操作面板，含有一些新增的特性并且设计巧妙。</p>
 </li>
 <li>
-<p><a href="http://packetbeat.com/">PacketBeat</a> sniffs protocol packets. Elasticsearch
-  then allows developers to search the collected data and visualize what's 
-  happening inside their web application using the Kibana user interface.</p>
+<p><a href="http://packetbeat.com/">PacketBeat</a> 用于嗅探协议包。后来 Elasticsearch 允许开发者们使用 Kibana 用户界面搜索收集的数据并呈现出 web 应用内部正在发生什么。</p>
 </li>
 <li>
-<p><a href="http://munin-monitoring.org/">Munin</a> is a client plugin-based monitoring 
-  system that sends monitoring traffic to the Munin node where the data can
-  be analyzed and visualized. Note this project is written in Perl so Perl 5
-  must be installed on the node collecting the data.</p>
+<p><a href="http://munin-monitoring.org/">Munin</a> 是一个基于插件的监控系统客户端，它用于将监控数据发送到用于分析并可视化的 Munin 节点。注意这个项目是用 Perl 完成的，所以收集数据的节点上必须要安装 Perl 5。</p>
 </li>
 </ul>
-<h2>Hosted monitoring services</h2>
+<h2>托管的监控服务</h2>
 <ul>
 <li>
-<p><a href="http://newrelic.com/">New Relic</a>. Application and database monitoring as
-  well as plug ins for capturing and analyzing additional data about tools in
-  your stack.</p>
+<p><a href="http://newrelic.com/">New Relic</a>，用于监控应用程序和数据库，同时它含有用于收集并分析你的堆栈工具的其它数据的插件。</p>
 </li>
 <li>
-<p><a href="http://copperegg.com/">CopperEgg</a> is lower-level monitoring on server and 
-  infrastructure. It's popular with DevOps shops that are making changes to
-  their production environments and want immediate feedback on the results
-  of those modifications.</p>
+<p><a href="http://copperegg.com/">CopperEgg</a> 是运行在服务器和基础设施上的更低层的监控服务。它在 DevOps 商店非常流行，他们正在改变生产环境并且希望能够立即获得这些修改的反馈信息。</p>
 </li>
 <li>
-<p><a href="http://status.io/">Status.io</a> focuses on uptime and response metrics 
-  transparency for web applications.</p>
+<p><a href="http://status.io/">Status.io</a> 专注于 web 应用的启动时间和响应指标透明度。</p>
 </li>
 <li>
-<p><a href="https://www.statuspage.io/">StatusPage.io</a> (yes, there's both a Status and
-  StatusPage.io) provides easy set up status pages for monitoring application
-  up time.</p>
+<p><a href="https://www.statuspage.io/">StatusPage.io</a> （没错，Status 和 StatusPage.io 都有）提供了简单设置状态页以监控程序启动时间的功能。</p>
 </li>
 <li>
-<p><a href="http://www.pagerduty.com/">PagerDuty</a> alerts a designated person or group
-  if there are stability, performance, or uptime issues with an application.</p>
+<p><a href="http://www.pagerduty.com/">PagerDuty</a> 在应用程序出现稳定性、性能或启动时间等问题发生时会给特定的人员或小组发出警告。</p>
 </li>
 <li>
-<p><a href="https://appenlight.com/">App Enlight</a> provides performance, exception and 
-  error monitoring and is currently specific to Python web applications.</p>
+<p><a href="https://appenlight.com/">App Enlight</a> 提供了性能、异常和错误监控功能，并且目前是专门针对 Python web 应用的。</p>
 </li>
 <li>
-<p><a href="https://opbeat.com">Opbeat</a> Built for django. Opbeat combines performance metrics, release tracking, and error logging into a single simple service.</p>
+<p><a href="https://opbeat.com">Opbeat</a> 为 Django 构建的。Opbeat 把性能指标、版本跟踪和错误日志集成到单个简易的服务中了。</p>
 </li>
 </ul>
-<h2>Monitoring resources</h2>
+<h2>监控相关资源</h2>
 <ul>
 <li>
-<p><a href="http://www.paperplanes.de/2011/1/5/the_virtues_of_monitoring.html">The Virtues of Monitoring</a></p>
+<p><a href="http://www.paperplanes.de/2011/1/5/the_virtues_of_monitoring.html">监控的好处</a>。</p>
 </li>
 <li>
-<p><a href="http://blog.docker.io/2013/07/effortless-monitoring-with-collectd-graphite-and-docker/">Effortless Monitoring with collectd, Graphite, and Docker</a></p>
+<p><a href="http://blog.docker.io/2013/07/effortless-monitoring-with-collectd-graphite-and-docker/">使用 collectd, Graphite, 和 Docker 轻易地实现监控</a>。</p>
 </li>
 <li>
-<p><a href="http://matt.aimonetti.net/posts/2013/06/26/practical-guide-to-graphite-monitoring/">Practical Guide to StatsD/Graphite Monitoring</a> 
-  is a detailed guide with code examples for monitoring infrastructure.</p>
+<p><a href="http://matt.aimonetti.net/posts/2013/06/26/practical-guide-to-graphite-monitoring/">StatsD/Graphite 监控实践指南</a> 
+  是一篇讲解监控基础设施并含有示例代码的详细的教程。</p>
 </li>
 <li>
-<p>Bit.ly describes the 
-  "<a href="http://word.bitly.com/post/74839060954/ten-things-to-monitor">10 Things They Forgot to Monitor</a>"
-  beyond the standard metrics such as disk &amp; memory usage.</p>
+<p>Bit.ly 说明了 
+  “<a href="http://word.bitly.com/post/74839060954/ten-things-to-monitor">10 个他们忘记监控的东西</a>”
+  ，除了标准的测量，如磁盘、内存使用率之外。</p>
 </li>
 <li>
-<p><a href="http://aarvik.dk/four-linux-server-monitoring-and-management-tools/">Four Linux server monitoring tools</a></p>
+<p><a href="http://aarvik.dk/four-linux-server-monitoring-and-management-tools/">4 款 Linux 服务器监控工具</a>。</p>
 </li>
 <li>
-<p><a href="https://blog.serverdensity.com/how-to-design-useful-monitoring-graphs-and-visualizations/">How to design useful monitoring and graphing visualizations</a></p>
+<p><a href="https://blog.serverdensity.com/how-to-design-useful-monitoring-graphs-and-visualizations/">如何设计有用的监控和图形化工具</a></p>
 </li>
 <li>
-<p><a href="https://speakerdeck.com/auxesis/5-years-of-metrics-and-monitoring">5 years of metrics and monitoring</a>
-  is a great presentation highlighting that visualization so humans can
-  understand measurements is a hard problem. Line graphs are often not
-  the best solution and they are overused.</p>
+<p><a href="https://speakerdeck.com/auxesis/5-years-of-metrics-and-monitoring">测量与监控的 5 年</a>
+  是一篇非常棒的报告，它强调了为了方便人类理解测量的可视化是一个困难的问题。线条图通常并非是最好的方案，而且它们已经被过度利用了。</p>
 </li>
 <li>
-<p>The Collector Highlight Series has an article on <a href="http://blog.librato.com/posts/statsd">StatsD</a>
-  that explains how to install it and how it works.</p>
+<p>Collector Highlight 系列有一篇文章是关于 <a href="http://blog.librato.com/posts/statsd">StatsD</a> 的，说明了 StatsD 如何安装以及它是怎样工作的。</p>
 </li>
 <li>
-<p>This <a href="http://kartar.net/2014/11/monitoring-survey---tools/">survey on monitoring tools</a>
-  has some nice data and graphs on what developers and operations folks use
-  in their environments.</p>
+<p>这篇文章 <a href="http://kartar.net/2014/11/monitoring-survey---tools/">监控工具调查</a>
+  有一些开发者和运维人员在他们的环境中所使用的工具的相关数据和图表。</p>
 </li>
 <li>
-<p>Ryan Frantz wrote a nice post on 
-  <a href="http://ryanfrantz.com/posts/solving-monitoring/">Solving Monitoring</a>
-  with a new definition of what monitoring means based on today's complex
-  systems and how the practice should evolve going forward.</p>
+<p>Ryan Frantz 写了一篇不错的文章
+  <a href="http://ryanfrantz.com/posts/solving-monitoring/">解决监控问题</a>
+ ，他给出了新的基于当前复杂系统的监控的定义，并且说明了实践该如何继续演进。</p>
 </li>
 </ul>
-<h2>Monitoring learning checklist</h2>
+<h2>监控学习清单</h2>
 <ol>
 <li>
-<p>Review the software-as-a-service and open source monitoring tools below. 
-   Third party services tend to be easier to set up and host the data for 
-   you. Open source projects give you more control but you'll need to have 
-   additional servers ready for the monitoring.</p>
+<p>回顾“软件即服务”和以上列出的开源监控工具。第三方服务为你提供了更加简易的设置过程以及数据托管服务。开源项目则会给你更多的控制权，但是你需要拥有用于监控的额外就绪的服务器。</p>
 </li>
 <li>
-<p>My recommendation is to install <a href="http://newrelic.com/">New Relic</a>'s free 
-   option with the trial period to see how it works with your app. It'll give 
-   you a good idea of the capabilities for application-level monitoring tools.</p>
+<p>我推荐的方案是安装试用版 <a href="http://newrelic.com/">New Relic</a> 来学习它是如何与你的应用一同工作的。它能让你领略到应用程序级别的监控工具的能力。</p>
 </li>
 <li>
-<p>As your app scales take a look at setting up one of the the open source 
-   monitoring projects such as StatsD with Graphite. The combination of those
-   two projects will give you fine-grained control over the system metrics 
-   you're collecting and visualizing.</p>
+<p>当你的应用扩展时，就去看看如何设置一款开源监控项目，例如带有 Graphite 的 StatsD。集成这两个项目将能为你收集和用于可视化的系统测量数据提供更细粒度的控制。</p>
 </li>
 </ol>
           <h1>Web analytics</h1>
