@@ -4,137 +4,68 @@ slug: mysql
 sortorder: 0506
 toc: False
 sidebartitle: MySQL
-meta: MySQL is an open source database often used by Python developers for storing and retrieving data.
+meta: MySQL 是一款开源的数据库系统，它通常被 Python 开发人员用于存取数据。
+authors: haiiiiiyun.github.io
+writing-time: 2016-07-24 09:53--11:55
 
 
 # MySQL
-MySQL is an open source [relational database](/databases.html) 
-implementation for storing and retrieving data.
+MySQL 是 [关系型数据库](/databases.html) 的一种开源实现，它用于存取数据。
 
 <img src="/img/mysql.png" width="100%" alt="MySQL logo." class="technical-diagram" />
 
 
-## MySQL or PostgreSQL?
-MySQL is a viable open source database implementation for Python web 
-applications. MySQL has a slightly easier initial learning curve than 
-[PostgreSQL](/postgresql.html). However, PostgreSQL's design is often 
-preferred by Python web developers, especially when data migrations are
-run as an application evolves.
+## MySQL 还是 PostgreSQL？
+MySQL 是一款可运用于 Python Web 应用的开源数据库实现。MySQL 相比 [PostgreSQL](/postgresql.html) 更易入门。但是，Python Web 开发人员通常更偏爱 PostgreSQL 的设计，特别在随着应用程序的演进需要进行数据迁移的时候。
 
-<div class="well see-also">MySQL is an implementation of the <a href="/databases.html">relational database</a> concept. Learn more in the <a href="/data.html">data</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+<div class="well see-also">MySQL 是对 <a href="/databases.html">关系型数据库</a> 概念的一种实现。 在 <a href="/data.html">数据</a> 那一章学习更多相关知识，或者到 <a href="/table-of-contents.html"> 总目录页</a> 了解所有主题。</div>
 
 
-## Python Drivers for MySQL 
-Accessing MySQL from a Python application requires a database driver (also
-called a "connector"). While it is possible to write a driver as part of
-your application, in practice most developers use an existing open source 
-driver.
+## MySQL 的 Python 驱动器
+在 Python 应用中访问 MySQL 需要一个数据库驱动器（也叫作 “连接器”）。当然驱动器可以作为应用的一部分进行编写，但是实践中多数开发人员会采用一个现成的开源驱动器。
 
-There was a major issue with MySQL drivers since the introduction of 
-Python 3. One of the most popular libraries called 
-[MySQLdb](https://pypi.python.org/pypi/MySQL-python/1.2.5) did not work
-in its existing form with Python 3 and there were no plans to update it.
-Therefore a fork of MySQLdb named 
-[mysqlclient](https://pypi.python.org/pypi/mysqlclient) added Python 3
-compatibility. 
+随着 Python 3 的引入，MySQL 驱动器出现了一个大问题。 [MySQLdb](https://pypi.python.org/pypi/MySQL-python/1.2.5) 是最流行的库之一，但是它现在无法与 Python 3 兼容，并且还没有更新计划。于是出现了 MySQLdb 的一个分支，叫 [mysqlclient](https://pypi.python.org/pypi/mysqlclient)，它增加了对 Python 3 的兼容性。
 
-The mysqlclient fork was good in that existing MySQLdb users could drop
-mysqlclient into existing projects that were upgrading to Python 3. However,
-the fork often causes confusion when searching for which Python driver to
-use with MySQL. Many developer simply decide to use 
-[PostgreSQL](/postgresql.html) because there is better support for Python
-drivers in the PostgreSQL community. 
+mysqlclient 分支很不错，因此当前的 MySQLdb 用户在升级到 Python 3 后，在现有项目中只需用 mysqlclient 代替即可。但是，当查找该用哪个 Python 驱动器连接 MySQL 时，该分支经常会造成些许困惑。PostgreSQL 社区对 Python 驱动提供了更好的支持，因此很多开发者决定选用 [PostgreSQL](/postgresql.html)。
 
-With that driver support context in mind, it's absolutely possible to build
-a Python 3 web application with MySQL as a backend. Here is a list of
-drivers along with whether it supports Python 2, 3 or both.
+抛开驱动器的支持问题，当然完全可以在 Python 3 Web 应用中选用 MySQL 作为后端。这里是一份驱动器列表，并附有对 Python 2、3 或两者的支持度的说明。
 
-* [mysqlclient](https://mysqlclient.readthedocs.io/en/latest/) is a fork
-  of MySQLdb that supports Python 2 and 3.
+* [mysqlclient](https://mysqlclient.readthedocs.io/en/latest/) 是一个 MySQLdb 分支，它支持 Python 2 和 3。
 
-* [MySQL Connector](http://dev.mysql.com/doc/connector-python/en/)
-  is Oracle's "official" (Oracle currently owns MySQL) Python connector.
-  The driver supports Python 2 and 3, just make sure to check the 
-  [version guide](http://dev.mysql.com/doc/connector-python/en/) for what
-  releases work with which Python versions.
+* [MySQL 连接器](http://dev.mysql.com/doc/connector-python/en/) 是 Oracle 的 “官方” （Oracle 当前拥有 MySQL）Python连接器。该驱动器支持 Python 2 和 3，但是确保到 [版本指南](http://dev.mysql.com/doc/connector-python/en/) 上了解哪个发行版与哪个 Python 版本兼容。
 
-* [MySQLdb](https://pypi.python.org/pypi/MySQL-python/1.2.5) supports
-  Python 2 and was frequently used by Python web applications before the
-  mass migration to Python 3 began.
+* [MySQLdb](https://pypi.python.org/pypi/MySQL-python/1.2.5) 支持 Python 2，在大家还没有开始迁移到 Python 3 之前，经常运用于 Python Web 应用程序中。
 
-* [PyMySQL](https://github.com/PyMySQL/PyMySQL) is a pure Python 
-  (no C low-level code) implementation that attempts to be a drop-in
-  replacement for MySQLdb. However, some MySQL APIs are not supported
-  by the driver so whether or not your application can use this connector
-  will depend on what you're building.
+* [PyMySQL](https://github.com/PyMySQL/PyMySQL) 用纯 Python (没有 C 低层代码）实现，意在成为 MySQLdb 的直接替代品。但是，该驱动器还不支持一些 MySQL API，因此你的应用是否能用该连接器将取决于你使用了哪些接口。
 
 
-## What organizations use MySQL?
-The database is deployed in production at some of the highest 
-trafficked sites such as 
-[Twitter](https://blog.twitter.com/2012/mysql-twitter), 
-[Facebook](https://www.facebook.com/notes/facebook-engineering/mysql-and-database-engineering-mark-callaghan/10150599729938920)
-and [many others major organizations](http://www.mysql.com/customers/).
-However, since
-[MySQL AB](http://en.wikipedia.org/wiki/MySQL_AB), the company that 
-developed MySQL, was purchased by Sun Microsystems (which was in turn 
-purchased by Oracle), there have been major defections away from the 
-database by 
-[Wikipedia](http://www.zdnet.com/wikipedia-moving-from-mysql-to-mariadb-7000008912/) 
-and [Google](http://readwrite.com/2013/09/14/google-waves-goodbye-to-mysql-in-favor-of-mariadb). 
-MySQL remains a viable database option but I always recommend new Python 
-developers learn PostgreSQL if they do not already know MySQL.
+## 哪些组织使用 MySQL？
+该数据库已实际部署在了一些高流量的网站上，如 [Twitter](https://blog.twitter.com/2012/mysql-twitter)、 [Facebook](https://www.facebook.com/notes/facebook-engineering/mysql-and-database-engineering-mark-callaghan/10150599729938920) 和 [许多其它大型机构](http://www.mysql.com/customers/)。但是，因开发 MySQL 的公司 [MySQL AB](http://en.wikipedia.org/wiki/MySQL_AB)，已经被 Sun Microsystems (它后来又被 Oracle 收购）收购，像 [Wikipedia](http://www.zdnet.com/wikipedia-moving-from-mysql-to-mariadb-7000008912/) 和 [Google](http://readwrite.com/2013/09/14/google-waves-goodbye-to-mysql-in-favor-of-mariadb) 等都开始不用该数据库了。MySQL 仍然是一个可行的数据库选项，但是我一直推荐还没有学过 MySQL 的 Python 开发人员学习 PostgreSQL。
 
 
-### Python-specific MySQL resources
-* [Python 3.4.0 with MySQL database](http://stackoverflow.com/questions/23376103/python-3-4-0-with-mysql-database)
-  and 
-  [Python 3 and MySQL](http://stackoverflow.com/questions/4960048/python-3-and-mysql)
-  provide context for the commonly asked question about which database
-  MySQL driver to use with Python 3.
+### 针对 Python 的 MySQL 相关资源
+* [Python 3.4.0 和 MySQL 数据库](http://stackoverflow.com/questions/23376103/python-3-4-0-with-mysql-database) 及 [Python 3 和 MySQL](http://stackoverflow.com/questions/4960048/python-3-and-mysql) 就 Python 3 该使用哪个 MySQL 驱动器这个经常被问到的问题提供了相关的背景知识。
 
-* [Terrible Choices: MySQL](http://blog.ionelmc.ro/2014/12/28/terrible-choices-mysql/)
-  is a blog post about specific deficiencies in MySQL's implementation that
-  hinder its usage with Django's ORM.
+* [糟糕的选择: MySQL](http://blog.ionelmc.ro/2014/12/28/terrible-choices-mysql/) 这篇博文讲述了 MySQL 实现中的一些特定缺陷阻碍了其在 Django ORM 中的使用。
 
-* [Graph Data From MySQL Database in Python](http://moderndata.plot.ly/graph-data-from-mysql-database-in-python/)
-  is an interesting study with code of how to pull data out of MySQL and graph
-  the data with Plotly.
+* [使用 Python 来图示化 MySQL 数据库中的数据](http://moderndata.plot.ly/graph-data-from-mysql-database-in-python/) 是个很有趣的研究，它用代码来演示了如何从 MySQL 中提取数据并用 Plotly 对其图示化。
 
-* [MySQL Python tutorial](http://zetcode.com/db/mysqlpython/) uses the
-  MySQLdb driver to connect to a MySQL server instance and shows some
-  examples for inserting and querying data.
+* [MySQL Python 教程](http://zetcode.com/db/mysqlpython/) 使用 MySQLdb 驱动器来连接一个 MySQL 服务器实例，并展示了一些插入和查询数据的示例。
 
 
-### General MySQL resources
-* [How to Install and Use MySQL on Ubuntu 16.04](/blog/install-mysql-ubuntu-1604.html)
-  is a quick tutorial for getting up and running on Ubuntu Linux.
+### 通用 MySQL 相关资源
+* [如何在 Ubuntu 16.04 上安装使用 MySQL](/blog/install-mysql-ubuntu-1604.html) 是一篇关于如果在 Ubuntu Linux 上安装和运行 MySQL 的快速指南。
 
-* [28 Beginner's Tutorials for Learning about MySQL Databases](http://designm.ag/tutorials/28-beginners-tutorials-for-learning-about-mysql-databases/) 
-  is a curated collection on various introductory MySQL topics.
+* [学习 MySQL 数据库的 28 份初学者教程](http://designm.ag/tutorials/28-beginners-tutorials-for-learning-about-mysql-databases/) 整理了各种介绍 MySQL 主题的相关资料。
 
-* This tutorial shows how to install [MySQL on Ubuntu](http://www.cs.wcupa.edu/rkline/index/mysql-lin.html).
+* 这篇教程展示了如何在 [Ubuntu 上安装 MySQL](http://www.cs.wcupa.edu/rkline/index/mysql-lin.html)。
 
-* [A Basic MySQL Tutorial](https://www.digitalocean.com/community/tutorials/a-basic-mysql-tutorial)
-  doesn't have the most original title but it's a good walkthrough of your
-  first few steps in MySQL for creating users and working with tables.
+* [MySQL 基础教程](https://www.digitalocean.com/community/tutorials/a-basic-mysql-tutorial)，虽然标题不是很新颖，但它很好的演示了使用 MySQL 的开始几个步骤，如创建用户和处理数据表等。
 
-* [Pinterest open sourced many of their MySQL tools](https://engineering.pinterest.com/blog/open-sourcing-pinterest-mysql-management-tools)
-  to manage instances of the database.
+* [Pinterest 将他们的很多 MySQL 工具开源了](https://engineering.pinterest.com/blog/open-sourcing-pinterest-mysql-management-tools)，这些工具可以用于管理数据库实例。
 
-* [Bye Bye MySQL & MongoDB, Guten Tag PostgreSQL](https://www.userlike.com/en/blog/2015/10/09/bye-by-mysql-and-mongodb-guten-tag-postgresql)
-  goes into details for why the company Userlike migrated from their MySQL
-  database setup to PostgreSQL.
+* [再见 MySQL & MongoDB, 你好 PostgreSQL](https://www.userlike.com/en/blog/2015/10/09/bye-by-mysql-and-mongodb-guten-tag-postgresql) 详细阐述了为何 Userlike 这个公司将它们的 MySQL 数据库迁移到 PostgreSQL。
 
-* [Growing up with MySQL](https://nylas.com/blog/growing-up-with-mysql/) is
-  a story about how one company went through dramatic growth and had to keep
-  up with it by quickly scaling their MySQL database.
+* [MySQL 处理数据增长](https://nylas.com/blog/growing-up-with-mysql/) 讲述了一个公司如何扩展它们的 MySQL 数据库来应对自身的快速增长的故事。
 
-* [Monitoring MySQL metrics](https://www.datadoghq.com/blog/monitoring-mysql-performance-metrics/)
-  is the first of a three part series, with the other parts on 
-  [collecting metrics](https://www.datadoghq.com/blog/collecting-mysql-statistics-and-metrics/)
-  and 
-  [monitoring & collecting specifically with the DataDog tool](https://www.datadoghq.com/blog/mysql-monitoring-with-datadog/). The series explains what
-  metrics you should be collecting and monitoring in your production
-  database along with the purpose for why those metrics are important.
-
+* [监测 MySQL 度量信息](https://www.datadoghq.com/blog/monitoring-mysql-performance-metrics/) 是三部曲系列文章的第一篇，其它两篇分别是 [收集度量信息](https://www.datadoghq.com/blog/collecting-mysql-statistics-and-metrics/) 和 [利用 DataDog 工具进行监测和收集](https://www.datadoghq.com/blog/mysql-monitoring-with-datadog/)。该系列文章阐述了你应该从生产环境下的数据库中收集哪些度量信息以及这些度量信息缘何重要。
