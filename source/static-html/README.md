@@ -89,8 +89,8 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/07-web-app-deployment/13-continuous-integration.markdown (2016-07-22 by [Christopher L](http://blog.chriscabin.com/))
 - [x] content/pages/07-web-app-deployment/14-logging.markdown (2016-07-23 by [Christopher L](http://blog.chriscabin.com/))
 - [x] content/pages/07-web-app-deployment/15-monitoring.markdown (2016-07-24 by [Christopher L](http://blog.chriscabin.com/))
-- [ ] content/pages/07-web-app-deployment/16-web-analytics.markdown
-- [ ] content/pages/07-web-app-deployment/17-docker.markdown
+- [x] content/pages/07-web-app-deployment/16-web-analytics.markdown (2016-07-25 by [Christopher L](http://blog.chriscabin.com/))
+- [ ] content/pages/07-web-app-deployment/17-docker.markdown (2016-07-26 by [Christopher L](http://blog.chriscabin.com/))
 - [ ] content/pages/07-web-app-deployment/18-caching.markdown
 - [ ] content/pages/07-web-app-deployment/19-microservices.markdown
 - [ ] content/pages/07-web-app-deployment/20-devops.markdown
