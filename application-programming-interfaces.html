@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Web application programming interfaces (APIs) provide a machine-to-machine data transport mechanism. Learn more about web APIs at Full Stack Python.">
+    <meta name="description" content="Web 应用编程接口 (APIs) 为数据在机器间传输提供了一种机制。到 Full Stack Python 上学习有关 API 的更多知识。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Application Programming Interfaces - Full Stack Python 简体中文网站</title>
+    <title>应用程序编程接口 - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -36,104 +36,73 @@
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
-          <h1>Application Programming Interfaces</h1>
-<p>Application programming interfaces (APIs) provide machine-readable
-data transfer and signaling between applications.</p>
-<h2>Why are APIs important?</h2>
-<p>HTML, CSS and JavaScript create human-readable webpages. However, those 
-webpages are not easily consumable by other machines.</p>
-<p>Numerous scraping programs and libraries exist to rip data out of HTML but 
-it's simpler to consume data through APIs. For example, if you want the
-content of a news article it's easier to get the content through an API than
-to scrap the text out of the HTML.</p>
-<h2>Key API concepts</h2>
-<p>There are several key concepts that get thrown around in the APIs world. It's
-best to understand these ideas first before diving into the API literature.</p>
+          <h1>应用程序编程接口</h1>
+<p>应用程序编程接口 (APIs) 使得应用程序间能进行数据转移和信号交换。</p>
+<h2>API 为什么重要？</h2>
+<p>HTML、 CSS 和 JavaScript 为人类创建网页。但是，这些页面难以被机器使用。</p>
+<p>有很多的抓取工具或库可以用来提取 HTML 页面中的数据，但是通过 API 来获取数据会更加容易。例如，要想获取一篇新闻内容，通过 API 来获取比从 HTML 页面中提取会更加容易。</p>
+<h2>API 关键概念</h2>
+<p>API 的世界里有几个关键概念。在深入研究 API 之前最好把它们都弄明白先。</p>
 <ul>
 <li>
-<p>Representation State Transfer (REST)</p>
+<p>表述性状态转移 (REST)</p>
 </li>
 <li>
 <p>Webhooks</p>
 </li>
 <li>
-<p>JavaScript Object Notation (JSON) and Extensible Markup Language (XML)</p>
+<p>JavaScript 对象标记 (JSON) 及可扩展标记语言 (XML)</p>
 </li>
 <li>
 <p>Endpoints</p>
 </li>
 </ul>
 <h2>Webhooks</h2>
-<p>A webhook is a user-defined HTTP callback to a URL that executes when a 
-system condition is met. The call alerts the second system via a POST or GET
-request and often passes data as well.</p>
-<p>Webhooks are important because they enable two-way communication initiation 
-for APIs. Webhook flexibility comes in from their definition by the API user
-instead of the API itself.</p>
-<p>For example, in the <a href="https://www.twilio.com/api">Twilio API</a> when a text 
-message is sent to a Twilio phone number Twilio sends an HTTP POST request 
-webhook to the URL specified by the user. The URL is defined in a text box
-on the number's page on Twilio as shown below.</p>
-<p><img src="/img/twilio-webhook-definition.jpg" width="100%" alt="Webhook definition in the Twilio API." class="technical-diagram" /></p>
-<h2>API open source projects</h2>
+<p>一个 Webhook 就是由用户定义的 一个 HTTP 回调 URL，它会在系统条件满足时被调用。回调会以 POST 或 GET 请求的方式进行，通常也进行传输数据，从而知会其它系统。</p>
+<p>Webhooks 之所以重要是因为它们能为 API 开启双向通讯。Webhook 的便捷性，源自它是由 API 用户定义的，而非 API 本身定义。</p>
+<p>例如，在 <a href="https://www.twilio.com/api">Twilio API</a> 中，当一条短信发送到 Twilio 的手机号码后，Twilio 会向用户指定的某个 URL 发送一条 HTTP POST 请求。该 URL 通过 Twilio 号码页上的一个文本框进行定义，如下图所示。</p>
+<p><img src="/img/twilio-webhook-definition.jpg" width="100%" alt="在 Twilio APi 中定义的 Webhook。" class="technical-diagram" /></p>
+<h2>API 开源项目</h2>
 <ul>
-<li><a href="https://github.com/wordnik/swagger-core">Swagger</a> is an open source project 
-  written in Scala that defines a standard interface for RESTful APIs.</li>
+<li><a href="https://github.com/wordnik/swagger-core">Swagger</a> 是一个用 Scala 编写的开源项目，它为 RESTful API 定义了一个标准接口。</li>
 </ul>
-<h2>API resources</h2>
+<h2>API 相关资源</h2>
 <ul>
 <li>
-<p><a href="https://zapier.com/">Zapier</a> has an
-  <a href="https://zapier.com/blog/apis-101/">APIs 101</a> free guide for what APIs 
-  are, why they are valuable and how to use them properly. </p>
+<p><a href="https://zapier.com/">Zapier</a> 上有一份免费指南叫 <a href="https://zapier.com/blog/apis-101/">APIs 101</a>，讲述了什么是 API，为什么它们很有价值及如何正确使用。</p>
 </li>
 <li>
-<p><a href="https://medium.com/get-put-post">GET PUT POST</a> is a newsletter just
-  about APIs. Past issues have included interviews with the developers 
-  behind Stripe, Dropbox and Coinbase.</p>
+<p><a href="https://medium.com/get-put-post">GET PUT POST</a> 是一份专注于 API 知识的时讯。已发行版中包含有对 Stripe、 Dropbox 和 Coinbase 开发人员的采访。</p>
 </li>
 <li>
-<p><a href="https://codewords.recurse.com/issues/five/what-restful-actually-means">What RESTful actually means</a>
-  does a fantastic job of laying out the REST principles in plain language
-  terms while giving some history on how they came to be.</p>
+<p><a href="https://codewords.recurse.com/issues/five/what-restful-actually-means">RESTful 到底是什么</a> 用平实的语言对 REST 的原理进行了精彩的讲解，并讲述了它们进化到当前状态的相关历史背景。</p>
 </li>
 <li>
-<p><a href="https://sendgrid.com/blog/whats-webhook/">What is a webhook?</a> by 
-  <a href="https://twitter.com/YayNickQ">Nick Quinlan</a> is a plain English explanation
-  for what webhooks are and why they are necessary in the API world.</p>
+<p>由 <a href="https://twitter.com/YayNickQ">Nick Quinlan</a> 写的 <a href="https://sendgrid.com/blog/whats-webhook/">什么是 webhook？</a> 这篇文章，用平实的语言解释了什么是 Webhook，以及为什么它们在 API 世界中有必要存在。 </p>
 </li>
 <li>
-<p><a href="http://keithba.net/simplicity-and-utility-or-why-soap-lost">Simplicity and Utility, or, Why SOAP Lost</a>
-  provides context for why JSON-based web services are more common today than
-  SOAP which was popular in the early 2000s.</p>
+<p><a href="http://keithba.net/simplicity-and-utility-or-why-soap-lost">简单性和实用性，或者，为什么 SOAP 衰败了</a> 就当前为何基于 JSON 的 Web 服务会比那个在 21 世纪早期曾盛极一时的 SOAP 更流行等问题提供了相关的背景知识。</p>
 </li>
 <li>
-<p><a href="https://medium.com/@orliesaurus/api-tools-for-every-occasion-10-api-tools-released-in-2015-i-can-t-live-without-d5947d9ca9c3">API tools for every occasion</a>
-  provides a list of 10 tools that are really helpful when working with APIs
-  that are new in 2015.</p>
+<p><a href="https://medium.com/@orliesaurus/api-tools-for-every-occasion-10-api-tools-released-in-2015-i-can-t-live-without-d5947d9ca9c3">适合各种场合的 API 工具</a> 列出了 10 个工具列出，它们在处理 API 时真得非常有用，并且都是 2015 年最新的。</p>
 </li>
 </ul>
-<h2>APIs learning checklist</h2>
+<h2>API 学习清单</h2>
 <ol>
 <li>
-<p>Learn the API concepts of machine-to-machine communication with JSON and 
-   XML, endpoints and webhooks.</p>
+<p>学习 API 相关概念--使用 JSON、XML、Endpoint 和 Webhook 的机器间通信。</p>
 </li>
 <li>
-<p>Integrate an API such as Twilio or Stripe into your web application. 
-   Read the <a href="/api-integration.html">API integration</a> section for more 
-   information.</p>
+<p>将 API，比如 Twilio 或 Stripe，整合到你的 Web 应用中。阅读 <a href="/api-integration.html">API 整合</a> 那一章来学习更多相关信息。</p>
 </li>
 <li>
-<p>Use a framework to create an API for your own application. Learn about
-   web API frameworks on the <a href="/api-creation.html">API creation</a> page.</p>
+<p>使用框架为你自己的应用创建一份 API。到 <a href="/api-creation.html">API 创建</a> 页学习关于 Web API 框架的相关知识。</p>
 </li>
 <li>
-<p>Expose your web application's API so other applications can consume data 
-   you want to share.</p>
+<p>将你的 Web 应用 API 公布出来，从而使其它应用能获取你想共享的那些数据。</p>
 </li>
 </ol>
-<h3>Do you want to know more about integrating or creating APIs?</h3>
+<h3>你想学习更多关于整合或创建 API 的知识吗？</h3>
 <div class="row">
     <div class="col-md-4">
         <div class="well select-next">
@@ -148,7 +117,7 @@ on the number's page on Twilio as shown below.</p>
     <div class="col-md-4">
         <div class="well select-next">
 <a href="/task-queues.html" class="btn btn-success btn-full"><svg width="28" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1024 1408h640v-128h-640v128zm-384-512h1024v-128h-1024v128zm640-512h384v-128h-384v128zm512 832v256q0 26-19 45t-45 19h-1664q-26 0-45-19t-19-45v-256q0-26 19-45t45-19h1664q26 0 45 19t19 45zm0-512v256q0 26-19 45t-45 19h-1664q-26 0-45-19t-19-45v-256q0-26 19-45t45-19h1664q26 0 45 19t19 45zm0-512v256q0 26-19 45t-45 19h-1664q-26 0-45-19t-19-45v-256q0-26 19-45t45-19h1664q26 0 45 19t19 45z" fill="#fff"/></svg></a>
-<p class="under-btn">How do I execute code outside the HTTP request-response cycle?</p>        </div>
+<p class="under-btn">如何在 HTTP 请求应答流程之外执行代码？</p>        </div>
     </div>
 </div><div id="mc_embed_signup">
 <form action="//mattmakai.us2.list-manage.com/subscribe/post?u=b7e774f0c4f05dcebbfee183d&amp;id=b22335388d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -198,7 +167,7 @@ on the number's page on Twilio as shown below.</p>
 <a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>企业 Python</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Integration</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>API Creation</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>源码控制</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>应用程序依赖</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>静态内容</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>任务队列</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>配置管理</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>持续集成</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>日志</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>监控</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Web 分析</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caching</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Microservices</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Apache HTTP Server</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Ubuntu</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>调试</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Bots</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left: 27px;'>About the Author</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者 <span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
   </div>
 </div>  <div class="panel panel-success">
-      <div class="panel-heading"><h3 class="panel-head">Application Programming Interfaces</h3></div>
+      <div class="panel-heading"><h3 class="panel-head">应用程序编程接口</h3></div>
       <div class="panel-body">
           重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
           <hr/>
