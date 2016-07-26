@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Docker is a container management system often used for deploying web applications. Learn more about Docker on Full Stack Python.">
+    <meta name="description" content="Docker 是一个容器管理系统，通常用于部署 web 应用。快来 Full Stack Python 学习更多关于 Doker 的知识吧！">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
     <title>Docker - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
@@ -37,153 +37,122 @@
 </div><div class="row">
     <div class="col-md-8">
           <h1>Docker</h1>
-<p>Docker is an <a href="https://github.com/docker/docker">open source</a> 
-infrastructure management platform for running and deploying software. The
-Docker platform is constantly evolving so an exact definition is currently
-a moving target.</p>
-<h2>Why is Docker important?</h2>
-<p>Docker can package up applications along with their necessary operating system
-dependencies for easier deployment across environments. In the long run it
-has the potential to be the abstraction layer that easily manages containers
-running on top of any type of server, regardless of whether that server is
-on Amazon Web Services, Google Compute Engine, Linode, Rackspace or elsewhere.</p>
-<h2>Python projects within Docker images</h2>
+<p>Docker 是一个 <a href="https://github.com/docker/docker">开源</a> 的基础设施管理平台，用于运行和部署软件。由于 Docker 平台总在不断地演进，所以确切的定义也会不断地变化。</p>
+<h2>Docker 为何很重要？</h2>
+<p>Docker 能够将应用及其必要的操作系统依赖打包，从而可以轻易地部署在各种环境中。
+从长远来看，Docker 具有成为轻松管理运行在各种类型服务器上的容器抽象层的潜力，不管服务器是否位于 Amazon Web 服务中、Google 计算引擎上、Linode 上、Rackspace 上或者其它地方。</p>
+<h2>Docker 映像中的 Python 项目</h2>
 <ul>
 <li>
-<p>This Docker image contains 
-  <a href="https://github.com/tiangolo/uwsgi-nginx-flask-docker">a Flask application configured to run with uWSGI and Nginx</a>.
-  You can also see the <a href="https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/">image on Docker hub</a>.</p>
+<p>这个 Docker 映像包含了
+  <a href="https://github.com/tiangolo/uwsgi-nginx-flask-docker">一个已经配置好的运行在 uWSGI 和 Nginx 上的 Flask 应用</a>.
+  你也可以瞧瞧 <a href="https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/">Docker hub 中的映像</a>。</p>
 </li>
 <li>
-<p><a href="https://github.com/OrangeTux/minimal-docker-python-setup">minimal-docker-python-setup</a> 
-  contains an image with Nginx, uWSGI, Redis and Flask.</p>
+<p><a href="https://github.com/OrangeTux/minimal-docker-python-setup">最小的-docker-python-设置</a> 
+  包含了一个使用 Nginx、uWSGI、Redis 和 Flask 的映像。</p>
 </li>
 </ul>
-<h2>Docker resources</h2>
+<h2>Docker 相关资源</h2>
 <ul>
 <li>
-<p><a href="http://www.centurylinklabs.com/what-is-docker-and-when-to-use-it/">What is Docker and When to Use It</a>
-  clearly delineates what Docker is and what it isn't. This is a good article
-  for when you're first wrapping your head around Docker conceptually.</p>
+<p><a href="http://www.centurylinklabs.com/what-is-docker-and-when-to-use-it/">Docker 是什么以及什么时候使用它</a>
+  清晰地揭露了 Docker 是什么和不是什么。当你的大脑第一次被 Docker 概念萦绕时，不妨读一下这篇不错的文章。</p>
 </li>
 <li>
-<p><a href="https://github.com/atbaker">Andrew Baker</a> presented a fantastic tutorial 
-  at <a href="http://andrewtorkbaker.com/pyohio-docker-101-tutorial">PyOhio</a> on 
-  <a href="https://github.com/atbaker/docker-tutorial">beginner and advanced Docker usage</a>. 
-  Andrew also wrote the article <a href="http://radar.oreilly.com/2015/01/what-containers-can-do-for-you.html">what containers can do for you</a>
-  and created the
-  <a href="http://shop.oreilly.com/product/0636920035732.do">O'Reilly Introduction to Docker video</a> 
-  that's well worth buying.</p>
+<p><a href="https://github.com/atbaker">Andrew Baker</a> 在 <a href="http://andrewtorkbaker.com/pyohio-docker-101-tutorial">PyOhio</a> 上发表了一篇非常出色的教程，是关于
+  <a href="https://github.com/atbaker/docker-tutorial">初学者和进阶者使用 Docker</a> 的。
+  Andrew 也写了一篇文章 <a href="http://radar.oreilly.com/2015/01/what-containers-can-do-for-you.html">容器可以为你做什么</a>，
+  并且还创建了非常值得购买的
+  <a href="http://shop.oreilly.com/product/0636920035732.do">O'Reilly Docker 介绍视频</a> 。</p>
 </li>
 <li>
-<p><a href="http://prakhar.me/docker-curriculum/">Docker curriculum</a> is a detailed
-  tutorial created by a developer to show the exact steps for deploying an 
-  application that relies on <a href="https://www.elastic.co/">Elasticsearch</a>. </p>
+<p><a href="http://prakhar.me/docker-curriculum/">Docker 课程</a> 是一位开发者创建的非常详细的教程，旨在说明依赖 <a href="https://www.elastic.co/">Elasticsearch</a> 的应用部署的详细步骤。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-getting-started">How to install Docker and get started</a>
-  provides a walkthrough for Ubuntu 13.04 for installing and beginning to
-  use Docker for development.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-getting-started">如何安装 Docker 并初步了解它</a>
+  演示了如何在 Ubuntu 13.04 系统上安装并开始使用 Docker 做开发。</p>
 </li>
 <li>
-<p><a href="http://blog.circleci.com/it-really-is-the-future/">It Really is the Future</a>
-  discusses Docker and containers in the context of whether it's all just a
-  bunch of hype or if this is a real trend for infrastructure automation.
-  This is a great read to set the context for why these tools are important.</p>
+<p><a href="http://blog.circleci.com/it-really-is-the-future/">它的确就是未来</a>
+  探讨了 Docker 究竟只是一大堆炒作还是真正未来的基础设施自动化趋势。 这篇文章非常不错，可以了解为什么这些工具非常重要的来龙去脉。</p>
 </li>
 <li>
-<p><a href="https://github.com/odewahn/docker-jumpstart/">Docker Jumpstart</a> is a 
-  comprehensive introduction to what Docker is and how to get started with
-  using the tool.</p>
+<p><a href="https://github.com/odewahn/docker-jumpstart/">Docker 安装方法</a> 是一篇综合性的介绍，说明了什么是 Docker 以及如何开始使用这个工具。</p>
 </li>
 <li>
-<p>If you want to quickly use Docker on Mac OS X, check out these concise
-  instructions 
-  <a href="https://www.twilio.com/blog/2015/07/docker-workflow-on-osx-in-60-seconds.html">for setting up your Docker workflow on OS X in 60 seconds</a>.</p>
+<p>如果你想在 Mac OS X 上快速使用 Docker，看看这些简明的指导
+  <a href="https://www.twilio.com/blog/2015/07/docker-workflow-on-osx-in-60-seconds.html">60 秒内在 OS X 上设置你的 Docker 工作流程</a>。</p>
 </li>
 <li>
-<p><a href="http://pythonforengineers.com/what-the-bleep-is-docker/">What the Bleep is Docker?</a>
-  is a plain English explanation with examples of what Docker provides and
-  what it can be used for in your environment.</p>
+<p><a href="http://pythonforengineers.com/what-the-bleep-is-docker/">到底什么是 Docker</a>
+  使用了非常通俗易懂的话配合例子说明了 Docker 提供了什么功能以及它在你的环境中能用来做什么。</p>
 </li>
 <li>
-<p><a href="https://zwischenzugs.wordpress.com/2015/03/14/docker-in-practice-a-guide-for-engineers/">Docker in Practice - A Guide for Engineers</a>
-  is an explanation of the concepts and philosophy by the authors of the 
-  new Manning Docker book in early access format.</p>
+<p><a href="https://zwischenzugs.wordpress.com/2015/03/14/docker-in-practice-a-guide-for-engineers/">Docker 实践 —— 为工程师准备的指南</a>
+  是一份以早期可访问格式呈现的解释，讲述了 Docker 的概念和设计哲学，由新 Manning Docker 一书的作者编写。</p>
 </li>
 <li>
-<p><a href="http://www.hokstad.com/docker/patterns">Eight Docker Development Patterns</a>
-  shares lessons learned and explains how to work with the containers so you 
-  get more use out of them during development.</p>
+<p><a href="http://www.hokstad.com/docker/patterns">8 种 Docker 开发模式</a>
+  分享了一些专业课程，并解释了如何使用容器进行工作，从而能够在开发过程更多地使用容器。</p>
 </li>
 <li>
-<p><a href="https://bildung.xarif.de/xwiki/bin/Articles/The+Marriage+of+Ansible+and+Docker">The marriage of Ansible and Docker</a>
-  is a detailed look at how Docker and Ansible complement each other as
-  deployment tools.</p>
+<p><a href="https://bildung.xarif.de/xwiki/bin/Articles/The+Marriage+of+Ansible+and+Docker">Ansible 与 Docker 的联姻</a>
+  详细讲述了 Docker 和 Ansible 在作为部署工具时如何进行互补。</p>
 </li>
 <li>
-<p><a href="http://datakurre.pandala.org/2015/07/building-docker-containers-from-scratch.html">Building Docker containers from scratch</a>
-  is a short tutorial for creating a Docker container with a specific
-  configuration.</p>
+<p><a href="http://datakurre.pandala.org/2015/07/building-docker-containers-from-scratch.html">从草稿构建 Docker 容器</a>
+  是一个简明的教程，讲解了如何使用一份特定的配置创建一个 Docker 容器。</p>
 </li>
 <li>
-<p><a href="http://developerblog.redhat.com/2016/02/24/10-things-to-avoid-in-docker-containers/">10 things to avoid in Docker containers</a>
-  provides a lot of "don'ts" that you'll want to consider before bumping
-  up against the limitations of how containers should be used.</p>
+<p><a href="http://developerblog.redhat.com/2016/02/24/10-things-to-avoid-in-docker-containers/">在使用 Docker 容器时应当避免的 10 件事</a>
+  提出了很多你“不该做”的一些事情，你需要在超出怎样使用容器的限制前考虑这些事情。</p>
 </li>
 </ul>
-<h2>Python-specific Docker resources</h2>
+<h2>针对 Python 的 Docker 资源</h2>
 <ul>
 <li>
-<p><a href="http://blog.dscpl.com.au/2014/12/hosting-python-wsgi-applications-using.html">Hosting Python WSGI applications using Docker</a>
-  shows how to use Docker in WSGI application deployments specifically using
-  mod_wsgi.</p>
+<p><a href="http://blog.dscpl.com.au/2014/12/hosting-python-wsgi-applications-using.html">利用 Docker 托管 Python WSGI 应用</a>
+  说明了如何在 WSGI 应用开发中使用 Docker，特别是使用 mod_wsgi。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-python-web-applications">How to Containerize Python Web Applications</a>
-  is an extensive tutorial that uses a Flask application and deploys it
-  using a Docker container.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-python-web-applications">如何容器化 Python Web 应用</a>
+  是一个内容丰富的教程，它使用了一个 Flask 应用并使用了一个 Docker 容器来部署该应用。</p>
 </li>
 <li>
-<p>The <a href="http://pritishc.com/blog/2015/09/03/docker-is-awesome/">Docker is awesome</a> 
-  miniseries explains how to get a Django + AngularJS application running 
-  under Docker. 
-  <a href="http://pritishc.com/blog/2015/09/04/docker-is-awesome-part-ii/">Part 2</a> 
-  continues the tutorial.</p>
+<p>这个 <a href="http://pritishc.com/blog/2015/09/03/docker-is-awesome/">令人敬畏的 Docker</a> 
+  短系列文章说明了如何获得一个运行在 Docker 中的 Django + AngularJS 应用。
+  <a href="http://pritishc.com/blog/2015/09/04/docker-is-awesome-part-ii/">第二部分</a> 
+  则延续了这个教程。</p>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/docker-in-action-fitter-happier-more-productive/">Docker in Action - Fitter, Happier, More Productive </a>
-  is a killer tutorial that shows how to combine Docker with CircleCI to
-  continuously deploy a Flask application.</p>
+<p><a href="https://realpython.com/blog/python/docker-in-action-fitter-happier-more-productive/">Docker 实战——更胜任、更开心、更有生产效率</a>
+  是一个杀手级教程，说明了如何将 Docker 和 CircleCI 合并在一起持续部署 Flask 应用。</p>
 </li>
 <li>
-<p><a href="http://handlebarcreative.tumblr.com/post/104881545637/deploying-django-applications-in-docker">Deploying Django Applications in Docker</a>
-  explains some of the concepts behind using Docker for Python deployments and
-  shows how to specifically use it for deploying Django. </p>
+<p><a href="http://handlebarcreative.tumblr.com/post/104881545637/deploying-django-applications-in-docker">在 Docker 中部署 Django 应用</a>
+  说明了一些使用 Docker 对 Python 应用进行部署背后的概念，并特别讲解了如何使用 Docker 部署 Django 应用。</p>
 </li>
 <li>
-<p><a href="https://ochronus.com/docker-primer-django/">A Docker primer – from zero to a running Django app</a>
-  provides specific commands and expected output for running Django apps
-  with Docker and Vagrant.</p>
+<p><a href="https://ochronus.com/docker-primer-django/">Docker 入门——从零开始到运行 Django 应用</a>
+  提供了使用 Docker 和 Vagrant 运行 Django 应用特定的命令及其应有的输出。</p>
 </li>
 <li>
-<p><a href="https://www.calazan.com/using-docker-and-docker-compose-for-local-django-development-replacing-virtualenv/">Using Docker and Docker Compose to replace virtualenv</a>
-  is a tutorial for using Docker instead of virtualenv for dependency
-  isolation.</p>
+<p><a href="https://www.calazan.com/using-docker-and-docker-compose-for-local-django-development-replacing-virtualenv/">使用 Docker 及 Docker Compose 替换 virtualenv</a>
+  是一个讲解使用 Docker 替代 virtualenv 隔离依赖的教程。</p>
 </li>
 <li>
-<p>Lincoln Loop wrote up 
-  <a href="https://lincolnloop.com/blog/closer-look-docker/">a closer look at Docker</a>
-  from the perspective of Python developers handling deployments.</p>
+<p>Lincoln Loop 撰写了
+  <a href="https://lincolnloop.com/blog/closer-look-docker/">走近 Docker</a>
+  ，他是以 Python 开发者处理部署问题的视角撰写的。</p>
 </li>
 <li>
-<p>Curious how pip and Docker can be used together? Read this article on 
-  <a href="https://jpetazzo.github.io/2013/12/01/docker-python-pip-requirements/">Efficient management Python projects dependencies with Docker</a>.</p>
+<p>对如何将 pip 和 Docker 结合很好奇？读读这篇文章
+  <a href="https://jpetazzo.github.io/2013/12/01/docker-python-pip-requirements/">使用 Docker 高效管理 Python 项目依赖</a>。</p>
 </li>
 <li>
-<p><a href="http://blog.dscpl.com.au/2016/01/python-virtual-environments-and-docker.html">Python virtual environments and Docker</a>
-  goes into detail on whether virtual environments should be used with Docker
-  and how system packages can generally be a safer route to go.</p>
+<p><a href="http://blog.dscpl.com.au/2016/01/python-virtual-environments-and-docker.html">Python 虚拟环境与 Docker</a>
+  详细叙述了是否要在 Docker 中使用虚拟环境，以及系统包如何通常是一条更安全的路线。</p>
 </li>
 </ul>
 <h3>关于部署方面，接下来想学什么？</h3>
