@@ -70,7 +70,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 ### 六、Web API
 
 - [x] content/pages/06-web-apis/01-application-programming-interfaces.markdown (2016-07-26)
-- [ ] content/pages/06-web-apis/02-api-integration.markdown
+- [x] content/pages/06-web-apis/02-api-integration.markdown (2016-07-27)
 - [ ] content/pages/06-web-apis/03-api-creation.markdown
 
 ### 七、Web 应用部署

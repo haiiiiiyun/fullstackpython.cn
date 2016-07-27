@@ -61,7 +61,7 @@ Webhooks 之所以重要是因为它们能为 API 开启双向通讯。Webhook �
 ## API 学习清单
 1. 学习 API 相关概念--使用 JSON、XML、Endpoint 和 Webhook 的机器间通信。
 
-1. 将 API，比如 Twilio 或 Stripe，整合到你的 Web 应用中。阅读 [API 整合](/api-integration.html) 那一章来学习更多相关信息。
+1. 将 API，比如 Twilio 或 Stripe，集成到你的 Web 应用中。阅读 [API 集成](/api-integration.html) 那一章来学习更多相关信息。
 
 1. 使用框架为你自己的应用创建一份 API。到 [API 创建](/api-creation.html) 页学习关于 Web API 框架的相关知识。
 

@@ -2950,7 +2950,7 @@ users = Users.objects.filter(zip_code=94107)
 <p>学习 API 相关概念--使用 JSON、XML、Endpoint 和 Webhook 的机器间通信。</p>
 </li>
 <li>
-<p>将 API，比如 Twilio 或 Stripe，整合到你的 Web 应用中。阅读 <a href="/api-integration.html">API 整合</a> 那一章来学习更多相关信息。</p>
+<p>将 API，比如 Twilio 或 Stripe，集成到你的 Web 应用中。阅读 <a href="/api-integration.html">API 集成</a> 那一章来学习更多相关信息。</p>
 </li>
 <li>
 <p>使用框架为你自己的应用创建一份 API。到 <a href="/api-creation.html">API 创建</a> 页学习关于 Web API 框架的相关知识。</p>
@@ -2959,119 +2959,73 @@ users = Users.objects.filter(zip_code=94107)
 <p>将你的 Web 应用 API 公布出来，从而使其它应用能获取你想共享的那些数据。</p>
 </li>
 </ol>
-          <h1>API Integration</h1>
-<p>The majority of production Python web applications rely on several
-externally hosted application programming interfaces (APIs). APIs are also
-commonly referred to as third party services or external platforms. 
-Examples include <a href="https://www.twilio.com/docs/">Twilio</a> for messaging and 
-voice services, <a href="https://stripe.com/docs/api">Stripe</a> for payment processing 
-and <a href="https://disqus.com/api/docs/">Disqus</a> for embedded webpage comments.</p>
-<p>There are many articles about proper API design but best practices for 
-integrating APIs is less commonly written about. However, this subject 
-continuously grows in importance because APIs provide critical functionality
-across many implementation areas.</p>
-<h2>Hosted API testing services</h2>
+          <h1>API 集成</h1>
+<p>大部分生产环境中的 Python Web 应用都依赖一些外部托管的应用程序编程接口 (API)。API 也通常被称作第三方服务或外部平台。 这样的例子包括提供信息和语音服务的 <a href="https://www.twilio.com/docs/">Twilio</a>，提供支付处理的 <a href="https://stripe.com/docs/api">Stripe</a> 和提供嵌入网页的评论功能的 <a href="https://disqus.com/api/docs/">Disqus</a>。</p>
+<p>关于如何合理设计 API 的文章相对较多，然而有关 API 集成最佳实践的文章却很少。但是，因 API 为许多实现领域提供了关键功能，该主题的重要性正在持续提高。</p>
+<h2>托管的 API 测试服务</h2>
 <ul>
 <li>
-<p><a href="https://www.runscope.com/">Runscope</a> is a service specifically designed
-  for APIs that assists developers with automated testing and traffic
-  inspection.</p>
+<p><a href="https://www.runscope.com/">Runscope</a> 是专门为 API 设计的一项服务，它能辅助开发人员进行自动化测试和流量监视。</p>
 </li>
 <li>
-<p><a href="http://apiary.io/">Apiary</a> provides a blueprint for creating APIs so
-  they are easier to test and generate clean documentation.</p>
+<p><a href="http://apiary.io/">Apiary</a> 能为 API 的创建提供蓝图，从而使人们能更加容易地进行测试并创建出清晰的文档。</p>
 </li>
 </ul>
-<h2>API Integration Resources</h2>
+<h2>API 集成相关资源</h2>
 <ul>
 <li>
-<p>Some developers prefer to use 
-  <a href="http://docs.python-requests.org/en/latest/">Requests</a> instead of an API's 
-  helper library. In that case check out this 
-  <a href="http://engineering.hackerearth.com/2014/08/21/python-requests-module/">tutorial on using requests to access web APIs</a>.</p>
+<p>相比 API 的辅助库，一些开发人员更喜欢使用 <a href="http://docs.python-requests.org/en/latest/">Requests</a>。如果那样，不妨看下 <a href="http://engineering.hackerearth.com/2014/08/21/python-requests-module/">关于如何使用 requests 访问 Web APIs 的教程</a> 这篇文章。</p>
 </li>
 <li>
-<p>Product Hunt lists many commonly used 
-  <a href="https://www.producthunt.com/e/an-api-for-everything">commercial and free web APIs</a>
-  to show "there's an API for everything".</p>
+<p>Product Hunt 列出了大量常用的 <a href="https://www.producthunt.com/e/an-api-for-everything">收费和免费 Web APIs</a>，说明了 “API 无处不在”。</p>
 </li>
 <li>
-<p>There's a list of all government web APIs at 
-  <a href="http://18f.github.io/API-All-the-X/">18F's API-All-the-X list</a>. The list
-  is updated whenever a new API comes online.</p>
+<p><a href="http://18f.github.io/API-All-the-X/">18F API-All-the-X 列表</a> 收集了所有政府发布的 Web API。当有新的 API 上线时，这份列表也会作相应的更新。</p>
 </li>
 <li>
-<p>If you use Requests check out this handy guide on gracefully
-  <a href="http://www.mobify.com/blog/http-requests-are-hard/">handling HTTP errors with Python</a>.</p>
+<p>如果你使用 Requests，不妨看下这篇简洁实用的指南，<a href="http://www.mobify.com/blog/http-requests-are-hard/">如何使用 Python 对 HTTP 错误进行优雅地处理</a>。</p>
 </li>
 <li>
-<p>John Sheehan's 
-  "<a href="https://speakerdeck.com/johnsheehan/zen-and-the-art-of-api-maintenance">Zen and the Art of API Maintenance</a>"
-  slides are relevant for API integration.</p>
+<p>John Sheehan 的 "<a href="https://speakerdeck.com/johnsheehan/zen-and-the-art-of-api-maintenance">API 维护之禅与艺术</a>" 这个幻灯片是有关 API 集成的。</p>
 </li>
 <li>
-<p>This post on 
-  "<a href="https://stormpath.com/blog/api-driven-development/">API Driven Development</a>"
-  by Randall Degges explains how using APIs in your application cuts down
-  on the amount of code you have to write and maintain so you can launch your
-  application faster.</p>
+<p>Randall Degges 的 "<a href="https://stormpath.com/blog/api-driven-development/">API 驱动的开发</a>" 这篇文章讲解了 API 的使用如何能减少你需要编写的代码量及维护量，从而使你能更快地完成应用开发。</p>
 </li>
 <li>
-<p><a href="http://www.slideshare.net/SmartBear_Software/safe-sex-with-thirdparty-apis">Safe Sex with Third Party APIs</a>
-  is a funny high level overview of what you should do to protect your 
-  application when relying on third party services.</p>
+<p><a href="http://www.slideshare.net/SmartBear_Software/safe-sex-with-thirdparty-apis">确保第三方 API 使用时的安全性</a> 这篇文章非常有趣，它高度总结了当你的应用需要使用第三方服务时，你应该如何做才能确保安全性。</p>
 </li>
 <li>
-<p><a href="http://www.coglib.com/~icordasc/blog/2014/12/retries-in-requests.html">Retries in Requests</a>
-  is a nice tutorial for easily re-executing failed HTTP requests with the
-  Requests library.</p>
+<p><a href="http://www.coglib.com/~icordasc/blog/2014/12/retries-in-requests.html">在 Requests 中进行重试操作</a> 是篇不错的教程，讲述了如何使用 Requests 这个库来轻松地对失败的 HTTP 请求进行重新尝试。</p>
 </li>
 <li>
-<p>My DjangoCon 2013 talk dove into 
-  "<a href="http://www.youtube.com/watch?v=iGP8DQIqxXs">Making Django Play Nice With Third Party Services</a>."</p>
+<p>我在 DjangoCon 2013 上专门讲述了 "<a href="http://www.youtube.com/watch?v=iGP8DQIqxXs">如何使 Django 能与第三方服务更好集成</a>。"</p>
 </li>
 <li>
-<p>If you're looking for a fun project that uses two web APIs within a 
-  Django application, try out this tutorial to 
-  <a href="https://www.twilio.com/blog/2014/11/build-your-own-pokedex-with-django-mms-and-pokeapi.html">Build your own Pokédex with Django, MMS and PokéAPI</a>.</p>
+<p>如果你想找一个使用了两种 Web API 的 Django 应用项目示例，不妨参照这个教程，<a href="https://www.twilio.com/blog/2014/11/build-your-own-pokedex-with-django-mms-and-pokeapi.html">使用 Django、MMS 和 PokéAPI 来创作你自己的 Pokédex</a>。</p>
 </li>
 <li>
-<p><a href="https://www.brianthicks.com/2014/12/01/test-apis-properly-with-vcr-py/">vcr.py</a>
-  is a way to capture and replay HTTP requests with mocks. It's extremely
-  useful for testing API integrations.</p>
+<p><a href="https://www.brianthicks.com/2014/12/01/test-apis-properly-with-vcr-py/">vcr.py</a> 是捕获并重新执行带模拟数据的 HTTP 请求的一种方法。它对于 API 集成非常有用。</p>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/caching-external-api-requests/">Caching external API requests</a>
-  is a good post on how to potentially limit the number of HTTP calls 
-  required when accessing an external web API via the Requests library.</p>
+<p><a href="https://realpython.com/blog/python/caching-external-api-requests/">缓存外部 API 请求</a> 是一篇很好的文章，讲述了当使用 Requests 库访问外部 Web API 时，如何才能最大限度地减少 HTTP 调用所需的次数。</p>
 </li>
 </ul>
-<h2>API integration learning checklist</h2>
+<h2>API 集成学习清单</h2>
 <ol>
 <li>
-<p>Pick an API known for top notch documentation. Here's a list of 
-   <a href="https://medium.com/she-hacks-hacker-academy/4d3c43be9386">ten APIs that are a good starting point for beginners</a>.</p>
+<p>挑选一个具有一流文档的 API。这里有一份 <a href="https://medium.com/she-hacks-hacker-academy/4d3c43be9386">非常适合初学者的十种 API</a>。</p>
 </li>
 <li>
-<p>Read the API documentation for your chosen API. Figure out a simple 
-   use case for how your application could be improved by using that API.</p>
+<p>查阅你所选 API 的相关文档。找到通过使用 API 能对你的应用有所改善的地方。</p>
 </li>
 <li>
-<p>Before you start writing any code, play around with the API through the 
-   commandline with <a href="http://curl.haxx.se/">cURL</a> or in the browser with 
-   <a href="http://www.getpostman.com/">Postman</a>. This exercise will help you get 
-   a better understanding of API authentication and the data required for 
-   requests and responses.</p>
+<p>在开始写代码前，先使用命令行中的 <a href="http://curl.haxx.se/">cURL</a> 或者浏览器中的 <a href="http://www.getpostman.com/">Postman</a> 对该 API 进行练习。通过练习有助于你更好地掌握 API 认证以及请求与返回所需数据的相关知识。</p>
 </li>
 <li>
-<p>Evaluate whether to use a helper library or work with 
-   <a href="http://docs.python-requests.org/en/latest/">Requests</a>. Helper libraries 
-   are usually easier to get started with while Requests gives you more 
-   control over the HTTP calls.</p>
+<p>评估是要用一个辅助库，还是用 <a href="http://docs.python-requests.org/en/latest/">Requests</a>。辅助库通常更易使用，而 Requests 可使你对 HTTP 调用施加更多控制。</p>
 </li>
 <li>
-<p>Move your API calls into a <a href="/task-queues.html">task queue</a> so they do not 
-   block the HTTP request-response cycle for your web application.</p>
+<p>将 API 调用移到 <a href="/task-queues.html">任务队列</a>，从而使其不会阻塞 Web 应用的 请求-应答 流程。</p>
 </li>
 </ol>
           <h1>API Creation</h1>
@@ -3839,12 +3793,12 @@ WSGI 1.0 版本被
 <h2>Web 服务器配置样例</h2>
 <p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
 <p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="nt">端口上的</span> <span class="nt">WSGI</span> <span class="nt">服务器</span>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">配置为运行在标准HTTP端口上</span><span class="err">，</span><span class="nt">并监听请求</span>
+<span class="err">#</span> <span class="nt">Nginx</span> <span class="err">配置为运行在标准</span><span class="nt">HTTP</span><span class="err">端口上，并监听请求</span>
 <span class="nt">server</span> <span class="p">{</span>
   <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
 
@@ -3854,8 +3808,8 @@ WSGI 1.0 版本被
     <span class="n">alias</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">assets</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="err">#</span> <span class="nt">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">目录的请求都会交给</span> <span class="nt">WSGI</span>
-  <span class="err">#</span> <span class="nt">服务器</span><span class="err">，</span><span class="nt">即上面配置的运行在</span> <span class="nt">8000</span> <span class="nt">端口上服务器</span>
+  <span class="err">#</span> <span class="err">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="err">目录的请求都会交给</span> <span class="nt">WSGI</span>
+  <span class="err">#</span> <span class="err">服务器，即上面配置的运行在</span> <span class="nt">8000</span> <span class="err">端口上服务器</span>
   <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
     <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="err">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
     <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="err">$</span><span class="n">http_host</span><span class="p">;</span>
