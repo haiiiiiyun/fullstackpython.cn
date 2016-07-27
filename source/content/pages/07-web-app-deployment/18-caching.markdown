@@ -1,60 +1,40 @@
-title: Caching
+title: 缓存
 category: page
 slug: caching
 sortorder: 0718
 toc: False
-sidebartitle: Caching
-meta: Caching reduces load on servers by pre-calculating the results of common operations. Learn more about caching on Full Stack Python.
+sidebartitle: 缓存
+meta: 缓存通过预先计算的常用操作结果来降低服务器负载。快来 Full Stack Python 学习更多关于缓存的知识吧。
+translators: blog.chriscabin.com
+updated: 2016-07-27 11:30
+
+# 缓存
+缓存通过存储预先计算常用操的作结果并将预计算的答案发送给客户端的方式来降低服务器负载。
+
+例如，相对于从数据库表中获取不怎么变化的数据，你可以将那些值存在在内存中。从内存中获取值要远比从数据库（它将数据存储在永久存储器中，例如一块硬盘）中获取它们快得多。当缓存的值发生变化后，系统就会让缓存失效，并重新获取更新后的值以便后期请求。
+
+堆栈中多个层都可以创建缓存。
 
 
-# Caching
-Caching can reduce the load on servers by storing the results of common 
-operations and serving the precomputed answers to clients. 
+## 缓存后端
+* [memcached](http://memcached.org/) 是一种常见的内存缓存系统。
 
-For example, instead of retrieving data from database tables that rarely 
-change, you can store the values in-memory. Retrieving values from an 
-in-memory location is far faster than retrieving them from a database (which
-stores them on a persistent disk like a hard drive.) When the cached values 
-change the system can invalidate the cache and re-retrieve the updated values
-for future requests.
+* [Redis](http://redis.io/) 是一种基于键值的内存数据存储区，它可以轻易地与诸如 [django-redis-cache](https://github.com/sebleier/django-redis-cache) 之类的库一起配置用于缓存。
 
-A cache can be created for multiple layers of the stack. 
+## 缓存相关资源
+* "[缓存：Varnish 或者 Nginx？](https://bjornjohansen.no/caching-varnish-or-nginx)"
+  回顾了当选择反向代理 Niginx 或者 Varnish 时，需要考虑的一些诸如 SSL 和 SPDY 支持的问题。
 
+* [缓存难懂，给我画幅图片](http://bizcoder.com/caching-is-hard-draw-me-a-picture)
+  有一些图说明了 web 请求缓存层是如何工作的。这篇文章还是值得一读的，尽管作者在描述他的微软代码是他写作的动力。
 
-## Caching backends
-* [memcached](http://memcached.org/) is a common in-memory caching system.
-
-* [Redis](http://redis.io/) is a key-value in-memory data store that can
-  easily be configured for caching with libraries such as 
-  [django-redis-cache](https://github.com/sebleier/django-redis-cache).
+* 虽然缓存在很多情况下都是非常有用的，但非常值得关注的是，
+  [缓存也是有缺点的](https://msol.io/blog/tech/2015/09/05/youre-probably-wrong-about-caching/)，所以很多开发者才没有考虑使用它。
 
 
-## Caching resources
-* "[Caching: Varnish or Nginx?](https://bjornjohansen.no/caching-varnish-or-nginx)"
-  reviews some considerations such as SSL and SPDY support when choosing
-  reverse proxy Nginx or Varnish.
+## 缓存学习清单
+1. 分析你的 web 应用中运行最缓慢的部分。可能情况是，有些复杂的数据库查询可以预先计算并存储在内存中。
 
-* [Caching is Hard, Draw me a Picture](http://bizcoder.com/caching-is-hard-draw-me-a-picture)
-  has diagrams of how web request caching layers work. The post is relevant
-  reading even though the author is describing his Microsoft code as the 
-  impetus for writing the content.
+1. 确保让你的内存数据存储区已经用于会话数据，从而缓存那些复杂数据库查询的结果。一个 [任务队列](/task-queues.html) 通常可以用于定期计算结果，并将它们存放到数据存储区。
 
-* While caching is a useful technique in many situations, it's important
-  to also note that there are 
-  [downsides to caching](https://msol.io/blog/tech/2015/09/05/youre-probably-wrong-about-caching/)
-  that many developers fail to take into consideration.
-
-
-## Caching learning checklist
-1. Analyze your web application for the slowest parts. It's likely there are
-   complex database queries that can be precomputed and stored in an in-memory
-   data store.
-
-1. Leverage your existing in-memory data store already used for session data
-   to cache the results of those complex database queries. A 
-   [task queue](/task-queues.html) can often be used to precompute the results 
-   on a regular basis and save them in the data store.
-
-1. Incorporate a cache invalidation scheme so the precomputed results remain 
-   accurate when served up to the user.
-
+1. 采用一种缓存失效机制，从而使得给用户发送的预先计算的结果保持准确。

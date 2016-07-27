@@ -3839,12 +3839,12 @@ WSGI 1.0 版本被
 <h2>Web 服务器配置样例</h2>
 <p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
 <p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="nt">端口上的</span> <span class="nt">WSGI</span> <span class="nt">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="err">#</span> <span class="nt">Nginx</span> <span class="err">配置为运行在标准</span><span class="nt">HTTP</span><span class="err">端口上，并监听请求</span>
+<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">配置为运行在标准HTTP端口上</span><span class="err">，</span><span class="nt">并监听请求</span>
 <span class="nt">server</span> <span class="p">{</span>
   <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
 
@@ -3854,8 +3854,8 @@ WSGI 1.0 版本被
     <span class="n">alias</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">assets</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="err">#</span> <span class="err">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="err">目录的请求都会交给</span> <span class="nt">WSGI</span>
-  <span class="err">#</span> <span class="err">服务器，即上面配置的运行在</span> <span class="nt">8000</span> <span class="err">端口上服务器</span>
+  <span class="err">#</span> <span class="nt">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">目录的请求都会交给</span> <span class="nt">WSGI</span>
+  <span class="err">#</span> <span class="nt">服务器</span><span class="err">，</span><span class="nt">即上面配置的运行在</span> <span class="nt">8000</span> <span class="nt">端口上服务器</span>
   <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
     <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="err">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
     <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="err">$</span><span class="n">http_host</span><span class="p">;</span>
@@ -5079,63 +5079,44 @@ Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一
   详细叙述了是否要在 Docker 中使用虚拟环境，以及系统包如何通常是一条更安全的路线。</p>
 </li>
 </ul>
-          <h1>Caching</h1>
-<p>Caching can reduce the load on servers by storing the results of common 
-operations and serving the precomputed answers to clients. </p>
-<p>For example, instead of retrieving data from database tables that rarely 
-change, you can store the values in-memory. Retrieving values from an 
-in-memory location is far faster than retrieving them from a database (which
-stores them on a persistent disk like a hard drive.) When the cached values 
-change the system can invalidate the cache and re-retrieve the updated values
-for future requests.</p>
-<p>A cache can be created for multiple layers of the stack. </p>
-<h2>Caching backends</h2>
+          <h1>缓存</h1>
+<p>缓存通过存储预先计算常用操的作结果并将预计算的答案发送给客户端的方式来降低服务器负载。</p>
+<p>例如，相对于从数据库表中获取不怎么变化的数据，你可以将那些值存在在内存中。从内存中获取值要远比从数据库（它将数据存储在永久存储器中，例如一块硬盘）中获取它们快得多。当缓存的值发生变化后，系统就会让缓存失效，并重新获取更新后的值以便后期请求。</p>
+<p>堆栈中多个层都可以创建缓存。</p>
+<h2>缓存后端</h2>
 <ul>
 <li>
-<p><a href="http://memcached.org/">memcached</a> is a common in-memory caching system.</p>
+<p><a href="http://memcached.org/">memcached</a> 是一种常见的内存缓存系统。</p>
 </li>
 <li>
-<p><a href="http://redis.io/">Redis</a> is a key-value in-memory data store that can
-  easily be configured for caching with libraries such as 
-  <a href="https://github.com/sebleier/django-redis-cache">django-redis-cache</a>.</p>
+<p><a href="http://redis.io/">Redis</a> 是一种基于键值的内存数据存储区，它可以轻易地与诸如 <a href="https://github.com/sebleier/django-redis-cache">django-redis-cache</a> 之类的库一起配置用于缓存。</p>
 </li>
 </ul>
-<h2>Caching resources</h2>
+<h2>缓存相关资源</h2>
 <ul>
 <li>
-<p>"<a href="https://bjornjohansen.no/caching-varnish-or-nginx">Caching: Varnish or Nginx?</a>"
-  reviews some considerations such as SSL and SPDY support when choosing
-  reverse proxy Nginx or Varnish.</p>
+<p>"<a href="https://bjornjohansen.no/caching-varnish-or-nginx">缓存：Varnish 或者 Nginx？</a>"
+  回顾了当选择反向代理 Niginx 或者 Varnish 时，需要考虑的一些诸如 SSL 和 SPDY 支持的问题。</p>
 </li>
 <li>
-<p><a href="http://bizcoder.com/caching-is-hard-draw-me-a-picture">Caching is Hard, Draw me a Picture</a>
-  has diagrams of how web request caching layers work. The post is relevant
-  reading even though the author is describing his Microsoft code as the 
-  impetus for writing the content.</p>
+<p><a href="http://bizcoder.com/caching-is-hard-draw-me-a-picture">缓存难懂，给我画幅图片</a>
+  有一些图说明了 web 请求缓存层是如何工作的。这篇文章还是值得一读的，尽管作者在描述他的微软代码是他写作的动力。</p>
 </li>
 <li>
-<p>While caching is a useful technique in many situations, it's important
-  to also note that there are 
-  <a href="https://msol.io/blog/tech/2015/09/05/youre-probably-wrong-about-caching/">downsides to caching</a>
-  that many developers fail to take into consideration.</p>
+<p>虽然缓存在很多情况下都是非常有用的，但非常值得关注的是，
+  <a href="https://msol.io/blog/tech/2015/09/05/youre-probably-wrong-about-caching/">缓存也是有缺点的</a>，所以很多开发者才没有考虑使用它。</p>
 </li>
 </ul>
-<h2>Caching learning checklist</h2>
+<h2>缓存学习清单</h2>
 <ol>
 <li>
-<p>Analyze your web application for the slowest parts. It's likely there are
-   complex database queries that can be precomputed and stored in an in-memory
-   data store.</p>
+<p>分析你的 web 应用中运行最缓慢的部分。可能情况是，有些复杂的数据库查询可以预先计算并存储在内存中。</p>
 </li>
 <li>
-<p>Leverage your existing in-memory data store already used for session data
-   to cache the results of those complex database queries. A 
-   <a href="/task-queues.html">task queue</a> can often be used to precompute the results 
-   on a regular basis and save them in the data store.</p>
+<p>确保让你的内存数据存储区已经用于会话数据，从而缓存那些复杂数据库查询的结果。一个 <a href="/task-queues.html">任务队列</a> 通常可以用于定期计算结果，并将它们存放到数据存储区。</p>
 </li>
 <li>
-<p>Incorporate a cache invalidation scheme so the precomputed results remain 
-   accurate when served up to the user.</p>
+<p>采用一种缓存失效机制，从而使得给用户发送的预先计算的结果保持准确。</p>
 </li>
 </ol>
           <h1>Microservices</h1>
