@@ -3793,12 +3793,12 @@ WSGI 1.0 版本被
 <h2>Web 服务器配置样例</h2>
 <p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
 <p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="nt">端口上的</span> <span class="nt">WSGI</span> <span class="nt">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="err">#</span> <span class="nt">Nginx</span> <span class="err">配置为运行在标准</span><span class="nt">HTTP</span><span class="err">端口上，并监听请求</span>
+<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">配置为运行在标准HTTP端口上</span><span class="err">，</span><span class="nt">并监听请求</span>
 <span class="nt">server</span> <span class="p">{</span>
   <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
 
@@ -3808,8 +3808,8 @@ WSGI 1.0 版本被
     <span class="n">alias</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">assets</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="err">#</span> <span class="err">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="err">目录的请求都会交给</span> <span class="nt">WSGI</span>
-  <span class="err">#</span> <span class="err">服务器，即上面配置的运行在</span> <span class="nt">8000</span> <span class="err">端口上服务器</span>
+  <span class="err">#</span> <span class="nt">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">目录的请求都会交给</span> <span class="nt">WSGI</span>
+  <span class="err">#</span> <span class="nt">服务器</span><span class="err">，</span><span class="nt">即上面配置的运行在</span> <span class="nt">8000</span> <span class="nt">端口上服务器</span>
   <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
     <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="err">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
     <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="err">$</span><span class="n">http_host</span><span class="p">;</span>
@@ -5073,91 +5073,49 @@ Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一
 <p>采用一种缓存失效机制，从而使得给用户发送的预先计算的结果保持准确。</p>
 </li>
 </ol>
-          <h1>Microservices</h1>
-<p>Microservices are an application architecture style where independent,
-self-contained programs with a single purpose each can communicate with
-each other over a network. Typically, these microservices are able to be
-deployed independently because they have strong separation of 
-responsibilities via a well-defined specification with significant 
-backwards compatibility to avoid sudden dependency breakage.</p>
-<h2>Why are microservices getting so much buzz?</h2>
-<p>Microservices follow in a long trend of software architecture patterns
-that become all the rage. Previously, 
-<a href="https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture">CORBA</a> 
-and (mostly XML-based) service-oriented architectures (SOA) were the
-hip buzzword among 
-<a href="http://www.igloocoder.com/2271/ivory-tower-architect">ivory tower architects</a>.</p>
-<p>However, microservices have more substance because they are typically based
-on <a href="/application-programming-interfaces.html">RESTful APIs</a> that are far
-easier for actual software developers to use compared with the previous 
-complicated XML-based schemas thrown around by enterprise software companies.
-In addition, successful applications begin with a monolith-first approach using
-a single, shared application codebase and deployment. Only after the application
-proves its usefulness is it then broken down into microservice components to
-ease further development and deployment. This approach is called the 
-"monolith-first" or 
-"<a href="http://martinfowler.com/bliki/MonolithFirst.html">MonolithFirst</a>" pattern.</p>
-<h3>Microservice resources</h3>
+          <h1>微服务</h1>
+<p>微服务是一种应用程序架构风格，它让拥有单独功能的自包含程序通过网络和其它程序通信。典型地，这些微服务可以分开部署，因为它们通过一个定义良好的规格说明和有效的后向兼容性使得它们职责分明，从而可以避免突如其来的依赖破坏问题。</p>
+<h2>为何微服务变得如此流行？</h2>
+<p>微服务遵循长久以来软件架构模式风行的趋势。从前，<a href="https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture">CORBA</a> 和（多数基于 XML的）面向服务的架构（SOA）成为 <a href="http://www.igloocoder.com/2271/ivory-tower-architect">架构象牙塔</a> 中的流行词。</p>
+<p>然而，微服务更实在，因为它们通常基于 <a href="/application-programming-interfaces.html">RESTful API</a>，这对于实际的软件开发者而言，要比之前由各种企业软件公司发布的基于复杂的 XML 结构的架构容易得多！此外，成功的应用程序开始时都首先采用一种整体为先的方法，它使用一个单独的、共享的应用代码库和部署。只有在应用程序证明了它的有用性后，才会将它打破成微服务组件，从而让今后的开发和部署更轻松。这种方法叫做“整体为先”或者 “<a href="http://martinfowler.com/bliki/MonolithFirst.html">整体为先</a>”模式。</p>
+<h3>微服务相关资源</h3>
 <ul>
 <li>
-<p>Martin Fowler's 
-  <a href="http://martinfowler.com/articles/microservices.html">microservices</a>
-  article is one of the best in-depth explanations for what microservices are
-  and why to consider them as an architectural pattern.</p>
+<p>Martin Fowler 写的
+  <a href="http://martinfowler.com/articles/microservices.html">微服务</a>
+  是最佳的深入剖析什么是微服务以及为何将它们当做一种架构模式的文章之一。</p>
 </li>
 <li>
-<p><a href="http://dev.otto.de/2016/03/20/why-microservices/">Why microservices?</a>
-  presents some of the advantages, such as the dramatically increased number 
-  of deployments per day, that a well-done microservices architecture can
-  provide in the right situation. Many organizational environments won't 
-  allow this level of flexibility but if yours is one that will, it's worth
-  considering these points.</p>
+<p><a href="http://dev.otto.de/2016/03/20/why-microservices/">为什么是微服务？</a>
+  给出了一个很好的微服务架构能够在正确的情形下提供的一些优点，例如，大幅度增加每日部署的次数。</p>
 </li>
 <li>
-<p><a href="http://dev.otto.de/2015/09/30/on-monoliths-and-microservices/">On monoliths and microservices</a>
-  provides some advice on using microservices in a fairly early stage of
-  a software project's lifecycle.</p>
+<p><a href="http://dev.otto.de/2015/09/30/on-monoliths-and-microservices/">关于整体和微服务</a>
+  给出了一些在软件项目早期使用微服务的建议。</p>
 </li>
 <li>
-<p><a href="http://www.skybert.net/python/developing-a-restful-micro-service-in-python/">Developing a RESTful microservice in Python</a>
-  is a good story of how an aging Java project was replaced with a
-  microservice built with Python and Flask.</p>
+<p><a href="http://www.skybert.net/python/developing-a-restful-micro-service-in-python/">用 Python 开发一个 RESTful 微服务</a>
+  是一个讲述了如何使用 Python 和 Flask 替换一个老旧的 Java 项目的故事。</p>
 </li>
 <li>
-<p><a href="http://technologyconversations.com/2015/11/10/microservices-the-essential-practices/">Microservices: The essential practices</a>
-  first goes over what a monolith application looks like then dives into what 
-  operations you need to support potential microservices. For example, you really 
-  need to have continuous integration and deployment already set up. This is a
-  good high-level overview of the topics many developers aren't aware of when they
-  embark on converting a monolith to microservices.</p>
+<p><a href="http://technologyconversations.com/2015/11/10/microservices-the-essential-practices/">微服务：基本实践</a>
+  首先回顾了一个整体应用程序是什么样的，然后深入讲解了你需要做点什么来支持潜在的微服务。例如，你真的需要将持续集成和部署设置好。这是有关该话题非常好的高级综述，很多开发者在着手将整体架构转换为微服务架构时都没有注意这个话题。</p>
 </li>
 <li>
-<p><a href="https://hagbarddenstore.se/posts/2016-03-11/using-nginx-to-load-balance-microservices/">Using Nginx to Load Balance Microservices</a>
-  explains how an Nginx instance can use configuration values from etcd
-  updated by confd as the values are modified. This setup can be useful for
-  load balancing microservices as the backend services are brought up
-  and taken down.</p>
+<p><a href="https://hagbarddenstore.se/posts/2016-03-11/using-nginx-to-load-balance-microservices/">使用 Nginx 实现微服务负载均衡</a>
+  说明了一个 Nginx 实例如何能够使用来自 etcd 的配置值，当值发生变动时会通过 confd 更新。当安装或去除后端服务时，这个设置对于微服务负载均衡非常有用。</p>
 </li>
 <li>
-<p><a href="http://thenewstack.io/microservices-changed-matter/">How Microservices have changed and why they matter</a>
-  is a high level overview of the topic with some quotes from
-  various developers around the industry.</p>
+<p><a href="http://thenewstack.io/microservices-changed-matter/">微服务是如何改变的以及为何它们很重要</a>
+  是有关该话题的高级综述，它引用了一些来自该行业开发者的话。</p>
 </li>
 <li>
-<p><a href="http://blog.codeship.com/the-state-of-microservices-today/">The State of Microservices Today</a>
-  provides some general trends and broad data showing the increasing 
-  popularity of microservices heading into 2016. This is more of an
-  overview of the term than a tutorial but useful context for both
-  developers and non-developers.</p>
+<p><a href="http://blog.codeship.com/the-state-of-microservices-today/">当前的微服务状况</a>
+  提供了一些一般趋势和广泛数据显示出 2016 年以来微服务的流行度在不断增加。</p>
 </li>
 <li>
-<p><a href="http://jonasboner.com/bla-bla-microservices-bla-bla/">bla bla microservices bla bla</a> 
-  is a transcript for a killer talk on microservices that breaks down the
-  important first principles of distributed systems, including asynchronous 
-  communication, isolation, autonomicity, single responsibility, 
-  exclusive state, and mobility. The slides along with the accompanying
-  text go into how reality gets messy and how to embrace the constraints
-  inherent in distributed systems.</p>
+<p><a href="http://jonasboner.com/bla-bla-microservices-bla-bla/">唧唧歪歪微服务</a> 
+  是一个关于微服务的杀手级演讲的文稿，它打破了分布式系统重要的第一原则，包括异步通信、隔离、自动化、单一职责、独立状态以及移动性。这个带有文本的幻灯片深入说明了现实如何变得一团糟，以及如何拥抱分布式系统固有的约束。</p>
 </li>
 </ul>
           <h1>DevOps</h1>
