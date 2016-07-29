@@ -1,18 +1,19 @@
-title: API Creation
+title: API 的创建
 category: page
 slug: api-creation
 sortorder: 0603
 toc: False
-sidebartitle: API Creation
-meta: Web APIs enable machine-to-machine communication. Learn more about creating web APIs on Full Stack Python.
+sidebartitle: API 的创建
+meta: Web API 使得机器间的交互成为可能。到 Full Stack Python 上学习更多关于创建 Web API 的知识。
+authors: haiiiiiyun.github.io
+updated: 2016-07-28 21:30
 
 
-# API Creation
-Creating and exposing APIs allows your web application to interact with other
-applications through machine-to-machine communication.
+# API 的创建
+创建和分布 API 能使你的 Web 应用可以通过机器间的通信与其它应用进行交互。
 
 
-## API creation frameworks
+## 创建 API 的相关框架
 * [Django REST framework](http://www.django-rest-framework.org/) and
   [Tastypie](https://django-tastypie.readthedocs.org/en/latest/) are 
   the two most widely used API frameworks to use with Django. The edge
@@ -195,7 +196,7 @@ equivalent of browser testing in the web application world.
   shows how Square used Swagger with React to create more helpful docs.
 
 
-## Django REST Framework resources
+## Django REST 框架相关资源
 * This multi-part series on 
   [getting started with Django REST framework and AngularJS (part 1)](http://engineroom.trackmaven.com/blog/getting-started-drf-angularjs-part-1/)
   along with its [second part](http://engineroom.trackmaven.com/blog/getting-started-drf-angularjs-part-2/)
@@ -208,7 +209,7 @@ equivalent of browser testing in the web application world.
   license.
 
 
-## API creation learning checklist
+## API 创建的学习清单
 1. Pick an API framework appropriate for your web framework. For Django I 
    recommend Django REST framework and for Flask I recommend Flask-RESTful.
 
