@@ -5215,50 +5215,33 @@ Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一
 说明了在 Nginx 中如何使用 HttpSetMiscModule 模块转换变量，并将输入映射到日志的可控制输出中。作者使用这种技术进行像素追踪，这种方法也可以用于其它目的，例如高级调试。</p>
 </li>
 </ul>
-          <h1>Apache HTTP Server</h1>
-<p>The <a href="https://httpd.apache.org/">Apache HTTP Server</a> is a widely deployed web server
-that can be used in combination with a WSGI module, such as mod_wsgi or a
-stand-alone <a href="/wsgi-servers.html">WSGI server</a> to run Python web applications.</p>
-<h2>Why is the Apache HTTP Server important?</h2>
-<p>Apache remains the most commonly deployed web server with a reign of
-20+ years. Its wide usage contributes to the large number of tutorials
-and open source modules created by developers for anyone to use.</p>
-<p>Apache's development began in mid-1994 as a fork of the
-<a href="https://en.wikipedia.org/wiki/NCSA_HTTPd">NCSA HTTP Server</a> project.
-By early 1996, Apache overtook the previously dominant but suddenly stagnant 
-NCSA server as NCSA's progress stalled due to signficantly reduced 
-development attention.</p>
-<div class="well see-also">The Apache HTTP Server is an implementation of the <a href="/web-servers.html">web server</a> concept. Learn how these pieces fit together in the <a href="/deployment.html">deployment</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+          <h1>Apache HTTP 服务器</h1>
+<p><a href="https://httpd.apache.org/">Apache HTTP 服务器</a> 是一个广泛部署的 web 服务器，它能够组合使用一个 WSGI 模块，如 mod_wsgi 或者一个单独的 <a href="/wsgi-servers.html">WSGI 服务器</a>，来运行 Python web 应用。</p>
+<h2>Apache HTTP 服务器为何很重要？</h2>
+<p>Apache 仍然是最长部署的 web 服务器，并且占据统治地位 20 余年。由于它使用广泛，所以有大量的教程和开发者开发的开源模块可供任何人使用。</p>
+<p>Apache 开发起源于 1994 年中期，当时它是 <a href="https://en.wikipedia.org/wiki/NCSA_HTTPd">NCSA HTTP Server</a> 项目的一个分支。
+到了 1996 年早期，Apache 占据了统治地位，但是由于开发关注大大减少导致 NCSA 进度停滞，进而导致 NCSA 服务器开发停滞。</p>
+<div class="well see-also">Apache HTTP 服务器<a href="/web-servers.html">web 服务器</a> 概念的一种实现。在<a href="/deployment.html">部署</a> 章节学习如何将这些组合在一起，或者查看所有主题的<a href="/table-of-contents.html">目录</a></div>
 
-<h3>Apache HTTP Server resources</h3>
+<h3>Apache HTTP 服务器相关资源</h3>
 <ul>
 <li>
-<p>The 
-  <a href="http://httpd.apache.org/docs/current/">official project documentation page</a>
-  contains a section with How-Tos and Tutorials to handle authentication,
-  security and dynamic content.</p>
+<p><a href="http://httpd.apache.org/docs/current/">官方项目文档主页</a> 包含一节说明如何处理认证、安全和动态内容的教程。</p>
 </li>
 <li>
-<p><a href="http://www.apachetutor.org/admin/reverseproxies">Reverse proxies</a> shows
-  how to set up Apache as a reverse proxy using <code>mod_proxy</code>.</p>
+<p><a href="http://www.apachetutor.org/admin/reverseproxies">反向代理</a> 说明了如何使用 <code>mod_proxy</code> 设置 Apache 作为反向代理。</p>
 </li>
 <li>
-<p><a href="https://www.linode.com/docs/websites/apache/apache-web-server-on-ubuntu-14-04">Apache Web Server on Ubuntu 14.04 LTS</a>
-  explains how to install Apache on Ubuntu 14.04, which is still a supported
-  release. Note however, do <em>not</em> install mod_python because it is now insecure
-  and made obsolete by <a href="/wsgi-servers.html">mod_wsgi and WSGI servers</a>.</p>
+<p><a href="https://www.linode.com/docs/websites/apache/apache-web-server-on-ubuntu-14-04">在 Ubuntu 14.04 LTS 上使用 Apache Web 服务器</a>
+说明了如何在 Ubuntu 14.04（现在仍然支持的版本） 上安装 Apache。然而需要注意的是，<em>不要</em> 安装 mod_python，因为它不再安全了，并且被 <a href="/wsgi-servers.html">mod_wsgi 和 WSGI 服务器</a> 隔离了。</p>
 </li>
 <li>
-<p><a href="http://thecodeship.com/deployment/deploy-django-apache-virtualenv-and-mod_wsgi/">Deploy Django on Apache with Virtualenv and mod_wsgi</a>
-  provides instructions for what packages to install to get Apache up
-  and running with mod_wsgi on Ubuntu.</p>
+<p><a href="http://thecodeship.com/deployment/deploy-django-apache-virtualenv-and-mod_wsgi/">使用 Virtualenv 和 mod_wsgi 在 Apache 上部署 Django</a>
+说明了在 Ubuntu 上要将带有 mod_wsgi 的 Apache 设置好并运行起来需要安装哪些包。</p>
 </li>
 <li>
-<p><a href="http://library.linode.com/web-servers/apache/mod-wsgi/ubuntu-10.04-lucid">Apache and mod_wsgi on Ubuntu 10.04</a>
-  is an older post that shows how to set up Apache on the now out-of-support
-  Ubuntu 10.04 LTS release. This setup isn't recommended in 2016 and beyond
-  but if you are already using 10.04 as your base operating system you might
-  need to reference this material.</p>
+<p><a href="http://library.linode.com/web-servers/apache/mod-wsgi/ubuntu-10.04-lucid">Ubuntu 10.04 上的 Apache 和 mod_wsgi</a>
+是一篇交旧 的文章，它说明了如何在不受支持的 Ubuntu 10.04 LTS 版本中设置 Apache。在 2016 年不推荐看这个设置，它已经过时了，但如果你正在使用 10.04 作为你的基础操作系统，你也许需要参阅这篇文章。</p>
 </li>
 </ul>
           <h1>Caddy</h1>
