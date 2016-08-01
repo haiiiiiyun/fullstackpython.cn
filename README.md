@@ -99,7 +99,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/07-web-app-deployment/21-nginx.markdown (2016-08-01 by [Christopher L](http://blog.chriscabin.com/))
 - [x] content/pages/07-web-app-deployment/22-apache-http-server.markdown (2016-08-01 by [Christopher L](http://blog.chriscabin.com/))
 - [x] content/pages/07-web-app-deployment/23-caddy.markdown (2016-08-01 by [Christopher L](http://blog.chriscabin.com/))
-- [ ] content/pages/07-web-app-deployment/24-gunicorn.markdown
+- [x] content/pages/07-web-app-deployment/24-gunicorn.markdown (2016-08-01 by [Christopher L](http://blog.chriscabin.com/))
 - [ ] content/pages/07-web-app-deployment/25-ubuntu.markdown
 
 ### 八、测试
