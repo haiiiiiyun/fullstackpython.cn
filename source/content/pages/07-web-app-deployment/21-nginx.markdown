@@ -4,119 +4,74 @@ slug: nginx
 sortorder: 0721
 toc: False
 sidebartitle: Nginx
-meta: Nginx is a commonly deployed web server that also functions well as a reverse proxy for WSGI Python web apps.
+meta: Nginx 是一个部署普遍的 web 服务器，它同时也可以作为 WSGI Python web 应用的反向代理。
+translators: blog.chriscabin.com
+updated: 2016-08-01 08:00
 
 
 # Nginx
-Nginx is the 
-[second most common web server among the top 100,000 websites](http://w3techs.com/technologies/cross/web_server/ranking). Nginx also functions well as a 
-reverse proxy to handle requests and pass back responses for Python 
-[WSGI servers](/wsgi-servers.html) or even other web servers such as Apache.
+Nginx 是 [前 10 万个网站中第二常用的 web 服务器](http://w3techs.com/technologies/cross/web_server/ranking)。Nginx 也可以作为 Python [WSGI 服务器](/wsgi-servers.html) 或者甚至是其它 web 服务器（例如 Apache）的反向代理，用于处理请求并回传响应。
 
 <img src="/img/web-servers-map.png" width="100%" alt="Python web application deployments rely on Nginx either as a web server or reverse proxy for WSGI servers." class="technical-diagram" />
 
 
-<div class="well see-also">Nginx is an implementation of the <a href="/web-servers.html">web server</a> concept. Learn how these pieces fit together in the <a href="/deployment.html">deployment</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+<div class="well see-also">Nginx 是<a href="/web-servers.html"> web 服务器</a> 概念的一种实现。在<a href="/deployment.html">部署</a> 章节学习这些部分是如何组合在一起的或者查看所有主题的<a href="/table-of-contents.html">目录</a></div>
 
 
-## Should I use Nginx or the Apache HTTP Server?
-Let's be clear about these two "competing" servers: they are both fantastic
-open source projects and either will serve your web application deployment 
-well. In fact, many of the top global web applications use both servers in
-their deployments to function in many steps throughout the HTTP 
-request-response cycle.
+## 我该使用 Nginx 还是 Apache HTTP 服务器？
+让我们认清这两款“竞争”的服务器：它们都是非常棒的开源项目，并且都能够很好地为你的 web 应用部署提供服务。事实上，许多全球顶级的 web 应用在它们许多部署步骤中都同时使用这两款服务器，通过完整的 HTTP 请求—响应周期。
 
-I personally use Nginx more frequently than Apache because Nginx's 
-configuration feel easier to write, with less boilerplate than alternatives.
+相对于 Apache，我个人使用 Nginx 更为频繁，因为它的配置文件感觉写起来更容易，并且有更少的可选模板。
 
-There's also a bit of laziness in the usage: Nginx works well, it never causes
-me problems. So I stick with my battle-tested 
-Ansible [configuration management](/configuration-management.html) files
-that set up Nginx with HTTPS and SSL/TLS certificates 
+这也有点懒惰的成分：Nginx 工作得很好，它从不会给我带来问题。所以，我坚持使用我久经沙场的 Ansible [配置管理](/configuration-management.html) 文件来设置 Nginx 使用 HTTPS 和 SSL/TLS 证书。
 
-## Securing Nginx
-Nginx's default configuration after a standard installation through a
-system package manager or compiling from source is a good base for security.
-However, setting up ciphers and redirects can be confusing the first few
-times you try it. It's a really good idea to read some of these tutorials
-to make sure you are avoiding the most common security errors that plague
-HTTP(S) configurations.
+## Nginx 安全防护
+通过系统包管理器或者源码编译进行标准安装后的默认 Nginx 配置是一个很好的安全基础。
+然而，最开始几次尝试设置密码和重定向会让人很疑惑。一个非常好的办法是阅读相关教程来确保你在被 HTTP(S) 配置折磨时避免最常见的安全错误
 
-* [Hacker News broke our site – how Nginx and PageSpeed fixed the problem](https://www.airport-parking-shop.co.uk/blog/hacker-news-broke-site-nginx-pagespeed-fixed-problem/)
-  is primarily about optimizing Nginx's configuration for more efficient 
-  SSL connections. The post also covers 
-  [configuration management](/configuration-management.html) with Ansible
-  as well as the Pagespeed module that Google released for both Nginx
-  and the [Apache HTTP Server](/apache-http-server.html).
+* [黑客新闻破坏了我们的网站——Nginx 和 PageSpeed 如何修复问题](https://www.airport-parking-shop.co.uk/blog/hacker-news-broke-site-nginx-pagespeed-fixed-problem/)
+  主要说明了优化 Nginx 配置以实现更高效地 SSL 连接。这篇文章也包括了使用 Ansible 和 Pagespeed 模块的[配置管理](/configuration-management.html)，其中，Pagespeed 模块是 Google 为 Nginx 和 [Apache HTTP 服务器](/apache-http-server.html) 开发的模块。
 
-* [Secure Web Deployment with Let's Encrypt and Nginx](https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/ )
-  is a detailed walkthrough for setting up HTTPS under Ubuntu 14.04 with
-  Nginx.
+* [使用 Let's Encrypt 和 Nginx 增强 Web 部署安全](https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/ )
+  详细演示了在 Ubuntu 14.04 下使用 Nginx 设置 HTTPS。
 
-* [How To Secure Nginx on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-14-04)
-  explains SSL configurations and IP address blacklisting then provides
-  several other tutorials for more advanced security modules.
+* [如何在 Ubuntu 14.04 上添加 Nginx 安全防护](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-14-04)
+  说明了 SSL 配置和 IP 地址黑名单，然后提供了其它一些更高级的安全模块教程。
 
-* [Strong SSL Security on Nginx](https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html)
-  shows how to mitigate high profile SSL attacks like 
+* [在 Nginx 上增强 SSL 安全](https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html)
+  说明了如何缓和高调的 SSL 攻击，例如
   [Logjam](https://weakdh.org/),
   [Heartbleed](http://heartbleed.com/)
-  and [FREAK](https://freakattack.com/).
+  和 [FREAK](https://freakattack.com/)。
 
 
-## General Nginx resources
-* The [Nginx chapter](http://www.aosabook.org/en/nginx.html) in the
-  [Architecture of Open Source Applications book](http://www.aosabook.org/en/index.html)
-  has a great chapter devoted to why Nginx is built to scale a certain way
-  and lessons learned along the development journey.
+## 常见 Nginx 资源
+* 在 [开源应用架构一书](http://www.aosabook.org/en/index.html) 中的 [Nginx 章节](http://www.aosabook.org/en/nginx.html) 详细说明了为何 Nginx 以某种方式扩展构建，并且拥有很棒的部署之旅课程。
 
-* [Inside Nginx: How we designed for performance and scale](http://nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/)
-  is a blog post from the developers behind Nginx on why they believe their
-  architecture model is more performant and scalable than other approaches
-  used to build web servers.
+* [Nginx 内部：我们如何针对性能和扩展性进行设计](http://nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/) 
+是一篇来自 Nginx 开发者的博客，说明了他们为何相信他们的架构模型要比其它构建 web 服务器的方法更加高效，更具扩展性。
 
-* [Test-driving web server configuration](https://gdstechnology.blog.gov.uk/2015/03/25/test-driving-web-server-configuration/)
-  is a good story for how to iteratively apply configuration changes, such
-  as routing traffic to [Piwik](http://piwik.org/) for 
-  [web analytics](/web-analytics.html), reverse proxying to backend
-  application servers and terminately TLS connections appropriately.
-  It is impressive to read a well-written softare development article like
-  this from a government agency, although UK's Government Digital Service as
-  well as USA's 18F and US Digital Service foster a far more credible
-  culture than most typical agencies.
+* [测试驱动 web 服务器配置](https://gdstechnology.blog.gov.uk/2015/03/25/test-driving-web-server-configuration/)
+是一个非常好的故事，说明了如何反复应用配置变动，例如路由流量到 [Piwik](http://piwik.org/) 进行[web 分析](/web-analytics.html)、作为应用后端进行反向代理、以切当的方式终止 TLS 连接。
+阅读一个写得很好的软件部署文章可以让人映像深刻，就像这篇来自政府机关的文章，虽然 UK 政府数字服务，还有美国 18F 以及美国数字服务形成了比最典型的机关更为可靠的文化。
 
-* [Nginx for Developers: An Introduction](http://carrot.is/coding/nginx_introduction)
-  provides the first steps to getting an initial Nginx configuration up and
-  running. 
+* [针对开发者的 Nginx 介绍](http://carrot.is/coding/nginx_introduction) 给出了最初几步来配置 Nginx 并运行它。
 
-* [A faster Web server: ripping out Apache for Nginx](http://arstechnica.com/business/2011/11/a-faster-web-server-ripping-out-apache-for-nginx/)
-  explains how Nginx can be used instead of Apache in some cases for
-  better performance.
+* [一个更快的 Web 服务器：用 Nginx 替代 Apache](http://arstechnica.com/business/2011/11/a-faster-web-server-ripping-out-apache-for-nginx/)
+说明了在某些情况下为了提升性能可以使用 Nginx 替换 Apache。
 
-* [Nginx vs Apache: Our view](https://www.nginx.com/blog/nginx-vs-apache-our-view/)
-  is a first-party perspective written by the developers behind Nginx
-  as to the differences between the web servers.
+* [Nginx 对比 Apache：我们的看法](https://www.nginx.com/blog/nginx-vs-apache-our-view/)
+由 Nginx 背后的开发者以第一方视角说明 web 服务器之间的差别。
 
-* [Rate Limiting with Nginx](http://lincolnloop.com/blog/rate-limiting-nginx/)
-  covers how to mitigate against brute force password guessing attempts using
-  Nginx rate limits.
+* [使用 Nginx 速度限制](http://lincolnloop.com/blog/rate-limiting-nginx/) 说明了如何缓解使用 Nginx 速度限制进行密码暴力猜测尝试的问题。
 
-* [Nginx with dynamic upstreams](http://tenzer.dk/nginx-with-dynamic-upstreams/)
-  is an important note for setting up your upstream WSGI server(s) if you're
-  using Nginx as a reverse proxy with hostnames that change.
+* [Nginx 使用动态上游](http://tenzer.dk/nginx-with-dynamic-upstreams/)
+是一篇非常重要的笔记，说明了如果你正在使用 Nginx 作为反向代理，如何使用变化的主机名设置你的上游 WSGI 服务器。
 
-* [Nginx Caching](https://serversforhackers.com/nginx-caching/) shows how
-  to set up Nginx for caching HTTP requests, which is often done by Varnish
-  but can also be handled by Nginx with the `proxy_cache` and related
-  directives.
+* [Nginx 缓存](https://serversforhackers.com/nginx-caching/) 说明了如何设置 Nginx 用于缓存 HTTP 请求，这通常可以使用 Varnish 完成，但是也可以使用 `proxy_cache` 和相关指令交给 Nginx 处理。
 
-* [Nginx web server tutorials](http://articles.slicehost.com/nginx) are oldies
-  but goodies on setting up previous versions of Nginx. 
+* [Nginx web 服务器教程](http://articles.slicehost.com/nginx) 是最旧但也最好的教程，它说明了如何设置之前版本的 Nginx。
 
-* [Dynamic log formats in nginx](https://benwilber.github.io/nginx/syslog/logging/2015/08/26/dynamic-log-formats-in-nginx.html) 
-  explains how to use the HttpSetMiscModule module to transform variables
-  in Nginx and map input to controlled output in the logs. The author uses
-  this technique for pixel tracking but there are other purposes this method
-  could be used for such as advanced debugging. 
-
+* [Nginx 中使用动态日志格式](https://benwilber.github.io/nginx/syslog/logging/2015/08/26/dynamic-log-formats-in-nginx.html) 
+说明了在 Nginx 中如何使用 HttpSetMiscModule 模块转换变量，并将输入映射到日志的可控制输出中。作者使用这种技术进行像素追踪，这种方法也可以用于其它目的，例如高级调试。
 
