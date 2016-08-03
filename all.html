@@ -3793,12 +3793,12 @@ WSGI 1.0 版本被
 <h2>Web 服务器配置样例</h2>
 <p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
 <p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="nt">端口上的</span> <span class="nt">WSGI</span> <span class="nt">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="err">#</span> <span class="nt">Nginx</span> <span class="err">配置为运行在标准</span><span class="nt">HTTP</span><span class="err">端口上，并监听请求</span>
+<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">配置为运行在标准HTTP端口上</span><span class="err">，</span><span class="nt">并监听请求</span>
 <span class="nt">server</span> <span class="p">{</span>
   <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
 
@@ -3808,8 +3808,8 @@ WSGI 1.0 版本被
     <span class="n">alias</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">assets</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="err">#</span> <span class="err">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="err">目录的请求都会交给</span> <span class="nt">WSGI</span>
-  <span class="err">#</span> <span class="err">服务器，即上面配置的运行在</span> <span class="nt">8000</span> <span class="err">端口上服务器</span>
+  <span class="err">#</span> <span class="nt">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">目录的请求都会交给</span> <span class="nt">WSGI</span>
+  <span class="err">#</span> <span class="nt">服务器</span><span class="err">，</span><span class="nt">即上面配置的运行在</span> <span class="nt">8000</span> <span class="nt">端口上服务器</span>
   <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
     <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="err">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
     <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="err">$</span><span class="n">http_host</span><span class="p">;</span>
@@ -5140,241 +5140,152 @@ Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一
 </li>
 </ul>
           <h1>Nginx</h1>
-<p>Nginx is the 
-<a href="http://w3techs.com/technologies/cross/web_server/ranking">second most common web server among the top 100,000 websites</a>. Nginx also functions well as a 
-reverse proxy to handle requests and pass back responses for Python 
-<a href="/wsgi-servers.html">WSGI servers</a> or even other web servers such as Apache.</p>
+<p>Nginx 是 <a href="http://w3techs.com/technologies/cross/web_server/ranking">前 10 万个网站中第二常用的 web 服务器</a>。Nginx 也可以作为 Python <a href="/wsgi-servers.html">WSGI 服务器</a> 或者甚至是其它 web 服务器（例如 Apache）的反向代理，用于处理请求并回传响应。</p>
 <p><img src="/img/web-servers-map.png" width="100%" alt="Python web application deployments rely on Nginx either as a web server or reverse proxy for WSGI servers." class="technical-diagram" /></p>
-<div class="well see-also">Nginx is an implementation of the <a href="/web-servers.html">web server</a> concept. Learn how these pieces fit together in the <a href="/deployment.html">deployment</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+<div class="well see-also">Nginx 是<a href="/web-servers.html"> web 服务器</a> 概念的一种实现。在<a href="/deployment.html">部署</a> 章节学习这些部分是如何组合在一起的或者查看所有主题的<a href="/table-of-contents.html">目录</a></div>
 
-<h2>Should I use Nginx or the Apache HTTP Server?</h2>
-<p>Let's be clear about these two "competing" servers: they are both fantastic
-open source projects and either will serve your web application deployment 
-well. In fact, many of the top global web applications use both servers in
-their deployments to function in many steps throughout the HTTP 
-request-response cycle.</p>
-<p>I personally use Nginx more frequently than Apache because Nginx's 
-configuration feel easier to write, with less boilerplate than alternatives.</p>
-<p>There's also a bit of laziness in the usage: Nginx works well, it never causes
-me problems. So I stick with my battle-tested 
-Ansible <a href="/configuration-management.html">configuration management</a> files
-that set up Nginx with HTTPS and SSL/TLS certificates </p>
-<h2>Securing Nginx</h2>
-<p>Nginx's default configuration after a standard installation through a
-system package manager or compiling from source is a good base for security.
-However, setting up ciphers and redirects can be confusing the first few
-times you try it. It's a really good idea to read some of these tutorials
-to make sure you are avoiding the most common security errors that plague
-HTTP(S) configurations.</p>
+<h2>我该使用 Nginx 还是 Apache HTTP 服务器？</h2>
+<p>让我们认清这两款“竞争”的服务器：它们都是非常棒的开源项目，并且都能够很好地为你的 web 应用部署提供服务。事实上，许多全球顶级的 web 应用在它们许多部署步骤中都同时使用这两款服务器，通过完整的 HTTP 请求—响应周期。</p>
+<p>相对于 Apache，我个人使用 Nginx 更为频繁，因为它的配置文件感觉写起来更容易，并且有更少的可选模板。</p>
+<p>这也有点懒惰的成分：Nginx 工作得很好，它从不会给我带来问题。所以，我坚持使用我久经沙场的 Ansible <a href="/configuration-management.html">配置管理</a> 文件来设置 Nginx 使用 HTTPS 和 SSL/TLS 证书。</p>
+<h2>Nginx 安全防护</h2>
+<p>通过系统包管理器或者源码编译进行标准安装后的默认 Nginx 配置是一个很好的安全基础。
+然而，最开始几次尝试设置密码和重定向会让人很疑惑。一个非常好的办法是阅读相关教程来确保你在被 HTTP(S) 配置折磨时避免最常见的安全错误</p>
 <ul>
 <li>
-<p><a href="https://www.airport-parking-shop.co.uk/blog/hacker-news-broke-site-nginx-pagespeed-fixed-problem/">Hacker News broke our site – how Nginx and PageSpeed fixed the problem</a>
-  is primarily about optimizing Nginx's configuration for more efficient 
-  SSL connections. The post also covers 
-  <a href="/configuration-management.html">configuration management</a> with Ansible
-  as well as the Pagespeed module that Google released for both Nginx
-  and the <a href="/apache-http-server.html">Apache HTTP Server</a>.</p>
+<p><a href="https://www.airport-parking-shop.co.uk/blog/hacker-news-broke-site-nginx-pagespeed-fixed-problem/">黑客新闻破坏了我们的网站——Nginx 和 PageSpeed 如何修复问题</a>
+  主要说明了优化 Nginx 配置以实现更高效地 SSL 连接。这篇文章也包括了使用 Ansible 和 Pagespeed 模块的<a href="/configuration-management.html">配置管理</a>，其中，Pagespeed 模块是 Google 为 Nginx 和 <a href="/apache-http-server.html">Apache HTTP 服务器</a> 开发的模块。</p>
 </li>
 <li>
-<p><a href="https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/">Secure Web Deployment with Let's Encrypt and Nginx</a>
-  is a detailed walkthrough for setting up HTTPS under Ubuntu 14.04 with
-  Nginx.</p>
+<p><a href="https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/">使用 Let's Encrypt 和 Nginx 增强 Web 部署安全</a>
+  详细演示了在 Ubuntu 14.04 下使用 Nginx 设置 HTTPS。</p>
 </li>
 <li>
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-14-04">How To Secure Nginx on Ubuntu 14.04</a>
-  explains SSL configurations and IP address blacklisting then provides
-  several other tutorials for more advanced security modules.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-14-04">如何在 Ubuntu 14.04 上添加 Nginx 安全防护</a>
+  说明了 SSL 配置和 IP 地址黑名单，然后提供了其它一些更高级的安全模块教程。</p>
 </li>
 <li>
-<p><a href="https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html">Strong SSL Security on Nginx</a>
-  shows how to mitigate high profile SSL attacks like 
+<p><a href="https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html">在 Nginx 上增强 SSL 安全</a>
+  说明了如何缓和高调的 SSL 攻击，例如
   <a href="https://weakdh.org/">Logjam</a>,
   <a href="http://heartbleed.com/">Heartbleed</a>
-  and <a href="https://freakattack.com/">FREAK</a>.</p>
+  和 <a href="https://freakattack.com/">FREAK</a>。</p>
 </li>
 </ul>
-<h2>General Nginx resources</h2>
+<h2>常见 Nginx 资源</h2>
 <ul>
 <li>
-<p>The <a href="http://www.aosabook.org/en/nginx.html">Nginx chapter</a> in the
-  <a href="http://www.aosabook.org/en/index.html">Architecture of Open Source Applications book</a>
-  has a great chapter devoted to why Nginx is built to scale a certain way
-  and lessons learned along the development journey.</p>
+<p>在 <a href="http://www.aosabook.org/en/index.html">开源应用架构一书</a> 中的 <a href="http://www.aosabook.org/en/nginx.html">Nginx 章节</a> 详细说明了为何 Nginx 以某种方式扩展构建，并且拥有很棒的部署之旅课程。</p>
 </li>
 <li>
-<p><a href="http://nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/">Inside Nginx: How we designed for performance and scale</a>
-  is a blog post from the developers behind Nginx on why they believe their
-  architecture model is more performant and scalable than other approaches
-  used to build web servers.</p>
+<p><a href="http://nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/">Nginx 内部：我们如何针对性能和扩展性进行设计</a> 
+是一篇来自 Nginx 开发者的博客，说明了他们为何相信他们的架构模型要比其它构建 web 服务器的方法更加高效，更具扩展性。</p>
 </li>
 <li>
-<p><a href="https://gdstechnology.blog.gov.uk/2015/03/25/test-driving-web-server-configuration/">Test-driving web server configuration</a>
-  is a good story for how to iteratively apply configuration changes, such
-  as routing traffic to <a href="http://piwik.org/">Piwik</a> for 
-  <a href="/web-analytics.html">web analytics</a>, reverse proxying to backend
-  application servers and terminately TLS connections appropriately.
-  It is impressive to read a well-written softare development article like
-  this from a government agency, although UK's Government Digital Service as
-  well as USA's 18F and US Digital Service foster a far more credible
-  culture than most typical agencies.</p>
+<p><a href="https://gdstechnology.blog.gov.uk/2015/03/25/test-driving-web-server-configuration/">测试驱动 web 服务器配置</a>
+是一个非常好的故事，说明了如何反复应用配置变动，例如路由流量到 <a href="http://piwik.org/">Piwik</a> 进行<a href="/web-analytics.html">web 分析</a>、作为应用后端进行反向代理、以切当的方式终止 TLS 连接。
+阅读一个写得很好的软件部署文章可以让人映像深刻，就像这篇来自政府机关的文章，虽然 UK 政府数字服务，还有美国 18F 以及美国数字服务形成了比最典型的机关更为可靠的文化。</p>
 </li>
 <li>
-<p><a href="http://carrot.is/coding/nginx_introduction">Nginx for Developers: An Introduction</a>
-  provides the first steps to getting an initial Nginx configuration up and
-  running. </p>
+<p><a href="http://carrot.is/coding/nginx_introduction">针对开发者的 Nginx 介绍</a> 给出了最初几步来配置 Nginx 并运行它。</p>
 </li>
 <li>
-<p><a href="http://arstechnica.com/business/2011/11/a-faster-web-server-ripping-out-apache-for-nginx/">A faster Web server: ripping out Apache for Nginx</a>
-  explains how Nginx can be used instead of Apache in some cases for
-  better performance.</p>
+<p><a href="http://arstechnica.com/business/2011/11/a-faster-web-server-ripping-out-apache-for-nginx/">一个更快的 Web 服务器：用 Nginx 替代 Apache</a>
+说明了在某些情况下为了提升性能可以使用 Nginx 替换 Apache。</p>
 </li>
 <li>
-<p><a href="https://www.nginx.com/blog/nginx-vs-apache-our-view/">Nginx vs Apache: Our view</a>
-  is a first-party perspective written by the developers behind Nginx
-  as to the differences between the web servers.</p>
+<p><a href="https://www.nginx.com/blog/nginx-vs-apache-our-view/">Nginx 对比 Apache：我们的看法</a>
+由 Nginx 背后的开发者以第一方视角说明 web 服务器之间的差别。</p>
 </li>
 <li>
-<p><a href="http://lincolnloop.com/blog/rate-limiting-nginx/">Rate Limiting with Nginx</a>
-  covers how to mitigate against brute force password guessing attempts using
-  Nginx rate limits.</p>
+<p><a href="http://lincolnloop.com/blog/rate-limiting-nginx/">使用 Nginx 速度限制</a> 说明了如何缓解使用 Nginx 速度限制进行密码暴力猜测尝试的问题。</p>
 </li>
 <li>
-<p><a href="http://tenzer.dk/nginx-with-dynamic-upstreams/">Nginx with dynamic upstreams</a>
-  is an important note for setting up your upstream WSGI server(s) if you're
-  using Nginx as a reverse proxy with hostnames that change.</p>
+<p><a href="http://tenzer.dk/nginx-with-dynamic-upstreams/">Nginx 使用动态上游</a>
+是一篇非常重要的笔记，说明了如果你正在使用 Nginx 作为反向代理，如何使用变化的主机名设置你的上游 WSGI 服务器。</p>
 </li>
 <li>
-<p><a href="https://serversforhackers.com/nginx-caching/">Nginx Caching</a> shows how
-  to set up Nginx for caching HTTP requests, which is often done by Varnish
-  but can also be handled by Nginx with the <code>proxy_cache</code> and related
-  directives.</p>
+<p><a href="https://serversforhackers.com/nginx-caching/">Nginx 缓存</a> 说明了如何设置 Nginx 用于缓存 HTTP 请求，这通常可以使用 Varnish 完成，但是也可以使用 <code>proxy_cache</code> 和相关指令交给 Nginx 处理。</p>
 </li>
 <li>
-<p><a href="http://articles.slicehost.com/nginx">Nginx web server tutorials</a> are oldies
-  but goodies on setting up previous versions of Nginx. </p>
+<p><a href="http://articles.slicehost.com/nginx">Nginx web 服务器教程</a> 是最旧但也最好的教程，它说明了如何设置之前版本的 Nginx。</p>
 </li>
 <li>
-<p><a href="https://benwilber.github.io/nginx/syslog/logging/2015/08/26/dynamic-log-formats-in-nginx.html">Dynamic log formats in nginx</a> 
-  explains how to use the HttpSetMiscModule module to transform variables
-  in Nginx and map input to controlled output in the logs. The author uses
-  this technique for pixel tracking but there are other purposes this method
-  could be used for such as advanced debugging. </p>
+<p><a href="https://benwilber.github.io/nginx/syslog/logging/2015/08/26/dynamic-log-formats-in-nginx.html">Nginx 中使用动态日志格式</a> 
+说明了在 Nginx 中如何使用 HttpSetMiscModule 模块转换变量，并将输入映射到日志的可控制输出中。作者使用这种技术进行像素追踪，这种方法也可以用于其它目的，例如高级调试。</p>
 </li>
 </ul>
-          <h1>Apache HTTP Server</h1>
-<p>The <a href="https://httpd.apache.org/">Apache HTTP Server</a> is a widely deployed web server
-that can be used in combination with a WSGI module, such as mod_wsgi or a
-stand-alone <a href="/wsgi-servers.html">WSGI server</a> to run Python web applications.</p>
-<h2>Why is the Apache HTTP Server important?</h2>
-<p>Apache remains the most commonly deployed web server with a reign of
-20+ years. Its wide usage contributes to the large number of tutorials
-and open source modules created by developers for anyone to use.</p>
-<p>Apache's development began in mid-1994 as a fork of the
-<a href="https://en.wikipedia.org/wiki/NCSA_HTTPd">NCSA HTTP Server</a> project.
-By early 1996, Apache overtook the previously dominant but suddenly stagnant 
-NCSA server as NCSA's progress stalled due to signficantly reduced 
-development attention.</p>
-<div class="well see-also">The Apache HTTP Server is an implementation of the <a href="/web-servers.html">web server</a> concept. Learn how these pieces fit together in the <a href="/deployment.html">deployment</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+          <h1>Apache HTTP 服务器</h1>
+<p><a href="https://httpd.apache.org/">Apache HTTP 服务器</a> 是一个广泛部署的 web 服务器，它能够组合使用一个 WSGI 模块，如 mod_wsgi 或者一个单独的 <a href="/wsgi-servers.html">WSGI 服务器</a>，来运行 Python web 应用。</p>
+<h2>Apache HTTP 服务器为何很重要？</h2>
+<p>Apache 仍然是最长部署的 web 服务器，并且占据统治地位 20 余年。由于它使用广泛，所以有大量的教程和开发者开发的开源模块可供任何人使用。</p>
+<p>Apache 开发起源于 1994 年中期，当时它是 <a href="https://en.wikipedia.org/wiki/NCSA_HTTPd">NCSA HTTP Server</a> 项目的一个分支。
+到了 1996 年早期，Apache 占据了统治地位，但是由于开发关注大大减少导致 NCSA 进度停滞，进而导致 NCSA 服务器开发停滞。</p>
+<div class="well see-also">Apache HTTP 服务器<a href="/web-servers.html">web 服务器</a> 概念的一种实现。在<a href="/deployment.html">部署</a> 章节学习如何将这些组合在一起，或者查看所有主题的<a href="/table-of-contents.html">目录</a></div>
 
-<h3>Apache HTTP Server resources</h3>
+<h3>Apache HTTP 服务器相关资源</h3>
 <ul>
 <li>
-<p>The 
-  <a href="http://httpd.apache.org/docs/current/">official project documentation page</a>
-  contains a section with How-Tos and Tutorials to handle authentication,
-  security and dynamic content.</p>
+<p><a href="http://httpd.apache.org/docs/current/">官方项目文档主页</a> 包含一节说明如何处理认证、安全和动态内容的教程。</p>
 </li>
 <li>
-<p><a href="http://www.apachetutor.org/admin/reverseproxies">Reverse proxies</a> shows
-  how to set up Apache as a reverse proxy using <code>mod_proxy</code>.</p>
+<p><a href="http://www.apachetutor.org/admin/reverseproxies">反向代理</a> 说明了如何使用 <code>mod_proxy</code> 设置 Apache 作为反向代理。</p>
 </li>
 <li>
-<p><a href="https://www.linode.com/docs/websites/apache/apache-web-server-on-ubuntu-14-04">Apache Web Server on Ubuntu 14.04 LTS</a>
-  explains how to install Apache on Ubuntu 14.04, which is still a supported
-  release. Note however, do <em>not</em> install mod_python because it is now insecure
-  and made obsolete by <a href="/wsgi-servers.html">mod_wsgi and WSGI servers</a>.</p>
+<p><a href="https://www.linode.com/docs/websites/apache/apache-web-server-on-ubuntu-14-04">在 Ubuntu 14.04 LTS 上使用 Apache Web 服务器</a>
+说明了如何在 Ubuntu 14.04（现在仍然支持的版本） 上安装 Apache。然而需要注意的是，<em>不要</em> 安装 mod_python，因为它不再安全了，并且被 <a href="/wsgi-servers.html">mod_wsgi 和 WSGI 服务器</a> 隔离了。</p>
 </li>
 <li>
-<p><a href="http://thecodeship.com/deployment/deploy-django-apache-virtualenv-and-mod_wsgi/">Deploy Django on Apache with Virtualenv and mod_wsgi</a>
-  provides instructions for what packages to install to get Apache up
-  and running with mod_wsgi on Ubuntu.</p>
+<p><a href="http://thecodeship.com/deployment/deploy-django-apache-virtualenv-and-mod_wsgi/">使用 Virtualenv 和 mod_wsgi 在 Apache 上部署 Django</a>
+说明了在 Ubuntu 上要将带有 mod_wsgi 的 Apache 设置好并运行起来需要安装哪些包。</p>
 </li>
 <li>
-<p><a href="http://library.linode.com/web-servers/apache/mod-wsgi/ubuntu-10.04-lucid">Apache and mod_wsgi on Ubuntu 10.04</a>
-  is an older post that shows how to set up Apache on the now out-of-support
-  Ubuntu 10.04 LTS release. This setup isn't recommended in 2016 and beyond
-  but if you are already using 10.04 as your base operating system you might
-  need to reference this material.</p>
+<p><a href="http://library.linode.com/web-servers/apache/mod-wsgi/ubuntu-10.04-lucid">Ubuntu 10.04 上的 Apache 和 mod_wsgi</a>
+是一篇交旧 的文章，它说明了如何在不受支持的 Ubuntu 10.04 LTS 版本中设置 Apache。在 2016 年不推荐看这个设置，它已经过时了，但如果你正在使用 10.04 作为你的基础操作系统，你也许需要参阅这篇文章。</p>
 </li>
 </ul>
           <h1>Caddy</h1>
-<p><a href="https://caddyserver.com/">Caddy</a> is a relatively new HTTP server created 
-in 2015 and written in <a href="https://golang.org/">Go</a>. The server's philosophy
-and design emphasize HTTPS-everywhere along with the HTTP/2 protocol.</p>
-<h2>How can Caddy be used with Python deployments?</h2>
-<p>Caddy can be used both for testing during local development or as part
-of a production deployment as an HTTP server and a reverse proxy with
-the <a href="https://caddyserver.com/docs/proxy">proxy directive</a>.</p>
-<div class="well see-also">Caddy is an implementation of the <a href="/web-servers.html">web server</a> concept. Learn how these pieces fit together in the <a href="/deployment.html">deployment</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+<p><a href="https://caddyserver.com/">Caddy</a> 是一个相对较新的 HTTP 服务器，它于 2015 年创建并使用 <a href="https://golang.org/">Go</a> 语言编写。
+这个服务器的哲学和设计强调使用 HTTP/2 协议的随处可见的 HTTPS。</p>
+<h2>如何在 Python 部署中使用 Caddy？</h2>
+<p>Caddy 可以用作本地部署测试，或者作为一个 HTTP 服务器成为生成部署中的一部分，或者可以使用 <a href="https://caddyserver.com/docs/proxy">代理指令</a> 作为反向代理。</p>
+<div class="well see-also">Caddy 是<a href="/web-servers.html">web 服务器</a> 概念的一种实现。在 Learn how these pieces fit together in the <a href="/deployment.html">部署</a>章节学习如何将这些部分组合在一起或者查看所有主题的<a href="/table-of-contents.html">目录</a></div>
 
-<h3>General Caddy resources</h3>
+<h3>常见的 Caddy 资源</h3>
 <ul>
 <li>
-<p><a href="https://blog.gopheracademy.com/caddy-a-look-inside/">A look inside Caddy</a>
-  shows and explains some of the Go code written to build the server.</p>
+<p><a href="https://blog.gopheracademy.com/caddy-a-look-inside/">深入 Caddy 内部</a>
+展示并解释了一些构建这个服务器的 Go 代码。</p>
 </li>
 <li>
-<p>The <a href="https://caddyserver.com/docs">official Caddy server docs</a> are the
-  spot to look for what directives can be placed into a Caddy configuration
-  file</p>
+<p>在 <a href="https://caddyserver.com/docs">Caddy 服务器官方文档</a> 中可以查看哪些指令能够放在一个 Caddy 配置文件中。</p>
 </li>
 <li>
-<p><a href="http://engineeredweb.com/blog/2015/caddy-web-server/">Caddy a modern web server supporting HTTP/2</a>
-  is a quick synopsis on installing Caddy along with a short example
-  configuration file.</p>
+<p><a href="http://engineeredweb.com/blog/2015/caddy-web-server/">Caddy：一个支持 HTTP/2 的现代 web 服务器</a>
+是一个简单的概要，说明如何安装 Caddy，并使用简单的样例配置文件进行配置。</p>
 </li>
 <li>
-<p><a href="http://tobias.is/blog/test-http2-localhost-caddy-ssl/">HTTP 2.0 on localhost with Caddy</a>
-  shows how to use a self-signed certificate with Caddy to do local 
-  development with an HTTP/2 web server.</p>
+<p><a href="http://tobias.is/blog/test-http2-localhost-caddy-ssl/">使用 Caddy 并在本地启用 HTTP 2.0</a>
+说明如何使用一个自签名的证书，并使用一个 HTTP/2 web 服务器进行开发。</p>
 </li>
 <li>
-<p><a href="https://caddyserver.com/blog/is-caddy-free">Is Caddy free?</a> explains
-  the donation and sponsorships model that Caddy uses to continue development
-  on the server. The gist is that the server is free to clone, download and
-  use. Sponsors and optional donations are currently used to fund ongoing
-  development.</p>
+<p><a href="https://caddyserver.com/blog/is-caddy-free">Caddy 免费？</a> 
+说明了 Caddy 用于持续开发服务器所使用的捐助和赞助模式。主旨是服务器可以免费克隆、下载和使用。
+目前使用赞助和额外的捐款进行后续的开发工作。</p>
 </li>
 </ul>
           <h1>Green Unicorn (Gunicorn)</h1>
-<p><a href="http://gunicorn.org/">Green Unicorn</a>, commonly shortened to "Gunicorn", 
-is a <a href="/wsgi-servers.html">Web Server Gateway Interface (WSGI) server</a>
-implementation that is commonly used to run Python web applications.</p>
+<p><a href="http://gunicorn.org/">Green Unicorn</a>，通过常简称“Gunicorn”，它是 <a href="/wsgi-servers.html">Web 服务器网关接口（WSGI）服务器</a>的一种实现，通常用于运行 Python web 应用。</p>
 <p><a href="http://gunicorn.org/" style="border: none;"><img src="/img/gunicorn-logo.jpg" width="100%" alt="Official Green Unicorn (Gunicorn) logo." class="technical-diagram"></a></p>
-<h2>Why is Gunicorn important?</h2>
-<p>Gunicorn is one of many WSGI server implementations, but it's particularly
-important because it is a stable, commonly-used part of
-<a href="/deployment.html">web app deployments</a> that's powered some of the
-largest Python-powered web applications in the world, such as 
-<a href="http://instagram-engineering.tumblr.com/post/13649370142/what-powers-instagram-hundreds-of-instances">Instagram</a>.</p>
-<p>Gunicorn implements the 
-<a href="https://www.python.org/dev/peps/pep-3333/">PEP3333 WSGI server standard specification</a>
-so that it can run Python web applications that implement the application
-interface. For example, if you write a web application with a 
-<a href="/web-frameworks.html">web framework</a> such as <a href="/django.html">Django</a>, 
-<a href="/flask.html">Flask</a> or <a href="/bottle.html">Bottle</a>, then your application 
-implements the WSGI specification. </p>
-<div class="well see-also">Gunicorn is an implementation of the <a href="/wsgi-servers.html">WSGI servers</a> concept. Learn how these pieces fit together in the <a href="/deployment.html">deployment</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+<h2>Gunicorn 为何很重更要？</h2>
+<p>Gunicorn 是众多 WSGI 服务器实现之一，但它特别重要，因为它稳定，是<a href="/deployment.html">web 应用部署</a> 中常用组成部分，它驱动着一些世界上最大的基于 Python 的 web 应用，例如 <a href="http://instagram-engineering.tumblr.com/post/13649370142/what-powers-instagram-hundreds-of-instances">Instagram</a>。</p>
+<p>Gunicorn 实现了 <a href="https://www.python.org/dev/peps/pep-3333/">PEP3333 WSGI 服务器标准规范</a> 接口，这样它就可以运行那些实现了应用接口的 Python web 应用。例如，假设你使用了诸如 <a href="/django.html">Django</a>、<a href="/flask.html">Flask</a>、或 <a href="/bottle.html">Bottle</a> 这样的 <a href="/web-frameworks.html">web 框架</a> 编写了一个 web 应用，那么你的应用就实现了 WSGI 规范。</p>
+<div class="well see-also">Gunicorn 是<a href="/wsgi-servers.html">WSGI 服务器</a> 概念的一种实现。在<a href="/deployment.html">部署</a> 章节学习如何将这些部分组合在一起，或者查看所有主题的<a href="/table-of-contents.html">目录</a>。</div>
 
-<h2>How does Gunicorn know how to run my web app?</h2>
-<p>Gunicorn knows how to run a web application based on the hook between the 
-WSGI server and the WSGI-compliant web app.</p>
-<p>Here is an example of a typical Django web application and how it is run
-by Gunicorn. We'll use the 
-<a href="https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults">django_defaults</a> 
-as an example Django project. Within the <a href="https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults/django_defaults">django_defaults</a> 
-project subdirectory, there is a short <a href="https://github.com/makaimc/compare-python-web-frameworks/blob/master/django_defaults/django_defaults/wsgi.py">wsgi.py</a>
-file with the following contents:</p>
+<h2>Gunicorn 如何知道怎样运行我的 web 应用？</h2>
+<p>Gunicorn 根据在 WSGI 服务器和 WSGI 兼容的 web 应用之间的钩子知道如何运行 web 应用。</p>
+<p>这儿有个例子，它说明了如何通过 Gunicorn 运行一个典型的 Django web 应用。
+我们将以 <a href="https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults">dango_defaults</a> 为例。在 <a href="https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults/django_defaults">django_defaults</a> 项目目录中，有一个短的 <a href="https://github.com/makaimc/compare-python-web-frameworks/blob/master/django_defaults/django_defaults/wsgi.py">wsgi.py</a> 文件含有下面的内容：</p>
 <div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">WSGI config for django_defaults project.</span>
 
@@ -5394,137 +5305,99 @@ file with the following contents:</p>
 </pre></div>
 
 
-<p>That <code>wsgi.py</code> file was generated by the <code>django-admin.py startproject</code> command
-when the Django project was first created. Django exposes an <code>application</code> 
-variable via that <code>wsgi.py</code> file so that a WSGI server can use <code>application</code> 
-as a hook for running the web app. Here's how the situation looks visually:</p>
+<p><code>wsgi.py</code> 文件是在 Django 项目首次创建时通过 <code>django-admin.py startproject</code> 命令生成的。
+Django 通过 <code>wsgi.py</code> 文件暴露了一个 <code>application</code> 变量，这样 WSGI 服务器就可以使用 <code>application</code> 作为一个钩子来运行 web 应用。
+下图是对这个情况的直观展示：</p>
 <p><img src="/img/gunicorn-django-wsgi.png" alt="Gunicorn WSGI server invoking a Django WSGI application." width="100%" class="technical-diagram" /></p>
-<h2>What's a "pre-fork" worker model?</h2>
-<p>Gunicorn is based on a pre-fork worker model, compared to a worker model
-architecture. The pre-work worker model means that a master thread spins up
-workers to handle requests but otherwise does not control how those workers
-perform the request handling. Each worker is independent of the controller.</p>
-<h3>Gunicorn resources</h3>
+<h2>什么叫做“预分叉”工作者模型？</h2>
+<p>相对一个工作者模型结构，Gunicorn 是基于预分叉工作模型的。预分叉工作模型是指主线程使工作者自旋处理请求，却不控制这些工作者如何执行请求处理任务。每个工作者都独立于控制者。</p>
+<h3>Gunicorn 相关资源</h3>
 <ul>
 <li>
-<p>There are three framework-specific posts on the 
-  <a href="/blog.html">Full Stack Python blog</a> for configuring Gunicorn for 
-  development on Ubuntu: </p>
+<p>在 <a href="/blog.html">Full Stack Python 博客</a> 中有三篇针对框架的文章说明了如何在 Ubuntu 上配置 Gunicorn 用于开发：</p>
 <ol>
-<li><a href="/blog/python-3-django-gunicorn-ubuntu-1604-xenial-xerus.html">Setting up Python 3, Django and Gunicorn on Ubuntu 16.04 LTS</a></li>
-<li><a href="/blog/python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html">How to set up Python 3, Flask and Green Unicorn on Ubuntu 16.04 LTS</a></li>
-<li><a href="/blog/python-3-bottle-gunicorn-ubuntu-1604-xenial-xerus.html">Configuring Python 3, Bottle and Gunicorn for Development on Ubuntu 16.04 LTS</a></li>
+<li><a href="/blog/python-3-django-gunicorn-ubuntu-1604-xenial-xerus.html">在 Ubuntu 16.04 LTS 上设置 Python 3、Django 和 Gunicorn</a>。</li>
+<li><a href="/blog/python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html">如何在 Ubuntu 16.04 LTS 上设置 Python3、Flask 和 Green Unicorn</a>。</li>
+<li><a href="/blog/python-3-bottle-gunicorn-ubuntu-1604-xenial-xerus.html">在 Ubuntu 16.04 LTS 上配置 Python 3、Bottle 和 Gunicorn 用于开发</a>。</li>
 </ol>
 </li>
 <li>
-<p><a href="https://vxlabs.com/2015/12/08/gunicorn-as-your-django-development-server/">gunicorn as your Django development server</a>
-  is a short post with a few good tips on using Gunicorn for local
-  application development.</p>
+<p><a href="https://vxlabs.com/2015/12/08/gunicorn-as-your-django-development-server/">Gunicorn 作为你的 Django 开发服务器</a>
+是一个短篇，含有一些使用 Gunicorn 用于本地应用开发的优秀建议。</p>
 </li>
 <li>
-<p>The <a href="http://www.deploypython.com/">Full Stack Python Guide to Deployments</a>
-  provides detailed step-by-step instructions for deploying Gunicorn as part
-  of an entire Python web application deployment.</p>
+<p><a href="http://www.deploypython.com/">全栈 Python 部署指南</a>
+提供了详细的指导步骤用于将 Gunicorn 作为一个完整 Python web 应用部署的一部分。</p>
 </li>
 <li>
-<p><a href="http://prakhar.me/articles/flask-on-nginx-and-gunicorn/">Flask on Nginx and Gunicorn</a>
-  combines the <a href="/nginx.html">Nginx web server</a> with Gunicorn in a deployment
-  to serve up a Flask application.</p>
+<p><a href="http://prakhar.me/articles/flask-on-nginx-and-gunicorn/">Flask 在 Nginx 和 Gunicorn 上</a>
+在部署中将 Gunicorn 和  <a href="/nginx.html">Nginx web 服务器</a> 在一起为一个 Flask 应用提供服务。</p>
 </li>
 <li>
-<p>The answers to the question "<a href="http://stackoverflow.com/questions/16857955/running-django-with-gunicorn-best-practice">what's the best practice for running Django with Gunicorn?</a>"
-  provide some nuance for how Gunicorn should be invokin the callable 
-  application variable provided by Django within a deployment.</p>
+<p>问题“<a href="http://stackoverflow.com/questions/16857955/running-django-with-gunicorn-best-practice">使用 Gunicorn 运行 Django 的最佳实践是什么？</a>”的答案
+给出了一些在部署中 Gunicorn 如何调用 Django 提供的可调用应用变量的细微差别。</p>
 </li>
 <li>
-<p><a href="http://linoxide.com/linux-how-to/install-django-gunicorn-nginx-freebsd-10-2/">How to Install Django with Gunicorn and Nginx on FreeBSD 10.2</a>
-  is a tutorial for FreeBSD, which is not often used in walkthroughs compared 
-  to the frequency that Ubuntu and CentOS tutorials appear.</p>
+<p><a href="http://linoxide.com/linux-how-to/install-django-gunicorn-nginx-freebsd-10-2/">如何在 FreeBSD 10.2 上安装 Django 和 Gunicorn 以及 Nginx</a>
+是一个针对 FreeBSD 的教程，相对于 Ubuntu 和 CentOS 的教程，这个教程中的演示并不常见。</p>
 </li>
 <li>
-<p><a href="http://www.philchen.com/2015/08/08/how-to-make-a-scalable-python-web-app-using-flask-and-gunicorn-nginx-on-ubuntu-14-04">How to make a Scalable Python Web App using Flask, Gunicorn, NGINX on Ubuntu 14.04</a>
-  and
-  <a href="https://github.com/defshine/flaskblog/wiki/Deploy-Flask-App-on-Ubuntu(Virtualenv-Gunicorn-Nginx-Supervisor)">Deploy a Flask App on Ubuntu</a>
-  both provide steps for setting up a Flask web app using Gunicorn. There 
-  isn't much explanation provided with each tutorial but they can still be
-  good concise references in case you're having issues with Ubuntu.</p>
+<p><a href="http://www.philchen.com/2015/08/08/how-to-make-a-scalable-python-web-app-using-flask-and-gunicorn-nginx-on-ubuntu-14-04">如何在 Ubuntu 14.04 上使用 Flask、Gunicorn 和 Nginx 制作一个可扩展的 Python web 应用</a>
+和
+<a href="https://github.com/defshine/flaskblog/wiki/Deploy-Flask-App-on-Ubuntu(Virtualenv-Gunicorn-Nginx-Supervisor)">在 Ubuntu 上部署一个 Flask 应用</a>，
+这两篇文章都提供了在 Flask web 应用中设置使用 Gunicorn 的方法。
+每篇教程都没有提供更多的说明，但它们在你使用 Ubuntu 遇到问题时仍然是非常好的准确参考。</p>
 </li>
 <li>
-<p>The <a href="https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/gunicorn/">Django</a> 
-  and <a href="http://flask.pocoo.org/docs/0.10/deploying/wsgi-standalone/">Flask</a> 
-  documentation each contain instructions for deploying the respective
-  frameworks with Gunicorn.</p>
+<p><a href="https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/gunicorn/">Django</a>  和 <a href="http://flask.pocoo.org/docs/0.10/deploying/wsgi-standalone/">Flask</a> 
+文档中都包含了在对应框架中使用 Gunicorn 的部署指导。</p>
 </li>
 <li>
-<p><a href="https://gist.github.com/Atem18/4696071">Set up Django, Nginx and Gunicorn in a Virtualenv controled by Supervisor</a>
-  is a GitHub Gist with some great explanations for why we're setting up
-  virtualenv and what to watch out for while you're doing the deployment.</p>
+<p><a href="https://gist.github.com/Atem18/4696071">使用 Supervisor 控制一个虚拟环境，并在该虚拟环境中设置 Django、Nginx 和 Gunicorn</a>
+是一个 GitHub Gist，非常好地说明了为何需要设置 virtualenv 以及在你部署时应当注意什么。</p>
 </li>
 </ul>
           <h1>Ubuntu</h1>
-<p>Ubuntu is a Debian Linux-based operating system distribution often used for 
-Python development and application deployment.</p>
-<h2>Why is Ubuntu important for Python?</h2>
-<p>Ubuntu is one of the most commonly used Linux distributions for both local
-development and server deployments. Some 
-<a href="/platform-as-a-service.html">platforms-as-a-service</a> such as Heroku run 
-Ubuntu as the base operating system, so as a Python developer you'll often
-have to work with Ubuntu or a similar Debian-based Linux operating system.</p>
-<div class="well see-also">Ubuntu is an implementation of the <a href="/operating-systems.html">operating systems</a> concept. Learn more in the <a href="/deployment.html">deployment</a> chapter or view the <a href="/table-of-contents.html">table of contents</a> for all topics.</div>
+<p>Ubuntu 是一个基于 Debian Linux 的操作系统发行版，通常用于 Python 开发和应用部署。</p>
+<h2>为何 Ubuntu 对 Python 很重要？</h2>
+<p>Ubuntu 是用于本地开发和服务器部署的最常用的 Linux 发行版之一。
+一些 <a href="/platform-as-a-service.html">平台即服务</a> 如 Heroku 就将 Ubuntu 作为基础操作系统，因此，作为一个 Python 开发者，你会经常使用 Ubuntu 或者类似的基于 Debian Linux 的操作系统进行工作。</p>
+<div class="well see-also">Ubuntu 是<a href="/operating-systems.html">操作系统</a> 概念的一种实现。在<a href="/deployment.html">部署</a> 章节学习更多的知识，或者查看所有主题的<a href="/table-of-contents.html">目录。</a></div>
 
-<h2>What does "LTS" mean for Ubuntu?</h2>
-<p>Every two years Ubuntu releases a Long-Term Support (LTS) version that
-receives five years of updates instead of only two years for non-LTS
-releases. However, there are some issues with the current LTS model,
-in that you 
-<a href="http://www.wilderssecurity.com/threads/ubuntu-lts-many-vulnerabilities-despite-long-term-support.385386/">must only use packages from the main repository</a> 
-unless you're going to manually handle security updates for non-main
-repository system packages.</p>
-<h2>Additional Ubuntu resources</h2>
+<h2>Ubuntu 的 LTS 是什么意思？</h2>
+<p>每两年，Ubuntu 都会发布一个长期支持（LTS）版本，它能够接收长达五年的更新，而非 LTS 发行版则只有两年更新支持。
+然而，当前的 LTS 模型中存在一些问题，那就是你 <a href="http://www.wilderssecurity.com/threads/ubuntu-lts-many-vulnerabilities-despite-long-term-support.385386/">必须只使用来自主仓库的软件包</a>，除非你打算手动解决非主仓库系统包的安全更新问题。</p>
+<h2>其它 Ubuntu 资源</h2>
 <ul>
 <li>
-<p>Get your Python <a href="/development-environments.html">development environment</a>
-  set up with one of these quick tutorials for Ubuntu 16.04 LTS:</p>
+<p>使用这些针对 Ubuntu 16.04 LTS 的教程设置好你的 Python <a href="/development-environments.html">开发环境</a>：</p>
 <ul>
-<li><a href="/blog/python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html">How to set up Python 3, Flask and Green Unicorn on Ubuntu 16.04 LTS</a></li>
-<li><a href="/blog/python-3-bottle-gunicorn-ubuntu-1604-xenial-xerus.html">Configuring Python 3, Bottle and Gunicorn for Development on Ubuntu 16.04 LTS</a></li>
-<li><a href="/blog/python-3-django-gunicorn-ubuntu-1604-xenial-xerus.html">Setting up Python 3, Django and Gunicorn on Ubuntu 16.04 LTS</a></li>
+<li><a href="/blog/python-3-flask-green-unicorn-ubuntu-1604-xenial-xerus.html">如何在 Ubuntu 16.04 LTS 上设置 Python3、Flask 和 Green Unicorn</a>。</li>
+<li><a href="/blog/python-3-bottle-gunicorn-ubuntu-1604-xenial-xerus.html">在 Ubuntu 16.04 LTS 上配置 Python 3、Bottle 和 Gunicorn 用于开发</a>。</li>
+<li><a href="/blog/python-3-django-gunicorn-ubuntu-1604-xenial-xerus.html">在 Ubuntu 16.04 LTS 上设置 Python 3、Django 和 Gunicorn</a>。</li>
 </ul>
 </li>
 <li>
-<p>There are also walkthroughs for configuring relational databases and Redis 
-  on Ubuntu:</p>
+<p>还有一些演示了如何在 Ubuntu 上配置相关数据库和 Redis：</p>
 <ul>
-<li><a href="/blog/postgresql-python-3-psycopg2-ubuntu-1604.html">Setting up PostgreSQL with Python 3 and psycopg on Ubuntu 16.04</a></li>
-<li><a href="/blog/install-mysql-ubuntu-1604.html">How to Install and Use MySQL on Ubuntu 16.04</a></li>
-<li><a href="/blog/install-redis-use-python-3-ubuntu-1604.html">How to Use Redis with Python 3 and redis-py on Ubuntu 16.04</a></li>
+<li><a href="/blog/postgresql-python-3-psycopg2-ubuntu-1604.html">在 Ubuntu 16.04 上设置 PostgreSQL 使用 Python3 和 psycopg</a>。</li>
+<li><a href="/blog/install-mysql-ubuntu-1604.html">如何在 Ubuntu 16.04 上安装并使用 MySQL</a>。</li>
+<li><a href="/blog/install-redis-use-python-3-ubuntu-1604.html">如何在 Ubuntu 16.04 上使用含有 Python 3 和 redis-py 的 Redis</a>。</li>
 </ul>
 </li>
 <li>
-<p>Canonical, the organization that produces Ubuntu, typically pushes the 
-  boundaries on non-LTS releases, but occasionally rocks the boat with
-  major changes for an LTS release. 16.04 LTS was one such version, which
-  is described in this article about how 
-  <a href="http://arstechnica.com/information-technology/2016/05/ubuntu-16-04-proves-even-an-lts-release-can-live-at-linuxs-bleeding-edge/">Ubuntu 16.04 proves even an LTS release can live at Linux's bleeding edge</a>.</p>
+<p>Canonical，生成 Ubuntu 的组织，通常推动着非 LTS 版本的界限，但是偶尔也会针对一个 LTS 版本带来主要的改变。16.04 就是一个这样的版本，这篇文章描述了 <a href="http://arstechnica.com/information-technology/2016/05/ubuntu-16-04-proves-even-an-lts-release-can-live-at-linuxs-bleeding-edge/">Ubuntu 16.04 证明了一个 LTS 发行版如何能够在 Linux 前沿生存下来的</a>。</p>
 </li>
 <li>
-<p>Ubuntu has been a target operating system for Docker since the beginning of
-  the project. Here's a guide for 
-  <a href="http://www.liquidweb.com/kb/how-to-install-docker-on-ubuntu-14-04-lts/">how to install Docker on Ubuntu 14.04 LTS</a>,
-  one of the older operating system releases that supports containers.</p>
+<p>在 Docker 项目初期，Ubuntu 一直被当做目标操作系统。这有一篇指南说明了 <a href="http://www.liquidweb.com/kb/how-to-install-docker-on-ubuntu-14-04-lts/">如何在 Ubuntu 14.04 LTS 上安装 Docker</a>，这是一个较老的支持容器的操作系统版本。</p>
 </li>
 <li>
-<p><a href="http://www.codelitt.com/blog/my-first-10-minutes-on-a-server-primer-for-securing-ubuntu/">My First 10 Minutes On a Server - Primer for Securing Ubuntu</a>
-  is based off an earlier post of the first five minutes on a Linux server.
-  This one is specific to Ubuntu Linux and goes into user accounts, sudo
-  privileges, SSH keys, security updates and 2-factor authentication.</p>
+<p><a href="http://www.codelitt.com/blog/my-first-10-minutes-on-a-server-primer-for-securing-ubuntu/">我在服务器上的最初 10 分钟——Ubuntu 安全防护入门</a>
+基于较早的一篇博客，叫做 Linux 服务器上最初 5 分钟。这篇文章转为 Ubuntu Linux 而写，并且深入说明了用户账户、sudo 权限、SSH 秘钥、安全更新和双重认证。</p>
 </li>
 <li>
-<p><a href="https://major.io/2015/10/14/what-i-learned-while-securing-ubuntu/">What I learned while securing Ubuntu</a>
-  explains how difficult it can be just to find correct information
-  on how to secure an operating system. In this case, the author goes over
-  how he went about securing package management, security standards and 
-  file integrity on Ubuntu 14.04 LTS.</p>
+<p><a href="https://major.io/2015/10/14/what-i-learned-while-securing-ubuntu/">在为 Ubuntu 提供安全防护时所学</a>
+说明了在如何给一个操作系统提供安全防护时，仅仅查找正确信息就是怎样地困难。在这个例子中，作者回顾了他如何保证包管理安全性、安全标准和 Ubuntu 14.04 LTS 上的文件完整性。</p>
 </li>
 </ul>
           <h1>测试</h1>
