@@ -73,7 +73,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 - [x] content/pages/06-web-apis/01-application-programming-interfaces.markdown (2016-07-26)
 - [x] content/pages/06-web-apis/02-api-integration.markdown (2016-07-27)
-- [ ] content/pages/06-web-apis/03-api-creation.markdown
+- [x] content/pages/06-web-apis/03-api-creation.markdown (2016-08-18)
 
 ### 七、Web 应用部署
 

@@ -3028,275 +3028,164 @@ users = Users.objects.filter(zip_code=94107)
 <p>将 API 调用移到 <a href="/task-queues.html">任务队列</a>，从而使其不会阻塞 Web 应用的 请求-应答 流程。</p>
 </li>
 </ol>
-          <h1>API Creation</h1>
-<p>Creating and exposing APIs allows your web application to interact with other
-applications through machine-to-machine communication.</p>
-<h2>API creation frameworks</h2>
+          <h1>API 的创建</h1>
+<p>创建和分布 API 能使你的 Web 应用可以通过机器间的通信与其它应用进行交互。</p>
+<h2>API 创建的相关框架</h2>
 <ul>
 <li>
-<p><a href="http://www.django-rest-framework.org/">Django REST framework</a> and
-  <a href="https://django-tastypie.readthedocs.org/en/latest/">Tastypie</a> are 
-  the two most widely used API frameworks to use with Django. The edge
-  currently goes to Django REST framework based on rough community sentiment.
-  Django REST framework continues to knock out great releases after the
-  <a href="http://www.django-rest-framework.org/topics/3.0-announcement/">3.0 release mark</a> 
-  when Tom Christie ran a 
-  <a href="https://www.kickstarter.com/projects/tomchristie/django-rest-framework-3">successful Kickstarter campaign</a>.</p>
+<p><a href="http://www.django-rest-framework.org/">Django REST 框架</a> 和 <a href="https://django-tastypie.readthedocs.org/en/latest/">Tastypie</a> 是 Django 中两个最常用的 API 框架。 当前 Django REST 框架的功能由乱轰轰的社区情绪决定。由于 Tom Christie 在 <a href="https://www.kickstarter.com/projects/tomchristie/django-rest-framework-3">Kickstarter 上成功地募集到了资金</a>，Django REST 框架在 <a href="http://www.django-rest-framework.org/topics/3.0-announcement/">3.0 版本后</a> 还将有大的改进。</p>
 </li>
 <li>
-<p><a href="http://flask-restful.readthedocs.org/en/latest/">Flask-RESTful</a> is
-  widely used for creating web APIs with Flask. It was originally 
-  <a href="https://www.twilio.com/engineering/2012/10/18/open-sourcing-flask-restful">open sourced and explained in a blog post by Twilio</a>
-  then moved into its 
-  <a href="https://github.com/flask-restful/flask-restful">own GitHub organization</a>
-  so engineers from outside the company could be core contributors.</p>
+<p><a href="http://flask-restful.readthedocs.org/en/latest/">Flask-RESTful</a> 是 Flask 中常用于创建 Web API 的框架。它最先由 <a href="https://www.twilio.com/engineering/2012/10/18/open-sourcing-flask-restful">Twilio 开源，并在一篇博客中进行了讲解</a>，然后又移交给了 <a href="https://github.com/flask-restful/flask-restful">它自己的 GitHub 组织</a>，从而使得公司外部的工程师也可以成为核心贡献者。</p>
 </li>
 <li>
-<p><a href="http://www.flaskapi.org/">Flask API</a> is another common library for 
-  exposing APIs from Flask web applications.</p>
+<p><a href="http://www.flaskapi.org/">Flask API</a> 是另一个能从 Flask Web 应用中导出 API 的通用库。</p>
 </li>
 <li>
-<p><a href="http://www.github.com/jeffknupp/sandman">Sandman</a> is a widely used tool to
-  automatically generate a RESTful API service from a legacy database without
-  writing a line of code (though it's easily extensible through code).</p>
+<p><a href="http://www.github.com/jeffknupp/sandman">Sandman</a> 是一款广泛使用的工具，它能从旧数据中自动生成 RESTful API 服务，无需编写一行代码（虽然它很容易通过代码扩展）。</p>
 </li>
 <li>
-<p><a href="https://cornice.readthedocs.org/en/latest/">Cornice</a> is a REST framework
-  for Pyramid.</p>
+<p><a href="https://cornice.readthedocs.org/en/latest/">Cornice</a> 是 Pyramid 中的一个 REST 框架。</p>
 </li>
 <li>
-<p><a href="https://github.com/toastdriven/restless">Restless</a> is a lightweight API
-  framework that aims to be framework agnostic. The general concept is that
-  you can use the same API code for Django, Flask, Bottle, Pyramid or any
-  other WSGI framework with minimal porting effort.</p>
+<p><a href="https://github.com/toastdriven/restless">Restless</a> 是一个轻量级的 API 框架，意在不关联任何框架。其基本理念是：只需很少的移植量，就能将相同的 API 代码用于 Django、 Flask、 Bottle、 Pyramid 或任何其它 WSGI 框架。</p>
 </li>
 <li>
-<p><a href="http://python-eve.org/">Eve</a> is a Python REST framework built with Flask,
-  MongoDB and Redis. The framework's primary author 
-  <a href="https://twitter.com/nicolaiarocci">Nicola Iarocci</a> gave a great talk at 
-  <a href="https://www.youtube.com/watch?v=9sUsLvG72_o">EuroPython 2014</a> that 
-  introduced the main features of the framework.</p>
+<p><a href="http://python-eve.org/">Eve</a> 是一个用 Flask、MongoDB 和 Redis 构建的 Python REST 框架。该框架的主要作者 <a href="https://twitter.com/nicolaiarocci">Nicola Iarocci</a> 在 <a href="https://www.youtube.com/watch?v=9sUsLvG72_o">EuroPython 2014</a> 作了一次精彩的演讲，并对该框架的主要功能特性进行了介绍。</p>
 </li>
 <li>
-<p><a href="http://falconframework.org/">Falcon</a> is a fast and lightweight framework
-  well suited to create RESTful APIs. </p>
+<p><a href="http://falconframework.org/">Falcon</a> 是一个快速的轻量级框架，非常适合用于创建 RESTful API。</p>
 </li>
 <li>
-<p><a href="https://github.com/timothycrosley/hug">Hug</a> built on-top of Falcon and Python3 with an aim to make developing Python driven APIs as simple as possible, but no simpler. Hug leverages Python3 annotations to automatically validate and convert incoming and outgoing API parameters.</p>
+<p><a href="https://github.com/timothycrosley/hug">Hug</a> 基于 Falcon 和 Python3，它的目标是使开发 Python 驱动的 API 尽可能简单。它借助 Python3 的函数注释功能对进入和输出的 API 参数进行自动的验证和转换。</p>
 </li>
 <li>
-<p><a href="http://pycnic.nullism.com">Pycnic</a> is a JSON-API-only framework designed 
-  with REST in mind. </p>
+<p><a href="http://pycnic.nullism.com">Pycnic</a> 是一个以 REST 思想设计的纯 JSON-API 框架。</p>
 </li>
 </ul>
-<h2>API testing projects</h2>
-<p>Building, running and maintaining APIs requires as much effort as building,
-running and maintaining a web application. API testing frameworks are the 
-equivalent of browser testing in the web application world.</p>
+<h2>API 测试框架</h2>
+<p>创建、运行和维护 API 与创建、运行和维护一个 Web 应用需要花费相同的精力。API 测试框架等同于 Web 应用中的浏览器测试框架。</p>
 <ul>
-<li><a href="https://github.com/zatosource/zato-apitest">zato-apitest</a> invokes HTTP 
-  APIs and provides hooks for running through other testing frameworks.</li>
+<li><a href="https://github.com/zatosource/zato-apitest">zato-apitest</a> 能调用 HTTP API， 并提供能通过其它测试框架运行的回调挂勾。</li>
 </ul>
-<h2>Hosted API testing services</h2>
+<h2>托管的 API 测试服务</h2>
 <ul>
 <li>
-<p><a href="https://www.runscope.com/">Runscope</a> is an API testing SaaS application
-  that can test both your own APIs and external APIs that your application
-  relies upon.</p>
+<p><a href="https://www.runscope.com/">Runscope</a> 是一款 API 测试 SaaS 应用，它对你自己的 API 和你的应用所依赖的外部 API 都能测试。</p>
 </li>
 <li>
-<p><a href="https://www.apiscience.com/">API Science</a> is focused on deep API testing,
-  including multi-step API calls and monitoring of external APIs.</p>
+<p><a href="https://www.apiscience.com/">API Science</a> 专注于尝试 API 测试，包括多步 API 调用和外部 API 监测。</p>
 </li>
 <li>
-<p><a href="http://smartbear.com/api-testing/">SmartBear</a> has several API monitoring
-  and testing tools for APIs.</p>
+<p><a href="http://smartbear.com/api-testing/">SmartBear</a> 中有几款 API 监测和测试工具。</p>
 </li>
 </ul>
-<h2>API creation resources</h2>
+<h2>API 创建相关资源</h2>
 <ul>
 <li>
-<p><a href="https://rocketeer.be/blog/2015/03/api-quality/">An API is only as good as its documentation</a>
-  is a strongly held mantra in the web API world because so many APIs have
-  poor documentation that prevents ease-of-use. If an API is not well 
-  documented then developers who have options to use something else will
-  just skip it.</p>
+<p><a href="https://rocketeer.be/blog/2015/03/api-quality/">API 的好坏只由它的文档决定</a> 是 Web API 世界中的一个很强大的诅咒，很多 API 都因其低质量的文档而阻碍了它们的扩散使用。如果 API 没有很好的文档，那么开发人员一旦有其它的选择，就会忽略它。</p>
 </li>
 <li>
-<p><a href="http://www.cambus.net/adventures-in-running-a-free-public-api/">Adventures in running a free, public API</a>
-  is a quick story of a developer's geolocation API being abused and his 
-  lack of resources for preventing further abuse. Eventually he had to shut
-  down the free plan and only provide a paid plan in addition to allowing
-  others to host the open source code. Fraud and malware prevention are 
-  difficult problems so keep an eye on server utilization and endpoint calls 
-  growth to separate legitimate from illegitimate traffic. </p>
+<p><a href="http://www.cambus.net/adventures-in-running-a-free-public-api/">运营一个免费、开放的 API 的冒险之举</a> 讲述了一个简短的故事，一个开发者的 geolocation API 被滥用，但是他由于缺少相关资源从而不能阻止进一步的滥用。最终他只好关闭了免费计划，只提供付费计划，同时允许其他人根据他的开源代码提供服务。防范欺诈和恶意软件是一项艰巨的任务，因此要留心服务器的使用率和终端调用的增长量，从而将合法和非法流量区别出来。</p>
 </li>
 <li>
-<p><a href="http://apidocjs.com/">API Doc JS</a> allows a developer to embed markup
-  in their documentation that will generate a site based on the endpoints
-  available in the API.</p>
+<p><a href="http://apidocjs.com/">API Doc JS</a> 允许开发人员在他们的文档中嵌入标记，从而能根据其 API 中的端点生成网站。</p>
 </li>
 <li>
-<p><a href="http://www.slideshare.net/jmusser/ten-reasons-developershateyourapi">10 Reasons Why Developers Hate Your API (And what to do about it)</a>
-  goes through the top difficulties and annoyances developers face when
-  working with APIs and how you can avoid your API falling into the same
-  traps.</p>
+<p><a href="http://www.slideshare.net/jmusser/ten-reasons-developershateyourapi">开发人员为什么讨厌你的 API 的 10 个原因（及如果应对）</a> 列数了开发人员在使用 API 时能面临的最主要的困难和烦恼，并给出了使你的 API 避免出现这种情况的举措。</p>
 </li>
 <li>
-<p>Versioning of RESTful APIs is a difficult and contentious topic in the 
-  web API community. This two-part series covers 
-  <a href="http://urthen.github.io/2013/05/09/ways-to-version-your-api/">various ways to version your API</a> 
-  and <a href="http://urthen.github.io/2013/05/16/ways-to-version-your-api-part-2/">how to architect a version-less API</a>.</p>
+<p>RESTful API 的版本控制在 Web API 社区中是一个困难及具争论的话题。这个包含两部分的系列文章涵盖了 <a href="http://urthen.github.io/2013/05/09/ways-to-version-your-api/">对你的 API 进行版本控制的各种方法</a> 及 <a href="http://urthen.github.io/2013/05/16/ways-to-version-your-api-part-2/">如何设计一个无版本的 API</a>。</p>
 </li>
 <li>
-<p><a href="http://www.narwhl.com/">NARWHL</a> is a practical API design site for 
-  developers confused about what is appropriate for RESTful APIs.</p>
+<p><a href="http://www.narwhl.com/">NARWHL</a> 对于那些困惑于什么是适当的 RESTful API 的开发人员来说是一个很实用的 API 设计网站。</p>
 </li>
 <li>
-<p><a href="https://18f.gsa.gov/">18F</a>'s 
-  <a href="https://github.com/18f/api-standards">API standards</a> explains the details
-  behind their design decisions on creating modern RESTful APIs.</p>
+<p><a href="https://18f.gsa.gov/">18F</a> <a href="https://github.com/18f/api-standards">的 API 标准</a> 讲解了他们创建现代化的 RESTful API 时所做的设计决策的背后细节。</p>
 </li>
 <li>
-<p><a href="https://medium.com/@zwacky/design-a-beautiful-rest-api-901c73489458">Design a beautiful REST API</a>
-  reviews common design decisions regarding endpoints, versioning, errors and
-  pagination. There is also a 
-  <a href="https://www.youtube.com/watch?v=5WXYw4J4QOU">source material YouTube video</a>
-  where this blog post derives its recommendations from.</p>
+<p><a href="https://medium.com/@zwacky/design-a-beautiful-rest-api-901c73489458">设计一个优雅的 REST API</a> 回顾了关于端点、版本、错误和分页等的通用设计决策。还有一个 <a href="https://www.youtube.com/watch?v=5WXYw4J4QOU">源材料 YouTube 视频</a>，上面这篇博文中的建议内容就是源于该视频。</p>
 </li>
 <li>
-<p><a href="http://amberonrails.com/move-fast-dont-break-your-api/">Move Fast, Don't Break Your API</a>
-  are slides and a detailed blog post from Amber Feng at Stripe about 
-  building an API, separating layers of responsibility, hiding backwards
-  compatibility and a whole slew of other great advice for developers
-  and API designers.</p>
+<p><a href="http://amberonrails.com/move-fast-dont-break-your-api/">加快脚步，不要破坏你的 API</a> 是来自 Stripe 的 Amber Feng 的幻灯片及详细的博文，讲述了创建一个 API，分隔责任层，隐藏向后兼容性和针对开发人员和 API 设计人员的其它大量的好建议。</p>
 </li>
 <li>
-<p><a href="http://www.bizcoder.com/self-descriptive-isn-t-don-t-assume-anything">Self-descriptive, isn't. Don't assume anything.</a>
-  is an appeal that metadata makes a difference in whether APIs are descriptive
-  or not.</p>
+<p><a href="http://www.bizcoder.com/self-descriptive-isn-t-don-t-assume-anything">自描述，不是的。不要假设任何事情。</a> 指出元数据对 API 是否具有描述性影响很大。</p>
 </li>
 <li>
-<p><a href="http://artsy.github.io/blog/2014/09/12/designing-the-public-artsy-api/">Designing the Artsy API</a>
-  has their recommendations list for building an API based on their recent
-  experiences.</p>
+<p><a href="http://artsy.github.io/blog/2014/09/12/designing-the-public-artsy-api/">设计 Artsy API</a> 基于他们最近的经验，提出了创建 API 的建议列表。</p>
 </li>
 <li>
-<p><a href="https://bourgeois.me/rest/">Some REST Best Practices</a> is a high level
-  summary of rules to follow while creating your API.</p>
+<p><a href="https://bourgeois.me/rest/">一些 REST 的最佳实践</a> 是一份在创建 API 时需要遵循的高水准的规律总结。</p>
 </li>
 <li>
-<p>Hacker News had a discussion on 
-  <a href="https://news.ycombinator.com/item?id=8912897">what's the best way to write an API spec?</a>
-  that provides a few different viewpoints on this topic.</p>
+<p>Hacker News 上有关于 <a href="https://news.ycombinator.com/item?id=8912897">编写 API 规范的最佳方式是什么？</a> 的讨论，上面提出了一些关于该主题的不同的见解。</p>
 </li>
 <li>
-<p><a href="https://pages.apigee.com/rs/apigee/images/api-design-ebook-2012-03.pdf">Apigee's Web API Design ebook</a>
-  is free and contains a wealth of practical advice for what design
-  decisions to make for your web API.</p>
+<p><a href="https://pages.apigee.com/rs/apigee/images/api-design-ebook-2012-03.pdf">《Apigee 的 Web API 设计》</a> 是一本免费的电子书，里面包含了关于如果设计你的 Web API 的丰富的实践建议。</p>
 </li>
 <li>
-<p><a href="http://developers.lyst.com/2015/02/20/1-to-1-relationships-and-subresources-in-rest-apis/">1-to-1 Relationships and Subresources in REST APIs</a>
-  tells the story of design decisions that were made during an API's creation
-  and why those choices were made.</p>
+<p><a href="http://developers.lyst.com/2015/02/20/1-to-1-relationships-and-subresources-in-rest-apis/">REST API 中的 1-对-1 关系和子资源</a> 讲述了 API 创建过程中所需做的设计决策以及如何做出这些选择的原因。</p>
 </li>
 <li>
-<p><a href="https://blogs.dropbox.com/developers/2015/04/how-many-http-status-codes-should-your-api-use/">How many status codes does your API need?</a>
-  gives an answer from a Dropbox API developer as to their decision making
-  process.</p>
+<p><a href="https://blogs.dropbox.com/developers/2015/04/how-many-http-status-codes-should-your-api-use/">你的 API 到底需要多少个状态代码？</a> 从一个 Dropbox API 开发者所做过的决策过程中获取了答案。</p>
 </li>
 <li>
-<p>This <a href="https://github.com/interagent/http-api-design">API Design Guide</a> 
-  is based on Heroku's best practices for the platform's API.</p>
+<p>这份 <a href="https://github.com/interagent/http-api-design">API 设计指南</a> 是 Heroku 为其平台的 API 所写的最佳实践。</p>
 </li>
 </ul>
-<h2>Python-specific API creation resources</h2>
+<h2>针对 Python 的 API 创建相关资源</h2>
 <ul>
 <li>
-<p><a href="http://pydanny.com/choosing-an-api-framework-for-django.html">Choosing an API framework for Django</a>
-  by <a href="https://twitter.com/pydanny">PyDanny</a> contains questions and insight
-  into what makes a good API framework and which one you should currently
-  choose for Django.</p>
+<p>由 <a href="https://twitter.com/pydanny">PyDanny</a> 写的 <a href="http://pydanny.com/choosing-an-api-framework-for-django.html">为 Django 选择一个 API 框架</a> 这篇文章包含了什么是好的 API 框架以及当前应该为 Django 选择哪个框架等的问题与洞见。 </p>
 </li>
 <li>
-<p><a href="https://realpython.com/blog/python/create-a-rest-api-in-minutes-with-pyramid-and-ramses/">Create a REST API in Minutes with Pyramid and Ramses</a>
-  is a thorough tutorial from start to finish that uses the 
-  <a href="/pyramid.html">Pyramid</a> web framework along with 
-  <a href="https://pypi.python.org/pypi/ramses/">Ramses</a>, a library that uses
-  YAML files to generate a RESTful API.</p>
+<p><a href="https://realpython.com/blog/python/create-a-rest-api-in-minutes-with-pyramid-and-ramses/">使用 Pyramid 和 Ramses 快速创建 REST API</a> 是份详尽的教程，它从头至尾使用 <a href="/pyramid.html">Pyramid</a> Web 框架和 <a href="https://pypi.python.org/pypi/ramses/">Ramses</a>, --一个使用 YAML 文件来创建 REST API 的库。</p>
 </li>
 <li>
-<p><a href="http://www.slideshare.net/Solution4Future/python-restful-webservices-with-python-flask-and-django-solutions">RESTful web services with Python</a>
-  is an interesting overview of the Python API frameworks space.</p>
+<p><a href="http://www.slideshare.net/Solution4Future/python-restful-webservices-with-python-flask-and-django-solutions">Python 中的 RESTful Web 服务</a> 对 Python API 框架领域进行了有趣的概述。</p>
 </li>
 <li>
-<p><a href="http://blog.luisrei.com/articles/flaskrest.html">Implementing a RESTful Web API with Python &amp; Flask</a>
-  is a good walkthrough for coding a Flask app that provides standard 
-  web API functionality such as proper HTTP responses, authentication
-  and logging.</p>
+<p><a href="http://blog.luisrei.com/articles/flaskrest.html">使用 Python &amp; Flask 实现一个 RESTful Web API</a> 很好地演示了如何编写一个 Flask 应用，以提供标准的 Web API 功能，如适当的 HTTP 响应，认证和日志等。</p>
 </li>
 <li>
-<p><a href="http://resthooks.org/">REST Hooks</a> is an open source Python project that 
-  makes it easier to implement subscription-based "REST hooks". These REST
-  hooks are similar to webhooks, but provide a different mechanism for 
-  subscribing to updates via a REST interface. Both REST hooks and webhooks
-  are far more efficient than polling for updates and notifications.</p>
+<p><a href="http://resthooks.org/">REST Hooks</a> 是一个开源的 Python 项目，它使得实现一个基于订阅的 "REST hooks" 更加容易。REST hooks 和 webhooks 非常相似，但它提供了一种不同的机制，通过 REST 接口来订阅更新。 REST hooks 和 webhooks 相比于通过轮循来获取更新和通知，效率高得多。</p>
 </li>
 <li>
-<p>Serialization is common for transforming objects into web API JSON
-  results. One company found the serialization performance of Django REST 
-  framework was lacking so they created 
-  <a href="https://github.com/clarkduvall/serpy">Serpy</a> and 
-  <a href="https://engineering.betterworks.com/2015/09/04/ditching-django-rest-framework-serializers-for-serpy/">wrote a blog post with the results of its performance</a>.</p>
+<p>序列化对于将对象转换成 Web API JSON 的结果是很常用的功能。有个公司发现 Django REST 框架的序列化性能不太好，为些创建了 <a href="https://github.com/clarkduvall/serpy">Serpy</a> 并且 <a href="https://engineering.betterworks.com/2015/09/04/ditching-django-rest-framework-serializers-for-serpy/">为其性能结果专门写了一些博文</a>。</p>
 </li>
 <li>
-<p><a href="https://engineering.gosquared.com/building-better-api-docs">Building better API docs</a>
-  shows how Square used Swagger with React to create more helpful docs.</p>
+<p><a href="https://engineering.gosquared.com/building-better-api-docs">创建更好的 API 文档</a> 展示了 Square 如何通过使用 Swagger 和 React 来创建更加有用的文档。</p>
 </li>
 </ul>
-<h2>Django REST Framework resources</h2>
+<h2>Django REST 框架相关资源</h2>
 <ul>
 <li>
-<p>This multi-part series on 
-  <a href="http://engineroom.trackmaven.com/blog/getting-started-drf-angularjs-part-1/">getting started with Django REST framework and AngularJS (part 1)</a>
-  along with its <a href="http://engineroom.trackmaven.com/blog/getting-started-drf-angularjs-part-2/">second part</a>
-  do a good job of showing how a RESTful API can serve as the backend for
-  a client front end built with a JavaScript MVC framework.</p>
+<p>这份包含多个部分的系列文章中的 <a href="http://engineroom.trackmaven.com/blog/getting-started-drf-angularjs-part-1/">开始使用 Django REST 框架和 AngularJS (第 1 部分)</a> 及其 <a href="http://engineroom.trackmaven.com/blog/getting-started-drf-angularjs-part-2/">第 2 部分</a> 很好地展示了一个 RESTful API 如何能为一个使用 JavaScript MVC 框架构建的客户前端提供后端服务。</p>
 </li>
 <li>
-<p>If you're looking for a working example of a Django REST 
-  framework project, check out the 
-  <a href="https://github.com/phalt/pokeapi">PokeAPI</a>, open sourced under the BSD 
-  license.</p>
+<p>如果你正在找一个可以用的 Django REST 框架项目示例，看下 <a href="https://github.com/phalt/pokeapi">PokeAPI</a>，它在 BSD 许可下开源。</p>
 </li>
 </ul>
-<h2>API creation learning checklist</h2>
+<h2>API 创建的学习清单</h2>
 <ol>
 <li>
-<p>Pick an API framework appropriate for your web framework. For Django I 
-   recommend Django REST framework and for Flask I recommend Flask-RESTful.</p>
+<p>选择一款适合用于你的 Web 应用的 API 框架。Django 项目我推荐 Django REST 框架，Flask 项目我推荐 Flask-RESTful。</p>
 </li>
 <li>
-<p>Begin by building out a simple use case for the API. Generally the use 
-   case will either involve data that users want in a machine-readable 
-   format or a backend for alternative clients such as an iOS or Android 
-   mobile app.</p>
+<p>首先为 API 构想出一个简单的使用案例。通常该使用案例要么是关于用户所需的机器可读格式的数据，要么是针对像 iOS 或 Android 移动应用等其它客户端的后端。</p>
 </li>
 <li>
-<p>Add an authentication mechanism through OAuth or a token scheme.</p>
+<p>通过 OAuth 或者一个令牌方案添加一个认证机制。</p>
 </li>
 <li>
-<p>Add rate limiting to the API if data usage volume could be a performance 
-   issue. Also add basic metrics so you can determine how often the API is 
-   being accessed and whether it is performing properly.</p>
+<p>为 API 增加使用限制，如何数据使用量会引起性能问题的话。还要加入基本的度量功能，从而能检测 API 的访问频度及其是否运行正常。</p>
 </li>
 <li>
-<p>Provide ample documentation and a walkthrough for how the API can be 
-   accessed and used.</p>
+<p>提供丰富的文档及关于该 API 如何访问和使用的示例。</p>
 </li>
 <li>
-<p>Figure out other use cases and expand based on what you learned with the 
-   initial API use case.</p>
+<p>想出其它的使用案例，并基于你从开始时的 API 使用案例中学到的知识进行扩展。</p>
 </li>
 </ol>
           <h1>部署</h1>
@@ -3793,12 +3682,12 @@ WSGI 1.0 版本被
 <h2>Web 服务器配置样例</h2>
 <p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
 <p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="nt">端口上的</span> <span class="nt">WSGI</span> <span class="nt">服务器</span>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="err">#</span> <span class="nt">Nginx</span> <span class="nt">配置为运行在标准HTTP端口上</span><span class="err">，</span><span class="nt">并监听请求</span>
+<span class="err">#</span> <span class="nt">Nginx</span> <span class="err">配置为运行在标准</span><span class="nt">HTTP</span><span class="err">端口上，并监听请求</span>
 <span class="nt">server</span> <span class="p">{</span>
   <span class="n">listen</span> <span class="m">80</span><span class="p">;</span>
 
@@ -3808,8 +3697,8 @@ WSGI 1.0 版本被
     <span class="n">alias</span> <span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">assets</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="err">#</span> <span class="nt">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="nt">目录的请求都会交给</span> <span class="nt">WSGI</span>
-  <span class="err">#</span> <span class="nt">服务器</span><span class="err">，</span><span class="nt">即上面配置的运行在</span> <span class="nt">8000</span> <span class="nt">端口上服务器</span>
+  <span class="err">#</span> <span class="err">所有非针对</span> <span class="o">/</span><span class="nt">static</span> <span class="err">目录的请求都会交给</span> <span class="nt">WSGI</span>
+  <span class="err">#</span> <span class="err">服务器，即上面配置的运行在</span> <span class="nt">8000</span> <span class="err">端口上服务器</span>
   <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
     <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="err">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
     <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="err">$</span><span class="n">http_host</span><span class="p">;</span>
