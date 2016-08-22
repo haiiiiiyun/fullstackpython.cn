@@ -10,8 +10,6 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 ## 公告
 
-由于本人域名 atjiang.com 正在备案，本项目网址暂时改回 [http://haiiiiiyun.github.io/fullstackpython.cn/](http://haiiiiiyun.github.io/fullstackpython.cn/)，待备案完成后恢复。 ---2016-07-29
-
 欢迎大家[参与翻译](https://github.com/haiiiiiyun/fullstackpython.cn#如何贡献翻译)。
 
 中文排版请遵循这里：[写给大家看的中文排版指南](http://zhuanlan.zhihu.com/p/20506092)
