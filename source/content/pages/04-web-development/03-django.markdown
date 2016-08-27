@@ -38,6 +38,9 @@ updated: 2016-06-12 08:27
 
 * 由 Daniel Greenfeld 和 Audrey Roy 写的 [2 Scoops of Django](http://twoscoopspress.com/products/two-scoops-of-django-1-8) 对于真正想学好如何正确开发 Django 网站的人来说物有所值。
 
+* 这篇教程展示了如何创建 [一个 Django Web 应用，它能通过打电话和发短信实现自动调查](https://www.twilio.com/docs/tutorials/walkthrough/automated-survey/python/django)。
+它的代码是一个非常不错的完整 Django 项目示例，并且已在 [GitHub 上开源了](https://github.com/TwilioDevEd/automated-survey-django)。
+
 * [高效 Django](http://effectivedjango.com/) 是另一份介绍 Web 框架的免费资料。
 
 * [Django subreddit](http://www.reddit.com/r/django) 上经常会有与 Django 学习相关的最新链接，并且那里也是个提 Django 问题的好地方。
@@ -47,8 +50,6 @@ updated: 2016-06-12 08:27
 * [轻量化 Django](http://programming.oreilly.com/2014/04/simplifying-django.html) 上有一些不错的示例，详述如何将 Django 分解成一些更小的组件。
 
 * [Django 部署权威指南](https://github.com/rogueleaderr/definitive_guide_to_django_deployment) 对配置后的结构进行讲解，并包含一个自动化部署的 Chef 脚本。
-
-* [将 Django 应用部署到 Amazon EC2 上](http://agiliq.com/blog/2014/08/deploying-a-django-app-on-amazon-ec2-instance/) 通过一个例子详实地演示了如果将一个 Django 应用部署到 Amazon Web 服务上。
 
 * [Django 分步指南](http://aliteralmind.wordpress.com/2014/09/21/jquery_django_tutorial/) 展示了如何在 JQuery 中通过 AJAX 传输数据。
 
@@ -128,7 +129,7 @@ Django 初级开发人员对于如何部署和处理静态和媒体文件会感�
 ## 开源 Django 示例项目
 * [使用 Django 和 Twilio 制作浏览器通话器](https://www.twilio.com/docs/howto/walkthrough/browser-calls/python/django) 展示了如何利用 Django 和 [Twilio 客户端](https://www.twilio.com/client) 来创建一个 Web 应用，将用户的浏览器改造成一个全功能的电话机。非常有趣。
 
-* [Txt 2 React](https://github.com/makaimc/txt2react) 是一个 Django Web 应用，它能让观众一边观看演示，一边输入反馈信息或者提问。
+* [Txt 2 React](https://github.com/mattmakai/txt2react) 是一个 Django Web 应用，它能让观众一边观看演示，一边输入反馈信息或者提问。
 
 * [Openduty](https://github.com/ustream/openduty) 是一个网站状态检查和报警系统，类似于 PagerDuty。
 

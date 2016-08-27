@@ -66,11 +66,13 @@ Python web 应用的项目依赖库应当指定相应的版本号，如下：
 ## setup.py
 还有一种指定 Python 库和依赖的方式，就是使用 [setup.py](http://stackoverflow.com/questions/1471994/what-is-setup-py) 。
 Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一个 Python 库，如
-[requests](http://www.python-requests.org/en/latest/) 或者 [underwear](https://github.com/makaimc/underwear)，你就必须要包含一个 setup.py 脚本，这样依赖管理器就可以正确地安装应用库及其依赖。在 Python 社区，仍然有一些关于 requirements.txt 和 setup.py 的区别的疑惑，所以请阅读这篇
+[requests](http://www.python-requests.org/en/latest/) 或者 [underwear](https://github.com/mattmakai/underwear)，你就必须要包含一个 setup.py 脚本，这样依赖管理器就可以正确地安装应用库及其依赖。在 Python 社区，仍然有一些关于 requirements.txt 和 setup.py 的区别的疑惑，所以请阅读这篇
 [不错的文章](https://caremad.io/2013/07/setup-vs-requirement/) 来了解更多内容。
 
 
 ## 应用程序依赖相关的资源
+* [Python 的包管理现在好了](https://glyph.twistedmatrix.com/2016/08/python-packaging.html) 是一篇精彩的博文。它提供了 Python 的代码库管理功能为何这么长时间还如些不堪的历史背景，以及是哪些修改使得现在创建和安装应用依赖变得这么好了。
+
 * [Jon Chu](https://twitter.com/jonathanchu) 写的
   [virtualenv 和 pip 基础](http://jonathanchu.is/posts/virtualenv-and-pip-basics/) 是非常不错的介绍。
 

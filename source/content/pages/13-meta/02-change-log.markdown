@@ -11,11 +11,34 @@ meta: If you're interested in what's new to learn on Full Stack Python, the chan
 This is a running list of the major changes to Full Stack Python since its
 inception in December 2012. Another way to view the modifications is through
 the 
-[source repository's commit log](https://github.com/makaimc/fullstackpython.github.com/commits/gh-pages) on GitHub.
+[source repository's commit log](https://github.com/mattmakai/fullstackpython.github.com/commits/gh-pages) on GitHub.
 
 
 ## 2016
+### August
+* Finished the hugely successful 
+  [Python for Entrepreneurs Kickstarter campaign](https://www.kickstarter.com/projects/mikeckennedy/python-for-entrepreneurs-video-course).
+  Thank you to everyone who contributed as a backer and supporter! Michael
+  and I can't wait to get this new video course out to everyone.
+* Updates with new resources on the [API Creation](/api-creation.html)
+  and [development environments](/development-environments.html) pages.
+* Added a [Twilio API](/twilio.html) page to the APIs chapter. May add more
+  pages that provide Python guidance for using popular APIs like Slack,
+  Google, Sendgrid, etc.
+* Updated GitHub username references to 
+  [mattmakai](https://github.com/mattmakai) from makaimc (old username).
+* Additional [Bottle](/bottle.html) resources.
+* New [Vim](/vim.html) resources.
+* Made a slew of improvements and added more resources to the 
+  [Python 2 or 3?](/python-2-or-3.html) page.
+
 ### July
+* New blog post with some background information on the 
+  [Python for Entrepreneurs Kickstarter](/blog/python-entrepreneurs.html).
+* Launched a 
+  [Kickstarter with Michael Kennedy to create a Python for Entrepreneurs](https://www.kickstarter.com/projects/mikeckennedy/python-for-entrepreneurs-video-course)
+  video course!
+* Added new [Why Use Python](why-use-python.html) resources to that page.
 * Updated the [NoSQL](/no-sql-datastore.html) page with a couple of new
   resources.
 
@@ -129,7 +152,7 @@ the
   concept, but it's early days as I'm trying to figure out how to be clear
   and concise about this broad topic.
 * Merged 
-  [pull request #70](https://github.com/makaimc/fullstackpython.com/pull/70)
+  [pull request #70](https://github.com/mattmakai/fullstackpython.com/pull/70)
   and fixed some other issues that were in tickets.
 * Made more updates to the static site generators page based on
   [feedback from folks on the /r/python subreddit](https://www.reddit.com/r/Python/comments/3rnkm9/an_overview_of_python_static_site_generators/).
@@ -231,7 +254,7 @@ the
 * Added new [source control](/source-control.html) resources.
 * Major site performance improvements. I removed font awesome and replaced
   icons with SVG elements that mimic the font awesome icons.
-* Pushed the [1000th commit](https://github.com/makaimc/fullstackpython.github.com/commit/2fc711b44ffed89c9855f4f999d4c1df076bc44d) 
+* Pushed the [1000th commit](https://github.com/mattmakai/fullstackpython.github.com/commit/2fc711b44ffed89c9855f4f999d4c1df076bc44d) 
   to Full Stack Python!
 <img src="/img/1000th-commit.jpg" width="100%" alt="Screenshot of 1000th commit to Full Stack Python." class="technical-diagram" />
 * Major update to [Vim](/vim.html) page to add screenshots, a better example
@@ -245,7 +268,7 @@ the
 * Added the Muffin framework to the 
   [other web frameworks](/other-web-frameworks.html) page.
 * Added new [Emacs](/emacs.html) page based on 
-  [pull request #49](https://github.com/makaimc/fullstackpython.github.com/pull/49) 
+  [pull request #49](https://github.com/mattmakai/fullstackpython.github.com/pull/49) 
   base information. Thank you!
 * Added a new page on [best Python videos](/best-python-videos.html) that 
   breaks out all the videos I had scattered around the site and puts the
@@ -274,7 +297,7 @@ the
   content.
 * Major improvements to [Websockets](/websockets.html) page after suggestions
   from 
-  [issue #47 on GitHub repository](https://github.com/makaimc/fullstackpython.github.com/issues/47).
+  [issue #47 on GitHub repository](https://github.com/mattmakai/fullstackpython.github.com/issues/47).
 
 ### January
 * Rewrote the Mailchimp sign up form for the email list so it doesn't have
@@ -449,7 +472,7 @@ the
 * Added task queues section due to reader feedback. 
 * Rewrote intro section.
 * Merged several pull requests (see closed 
-  [GitHub repo pull requests](https://github.com/makaimc/fullstackpython.github.com/pulls)). 
+  [GitHub repo pull requests](https://github.com/mattmakai/fullstackpython.github.com/pulls)). 
 * New resources for platform-as-a-service section. 
 * Added new sections specified by the community as missing. 
 * Reorganized ordering of content. 

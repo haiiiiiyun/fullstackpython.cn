@@ -57,4 +57,4 @@ updated: 2016-06-02 16:50
 ## 视频汇编
 * [PyVideo](http://www.pyvideo.org/) 对来自主流讨论会及见面会的上千份视频资源进行了整理和索引编排。
 
-* [Incredible Technical Speakers](https://github.com/makaimc/incredible-technical-speakers) 是我整理的一份 Git 库，收集了一份具有软件开发背景的演讲人员名单，他们的演讲主题都和编程语言无关。这份名单重点意在收集那些有能力给同行的观众奉献一场精彩演讲的专业软件开发人员。
+* [Incredible Technical Speakers](https://github.com/mattmakai/incredible-technical-speakers) 是我整理的一份 Git 库，收集了一份具有软件开发背景的演讲人员名单，他们的演讲主题都和编程语言无关。这份名单重点意在收集那些有能力给同行的观众奉献一场精彩演讲的专业软件开发人员。

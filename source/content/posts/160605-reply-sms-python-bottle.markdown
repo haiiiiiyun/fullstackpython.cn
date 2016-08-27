@@ -81,7 +81,7 @@ HTTP POST requests from Twilio. Create a new file named `app.py` in your
 in the directory where you want to store this Python project.
 
 Write the following code in the new `app.py` file. There is also
-[a GitHub Gist](https://gist.github.com/makaimc/6ec3b46e40a1020a3ea9c772c601199a) 
+[a GitHub Gist](https://gist.github.com/mattmakai/6ec3b46e40a1020a3ea9c772c601199a) 
 with the code that you can copy and paste.
 
 ```python
@@ -209,8 +209,8 @@ messages!
 Questions? Contact me via Twitter 
 [@fullstackpython](https://twitter.com/fullstackpython)
 or [@mattmakai](https://twitter.com/mattmakai). I'm also on GitHub with
-the username [makaimc](https://github.com/makaimc).
+the username [mattmakai](https://github.com/makaimc).
 
 Something wrong with this post? Fork 
-[this page's source on GitHub](https://github.com/makaimc/fullstackpython.com/blob/gh-pages/source/content/posts/160605-reply-sms-python-bottle.markdown).
+[this page's source on GitHub](https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/content/posts/160605-reply-sms-python-bottle.markdown).
 

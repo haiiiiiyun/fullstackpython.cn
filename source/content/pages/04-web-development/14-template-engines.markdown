@@ -28,7 +28,7 @@ updated: 2016-06-22 13:06--2016-06-28
 
 除了 `<meta name="description"...` 这行，它是为各个单独页面提供包含哪些内容的简短描述之外， 上面的各行 HTML 代码对于 Full Stack Python 网站的每个页面来说都是一样的。
 
-[base.html](https://github.com/makaimc/fullstackpython.com/blob/gh-pages/source/theme/templates/base.html) 是用于创建 Full Stack Python 的 Jinja 模板，它使得网站的每个页面都有一致的 HTML 内容结构，同时又能为每个页面动态生成那些在 [静态网站生成器](/static-site-generator.html) 执行时需要修改的内容。下面的代码来自 `base.html` 模板，可以看到 meta 描述是要求子模板来生成的。
+[base.html](https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/theme/templates/base.html) 是用于创建 Full Stack Python 的 Jinja 模板，它使得网站的每个页面都有一致的 HTML 内容结构，同时又能为每个页面动态生成那些在 [静态网站生成器](/static-site-generator.html) 执行时需要修改的内容。下面的代码来自 `base.html` 模板，可以看到 meta 描述是要求子模板来生成的。
 
     <!DOCTYPE html>
     <html lang="en">

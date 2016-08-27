@@ -56,7 +56,7 @@ Vimrc 是 Vim 编辑器的配置文件。一个 Vimrc 文件可以是一个空�
 
 <img src="/img/vim-dark-bg.jpg" width="100%" alt="在暗色背景上设置了基本配置选项的 Vim 。" class="technical-diagram" style="border-radius: 5px;">
 
-看一下另一个例子，同样的配置选项，这次使用的是浅色背景，图片是我在写 [制作交互的演示文稿](https://github.com/makaimc/choose-your-own-adventure-presentations) 项目的 Python 代码时的截图。
+看一下另一个例子，同样的配置选项，这次使用的是浅色背景，图片是我在写 [制作交互的演示文稿](https://github.com/mattmakai/choose-your-own-adventure-presentations) 项目的 Python 代码时的截图。
 
 <img src="/img/vim-white-bg.png" width="100%" alt="在浅色背景上设置了基本配置选项的 Vim 。" class="technical-diagram" style="border-radius: 5px; border: 1px solid #999;">
 
@@ -80,6 +80,8 @@ Vim 有难学的坏名声，但是通过这些教程，入门会变得更加容�
 * [Vim 冒险](http://vim-adventures.com/) 是一款小巧好玩的浏览器游戏，通过玩这个冒险游戏能帮你学习 Vim 命令。
 
 * 在 [Vim: revisited](http://mislav.uniqpath.com/2011/12/vim-revisited/) 中， 作者解释了他时断时续使用 Vim 的经历。然后阐述他如何配置和使用该编辑器，并坚持以它作为主要的代码编辑工具。
+
+* [关于 Vim 中我希望老早就知道的知识](https://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/) 讲述了一位专门使用 Vim 多年的开发人员的经验教训。他使用相对而非绝对行号，设置了大量的配置选项及通过模糊查询来快速打开其它目录下的文件而无需展开完整的路径。
 
 ## Vimrc 资源
 这些是学习如何组织 `.vimrc` 文件的资源。我建议一项项增加配置选项，每次添加一条，然后再单独测试一下，而不是一股脑儿地把你不熟悉的 Vimrc 都拷贝进来。

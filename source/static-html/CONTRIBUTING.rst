@@ -9,14 +9,14 @@ Fix Typos, Grammar Errors, etc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create pull requests at
-https://github.com/makaimc/fullstackpython.com/pulls.
+https://github.com/mattmakai/fullstackpython.com/pulls.
 
 
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
 The best way to send feedback is to file an issue at
-https://github.com/makaimc/fullstackpython.com/issues.
+https://github.com/mattmakai/fullstackpython.com/issues.
 
 
 Get Started!
@@ -27,7 +27,7 @@ If you're not familiar with `Pelican <http://docs.getpelican.com/>`_, check out 
 
 **Ready to contribute? Here's how to set up Full Stack Python for local development.**
 
-1. Fork the `fullstackpython.com <https://github.com/makaimc/fullstackpython.com>`_ repo on GitHub.
+1. Fork the `fullstackpython.com <https://github.com/mattmakai/fullstackpython.com>`_ repo on GitHub.
 
 2. Clone your fork locally::
 
@@ -58,7 +58,7 @@ Note: make changes to the source/content/pages/\*.rst files then execute a
 
 1. To keep your fork in sync with the original repo, add an `upstream remote <https://help.github.com/articles/configuring-a-remote-for-a-fork/>`_::
 
-    $ git remote add upstream git@github.com:makaimc/fullstackpython.com.git
+    $ git remote add upstream git@github.com:mattmakai/fullstackpython.com.git
 
 2. Sync your repo with the original repo::
 

@@ -76,7 +76,7 @@ a new file named `app.py` in your home directory or where you choose to
 store your Python project files.
 
 Within `app.py` write the following code. You can also see 
-[this code in a GitHub Gist](https://gist.github.com/makaimc/8ab434ccb604d3ba5bde817a183e0bde) 
+[this code in a GitHub Gist](https://gist.github.com/mattmakai/8ab434ccb604d3ba5bde817a183e0bde) 
 if that's easier to copy and paste.
 
 
@@ -210,8 +210,8 @@ similar to the code we just wrote.
 Questions? Contact me via Twitter 
 [@fullstackpython](https://twitter.com/fullstackpython)
 or [@mattmakai](https://twitter.com/mattmakai). I'm also on GitHub with
-the username [makaimc](https://github.com/makaimc).
+the username [mattmakai](https://github.com/makaimc).
 
 Something wrong with this post? Fork 
-[this page's source on GitHub](https://github.com/makaimc/fullstackpython.com/blob/gh-pages/source/content/posts/160530-respond-sms-text-messages-python-flask.markdown).
+[this page's source on GitHub](https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/content/posts/160530-respond-sms-text-messages-python-flask.markdown).
 

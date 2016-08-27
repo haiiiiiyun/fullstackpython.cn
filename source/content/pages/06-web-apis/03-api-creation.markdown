@@ -83,6 +83,8 @@ updated: 2016-07-28 21:30--2016-08-18 22:49
 
 * [你的 API 到底需要多少个状态代码？](https://blogs.dropbox.com/developers/2015/04/how-many-http-status-codes-should-your-api-use/) 从一个 Dropbox API 开发者所做过的决策过程中获取了答案。
 
++ Stack Overflow 上的这两份问答： [将 REST API 放置在子域名上好还是放在子目录下更好？](http://stackoverflow.com/questions/14554943/is-it-better-to-place-a-rest-api-on-a-subdomain-or-in-a-subfolder) 以及 [Web 编程中的子域名 vs. 子目录](http://stackoverflow.com/questions/1965609/subdomain-vs-subdirectory-in-web-programming) 就关于使用子域名的辩论提供了理由和意见，例如 example api.fullstackpython.com 对比 www.fullstackpython.com/api/。而 [来自 ProgrammableWeb 的这篇文章](http://www.programmableweb.com/news/api-endpoint-versioning-methods-sub-domain-or-directory/2013/08/21) 对端点配置的进行了很好的总结。
+
 * 这份 [API 设计指南](https://github.com/interagent/http-api-design) 是 Heroku 为其平台的 API 所写的最佳实践。
 
 

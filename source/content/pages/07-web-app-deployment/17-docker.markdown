@@ -58,9 +58,6 @@ Docker 能够将应用及其必要的操作系统依赖打包，从而可以轻�
 * [8 种 Docker 开发模式](http://www.hokstad.com/docker/patterns)
   分享了一些专业课程，并解释了如何使用容器进行工作，从而能够在开发过程更多地使用容器。
 
-* [Ansible 与 Docker 的联姻](https://bildung.xarif.de/xwiki/bin/Articles/The+Marriage+of+Ansible+and+Docker)
-  详细讲述了 Docker 和 Ansible 在作为部署工具时如何进行互补。
-
 * [从草稿构建 Docker 容器](http://datakurre.pandala.org/2015/07/building-docker-containers-from-scratch.html)
   是一个简明的教程，讲解了如何使用一份特定的配置创建一个 Docker 容器。
 

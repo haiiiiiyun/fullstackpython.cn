@@ -48,6 +48,11 @@ authors: haiiiiiyun.github.io
 
 * [如何获取 Redis 度量值](https://www.datadoghq.com/blog/how-to-collect-redis-metrics/) 展示了如何使用 Redis CLI 客户端来获取有关延时的关键度量值。
 
+* [你应该修改你的 Redis 最大连接设置](https://medium.com/appaloosa-store-engineering/you-should-revise-your-redis-max-connections-setting-8136f063c916) 回顾了 Heroku 上一个 Web 应用由于 Redis 连接数过多而引起的严重故障，然后总结了通过修改 `redis.conf` 设置能使你自己的应用避免发生这种情况。
+
+### Redis 安全性
+应该对 Redis 的默认配置进行修改，从而能防范未认证和未授权的用户。下面这些资源提供了关于 Redis 安全性及数据防护的一些建议。
+
 * [针对 Redis 服务器的渗透测试](http://averagesecurityguy.info/2015/09/17/pentesting-redis-servers/) 阐述了安全问题无论在你的应用中还是你使用的数据库上都是非常重要的。
 
 * Redis，和其它任何的关系型或者 NoSQL 数据库一样，都需要依据 [安全准则](http://www.antirez.com/news/96) 进行安全设置。这有一篇文章讲述了 Redis 的主要作者 [通过攻击 Redis](http://www.antirez.com/news/96) 来展示了 Redis 默认配置在易用性和安全性之间进行的权衡。

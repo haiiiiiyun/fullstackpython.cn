@@ -68,4 +68,6 @@ mysqlclient 分支很不错，因此当前的 MySQLdb 用户在升级到 Python 
 
 * [MySQL 处理数据增长](https://nylas.com/blog/growing-up-with-mysql/) 讲述了一个公司如何扩展它们的 MySQL 数据库来应对自身的快速增长的故事。
 
+* [跟踪: 规模化插入 MySQL 数据 - (第 1 部分)](https://engineering.pinterest.com/blog/tracker-ingesting-mysql-data-scale-part-1) 是系列文章中的第一篇，它讲述了 Pinterest 的工具如何从 Kafka 和 Reids 等其它内部资源中加载大量数据到 MySQL 中。
+
 * [监测 MySQL 度量信息](https://www.datadoghq.com/blog/monitoring-mysql-performance-metrics/) 是三部曲系列文章的第一篇，其它两篇分别是 [收集度量信息](https://www.datadoghq.com/blog/collecting-mysql-statistics-and-metrics/) 和 [利用 DataDog 工具进行监测和收集](https://www.datadoghq.com/blog/mysql-monitoring-with-datadog/)。该系列文章阐述了你应该从生产环境下的数据库中收集哪些度量信息以及这些度量信息缘何重要。

@@ -66,7 +66,7 @@ Bottle 包含在[一个单独的大文件中](https://github.com/bottlepy/bottle
 
 * [Decanter](http://gengo.github.io/decanter/) 是一个对 Bottle 项目进行组织管理的库。
 
-* [compare-python-web-frameworks](https://github.com/makaimc/compare-python-web-frameworks) 上提供了一个示例应用，并以 Bottle 作为其中的一种实现方式。
+* [compare-python-web-frameworks](https://github.com/mattmakai/compare-python-web-frameworks) 上提供了一个示例应用，并以 Bottle 作为其中的一种实现方式。
 
 
 ## Bottle 框架学习清单

@@ -87,7 +87,7 @@ ORM 通常是上手容易但真正掌握很难。比如说，一个 Django 新�
 
 [Django 的 ORM](https://docs.djangoproject.com/en/dev/topics/db/) 适用于简单或中等复杂度的数据库操作。但是，人们通常抱怨说：该 ORM 基于复杂的查询操作转化而成的 SQL 语句，相比于直接用 SQL 编写或者用 [SQLAlchemy](http://www.sqlalchemy.org/) 产生的语句，更加的繁琐。
 
-从技术上来说可以直接使用低层的 SQL，但是这种方式会将查询与某个特定的数据库绑定在一起。该 ORM 与 Django 是紧密捆绑的，因而要想用 SQLAlchemy 来代替默认的 ORM 当前还是一门技术活。考虑到一些 Django 核心贡献者都认为默认的 ORM 被 SQLAlchemy 替代只是时间问题。但要想实现该目标还有很多路要走，可能会在 [Django 1.9 或之后](https://github.com/makaimc/fullstackpython.com/issues/48) 的版本才会实现。
+从技术上来说可以直接使用低层的 SQL，但是这种方式会将查询与某个特定的数据库绑定在一起。该 ORM 与 Django 是紧密捆绑的，因而要想用 SQLAlchemy 来代替默认的 ORM 当前还是一门技术活。考虑到一些 Django 核心贡献者都认为默认的 ORM 被 SQLAlchemy 替代只是时间问题。但要想实现该目标还有很多路要走，可能会在 [Django 1.9 或之后](https://github.com/mattmakai/fullstackpython.com/issues/48) 的版本才会实现。
 
 因为大多数 Django 项目都使用默认的 ORM，因此我们最好多了解下一些高级的使用案例和工具，从而能更好地使用该框架。
 

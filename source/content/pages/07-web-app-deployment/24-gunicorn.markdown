@@ -27,7 +27,7 @@ Gunicorn 实现了 [PEP3333 WSGI 服务器标准规范](https://www.python.org/d
 Gunicorn 根据在 WSGI 服务器和 WSGI 兼容的 web 应用之间的钩子知道如何运行 web 应用。
 
 这儿有个例子，它说明了如何通过 Gunicorn 运行一个典型的 Django web 应用。
-我们将以 [dango\_defaults](https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults) 为例。在 [django\_defaults](https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults/django_defaults) 项目目录中，有一个短的 [wsgi.py](https://github.com/makaimc/compare-python-web-frameworks/blob/master/django_defaults/django_defaults/wsgi.py) 文件含有下面的内容：
+我们将以 [dango\_defaults](https://github.com/mattmakai/compare-python-web-frameworks/tree/master/django_defaults) 为例。在 [django\_defaults](https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults/django_defaults) 项目目录中，有一个短的 [wsgi.py](https://github.com/makaimc/compare-python-web-frameworks/blob/master/django_defaults/django_defaults/wsgi.py) 文件含有下面的内容：
 
     """
     WSGI config for django_defaults project.

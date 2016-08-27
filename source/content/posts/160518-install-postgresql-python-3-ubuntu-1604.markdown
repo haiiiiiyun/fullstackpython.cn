@@ -185,5 +185,5 @@ Questions? Tweet [@fullstackpython](https://twitter.com/fullstackpython)
 or post a message on the 
 [Full Stack Python Facebook page](https://www.facebook.com/fullstackpython). 
 Something wrong with this post? Fork 
-[this page's source on GitHub](https://github.com/makaimc/fullstackpython.com/blob/gh-pages/source/content/posts/160518-install-postgresql-python-3-ubuntu-1604.markdown).
+[this page's source on GitHub](https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/content/posts/160518-install-postgresql-python-3-ubuntu-1604.markdown).
 

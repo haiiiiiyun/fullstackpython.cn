@@ -33,7 +33,7 @@ Web 框架封装了开发人员在过去二十年中学到的网站和 Web 应�
 ## Web 框架对比
 你对一个项目用 Django 实现和用 Flask 实现的代码对比感兴趣吗？看下 [这篇 Django Web 应用教程](https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/django) 然后再看下 [由 Flask 实现的相同的应用](https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/flask)。
 
-还有一份代码库叫 [compare-python-web-frameworks](https://github.com/makaimc/compare-python-web-frameworks)，上面的一个相同的 Web 应用由不能的 Python Web 框架、模板引擎和 [对象关系映射器](/object-relational-mappers-orms.html)来实现。
+还有一份代码库叫 [compare-python-web-frameworks](https://github.com/mattmakai/compare-python-web-frameworks)，上面的一个相同的 Web 应用由不能的 Python Web 框架、模板引擎和 [对象关系映射器](/object-relational-mappers-orms.html)来实现。
 
 
 <div class="well see-also">既然已经学了 Web 框架，你也应该学下 <a href="/deployment.html">Web 应用部署</a> 和 <a href="/application-programming-interfaces.html">Web API</a>。</div>

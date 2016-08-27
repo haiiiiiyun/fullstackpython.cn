@@ -18,6 +18,8 @@ updated: 2016-06-17 10:21
 ## Falcon
 [Falcon](http://falconframework.org/) 是一个简洁的 Web 框架，Web 应用的运行速度是其设计重点。
 
+* [使用 Python 3 和 Falcon 创建一个限速器并通过 Docker 运行](http://www.giantflyingsaucer.com/blog/?p=5910) 这篇入门性教程讲述了如何创建并运行一个简单但实用的 Falcon 应用。
+
 ## web.py
 [web.py](http://webpy.org/) 是一个意在简化 Web 应用开发过程的 Python Web 框架。
 

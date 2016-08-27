@@ -31,7 +31,7 @@
     <a href="/email.html" class="submenu-item">时讯</a> |
     <a href="https://twitter.com/fullstackpython" class="submenu-item">@fullstackpython</a> |
     <a href="https://www.facebook.com/fullstackpython" class="submenu-item">Facebook</a> |
-    <a href="https://github.com/makaimc/fullstackpython.com/tree/gh-pages/source" class="submenu-item">源码</a> 
+    <a href="https://github.com/mattmakai/fullstackpython.com/tree/gh-pages/source" class="submenu-item">源码</a> 
 </div>    </div>
 </div><div class="row">
     <div class="col-md-8">
@@ -97,8 +97,8 @@ Python 在大学里也广泛被用于教学，并且也在像
 <p>现在有好几种编程语言流行排行榜。
 尽管我们可能会指责这些统计不太准确，但是所有的排行榜上都将
 Python 列为一门 Top10 的编程语言--如果还未进前五的话。</p>
-<p>最近，
-<a href="http://redmonk.com/sogrady/2015/01/14/language-rankings-1-15/">RedMonk 2015年1月份排行榜</a> 将 Python 列为第 4 名。</p>
+<p>IEEE 在 2016 年 <a href="http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages">将 Python 列为 Top3 的编程语言</a>, 
+而 <a href="http://redmonk.com/sogrady/2015/01/14/language-rankings-1-15/">RedMonk 2015 年 1 月排行榜</a> 将 Python 列为第 4 名。</p>
 <p><a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">TIOBE 指数</a>,
 一份运营了相当长时间的语言排行榜上，Python 总是稳稳地排在第 8 名。</p>
 <p><a href="http://pypl.github.io/PYPL.html">编程语言流行指数</a> (PYPL)，
@@ -160,6 +160,10 @@ Python 列为一门 Top10 的编程语言--如果还未进前五的话。</p>
 <p>如果你对 Python 的动态类型系统与静态类型语言的区别还不太清楚，那么可以
   <a href="http://blogs.perl.org/users/ovid/2010/08/what-to-know-before-debating-type-systems.html">看下关于这一专题的透彻解释</a>。</p>
 </li>
+<li>
+<p><a href="https://medium.com/@anthonypjshaw/why-i-swapped-c-net-for-python-as-my-default-language-and-platform-and-wont-be-going-back-e0063a25e491">为什么我从 C#.NET 转到将 Python 作为我的默认语言和平台 (并且不再回头)</a> 这篇文章中的观点来自一个用代码捣鼓一些项目的非职业开发者。</p>
+</li>
+<li>他发现微软的 .NET 生态系统无法满足他的需求，而 Python 因其广泛的开源代码库、包管理和在非 Windows 平台上的良好表现填补了这个空缺。</li>
 </ul>
           <h1>Python 2 还是 3？</h1>
 <p>Python 编程语言目前正处在从版本 2 升级到版本 3 的漫长过渡期中。初学者通常会有到底该学哪个版本的问题。Python 3 最初是在 2008 年发布的，但目前仍不是作为默认版本安装在很多操作系统上，听到这些很令人困惑。</p>
@@ -449,7 +453,7 @@ Python 列为一门 Top10 的编程语言--如果还未进前五的话。</p>
 <p><a href="http://www.pyvideo.org/">PyVideo</a> 对来自主流讨论会及见面会的上千份视频资源进行了整理和索引编排。</p>
 </li>
 <li>
-<p><a href="https://github.com/makaimc/incredible-technical-speakers">Incredible Technical Speakers</a> 是我整理的一份 Git 库，收集了一份具有软件开发背景的演讲人员名单，他们的演讲主题都和编程语言无关。这份名单重点意在收集那些有能力给同行的观众奉献一场精彩演讲的专业软件开发人员。</p>
+<p><a href="https://github.com/mattmakai/incredible-technical-speakers">Incredible Technical Speakers</a> 是我整理的一份 Git 库，收集了一份具有软件开发背景的演讲人员名单，他们的演讲主题都和编程语言无关。这份名单重点意在收集那些有能力给同行的观众奉献一场精彩演讲的专业软件开发人员。</p>
 </li>
 </ul>
           <h1>开发环境</h1>
@@ -498,16 +502,13 @@ Python 列为一门 Top10 的编程语言--如果还未进前五的话。</p>
 <p>在过去的几年中，出现了一些基于云计算的开发环境。当在一台只有浏览器且无法安装软件的机器上学习时，你会觉得这些工具很有用。它们大部分对入门级使用免费，但当你需要提升应用需求时对你进行收费。</p>
 <ul>
 <li>
-<p><a href="https://www.nitrous.io/">Nitrous.io</a></p>
+<p><a href="https://www.nitrous.io/">Nitrous.io</a> 提供了一个云 IDE，同时提供的主机托管服务也能随着应用系统流量的提高而能助你进行扩展。</p>
 </li>
 <li>
-<p><a href="https://c9.io/">Cloud9</a></p>
+<p><a href="https://c9.io/">Cloud9</a> 最先是作为一个独立公司的，而现在它由 Amazon 所有，并作为了 Amazon Web Services 的一部分。</p>
 </li>
 <li>
-<p><a href="https://www.terminal.com/">Terminal</a></p>
-</li>
-<li>
-<p><a href="https://koding.com/">Koding</a></p>
+<p><a href="https://www.terminal.com/">Terminal</a> 是另一个云环境，除了 IDE 它还主推托管数据库服务。</p>
 </li>
 </ul>
 <h2>开发环境相关资源</h2>
@@ -576,7 +577,7 @@ let python_highlight_all = 1
 
 <p>下面的图片是我在 Mac OS X 上编辑本页 markdown 文件的截图，你可以这到这些配置选项在暗色背景后的显示效果是什么样的。</p>
 <p><img src="/img/vim-dark-bg.jpg" width="100%" alt="在暗色背景上设置了基本配置选项的 Vim 。" class="technical-diagram" style="border-radius: 5px;"></p>
-<p>看一下另一个例子，同样的配置选项，这次使用的是浅色背景，图片是我在写 <a href="https://github.com/makaimc/choose-your-own-adventure-presentations">制作交互的演示文稿</a> 项目的 Python 代码时的截图。</p>
+<p>看一下另一个例子，同样的配置选项，这次使用的是浅色背景，图片是我在写 <a href="https://github.com/mattmakai/choose-your-own-adventure-presentations">制作交互的演示文稿</a> 项目的 Python 代码时的截图。</p>
 <p><img src="/img/vim-white-bg.png" width="100%" alt="在浅色背景上设置了基本配置选项的 Vim 。" class="technical-diagram" style="border-radius: 5px; border: 1px solid #999;"></p>
 <p>Vimrc 文件位于运行 Vim 的用户帐号的 home 目录下。例如，我的用户账号是 'matt'， 在 Mac OS X 上，我的 Vimrc 文件可以在 <code>/home/matt/</code> 目录下找到。</p>
 <p>如果 Vimrc 文件还没有创建，你只需在用户的 home 目录下创建一个即可，这样，当你下次打开 Vim 时，它就能被加载了。</p>
@@ -603,6 +604,9 @@ let python_highlight_all = 1
 </li>
 <li>
 <p>在 <a href="http://mislav.uniqpath.com/2011/12/vim-revisited/">Vim: revisited</a> 中， 作者解释了他时断时续使用 Vim 的经历。然后阐述他如何配置和使用该编辑器，并坚持以它作为主要的代码编辑工具。</p>
+</li>
+<li>
+<p><a href="https://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/">关于 Vim 中我希望老早就知道的知识</a> 讲述了一位专门使用 Vim 多年的开发人员的经验教训。他使用相对而非绝对行号，设置了大量的配置选项及通过模糊查询来快速打开其它目录下的文件而无需展开完整的路径。</p>
 </li>
 </ul>
 <h2>Vimrc 资源</h2>
@@ -893,7 +897,7 @@ let python_highlight_all = 1
 <p>自从 <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">第一个网站</a> 于 <a href="http://home.cern/topics/birth-web">1989</a> 年诞生以来，网络在网站数量、用户数和容量上取得了难以置信的发展。 Web 开发这个概念包含了与网站及 Web 应用程序相关的所有活动。</p>
 <h2>Python 如何用于 Web 开发？</h2>
 <p>Python 能用于创建服务端 Web 应用程序。虽然 <a href="/web-frameworks.html">Web 框架</a> 对于创建 Web 应用来说不是必需的，但是不用现存的开源库来加快开发进度的开发人员还是很少的。</p>
-<p>Python 不能用于浏览器。能在 Chrome、 Firefox 和 Internet Explorer 等浏览器上运行的语言是 <a href="/javascript.html">JavaScript</a>。像 <a href="http://pyjs.org/">pyjs</a> 等项目能将 Python 程序编译成 JavaScript 程序。但是，大多数 Python 开发人员使用混合的方式开发他们的 Web 应用程序，服务端用 Python，浏览器客户端用 JavaScript。 </p>
+<p>Python 不能用于浏览器。能在 Chrome、 Firefox 和 Internet Explorer 等浏览器上运行的语言是 <a href="/javascript.html">JavaScript</a>。像 <a href="http://pyjs.org/">pyjs</a> 等项目能将 Python 程序编译成 JavaScript 程序。但是，大多数 Python 开发人员都结合 Python 和 JavaScript 来开发他们的 Web 应用程序。Python 在服务端执行而 JavaScript 会下载到客户端然后由 Web 浏览器运行。 </p>
 <h3>Web 开发相关资源</h3>
 <ul>
 <li>
@@ -931,7 +935,7 @@ let python_highlight_all = 1
 <p>其它一些框架，像 <a href="/flask.html">Flask</a> 和 <a href="/pyramid.html">Pyramid</a> 可以通过包含进外部 Python 库来更加容易地与非关系型数据库一起使用。框架的实现，都需要在最少功能和易扩展性，以及将所有东西都包含进来以提高整合度这两个选择之间进行抉择。</p>
 <h2>Web 框架对比</h2>
 <p>你对一个项目用 Django 实现和用 Flask 实现的代码对比感兴趣吗？看下 <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/django">这篇 Django Web 应用教程</a> 然后再看下 <a href="https://www.twilio.com/docs/howto/walkthrough/appointment-reminders/python/flask">由 Flask 实现的相同的应用</a>。</p>
-<p>还有一份代码库叫 <a href="https://github.com/makaimc/compare-python-web-frameworks">compare-python-web-frameworks</a>，上面的一个相同的 Web 应用由不能的 Python Web 框架、模板引擎和 <a href="/object-relational-mappers-orms.html">对象关系映射器</a>来实现。</p>
+<p>还有一份代码库叫 <a href="https://github.com/mattmakai/compare-python-web-frameworks">compare-python-web-frameworks</a>，上面的一个相同的 Web 应用由不能的 Python Web 框架、模板引擎和 <a href="/object-relational-mappers-orms.html">对象关系映射器</a>来实现。</p>
 <div class="well see-also">既然已经学了 Web 框架，你也应该学下 <a href="/deployment.html">Web 应用部署</a> 和 <a href="/application-programming-interfaces.html">Web API</a>。</div>
 
 <h2>我需要使用 Web 框架吗？</h2>
@@ -1007,6 +1011,10 @@ let python_highlight_all = 1
 <p>由 Daniel Greenfeld 和 Audrey Roy 写的 <a href="http://twoscoopspress.com/products/two-scoops-of-django-1-8">2 Scoops of Django</a> 对于真正想学好如何正确开发 Django 网站的人来说物有所值。</p>
 </li>
 <li>
+<p>这篇教程展示了如何创建 <a href="https://www.twilio.com/docs/tutorials/walkthrough/automated-survey/python/django">一个 Django Web 应用，它能通过打电话和发短信实现自动调查</a>。
+它的代码是一个非常不错的完整 Django 项目示例，并且已在 <a href="https://github.com/TwilioDevEd/automated-survey-django">GitHub 上开源了</a>。</p>
+</li>
+<li>
 <p><a href="http://effectivedjango.com/">高效 Django</a> 是另一份介绍 Web 框架的免费资料。</p>
 </li>
 <li>
@@ -1020,9 +1028,6 @@ let python_highlight_all = 1
 </li>
 <li>
 <p><a href="https://github.com/rogueleaderr/definitive_guide_to_django_deployment">Django 部署权威指南</a> 对配置后的结构进行讲解，并包含一个自动化部署的 Chef 脚本。</p>
-</li>
-<li>
-<p><a href="http://agiliq.com/blog/2014/08/deploying-a-django-app-on-amazon-ec2-instance/">将 Django 应用部署到 Amazon EC2 上</a> 通过一个例子详实地演示了如果将一个 Django 应用部署到 Amazon Web 服务上。</p>
 </li>
 <li>
 <p><a href="http://aliteralmind.wordpress.com/2014/09/21/jquery_django_tutorial/">Django 分步指南</a> 展示了如何在 JQuery 中通过 AJAX 传输数据。</p>
@@ -1133,7 +1138,7 @@ let python_highlight_all = 1
 <p><a href="https://www.twilio.com/docs/howto/walkthrough/browser-calls/python/django">使用 Django 和 Twilio 制作浏览器通话器</a> 展示了如何利用 Django 和 <a href="https://www.twilio.com/client">Twilio 客户端</a> 来创建一个 Web 应用，将用户的浏览器改造成一个全功能的电话机。非常有趣。</p>
 </li>
 <li>
-<p><a href="https://github.com/makaimc/txt2react">Txt 2 React</a> 是一个 Django Web 应用，它能让观众一边观看演示，一边输入反馈信息或者提问。</p>
+<p><a href="https://github.com/mattmakai/txt2react">Txt 2 React</a> 是一个 Django Web 应用，它能让观众一边观看演示，一边输入反馈信息或者提问。</p>
 </li>
 <li>
 <p><a href="https://github.com/ustream/openduty">Openduty</a> 是一个网站状态检查和报警系统，类似于 PagerDuty。</p>
@@ -1212,7 +1217,7 @@ let python_highlight_all = 1
   <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">#1 Hello World</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates">#2 模板</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms">#3 表单</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database">#4 数据库</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins">#5 用户登录</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vi-profile-page-and-avatars">#6 简介页与用户标识</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing">#7 单元测试</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-viii-followers-contacts-and-friends">#8 关注者、联系人及好友</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ix-pagination">#9 分页</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-x-full-text-search">#10 全文检索</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xi-email-support">#11 邮件支持</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xii-facelift">#12 改良</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiii-dates-and-times">#13 日期和时间</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiv-i18n-and-l10n">#14 国际化和本地化</a>、 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-ajax">#15 Ajax</a> <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvi-debugging-testing-and-profiling">#16 调试、测试及性能分析</a> <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux-even-on-the-raspberry-pi">#17 在 Linux 上部署</a> 及 <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-the-heroku-cloud">#18 在 Heroku 云上部署</a>。 Miguel 还编写了 <a href="http://shop.oreilly.com/product/0636920031116.do">O'Reilly Flask Web 开发</a> 这本书，这也是本相当不错的学习资料。</p>
 </li>
 <li>
-<p>如果你想一份趣味教程来学习 Flask 和 WebSocket 知识，看下我的博文 <a href="https://www.twilio.com/blog/2014/11/choose-your-own-adventure-presentations-with-reveal-js-python-and-websockets.html">使用 Reveal.js、 Python 和 WebSocket 创建一个可交互的演示文稿</a>。参照那个教程来 <a href="https://www.twilio.com/blog/2015/03/choose-your-own-adventures-presentations-wizard-mode-part-1-of-3.html">创建一个管理界面， 这是第 1 部分</a>、 <a href="https://www.twilio.com/blog/2015/05/choose-your-own-adventure-presentations-wizard-mode-part-2-of-3.html">第 2 部分</a> 和 <a href="https://www.twilio.com/blog/2015/07/choose-your-own-adventure-presentations-flask-reveal-js-websockets.html">第 3 部分</a> 向你展示了如何使用表单和 SQLAlchemy。当然这个应用还有一个开源的 <a href="https://github.com/makaimc/choose-your-own-adventure-presentations">GitHub 代码库</a>，并同步博客 <a href="https://github.com/makaimc/choose-your-own-adventure-presentations/releases">对每一次的文章发布都作了 tag</a>。</p>
+<p>如果你想一份趣味教程来学习 Flask 和 WebSocket 知识，看下我的博文 <a href="https://www.twilio.com/blog/2014/11/choose-your-own-adventure-presentations-with-reveal-js-python-and-websockets.html">使用 Reveal.js、 Python 和 WebSocket 创建一个可交互的演示文稿</a>。参照那个教程来 <a href="https://www.twilio.com/blog/2015/03/choose-your-own-adventures-presentations-wizard-mode-part-1-of-3.html">创建一个管理界面， 这是第 1 部分</a>、 <a href="https://www.twilio.com/blog/2015/05/choose-your-own-adventure-presentations-wizard-mode-part-2-of-3.html">第 2 部分</a> 和 <a href="https://www.twilio.com/blog/2015/07/choose-your-own-adventure-presentations-flask-reveal-js-websockets.html">第 3 部分</a> 向你展示了如何使用表单和 SQLAlchemy。当然这个应用还有一个开源的 <a href="https://github.com/mattmakai/choose-your-own-adventure-presentations">GitHub 代码库</a>，并同步博客 <a href="https://github.com/makaimc/choose-your-own-adventure-presentations/releases">对每一次的文章发布都作了 tag</a>。</p>
 </li>
 <li>
 <p>这个 <a href="https://www.twilio.com/blog/2015/09/warm-phone-call-transfers-with-python-flask-and-twilio-voice.html">简单的 Flask 应用使用 Twilio Voice</a> 实现三方之间的语言通话功能。这是我发布在 Twilio 博客上的关于 Python 和 Flask 的介绍文章，非常有趣。</p>
@@ -1225,6 +1230,9 @@ let python_highlight_all = 1
 </li>
 <li>
 <p><a href="http://mattupstate.com/blog/how-i-structure-my-flask-applications/">如何组织我的 Flask 应用</a> 演示了这位开发者对其 Flask 应用的各部件和构架是如何进行组织的。</p>
+</li>
+<li>
+<p><a href="https://www.twilio.com/docs/tutorials/walkthrough/browser-calls/python/flask">将打电话功能添加到你的 Web 应用中</a> 是一个重量级的 Flask 教程，里面附带了创建一个可以拨打电话和接听来电的 Web 应用的全部所需代码。</p>
 </li>
 <li>
 <p>Jeff Knupp 写了一篇不错的文章叫 <a href="http://www.jeffknupp.com/blog/2014/01/29/productionizing-a-flask-application/">创建一个 Flask 应用</a>。</p>
@@ -1275,7 +1283,7 @@ let python_highlight_all = 1
 <h2>开源 Flask 示例项目</h2>
 <ul>
 <li>
-<p><a href="https://github.com/makaimc/choose-your-own-adventure-presentations">交互式的演示文稿</a> 将 Flask 与 <a href="http://lab.hakim.se/reveal-js/">Reveal.js</a> 及短信结合，创建了一个观众能够投票决定事件进程的演示文稿。它的代码在 MIT 许可下完全开源，它使用 <a href="https://flask-socketio.readthedocs.org/en/latest/">Flask-SocketIO</a> 和 <a href="https://flask-wtf.readthedocs.org/en/latest/">Flask-WTF</a> 项目来支持投票和表单输入功能。</p>
+<p><a href="https://github.com/mattmakai/choose-your-own-adventure-presentations">交互式的演示文稿</a> 将 Flask 与 <a href="http://lab.hakim.se/reveal-js/">Reveal.js</a> 及短信结合，创建了一个观众能够投票决定事件进程的演示文稿。它的代码在 MIT 许可下完全开源，它使用 <a href="https://flask-socketio.readthedocs.org/en/latest/">Flask-SocketIO</a> 和 <a href="https://flask-wtf.readthedocs.org/en/latest/">Flask-WTF</a> 项目来支持投票和表单输入功能。</p>
 </li>
 <li>
 <p><a href="https://github.com/skylines-project/skylines">Skylines</a> 是一个开源的航班信息追踪系统，它用 Flask 实现。可以在 <a href="https://skylines.aero/">这里看到这个应用的运行效果</a>。</p>
@@ -1312,6 +1320,9 @@ let python_highlight_all = 1
 </li>
 <li>
 <p><a href="https://github.com/MaxHalford/Flask-Boilerplate">Flask-Boilerplate</a> 是另一个项目模板，它提供了注册、登录和密码重置等功能。</p>
+</li>
+<li>
+<p>Sunscrapers 公司提供了这个 <a href="https://github.com/sunscrapers/flask-boilerplate">采用了 SQLAlchemy、 py.test 和 Celery 的 Flask 样板项目</a> 完全符合 Flask 项目的结构要求。</p>
 </li>
 </ul>
 <h2>Flask 框架学习清单</h2>
@@ -1399,7 +1410,7 @@ let python_highlight_all = 1
 <p><a href="http://gengo.github.io/decanter/">Decanter</a> 是一个对 Bottle 项目进行组织管理的库。</p>
 </li>
 <li>
-<p><a href="https://github.com/makaimc/compare-python-web-frameworks">compare-python-web-frameworks</a> 上提供了一个示例应用，并以 Bottle 作为其中的一种实现方式。</p>
+<p><a href="https://github.com/mattmakai/compare-python-web-frameworks">compare-python-web-frameworks</a> 上提供了一个示例应用，并以 Bottle 作为其中的一种实现方式。</p>
 </li>
 </ul>
 <h2>Bottle 框架学习清单</h2>
@@ -1477,6 +1488,9 @@ let python_highlight_all = 1
 <p><a href="http://www.turbogears.org">TurboGears2</a> 原来只是 Pylons 的一个扩展，现在已经发展成为一个独立的 Web 框架。它可被用作一种全栈解决方案（像 Django），也可作为一个微框架使用。</p>
 <h2>Falcon</h2>
 <p><a href="http://falconframework.org/">Falcon</a> 是一个简洁的 Web 框架，Web 应用的运行速度是其设计重点。</p>
+<ul>
+<li><a href="http://www.giantflyingsaucer.com/blog/?p=5910">使用 Python 3 和 Falcon 创建一个限速器并通过 Docker 运行</a> 这篇入门性教程讲述了如何创建并运行一个简单但实用的 Falcon 应用。</li>
+</ul>
 <h2>web.py</h2>
 <p><a href="http://webpy.org/">web.py</a> 是一个意在简化 Web 应用开发过程的 Python Web 框架。</p>
 <ul>
@@ -1791,7 +1805,7 @@ let python_highlight_all = 1
 </li>
 </ul>
 <h2>使用 WebSockets 的开源 Python 示例</h2>
-<p><a href="https://github.com/makaimc/python-websockets-example">python-websockets-example</a> 包含了创建一个简单 Web 应用的代码，它使用 Flash、Flask-SocketIO 和 gevent 来提供 WebSockets。</p>
+<p><a href="https://github.com/mattmakai/python-websockets-example">python-websockets-example</a> 包含了创建一个简单 Web 应用的代码，它使用 Flash、Flask-SocketIO 和 gevent 来提供 WebSockets。</p>
 <ul>
 <li>Flask-SocketIO 项目中有一个 <a href="https://github.com/miguelgrinberg/Flask-SocketIO/tree/master/example">聊天室 Web 应用</a>，演示了如何发送服务端生成的事件，以及如何通过表单的文本输入框来获取用户输入。</li>
 </ul>
@@ -1871,7 +1885,7 @@ let python_highlight_all = 1
 
 
 <p>除了 <code>&lt;meta name="description"...</code> 这行，它是为各个单独页面提供包含哪些内容的简短描述之外， 上面的各行 HTML 代码对于 Full Stack Python 网站的每个页面来说都是一样的。</p>
-<p><a href="https://github.com/makaimc/fullstackpython.com/blob/gh-pages/source/theme/templates/base.html">base.html</a> 是用于创建 Full Stack Python 的 Jinja 模板，它使得网站的每个页面都有一致的 HTML 内容结构，同时又能为每个页面动态生成那些在 <a href="/static-site-generator.html">静态网站生成器</a> 执行时需要修改的内容。下面的代码来自 <code>base.html</code> 模板，可以看到 meta 描述是要求子模板来生成的。</p>
+<p><a href="https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/theme/templates/base.html">base.html</a> 是用于创建 Full Stack Python 的 Jinja 模板，它使得网站的每个页面都有一致的 HTML 内容结构，同时又能为每个页面动态生成那些在 <a href="/static-site-generator.html">静态网站生成器</a> 执行时需要修改的内容。下面的代码来自 <code>base.html</code> 模板，可以看到 meta 描述是要求子模板来生成的。</p>
 <div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -2052,7 +2066,7 @@ let python_highlight_all = 1
 <p>存在很多用不同的语言实现的静态网站生成器。以下列出的这些主要都是用 Python 编写的。</p>
 <ul>
 <li>
-<p><a href="http://blog.getpelican.com/">Pelican</a> (<a href="https://github.com/getpelican/pelican">源代码</a>) 是一个常用的 Python 静态网站生成器， <a href="https://github.com/makaimc/fullstackpython.com">Full Stack Python</a> 网站就是用它创建的。它的主要模板引擎是 Jinja，并且在默认配置下就支持 Markdown、 reStructuredText 及 AsciiDoc。</p>
+<p><a href="http://blog.getpelican.com/">Pelican</a> (<a href="https://github.com/getpelican/pelican">源代码</a>) 是一个常用的 Python 静态网站生成器， <a href="https://github.com/mattmakai/fullstackpython.com">Full Stack Python</a> 网站就是用它创建的。它的主要模板引擎是 Jinja，并且在默认配置下就支持 Markdown、 reStructuredText 及 AsciiDoc。</p>
 </li>
 <li>
 <p><a href="http://www.mkdocs.org/">MkDocs</a> (<a href="https://github.com/mkdocs/mkdocs/">源代码</a>) 使用 YAML 配置文件，并能将 Markdown 文件和一个可选的主题作为输入来创建一个文档网站。它的模板引擎是 Jinja，但是用户通常不必创建自己的模板，除非该特定的网站真得需要，但是如果是这样的话，采用其它的静态网站生成器可能会更加合适。</p>
@@ -2082,7 +2096,7 @@ let python_highlight_all = 1
 <h3>开源 Python 静态网站生成器示例</h3>
 <ul>
 <li>
-<p>本网站 <a href="https://github.com/makaimc/fullstackpython.com">有自己的 GitHub 库并且是完全开源的</a>，基于 MIT 许可发布。快来 Fork 吧！ </p>
+<p>本网站 <a href="https://github.com/mattmakai/fullstackpython.com">有自己的 GitHub 库并且是完全开源的</a>，基于 MIT 许可发布。快来 Fork 吧！ </p>
 </li>
 <li>
 <p><a href="https://github.com/tomchristie/django-rest-framework/tree/master/docs">Django REST 框架</a> 使用 MkDocs 来创建它的文档网站。一定要看下 <a href="https://github.com/tomchristie/django-rest-framework/blob/master/mkdocs.yml">mkdocs.yml 文件</a>，通过它可以了解该项目的这份如此丰富、文风优美的文档是如何组织的。</p>
@@ -2353,6 +2367,13 @@ let python_highlight_all = 1
 <p><a href="https://www.datadoghq.com/blog/how-to-collect-redis-metrics/">如何获取 Redis 度量值</a> 展示了如何使用 Redis CLI 客户端来获取有关延时的关键度量值。</p>
 </li>
 <li>
+<p><a href="https://medium.com/appaloosa-store-engineering/you-should-revise-your-redis-max-connections-setting-8136f063c916">你应该修改你的 Redis 最大连接设置</a> 回顾了 Heroku 上一个 Web 应用由于 Redis 连接数过多而引起的严重故障，然后总结了通过修改 <code>redis.conf</code> 设置能使你自己的应用避免发生这种情况。</p>
+</li>
+</ul>
+<h3>Redis 安全性</h3>
+<p>应该对 Redis 的默认配置进行修改，从而能防范未认证和未授权的用户。下面这些资源提供了关于 Redis 安全性及数据防护的一些建议。</p>
+<ul>
+<li>
 <p><a href="http://averagesecurityguy.info/2015/09/17/pentesting-redis-servers/">针对 Redis 服务器的渗透测试</a> 阐述了安全问题无论在你的应用中还是你使用的数据库上都是非常重要的。</p>
 </li>
 <li>
@@ -2519,7 +2540,7 @@ users = Users.objects.filter(zip_code=94107)
 <h3>Django ORM</h3>
 <p><a href="/django.html">Django</a> Web 框架有自己内置的对象-关系映射模块，通常被称作 "the Django ORM" 或 "Django's ORM"。</p>
 <p><a href="https://docs.djangoproject.com/en/dev/topics/db/">Django 的 ORM</a> 适用于简单或中等复杂度的数据库操作。但是，人们通常抱怨说：该 ORM 基于复杂的查询操作转化而成的 SQL 语句，相比于直接用 SQL 编写或者用 <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> 产生的语句，更加的繁琐。</p>
-<p>从技术上来说可以直接使用低层的 SQL，但是这种方式会将查询与某个特定的数据库绑定在一起。该 ORM 与 Django 是紧密捆绑的，因而要想用 SQLAlchemy 来代替默认的 ORM 当前还是一门技术活。考虑到一些 Django 核心贡献者都认为默认的 ORM 被 SQLAlchemy 替代只是时间问题。但要想实现该目标还有很多路要走，可能会在 <a href="https://github.com/makaimc/fullstackpython.com/issues/48">Django 1.9 或之后</a> 的版本才会实现。</p>
+<p>从技术上来说可以直接使用低层的 SQL，但是这种方式会将查询与某个特定的数据库绑定在一起。该 ORM 与 Django 是紧密捆绑的，因而要想用 SQLAlchemy 来代替默认的 ORM 当前还是一门技术活。考虑到一些 Django 核心贡献者都认为默认的 ORM 被 SQLAlchemy 替代只是时间问题。但要想实现该目标还有很多路要走，可能会在 <a href="https://github.com/mattmakai/fullstackpython.com/issues/48">Django 1.9 或之后</a> 的版本才会实现。</p>
 <p>因为大多数 Django 项目都使用默认的 ORM，因此我们最好多了解下一些高级的使用案例和工具，从而能更好地使用该框架。</p>
 <h3>SQLAlchemy</h3>
 <p><a href="http://www.sqlalchemy.org/">SQLAlchemy</a> 是个广受好评的 Python ORM。它的抽象层做的 ”恰当好处“，并且在绝大多数情况下，相比 Django ORM，它能简化复杂数据库查询语句的编写工作。在 Flask 中，SQLAlchemy 通过 <a href="https://pythonhosted.org/Flask-SQLAlchemy/">Flask-SQLAlchemy</a> 扩展而被用作数据库 ORM。</p>
@@ -2776,6 +2797,9 @@ users = Users.objects.filter(zip_code=94107)
 <p>Craig Kerstiens 写了一篇有关 <a href="http://www.craigkerstiens.com/2012/10/01/understanding-postgres-performance/">理解 PostgreSQL 性能</a> 的详细文章。</p>
 </li>
 <li>
+<p><a href="https://tech.lendinghome.com/practical-guide-to-postgresql-optimizations-d7b9c2ad6a22">PostgreSQL 优化实践指南</a> 讲述了通过使用缓存大小、恢复配置和共享缓存来提高数据库性能。</p>
+</li>
+<li>
 <p>这篇关于 <a href="http://www.geekytidbits.com/performance-tuning-postgres/">PostgreSQL 性能调优</a> 的文章，其内容覆盖了如何查找慢速查询、调整索引及修改查询使其运行更快。</p>
 </li>
 <li>
@@ -2850,6 +2874,9 @@ users = Users.objects.filter(zip_code=94107)
 </li>
 <li>
 <p><a href="https://nylas.com/blog/growing-up-with-mysql/">MySQL 处理数据增长</a> 讲述了一个公司如何扩展它们的 MySQL 数据库来应对自身的快速增长的故事。</p>
+</li>
+<li>
+<p><a href="https://engineering.pinterest.com/blog/tracker-ingesting-mysql-data-scale-part-1">跟踪: 规模化插入 MySQL 数据 - (第 1 部分)</a> 是系列文章中的第一篇，它讲述了 Pinterest 的工具如何从 Kafka 和 Reids 等其它内部资源中加载大量数据到 MySQL 中。</p>
 </li>
 <li>
 <p><a href="https://www.datadoghq.com/blog/monitoring-mysql-performance-metrics/">监测 MySQL 度量信息</a> 是三部曲系列文章的第一篇，其它两篇分别是 <a href="https://www.datadoghq.com/blog/collecting-mysql-statistics-and-metrics/">收集度量信息</a> 和 <a href="https://www.datadoghq.com/blog/mysql-monitoring-with-datadog/">利用 DataDog 工具进行监测和收集</a>。该系列文章阐述了你应该从生产环境下的数据库中收集哪些度量信息以及这些度量信息缘何重要。</p>
@@ -3131,6 +3158,9 @@ users = Users.objects.filter(zip_code=94107)
 <p><a href="https://blogs.dropbox.com/developers/2015/04/how-many-http-status-codes-should-your-api-use/">你的 API 到底需要多少个状态代码？</a> 从一个 Dropbox API 开发者所做过的决策过程中获取了答案。</p>
 </li>
 <li>
+<p>Stack Overflow 上的这两份问答： <a href="http://stackoverflow.com/questions/14554943/is-it-better-to-place-a-rest-api-on-a-subdomain-or-in-a-subfolder">将 REST API 放置在子域名上好还是放在子目录下更好？</a> 以及 <a href="http://stackoverflow.com/questions/1965609/subdomain-vs-subdirectory-in-web-programming">Web 编程中的子域名 vs. 子目录</a> 就关于使用子域名的辩论提供了理由和意见，例如 example api.fullstackpython.com 对比 www.fullstackpython.com/api/。而 <a href="http://www.programmableweb.com/news/api-endpoint-versioning-methods-sub-domain-or-directory/2013/08/21">来自 ProgrammableWeb 的这篇文章</a> 对端点配置的进行了很好的总结。</p>
+</li>
+<li>
 <p>这份 <a href="https://github.com/interagent/http-api-design">API 设计指南</a> 是 Heroku 为其平台的 API 所写的最佳实践。</p>
 </li>
 </ul>
@@ -3188,6 +3218,88 @@ users = Users.objects.filter(zip_code=94107)
 <p>想出其它的使用案例，并基于你从开始时的 API 使用案例中学到的知识进行扩展。</p>
 </li>
 </ol>
+          <h1>Twilio</h1>
+<p><a href="https://www.twilio.com/docs/quickstart/python/twiml">Twilio</a> is a 
+<a href="/application-programming-interfaces.html">web application programming interface (API)</a>
+that software developers can use to add communications such as 
+<a href="https://www.twilio.com/docs/tutorials/walkthrough/browser-calls/python/django">phone calling</a>, 
+<a href="https://www.twilio.com/docs/tutorials/walkthrough/server-notifications/python/django">messaging</a>, 
+<a href="https://www.twilio.com/docs/api/video/guide/quickstart-js">video</a> and 
+<a href="https://www.twilio.com/docs/tutorials/walkthrough/two-factor-authentication/python/flask">two-factor authentication</a>
+into their <a href="/learning-programming.html">Python</a> applications.</p>
+<p><img src="/img/twilio-logo.png" width="100%" alt="Twilio logo." class="technical-diagram" style="padding: 10px 0 10px 0;"/></p>
+<h2>Why is Twilio a good API choice?</h2>
+<p>Interacting with the standard telephone networks to send and receive
+phone calls and text messages without Twilio is extremely difficult 
+if you do not know the unique telecommunications protocols such as 
+Session Initiation Protocol (SIP). Twilio's API abstracts the 
+telecommunications pieces so as a developer you can simply use your 
+favorite programming languages and frameworks in your application.
+For example, here's how you can send an 
+<a href="https://www.twilio.com/docs/quickstart/python/sms/sending-via-rest">outbound SMS</a> 
+using a few lines of Python code:</p>
+<div class="highlight"><pre><span></span><span class="c1"># import the Twilio helper library (installed with pip install twilio)</span>
+<span class="kn">from</span> <span class="nn">twilio.rest</span> <span class="kn">import</span> <span class="n">TwilioRestClient</span>
+
+<span class="c1"># replace the placeholder strings in the following code line with </span>
+<span class="c1"># your Twilio Account SID and Auth Tokenfrom the Twilio Console</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">TwilioRestClient</span><span class="p">(</span><span class="s2">&quot;ACxxxxxxxxxxxxxx&quot;</span><span class="p">,</span> <span class="s2">&quot;zzzzzzzzzzzzz&quot;</span><span class="p">)</span>
+
+<span class="c1"># change the &quot;from_&quot; number to your Twilio number and the &quot;to&quot; number</span>
+<span class="c1"># to any phone number you want to send the message to </span>
+<span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;+19732644152&quot;</span><span class="p">,</span> <span class="n">from_</span><span class="o">=</span><span class="s2">&quot;+12023358536&quot;</span><span class="p">,</span> 
+                       <span class="n">body</span><span class="o">=</span><span class="s2">&quot;Hello from Python!&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Learn more about the above code in the 
+<a href="/blog/send-sms-text-messages-python.html">How to Send SMS Text Messages with Python tutorial</a>.</p>
+<h2>How is Twilio's documentation for Python developers?</h2>
+<p>Twilio is a developer-focused company, rather than a traditional 
+"enterprise company", so their tutorials and 
+<a href="https://www.twilio.com/docs">documentation</a> are written by developers 
+for fellow developers.</p>
+<h3>More Twilio resources</h3>
+<ul>
+<li>
+<p>Most <a href="https://www.twilio.com/docs/tutorials">Twilio Tutorials</a> have 
+  idiomatic Python versions with entire open source applications in
+  <a href="/django.html">Django</a> and <a href="/flask.html">Flask</a>.</p>
+</li>
+<li>
+<p><a href="https://automatetheboringstuff.com/">Automate the Boring Stuff with Python</a>
+  includes 
+  <a href="https://automatetheboringstuff.com/chapter16/">a chapter on sending text messages</a> 
+  that uses Twilio to get the job done.</p>
+</li>
+<li>
+<p>IBM's Bluemix blog contains a nice tutorial on building an 
+  <a href="https://developer.ibm.com/bluemix/2015/04/02/tutorial-using-a-raspberry-pi-python-iot-twilio-bluemix/">IoT Python app with a Raspberry Pi and Bluemix</a>
+  that uses Twilio to interact with the Raspberry Pi.</p>
+</li>
+<li>
+<p>The <a href="https://www.twilio.com/blog/tag/python">Python tag on the Twilio blog</a>
+  provides walkthroughs for 
+  <a href="https://www.twilio.com/blog/2015/12/city-chat-with-python-django-and-twilio-ip-messaging.html">Django</a>, 
+  <a href="https://www.twilio.com/blog/2015/11/international-space-station-notifications-with-python-redis-queue-and-twilio-copilot.html">Flask</a> 
+  and <a href="https://www.twilio.com/blog/2016/08/getting-started-python-bottle-twilio-sms-mms.html">Bottle</a> 
+  apps to learn from while building your own projects.</p>
+</li>
+<li>
+<p><a href="https://cloud.google.com/appengine/docs/python/sms/twilio">Google Cloud recommends developers use Twilio</a>
+  for communications in their apps and provides a short walkthrough for
+  Python developers.</p>
+</li>
+<li>
+<p><a href="https://www.easypost.com/sms-tracking-tutorial">SMS Tracking Notifications</a>
+  is a fun tutorial that combines two APIs together - Twilio and 
+  <a href="https://www.easypost.com">Easypost</a> to track packages sent through the
+  Easypost service.</p>
+</li>
+</ul>
+<h4>Disclaimer</h4>
+<p>I <a href="/about-author.html">currently work at Twilio</a> as a 
+<a href="https://www.twilio.com/blog/2014/02/introducing-developer-evangelist-matt-makai.html">Developer Evangelist</a>.</p>
           <h1>部署</h1>
 <p>部署是一项涉及了为你的 web 应用打包，并且在生产环境下运行的技术。</p>
 <h2>为何部署是必要的？</h2>
@@ -3439,6 +3551,9 @@ Amazon 还有 <a href="http://aws.amazon.com/about-aws/whats-new/2012/07/31/anno
   是一篇基础的文章，讲述了如何将开发者沙盒账户和产品级别的 AWS 环境保持隔离。</p>
 </li>
 <li>
+<p><a href="http://agiliq.com/blog/2014/08/deploying-a-django-app-on-amazon-ec2-instance/">将 Django 应用部署到 Amazon EC2 上</a> 通过一个例子详实地演示了如果将一个 Django 应用部署到 Amazon Web 服务上。</p>
+</li>
+<li>
 <p><a href="https://medium.com/@davidmytton/how-much-is-spotify-paying-google-cloud-ebb3bf180f15">Spotify 给 Google 云支付了多少？</a>
   深入洞悉了 Spotify 如何在 Goole 云上运行它们所有的基础设施服务，并假想了它们要为此可能支付的费用。</p>
 </li>
@@ -3517,6 +3632,9 @@ Yellowdog 更新，修改（YUM）。RPM 使用特殊的 .rpm 格式的文件来
 <ul>
 <li>
 <p><a href="http://www.linux.org/threads/selecting-a-linux-distribution.4087/">Linux 发行版是什么？我该怎样选择正确的发行版？</a></p>
+</li>
+<li>
+<p><a href="http://www.brendangregg.com/linuxperf.html">Linux 性能</a> 是一个很精彩的网站，上面有大量关注性能的资料链接，这些资料当你在任何的 Linux 发行版上开发或部署时都很有用。</p>
 </li>
 <li>
 <p>Lifehacker 的 <a href="http://lifehacker.com/5889950/how-to-find-the-perfect-linux-distribution-for-you">Linux 发行版选择指南</a>.</p>
@@ -3714,7 +3832,7 @@ WSGI 1.0 版本被
 
 
 <p>需要注意的是，上面的Nginx 配置代码仅仅是准产品级的简化配置版本。对于真实使用了 SSL 和非 SSL 的模板，请参见 Github 上的
-<a href="https://github.com/makaimc/underwear/tree/master/underwear/roles/web/templates">Underwear web server templates</a>。</p>
+<a href="https://github.com/mattmakai/underwear/tree/master/underwear/roles/web/templates">Underwear web server templates</a>。</p>
 <h2>WSGI 服务器</h2>
 <p>在
 <a href="http://wsgi.readthedocs.org/en/latest/servers.html">WSGI 阅读文档</a> 页面中有一个完整的 WSGI 服务器列表。
@@ -3967,10 +4085,13 @@ djangorestframework==2.3.1
 <h2>setup.py</h2>
 <p>还有一种指定 Python 库和依赖的方式，就是使用 <a href="http://stackoverflow.com/questions/1471994/what-is-setup-py">setup.py</a> 。
 Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一个 Python 库，如
-<a href="http://www.python-requests.org/en/latest/">requests</a> 或者 <a href="https://github.com/makaimc/underwear">underwear</a>，你就必须要包含一个 setup.py 脚本，这样依赖管理器就可以正确地安装应用库及其依赖。在 Python 社区，仍然有一些关于 requirements.txt 和 setup.py 的区别的疑惑，所以请阅读这篇
+<a href="http://www.python-requests.org/en/latest/">requests</a> 或者 <a href="https://github.com/mattmakai/underwear">underwear</a>，你就必须要包含一个 setup.py 脚本，这样依赖管理器就可以正确地安装应用库及其依赖。在 Python 社区，仍然有一些关于 requirements.txt 和 setup.py 的区别的疑惑，所以请阅读这篇
 <a href="https://caremad.io/2013/07/setup-vs-requirement/">不错的文章</a> 来了解更多内容。</p>
 <h2>应用程序依赖相关的资源</h2>
 <ul>
+<li>
+<p><a href="https://glyph.twistedmatrix.com/2016/08/python-packaging.html">Python 的包管理现在好了</a> 是一篇精彩的博文。它提供了 Python 的代码库管理功能为何这么长时间还如些不堪的历史背景，以及是哪些修改使得现在创建和安装应用依赖变得这么好了。</p>
+</li>
 <li>
 <p><a href="https://twitter.com/jonathanchu">Jon Chu</a> 写的
   <a href="http://jonathanchu.is/posts/virtualenv-and-pip-basics/">virtualenv 和 pip 基础</a> 是非常不错的介绍。</p>
@@ -4864,10 +4985,6 @@ Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一
   分享了一些专业课程，并解释了如何使用容器进行工作，从而能够在开发过程更多地使用容器。</p>
 </li>
 <li>
-<p><a href="https://bildung.xarif.de/xwiki/bin/Articles/The+Marriage+of+Ansible+and+Docker">Ansible 与 Docker 的联姻</a>
-  详细讲述了 Docker 和 Ansible 在作为部署工具时如何进行互补。</p>
-</li>
-<li>
 <p><a href="http://datakurre.pandala.org/2015/07/building-docker-containers-from-scratch.html">从草稿构建 Docker 容器</a>
   是一个简明的教程，讲解了如何使用一份特定的配置创建一个 Docker 容器。</p>
 </li>
@@ -5174,7 +5291,7 @@ Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一
 <h2>Gunicorn 如何知道怎样运行我的 web 应用？</h2>
 <p>Gunicorn 根据在 WSGI 服务器和 WSGI 兼容的 web 应用之间的钩子知道如何运行 web 应用。</p>
 <p>这儿有个例子，它说明了如何通过 Gunicorn 运行一个典型的 Django web 应用。
-我们将以 <a href="https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults">dango_defaults</a> 为例。在 <a href="https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults/django_defaults">django_defaults</a> 项目目录中，有一个短的 <a href="https://github.com/makaimc/compare-python-web-frameworks/blob/master/django_defaults/django_defaults/wsgi.py">wsgi.py</a> 文件含有下面的内容：</p>
+我们将以 <a href="https://github.com/mattmakai/compare-python-web-frameworks/tree/master/django_defaults">dango_defaults</a> 为例。在 <a href="https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults/django_defaults">django_defaults</a> 项目目录中，有一个短的 <a href="https://github.com/makaimc/compare-python-web-frameworks/blob/master/django_defaults/django_defaults/wsgi.py">wsgi.py</a> 文件含有下面的内容：</p>
 <div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">WSGI config for django_defaults project.</span>
 
@@ -5473,7 +5590,7 @@ often also called "chatbots", "assistants" or "agents."</p>
   bot is a good base for a more complicated Slack bot that could use
   natural language processing or other more advanced parsing techniques.
   Either Python 2 or 3 can be used 
-  <a href="https://github.com/makaimc/slack-api-python-examples">with the code which is also available on GitHub</a>.</p>
+  <a href="https://github.com/mattmakai/slack-api-python-examples">with the code which is also available on GitHub</a>.</p>
 </li>
 <li>
 <p><a href="https://medium.com/@julianmartinez/how-to-write-a-slack-bot-with-python-code-examples-4ed354407b98">How to write a Slack bot in Python</a>
@@ -5544,10 +5661,34 @@ developers build and maintain their programming skills.</p>
 <p>This is a running list of the major changes to Full Stack Python since its
 inception in December 2012. Another way to view the modifications is through
 the 
-<a href="https://github.com/makaimc/fullstackpython.github.com/commits/gh-pages">source repository's commit log</a> on GitHub.</p>
+<a href="https://github.com/mattmakai/fullstackpython.github.com/commits/gh-pages">source repository's commit log</a> on GitHub.</p>
 <h2>2016</h2>
+<h3>August</h3>
+<ul>
+<li>Finished the hugely successful 
+  <a href="https://www.kickstarter.com/projects/mikeckennedy/python-for-entrepreneurs-video-course">Python for Entrepreneurs Kickstarter campaign</a>.
+  Thank you to everyone who contributed as a backer and supporter! Michael
+  and I can't wait to get this new video course out to everyone.</li>
+<li>Updates with new resources on the <a href="/api-creation.html">API Creation</a>
+  and <a href="/development-environments.html">development environments</a> pages.</li>
+<li>Added a <a href="/twilio.html">Twilio API</a> page to the APIs chapter. May add more
+  pages that provide Python guidance for using popular APIs like Slack,
+  Google, Sendgrid, etc.</li>
+<li>Updated GitHub username references to 
+  <a href="https://github.com/mattmakai">mattmakai</a> from makaimc (old username).</li>
+<li>Additional <a href="/bottle.html">Bottle</a> resources.</li>
+<li>New <a href="/vim.html">Vim</a> resources.</li>
+<li>Made a slew of improvements and added more resources to the 
+  <a href="/python-2-or-3.html">Python 2 or 3?</a> page.</li>
+</ul>
 <h3>July</h3>
 <ul>
+<li>New blog post with some background information on the 
+  <a href="/blog/python-entrepreneurs.html">Python for Entrepreneurs Kickstarter</a>.</li>
+<li>Launched a 
+  <a href="https://www.kickstarter.com/projects/mikeckennedy/python-for-entrepreneurs-video-course">Kickstarter with Michael Kennedy to create a Python for Entrepreneurs</a>
+  video course!</li>
+<li>Added new <a href="why-use-python.html">Why Use Python</a> resources to that page.</li>
 <li>Updated the <a href="/no-sql-datastore.html">NoSQL</a> page with a couple of new
   resources.</li>
 </ul>
@@ -5669,7 +5810,7 @@ the
   concept, but it's early days as I'm trying to figure out how to be clear
   and concise about this broad topic.</li>
 <li>Merged 
-  <a href="https://github.com/makaimc/fullstackpython.com/pull/70">pull request #70</a>
+  <a href="https://github.com/mattmakai/fullstackpython.com/pull/70">pull request #70</a>
   and fixed some other issues that were in tickets.</li>
 <li>Made more updates to the static site generators page based on
   <a href="https://www.reddit.com/r/Python/comments/3rnkm9/an_overview_of_python_static_site_generators/">feedback from folks on the /r/python subreddit</a>.</li>
@@ -5779,7 +5920,7 @@ the
 <li>Added new <a href="/source-control.html">source control</a> resources.</li>
 <li>Major site performance improvements. I removed font awesome and replaced
   icons with SVG elements that mimic the font awesome icons.</li>
-<li>Pushed the <a href="https://github.com/makaimc/fullstackpython.github.com/commit/2fc711b44ffed89c9855f4f999d4c1df076bc44d">1000th commit</a> 
+<li>Pushed the <a href="https://github.com/mattmakai/fullstackpython.github.com/commit/2fc711b44ffed89c9855f4f999d4c1df076bc44d">1000th commit</a> 
   to Full Stack Python!
 <img src="/img/1000th-commit.jpg" width="100%" alt="Screenshot of 1000th commit to Full Stack Python." class="technical-diagram" /></li>
 <li>Major update to <a href="/vim.html">Vim</a> page to add screenshots, a better example
@@ -5793,7 +5934,7 @@ the
 <li>Added the Muffin framework to the 
   <a href="/other-web-frameworks.html">other web frameworks</a> page.</li>
 <li>Added new <a href="/emacs.html">Emacs</a> page based on 
-  <a href="https://github.com/makaimc/fullstackpython.github.com/pull/49">pull request #49</a> 
+  <a href="https://github.com/mattmakai/fullstackpython.github.com/pull/49">pull request #49</a> 
   base information. Thank you!</li>
 <li>Added a new page on <a href="/best-python-videos.html">best Python videos</a> that 
   breaks out all the videos I had scattered around the site and puts the
@@ -5823,7 +5964,7 @@ the
   content.</li>
 <li>Major improvements to <a href="/websockets.html">Websockets</a> page after suggestions
   from 
-  <a href="https://github.com/makaimc/fullstackpython.github.com/issues/47">issue #47 on GitHub repository</a>.</li>
+  <a href="https://github.com/mattmakai/fullstackpython.github.com/issues/47">issue #47 on GitHub repository</a>.</li>
 </ul>
 <h3>January</h3>
 <ul>
@@ -6012,7 +6153,7 @@ the
 <li>Added task queues section due to reader feedback. </li>
 <li>Rewrote intro section.</li>
 <li>Merged several pull requests (see closed 
-  <a href="https://github.com/makaimc/fullstackpython.github.com/pulls">GitHub repo pull requests</a>). </li>
+  <a href="https://github.com/mattmakai/fullstackpython.github.com/pulls">GitHub repo pull requests</a>). </li>
 <li>New resources for platform-as-a-service section. </li>
 <li>Added new sections specified by the community as missing. </li>
 <li>Reorganized ordering of content. </li>
@@ -6081,7 +6222,7 @@ hardware hacking such as with the Raspberry Pi and Arduino Yun.</p>
 a step-by-step tutorial book for learning how to deploy Python web 
 applications.</p>
 <p>Note that these plans can change based on 
-<a href="https://github.com/makaimc/fullstackpython.com/pulls">pull requests</a>
+<a href="https://github.com/mattmakai/fullstackpython.com/pulls">pull requests</a>
 from the community. I work to integrate PRs within a day or two so please 
 submit one when you see a fix or improvement that needs to be made!</p>
           <h1>About the Author</h1>
@@ -6093,16 +6234,16 @@ at <a href="https://www.twilio.com/">Twilio</a> in San Francisco, California.</p
 <p>Other projects by Matt include 
 <a href="http://www.deploypython.com/">The Full Stack Python Guide to Deployments book</a>, 
 <a href="http://www.codingacrossamerica.com/">Coding Across America</a>, 
-<a href="https://github.com/makaimc/underwear">Underwear</a> and
-<a href="https://github.com/makaimc/choose-your-own-adventure-presentations">Choose Your Own Adventure Presentations</a>. You can reach him by 
+<a href="https://github.com/mattmakai/underwear">Underwear</a> and
+<a href="https://github.com/mattmakai/choose-your-own-adventure-presentations">Choose Your Own Adventure Presentations</a>. You can reach him by 
 email at matthew.makai@gmail.com,
 <a href="https://twitter.com/mattmakai">Twitter @mattmakai</a>
-or on <a href="https://github.com/makaimc">GitHub at makaimc</a>.</p>
+or on <a href="https://github.com/mattmakai">GitHub at mattmakai</a>.</p>
 <p>Read my thoughts on the "full stack" trend in a 
 <a href="http://radar.oreilly.com/2014/05/driving-demand-for-full-stack-developers.html">post I wrote for O'Reilly Radar</a>.</p>
 <p>Typos, inaccurate statements or general areas for improvement can be handled
 through an issue ticket or pull request on
-<a href="https://github.com/makaimc/fullstackpython.com/">GitHub</a>.</p>
+<a href="https://github.com/mattmakai/fullstackpython.com/">GitHub</a>.</p>
     </div>
 <div class="col-md-offset-1 col-md-3" id="sidebar">
   <div class="panel panel-success">

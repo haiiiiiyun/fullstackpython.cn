@@ -3,7 +3,7 @@ fullstackpython.cn
 
 fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的简体中文翻译项目。
 
-> Forked from [github.com/makaimc/fullstackpython.com](https://github.com/makaimc/fullstackpython.com).
+> Forked from [github.com/mattmakai/fullstackpython.com](https://github.com/makaimc/fullstackpython.com).
 
 > [fullstackpython.atjiang.com](http://fullstackpython.atjiang.com) 是 [www.fullstackpython.com](https://www.fullstackpython.com/) 的中文翻译网站。
 
@@ -72,6 +72,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/06-web-apis/01-application-programming-interfaces.markdown (2016-07-26)
 - [x] content/pages/06-web-apis/02-api-integration.markdown (2016-07-27)
 - [x] content/pages/06-web-apis/03-api-creation.markdown (2016-08-18)
+- [ ] content/pages/06-web-apis/04-twilio.markdown
 
 ### 七、Web 应用部署
 
@@ -112,22 +113,6 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 - [ ] content/pages/09-bots/01-bots.markdown
 
-### 十、Blog 文章
-
-- [ ] content/posts/160508-full-stack-python-blog.markdown
-- [ ] content/posts/160509-django-gunicorn-ubuntu-1604.markdown
-- [ ] content/posts/160510-flask-gunicorn-ubuntu-1604.markdown
-- [ ] content/posts/160511-send-sms-text-message-python.markdown
-- [ ] content/posts/160513-bottle-gunicorn-ubuntu-1604.markdown
-- [ ] content/posts/160515-sending-mms-picture-messages-python.markdown
-- [ ] content/posts/160516-install-redis-use-python-3-ubuntu-1604.markdown
-- [ ] content/posts/160518-install-postgresql-python-3-ubuntu-1604.markdown
-- [ ] content/posts/160528-install-mysql-ubuntu-1604.markdown
-- [ ] content/posts/160530-respond-sms-text-messages-python-flask.markdown
-- [ ] content/posts/160604-build-first-slack-bot-python.markdown
-- [ ] content/posts/160605-reply-sms-python-bottle.markdown
-- [ ] content/posts/160619-pyramid-gunicorn-ubuntu-1604.markdown
-- [ ] content/posts/160626-django-gunicorn-mint-linux-17.markdown
 
 
 ## 如何贡献翻译

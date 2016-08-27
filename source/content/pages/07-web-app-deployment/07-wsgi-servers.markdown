@@ -98,7 +98,7 @@ Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理�
     }
 
 需要注意的是，上面的Nginx 配置代码仅仅是准产品级的简化配置版本。对于真实使用了 SSL 和非 SSL 的模板，请参见 Github 上的
-[Underwear web server templates](https://github.com/makaimc/underwear/tree/master/underwear/roles/web/templates)。
+[Underwear web server templates](https://github.com/mattmakai/underwear/tree/master/underwear/roles/web/templates)。
 
 
 ## WSGI 服务器

@@ -86,6 +86,8 @@ PaaS 层定义了应用程序应该如何访问诸如计算时间、文件以及
 * [如何隔离你的 AWS 产品和开发账户](http://blog.codeship.com/separate-aws-production-and-development-accounts/)
   是一篇基础的文章，讲述了如何将开发者沙盒账户和产品级别的 AWS 环境保持隔离。
 
++ [将 Django 应用部署到 Amazon EC2 上](http://agiliq.com/blog/2014/08/deploying-a-django-app-on-amazon-ec2-instance/) 通过一个例子详实地演示了如果将一个 Django 应用部署到 Amazon Web 服务上。
+
 * [Spotify 给 Google 云支付了多少？](https://medium.com/@davidmytton/how-much-is-spotify-paying-google-cloud-ebb3bf180f15)
   深入洞悉了 Spotify 如何在 Goole 云上运行它们所有的基础设施服务，并假想了它们要为此可能支付的费用。
 

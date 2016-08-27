@@ -47,13 +47,11 @@ Python 代码需要经过编写、执行、测试然后才能构建成应用程�
 ## 托管的开发环境服务
 在过去的几年中，出现了一些基于云计算的开发环境。当在一台只有浏览器且无法安装软件的机器上学习时，你会觉得这些工具很有用。它们大部分对入门级使用免费，但当你需要提升应用需求时对你进行收费。
 
-* [Nitrous.io](https://www.nitrous.io/)
+* [Nitrous.io](https://www.nitrous.io/) 提供了一个云 IDE，同时提供的主机托管服务也能随着应用系统流量的提高而能助你进行扩展。
 
-* [Cloud9](https://c9.io/)
+* [Cloud9](https://c9.io/) 最先是作为一个独立公司的，而现在它由 Amazon 所有，并作为了 Amazon Web Services 的一部分。
 
-* [Terminal](https://www.terminal.com/)
-
-* [Koding](https://koding.com/)
+* [Terminal](https://www.terminal.com/) 是另一个云环境，除了 IDE 它还主推托管数据库服务。
 
 
 ## 开发环境相关资源

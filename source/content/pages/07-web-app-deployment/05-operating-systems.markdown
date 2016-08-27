@@ -63,6 +63,8 @@ Yellowdog 更新，修改（YUM）。RPM 使用特殊的 .rpm 格式的文件来
 ## 操作系统相关的资源
 * [Linux 发行版是什么？我该怎样选择正确的发行版？](http://www.linux.org/threads/selecting-a-linux-distribution.4087/)
 
+* [Linux 性能](http://www.brendangregg.com/linuxperf.html) 是一个很精彩的网站，上面有大量关注性能的资料链接，这些资料当你在任何的 Linux 发行版上开发或部署时都很有用。
+
 * Lifehacker 的 [Linux 发行版选择指南](http://lifehacker.com/5889950/how-to-find-the-perfect-linux-distribution-for-you).
 
 * [Linux 之旅](https://linuxjourney.com/) 是非常不错的 Linux 基础学习课程，比如可以学习命令行、包管理、文本处理。当然也有更多涉及高级话题的课程，比如内核是如何工作的，怎样设置日志以及管理设备。

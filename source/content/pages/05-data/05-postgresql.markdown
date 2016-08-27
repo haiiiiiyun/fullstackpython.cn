@@ -118,6 +118,8 @@ PostgreSQL 核心团队还经常发布更新，从而显著提高了数据库的
 
 * Craig Kerstiens 写了一篇有关 [理解 PostgreSQL 性能](http://www.craigkerstiens.com/2012/10/01/understanding-postgres-performance/) 的详细文章。
 
+* [PostgreSQL 优化实践指南](https://tech.lendinghome.com/practical-guide-to-postgresql-optimizations-d7b9c2ad6a22) 讲述了通过使用缓存大小、恢复配置和共享缓存来提高数据库性能。
+
 * 这篇关于 [PostgreSQL 性能调优](http://www.geekytidbits.com/performance-tuning-postgres/) 的文章，其内容覆盖了如何查找慢速查询、调整索引及修改查询使其运行更快。
 
 * [从 PostgreSQL 中获取性能信息](http://okigiveup.net/what-postgresql-tells-you-about-its-performance/) 讲解了如何收集常用的性能度量值，并提供了获取这些信息需要运行的查询语句。该文还讲述了性能监测及如何分析触发函数。

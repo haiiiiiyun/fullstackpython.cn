@@ -88,7 +88,7 @@ Nginx 从 [第 1.3 版](http://nginx.com/blog/websocket-nginx/) 开始就正式�
 
 
 ## 使用 WebSockets 的开源 Python 示例
-  [python-websockets-example](https://github.com/makaimc/python-websockets-example) 包含了创建一个简单 Web 应用的代码，它使用 Flash、Flask-SocketIO 和 gevent 来提供 WebSockets。
+  [python-websockets-example](https://github.com/mattmakai/python-websockets-example) 包含了创建一个简单 Web 应用的代码，它使用 Flash、Flask-SocketIO 和 gevent 来提供 WebSockets。
 
 * Flask-SocketIO 项目中有一个 [聊天室 Web 应用](https://github.com/miguelgrinberg/Flask-SocketIO/tree/master/example)，演示了如何发送服务端生成的事件，以及如何通过表单的文本输入框来获取用户输入。
 

@@ -43,7 +43,7 @@ updated: 2016-07-01 16:45--2016-07-05 23:50
 
 存在很多用不同的语言实现的静态网站生成器。以下列出的这些主要都是用 Python 编写的。
 
-* [Pelican](http://blog.getpelican.com/) ([源代码](https://github.com/getpelican/pelican)) 是一个常用的 Python 静态网站生成器， [Full Stack Python](https://github.com/makaimc/fullstackpython.com) 网站就是用它创建的。它的主要模板引擎是 Jinja，并且在默认配置下就支持 Markdown、 reStructuredText 及 AsciiDoc。
+* [Pelican](http://blog.getpelican.com/) ([源代码](https://github.com/getpelican/pelican)) 是一个常用的 Python 静态网站生成器， [Full Stack Python](https://github.com/mattmakai/fullstackpython.com) 网站就是用它创建的。它的主要模板引擎是 Jinja，并且在默认配置下就支持 Markdown、 reStructuredText 及 AsciiDoc。
 
 * [MkDocs](http://www.mkdocs.org/) ([源代码](https://github.com/mkdocs/mkdocs/)) 使用 YAML 配置文件，并能将 Markdown 文件和一个可选的主题作为输入来创建一个文档网站。它的模板引擎是 Jinja，但是用户通常不必创建自己的模板，除非该特定的网站真得需要，但是如果是这样的话，采用其它的静态网站生成器可能会更加合适。
 
@@ -63,7 +63,7 @@ updated: 2016-07-01 16:45--2016-07-05 23:50
 
 
 ### 开源 Python 静态网站生成器示例
-* 本网站 [有自己的 GitHub 库并且是完全开源的](https://github.com/makaimc/fullstackpython.com)，基于 MIT 许可发布。快来 Fork 吧！ 
+* 本网站 [有自己的 GitHub 库并且是完全开源的](https://github.com/mattmakai/fullstackpython.com)，基于 MIT 许可发布。快来 Fork 吧！ 
 
 * [Django REST 框架](https://github.com/tomchristie/django-rest-framework/tree/master/docs) 使用 MkDocs 来创建它的文档网站。一定要看下 [mkdocs.yml 文件](https://github.com/tomchristie/django-rest-framework/blob/master/mkdocs.yml)，通过它可以了解该项目的这份如此丰富、文风优美的文档是如何组织的。
 

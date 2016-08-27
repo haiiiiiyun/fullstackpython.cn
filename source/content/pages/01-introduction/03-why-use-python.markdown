@@ -28,8 +28,8 @@ Python 在大学里也广泛被用于教学，并且也在像
 尽管我们可能会指责这些统计不太准确，但是所有的排行榜上都将
 Python 列为一门 Top10 的编程语言--如果还未进前五的话。
 
-最近，
-[RedMonk 2015年1月份排行榜](http://redmonk.com/sogrady/2015/01/14/language-rankings-1-15/) 将 Python 列为第 4 名。
+IEEE 在 2016 年 [将 Python 列为 Top3 的编程语言](http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages), 
+而 [RedMonk 2015 年 1 月排行榜](http://redmonk.com/sogrady/2015/01/14/language-rankings-1-15/) 将 Python 列为第 4 名。
 
 [TIOBE 指数](http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html),
 一份运营了相当长时间的语言排行榜上，Python 总是稳稳地排在第 8 名。
@@ -93,3 +93,5 @@ Python 非常注重语言哲学，这种哲学甚至被嵌入进了语言本身�
 * 如果你对 Python 的动态类型系统与静态类型语言的区别还不太清楚，那么可以
   [看下关于这一专题的透彻解释](http://blogs.perl.org/users/ovid/2010/08/what-to-know-before-debating-type-systems.html)。
 
+* [为什么我从 C#.NET 转到将 Python 作为我的默认语言和平台 (并且不再回头)](https://medium.com/@anthonypjshaw/why-i-swapped-c-net-for-python-as-my-default-language-and-platform-and-wont-be-going-back-e0063a25e491) 这篇文章中的观点来自一个用代码捣鼓一些项目的非职业开发者。
+* 他发现微软的 .NET 生态系统无法满足他的需求，而 Python 因其广泛的开源代码库、包管理和在非 Windows 平台上的良好表现填补了这个空缺。

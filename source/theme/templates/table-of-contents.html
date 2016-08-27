@@ -82,10 +82,10 @@
 
                     <h3>3. <a href="/python-programming-language.html">编程语言</a></h3>
                     <div class="toc-indent">
-                        <a href="/generators.html">Generators</a>
+                        <a href="/generators.html">生成器</a>
                     </div>
                     <div class="toc-indent">
-                        <a href="/comprehensions.html">Comprehensions</a>
+                        <a href="/comprehensions.html">推导式</a>
                     </div>
                     <!--
                     <div class="toc-indent">
@@ -171,7 +171,7 @@
                         <a href="/mysql.html">MySQL</a>
                     </div>
                     <div class="toc-indent">
-                        <a href="/object-relational-mappers-orms.html">Object-relational mappers (ORMs)</a>
+                        <a href="/object-relational-mappers-orms.html">对象-关系映射器 (ORMs)</a>
                     </div>
                     <div class="toc-indent">
                         <a href="/no-sql-datastore.html">NoSQL</a>
@@ -204,6 +204,9 @@
                     <div class="toc-indent">
                         <a href="/api-creation.html">API 的创建</a>
                     </div>
+                    <div class="toc-indent">
+                        <a href="/twilio.html">Twilio</a>
+                    </div>
                     <!--
                     <div class="toc-indent">
                         Helper libraries
@@ -214,12 +217,12 @@
                     -->
 
 
-                    <h3>8. <a href="/deployment.html">部署 Web 应用</a></h3>
+                    <h3>8. <a href="/deployment.html">Web App 部署</a></h3>
                     <div class="toc-indent">
                         <a href="/servers.html">服务器</a>
                     </div>
                     <div class="toc-indent">
-                        <a href="/platform-as-a-service.html">Platform-as-a-Service</a>
+                        <a href="/platform-as-a-service.html">平台即服务</a>
                     </div>
                     <div class="toc-indent">
                         <a href="/operating-systems.html">操作系统</a>
@@ -246,19 +249,19 @@
                         <a href="/green-unicorn-gunicorn.html">Green Unicorn</a>
                     </div>
                     <div class="toc-indent">
-                        <a href="/source-control.html">Source control</a>
+                        <a href="/source-control.html">源代码控制</a>
                     </div>
                     <div class="toc-indent">
-                        <a href="/application-dependencies.html">Application dependencies</a>
+                        <a href="/application-dependencies.html">应用程序依赖</a>
                     </div>
                     <div class="toc-indent">
-                        <a href="/static-content.html">Static content</a>
+                        <a href="/static-content.html">静态内容</a>
                     </div>
                     <div class="toc-indent">
                         <a href="/caching.html">缓存</a>
                     </div>
                     <div class="toc-indent">
-                        <a href="/task-queues.html">Task queues</a>
+                        <a href="/task-queues.html">任务队列</a>
                     </div>
                     <div class="toc-indent">
                         <a href="/configuration-management.html">配置管理</a>
@@ -270,7 +273,7 @@
                         <a href="/docker.html">Docker</a>
                     </div>
                     <div class="toc-indent">
-                        <a href="/logging.html">Logging</a>
+                        <a href="/logging.html">日志</a>
                     </div>
                     <div class="toc-indent">
                         <a href="/monitoring.html">监测</a>
@@ -279,9 +282,8 @@
                         <a href="/web-analytics.html">Web 分析</a>
                     </div>
                     <div class="toc-indent" style="margin-top: 6px;">
-                        There is also an
-                        <a href="http://www.deploypython.com/">entire book</a>
-                        dedicated to Python web application deployment.
+                        还有
+                        <a href="http://www.deploypython.com/">一整本书</a> 是专门讲述 Python Web 应用部署的。
                     </div>
 
                     
@@ -349,9 +351,9 @@
                     </div>
                     -->
 
-                    <h3>10. Meta</h3>
+                    <h3>10. 元信息</h3>
                     <div class="toc-more-indent">
-                        <a href="/what-full-stack-means.html">What "full stack" means</a>
+                        <a href="/what-full-stack-means.html">"full stack" 是什么意思</a>
                     </div>
                     <div class="toc-more-indent">
                         <a href="/about-author.html">关于作者</a>
@@ -367,7 +369,7 @@
             </div>
         </div>
     </div>
-    {% include "sidebar.html" %}
+    {% include "sidebar-toc.html" %}
 </div>
 <div class="row">
     <div class="col-md-12">
@@ -378,8 +380,3 @@
     </div>
 </div>
 {% endblock %}
-
-{% block lower_banner %}
-    {% include "banner.html" %}
-{% endblock %}
-

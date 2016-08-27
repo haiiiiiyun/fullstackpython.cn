@@ -1,5 +1,6 @@
 run:
 	cp -R static-html/* ..
+	cp redirects/* ..
 	pelican -t theme -s settings.py -o .. content
 	cp ../pages/* ../
 	cp -R ../theme/img/* ../img/
@@ -7,6 +8,7 @@ run:
 
 run-no-static:
 	cp -R static-html/* ..
+	cp redirects/* ..
 	pelican -t theme -s settings.py -o .. content
 	cp ../pages/* ../
 	rm -rf ../pages/

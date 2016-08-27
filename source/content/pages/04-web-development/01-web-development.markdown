@@ -17,7 +17,7 @@ Web 开发是对概念化、构建、 [部署](/deployment.html) 和运营　Web
 ## Python 如何用于 Web 开发？
 Python 能用于创建服务端 Web 应用程序。虽然 [Web 框架](/web-frameworks.html) 对于创建 Web 应用来说不是必需的，但是不用现存的开源库来加快开发进度的开发人员还是很少的。
 
-Python 不能用于浏览器。能在 Chrome、 Firefox 和 Internet Explorer 等浏览器上运行的语言是 [JavaScript](/javascript.html)。像 [pyjs](http://pyjs.org/) 等项目能将 Python 程序编译成 JavaScript 程序。但是，大多数 Python 开发人员使用混合的方式开发他们的 Web 应用程序，服务端用 Python，浏览器客户端用 JavaScript。 
+Python 不能用于浏览器。能在 Chrome、 Firefox 和 Internet Explorer 等浏览器上运行的语言是 [JavaScript](/javascript.html)。像 [pyjs](http://pyjs.org/) 等项目能将 Python 程序编译成 JavaScript 程序。但是，大多数 Python 开发人员都结合 Python 和 JavaScript 来开发他们的 Web 应用程序。Python 在服务端执行而 JavaScript 会下载到客户端然后由 Web 浏览器运行。 
 
 ### Web 开发相关资源
 * [Web 应用开发是不同的并且更好](http://radar.oreilly.com/2014/01/web-application-development-is-different-and-better.html) 提供了 Web 开发如何从只需要写静态 HTML 文件进化到如今需要由复杂的 JavaScript 客户端应用动态生成的相关背景。
