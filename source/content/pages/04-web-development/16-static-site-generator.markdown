@@ -73,20 +73,25 @@ updated: 2016-07-01 16:45--2016-07-05 23:50
 
 * [Pythonic Perambulations](http://jakevdp.github.io/) 这个博客的主题风格虽然很普通，但是它 [也是开源的，并且也发布在 GitHub 上](https://github.com/jakevdp/PythonicPerambulations)。
 
-
 ### 静态网站生成器资源
 * [使用 Pelican 创建一个静态博客的漫漫之路](http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html) 这篇精彩的文章真正对相关知识进行了深入细致的讲解。
 
 * [Staticgen](https://www.staticgen.com/) 网站上列出了所有编程语言的静态网站生成器，并依据不同的属性进行了排序，如 GitHub 上的 stars 数， fork 数 和 issue 数等。
 
-* [使用 S3 和 Cloudflare 部署静态网站](https://wsvincent.com/static-site-hosting-with-s3-and-cloudflare/) 讲解了如何设置 S3 存储段，并在前端配置 Cloudflare 作为 CDN，以通过 HTTPS 来提供内容服务。你应该可以使用 Amazon Cloudfront 来实现大致相同的设置，但是作为一个 Cloudflare 用户，我还是喜欢它们的这种静态网站配置服务。
-
-* [Pelican 和 GitHub pages 入门简介](http://www.mattmakai.com/introduction-to-pelican.html) 是我写的一篇教程，详解了如何运行 Full Stack Python 的源代码，该网站使用 Pelican 来创建。
 
 * 标题起得是有点大，但是这篇文章就 [为什么说静态网站生成器以后会大有可为](http://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/) 这个论点还是论述的非常详实。 我想说的是：静态网站生成器已经流行很长一段时间了。
 
 * 静态网站生成器可以用于创建从小项目和大型站点的各种网站。这篇由 [WeWork 发布的文章：为什么他们使用静态网站生成器](http://engineering.wework.com/engineering/2015/12/08/why-wework-com-uses-a-static-generator-and-why-you-should-too/) 从一个大公司的角度对其进行了讲解。
 
+* [放弃 Wordpress 并成为一个时髦的人](http://razius.com/articles/ditching-wordpress-and-becoming-one-of-the-cool-kids/) 详述了一个开发者从 Wordpress 转移到使用 Pelican 和 reStructuredText 来创建他的个人博客的经历。
+
 * [Pelican 和 GitHub pages 入门简介](http://www.mattmakai.com/introduction-to-pelican.html) 是我写的一篇教程，讲解如何使用 Full Stack Python 的源代码来创建和部署你的首个静态网站。
 
-* [放弃 Wordpress 并成为一个时髦的人](http://razius.com/articles/ditching-wordpress-and-becoming-one-of-the-cool-kids/) 详述了一个开发者从 Wordpress 转移到使用 Pelican 和 reStructuredText 来创建他的个人博客的经历。
+
+### 静态网站部署相关资源
+
+* [在 AWS 上使用 S3 和 CloudFront 部署一个静态网站](https://www.davidbaumgold.com/tutorials/deploy-static-site-aws-s3-cloudfront/) 上提供了一份非常不错的教程，并附有截图，讲解了任何类型的静态网站如何在 AWS 上使用 S3 和 Cloudfront 进行设置。
+
+* [使用 S3 和 Cloudflare 部署静态网站](https://wsvincent.com/static-site-hosting-with-s3-and-cloudflare/) 讲解了如何设置 S3 存储段，并在前端配置 Cloudflare 作为 CDN，以通过 HTTPS 来提供内容服务。你应该可以使用 Amazon Cloudfront 来实现大致相同的设置，但是作为一个 Cloudflare 用户，我还是喜欢它们的这种静态网站配置服务。
+
+* Google Cloud 提供了一篇教程讲解了如何使用它们来 [部署你的静态网站](https://cloud.google.com/storage/docs/hosting-static-website)。值得注意的是你现在还无法在 Google 存储服务器上使用 HTTPS，这是一个很大的遗憾。
