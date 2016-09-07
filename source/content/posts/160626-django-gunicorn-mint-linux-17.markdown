@@ -3,7 +3,7 @@ slug: python-3-django-gunicorn-linux-mint-17
 meta: A step-by-step walkthrough on configuring Linux Mint 17.3 with Python 3, Django and Green Unicorn (Gunicorn).
 category: post
 date: 2016-06-26
-modified: 2016-06-26
+modified: 2016-07-22
 headerimage: /source/static/img/160626-mint-django-gunicorn/header.jpg
 headeralt: Django, Green Unicorn and Linux Mint logos. Copyright their respective owners.
 
@@ -127,8 +127,8 @@ Activate the virtualenv.
 
     source ~/venvs/djangoproj/bin/activate
 
-We should see our prompt change so that we know the virtualenv is properly 
-activated.
+Our virtual environment is properly activated when we see `(djangoproj)`
+prepended to our prompt. 
 
 <img src="/source/static/img/160626-mint-django-gunicorn/venv-activated.png" width="100%" class="technical-diagram img-rounded" alt="Output from the virtualenv environment activation.">
 
@@ -186,7 +186,7 @@ found on the [table of contents](/table-of-contents.html) page.
 Questions? Contact me via Twitter 
 [@fullstackpython](https://twitter.com/fullstackpython)
 or [@mattmakai](https://twitter.com/mattmakai). I'm also on GitHub with
-the username [mattmakai](https://github.com/makaimc).
+the username [mattmakai](https://github.com/mattmakai).
 
 See something wrong in this post? Fork 
 [this page's source on GitHub](https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/content/posts/160626-django-gunicorn-mint-linux-17.markdown)

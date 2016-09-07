@@ -3,7 +3,7 @@ slug: reply-sms-text-messages-python-bottle
 meta: A short walkthrough for how to reply to SMS text messages in a Bottle web application built with Python.
 category: post
 date: 2016-06-05
-modified: 2016-06-05
+modified: 2016-08-10
 headerimage: /source/static/img/160605-reply-sms-python-bottle/header.jpg
 headeralt: Twilio, Python and Bottle logos. Copyright their respective owners.
 
@@ -209,7 +209,7 @@ messages!
 Questions? Contact me via Twitter 
 [@fullstackpython](https://twitter.com/fullstackpython)
 or [@mattmakai](https://twitter.com/mattmakai). I'm also on GitHub with
-the username [mattmakai](https://github.com/makaimc).
+the username [mattmakai](https://github.com/mattmakai).
 
 Something wrong with this post? Fork 
 [this page's source on GitHub](https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/content/posts/160605-reply-sms-python-bottle.markdown).

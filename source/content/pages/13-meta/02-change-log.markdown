@@ -15,7 +15,20 @@ the
 
 
 ## 2016
+### September
+* Updated the [Slack bot tutorial](/blog/build-first-slack-bot-python.html)
+  with a new bit on how to solve a common issue when the bot does not seem
+  to be responding to `@` mentions due to a missing colon in the input.
+* New resources on the 
+  [static site generators](http://www.fullstackpython.com/static-site-generator.html)
+  page focusing on deploying a static site.
+
 ### August
+* Added a new blog post on 
+  [Dialing Outbound Phone Calls with a Bottle Web App](/blog/dial-outbound-phone-calls-python-bottle.html).
+* Merged several pull requests such as 
+  [#106](https://github.com/mattmakai/fullstackpython.com/pull/106) which
+  fixed some bad errors on my part. Pull requests are amazing!
 * Finished the hugely successful 
   [Python for Entrepreneurs Kickstarter campaign](https://www.kickstarter.com/projects/mikeckennedy/python-for-entrepreneurs-video-course).
   Thank you to everyone who contributed as a backer and supporter! Michael

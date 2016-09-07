@@ -3,7 +3,7 @@ slug: respond-sms-text-messages-python-flask
 meta: A quick tutorial on receiving and responding to SMS text messages in a Flask application built with Python.
 category: post
 date: 2016-05-30
-modified: 2016-05-30
+modified: 2016-08-10
 headerimage: /source/static/img/160530-respond-sms-python-flask/header.jpg
 headeralt: Twilio, Python and Flask logos. Copyright their respective owners.
 
@@ -210,7 +210,7 @@ similar to the code we just wrote.
 Questions? Contact me via Twitter 
 [@fullstackpython](https://twitter.com/fullstackpython)
 or [@mattmakai](https://twitter.com/mattmakai). I'm also on GitHub with
-the username [mattmakai](https://github.com/makaimc).
+the username [mattmakai](https://github.com/mattmakai).
 
 Something wrong with this post? Fork 
 [this page's source on GitHub](https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/content/posts/160530-respond-sms-text-messages-python-flask.markdown).

@@ -3,7 +3,7 @@ slug: build-first-slack-bot-python
 meta: Learn how to build a simple Slack bot in Python, no prior bot experience needed. 
 category: post
 date: 2016-06-04
-modified: 2016-06-04
+modified: 2016-09-04
 headerimage: /source/static/img/160604-simple-python-slack-bot/header.jpg
 headeralt: Slack and Python logos. Copyright their respective owners.
 
@@ -338,6 +338,13 @@ Now start giving StarterBot commands in your channel.
 
 <img src="/source/static/img/160604-simple-python-slack-bot/working-starterbot.png" width="100%" class="technical-diagram img-rounded" alt="Give StarterBot commands in your Slack channel.">
 
+There is one modification you may want to make if you're running into 
+issues getting a response from the bot. As it is written above in this
+tutorial, the line `AT_BOT = "<@" + BOT_ID + ">:"` requires a colon after
+the "@starter" (or whatever you named your particular bot). Remove the
+`:` from the end of the `AT_BOT` string. The Slack clients seem to add a
+colon after an `@` mention but it seems somewhat inconsistent.
+
 
 ## Wrapping Up
 Alright, now you've got a simple StarterBot with a bunch of places in the 
@@ -362,7 +369,7 @@ Check out these posts to learn what you could do:
 Questions? Contact me via Twitter 
 [@fullstackpython](https://twitter.com/fullstackpython)
 or [@mattmakai](https://twitter.com/mattmakai). I'm also on GitHub with
-the username [mattmakai](https://github.com/makaimc).
+the username [mattmakai](https://github.com/mattmakai).
 
 Something wrong with this post? Fork 
 [this page's source on GitHub](https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/content/posts/160604-build-first-slack-bot-python.markdown).
