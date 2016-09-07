@@ -40,3 +40,4 @@ Python 编程语言目前正处在从版本 2 升级到版本 3 的漫长过渡�
 
 * [Python 3 准备就绪](http://py3readiness.org/) 是一个有关 360 个最受欢迎的 Python 库（基于下载量）是否已支持 Python 3 的可视化页面。
 
+* 所有主要的科研型 Python 类库都承诺不晚于 2020 年，即当 Python 2 维护期结束时，[放弃支持 Python 2](https://python3statement.github.io/)。该承诺通过公开声明它们的意图来大力鼓励对 Python 3 的采纳。
