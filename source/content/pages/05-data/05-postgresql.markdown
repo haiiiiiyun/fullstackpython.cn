@@ -110,6 +110,8 @@ PostgreSQL 核心团队还经常发布更新，从而显著提高了数据库的
 
 * 这篇 [关于 Web 应用高可用性的幻灯片](http://thebuild.com/presentations/pgha-fosdem-2016.pdf) 对那些普遍运用于生产环境下的 Web 应用中的各色数据库配置进行了很好的概述。
 
+* [JSONB 数据类型](http://blog.heapanalytics.com/when-to-avoid-jsonb-in-a-postgresql-schema/) 在 PostgreSQL 9.4 中被引入，它使得存储半结构化的数据--这些之前由诸如 MongoDB 等 [NoSQL 数据库](/no-sql-datastore.html) 处理的数据更加容易。但是，有时候并不适合使用 JSONB， [这篇博客讲述了当时需避免使用这种列类型](http://blog.heapanalytics.com/when-to-avoid-jsonb-in-a-postgresql-schema/)。
+
 
 ### PostgreSQL 监测与性能
 监测一个或多个 PostgreSQL 实例，然后对它们进行优化是一项罕见技能。如果你想在应用中处理这些问题，下面的一些资源能帮助你入门。
