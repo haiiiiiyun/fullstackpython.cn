@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Matt Makai">
-    <meta name="description" content="Twilio is an API for developers to add communications such as phone calling, messaging and video to Python applications.">
+    <meta name="description" content="Twilio API 允许开发人员将电话拨打、短信发送和视频等通讯功能加入到 Python 应用中。">
     <link rel="shortcut icon" href="/img/fsp-fav.png">
     <title>Twilio - Full Stack Python 简体中文网站</title>
     <!--[if lt IE 9]>
@@ -37,87 +37,50 @@
 </div><div class="row">
     <div class="col-md-8">
           <h1>Twilio</h1>
-<p><a href="https://www.twilio.com/docs/quickstart/python/twiml">Twilio</a> is a 
-<a href="/application-programming-interfaces.html">web application programming interface (API)</a>
-that software developers can use to add communications such as 
-<a href="https://www.twilio.com/docs/tutorials/walkthrough/browser-calls/python/django">phone calling</a>, 
-<a href="https://www.twilio.com/docs/tutorials/walkthrough/server-notifications/python/django">messaging</a>, 
-<a href="https://www.twilio.com/docs/api/video/guide/quickstart-js">video</a> and 
-<a href="https://www.twilio.com/docs/tutorials/walkthrough/two-factor-authentication/python/flask">two-factor authentication</a>
-into their <a href="/learning-programming.html">Python</a> applications.</p>
+<p><a href="https://www.twilio.com/docs/quickstart/python/twiml">Twilio</a> 是一种 <a href="/application-programming-interfaces.html">Web 应用编程接口 (API)</a>，软件开发人员可以利用它来将 <a href="https://www.twilio.com/docs/tutorials/walkthrough/browser-calls/python/django">电话拨打</a>, <a href="https://www.twilio.com/docs/tutorials/walkthrough/server-notifications/python/django">短信发送</a>, <a href="https://www.twilio.com/docs/api/video/guide/quickstart-js">视频</a> 及 <a href="https://www.twilio.com/docs/tutorials/walkthrough/two-factor-authentication/python/flask">双因子认证</a> 等通讯功能加入到他们的 <a href="/learning-programming.html">Python</a> 应用中。</p>
 <p><img src="/img/twilio-logo.png" width="100%" alt="Twilio logo." class="technical-diagram" style="padding: 10px 0 10px 0;"/></p>
-<h2>Why is Twilio a good API choice?</h2>
-<p>Interacting with the standard telephone networks to send and receive
-phone calls and text messages without Twilio is extremely difficult 
-if you do not know the unique telecommunications protocols such as 
-Session Initiation Protocol (SIP). Twilio's API abstracts the 
-telecommunications pieces so as a developer you can simply use your 
-favorite programming languages and frameworks in your application.
-For example, here's how you can send an 
-<a href="https://www.twilio.com/docs/quickstart/python/sms/sending-via-rest">outbound SMS</a> 
-using a few lines of Python code:</p>
-<div class="highlight"><pre><span></span><span class="c1"># import the Twilio helper library (installed with pip install twilio)</span>
+<h2>为什么 Twilio 是一个好的 API 选择？</h2>
+<p>如果你不知道像会话初始化协议（SIP）等的专门通讯协议，不使用 Twilio 与标准电话网络进行交互，并发送和接收电话和短信是极其困难的。Twilio 的 API 对通讯部分进行了抽象，从而作为一个开发者，你只需在你的应用中使用你熟悉的编程语言和框架。例如，这里是如何<a href="https://www.twilio.com/docs/quickstart/python/sms/sending-via-rest">发送短信</a> 的例子，只用了几行 Python 代码：</p>
+<div class="highlight"><pre><span></span><span class="c1"># 导入 Twilio 辅助库 (通过 pip install twilio 进行安装)</span>
 <span class="kn">from</span> <span class="nn">twilio.rest</span> <span class="kn">import</span> <span class="n">TwilioRestClient</span>
 
-<span class="c1"># replace the placeholder strings in the following code line with </span>
-<span class="c1"># your Twilio Account SID and Auth Tokenfrom the Twilio Console</span>
+<span class="c1"># 将下面代码行中的占位符替换成</span>
+<span class="c1"># 你的 Twilio 帐号 SID 及从 Twilio Console 中获取的 Auth Token</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">TwilioRestClient</span><span class="p">(</span><span class="s2">&quot;ACxxxxxxxxxxxxxx&quot;</span><span class="p">,</span> <span class="s2">&quot;zzzzzzzzzzzzz&quot;</span><span class="p">)</span>
 
-<span class="c1"># change the &quot;from_&quot; number to your Twilio number and the &quot;to&quot; number</span>
-<span class="c1"># to any phone number you want to send the message to </span>
+<span class="c1"># 将 &quot;from_&quot; 号码修改成你的 Twilio 号码并将 &quot;to&quot; 号码</span>
+<span class="c1"># 修改成你想发送短信的任意手机号码</span>
 <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;+19732644152&quot;</span><span class="p">,</span> <span class="n">from_</span><span class="o">=</span><span class="s2">&quot;+12023358536&quot;</span><span class="p">,</span> 
                        <span class="n">body</span><span class="o">=</span><span class="s2">&quot;Hello from Python!&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<p>Learn more about the above code in the 
-<a href="/blog/send-sms-text-messages-python.html">How to Send SMS Text Messages with Python tutorial</a>.</p>
-<h2>How is Twilio's documentation for Python developers?</h2>
-<p>Twilio is a developer-focused company, rather than a traditional 
-"enterprise company", so their tutorials and 
-<a href="https://www.twilio.com/docs">documentation</a> are written by developers 
-for fellow developers.</p>
-<h3>More Twilio resources</h3>
+<p>在 <a href="/blog/send-sms-text-messages-python.html">如果使用 Python 发送短信教程</a> 中学习关于上面代码的更多知识。</p>
+<h2>Twilio 为 Python 开发人员编写的文档怎么样？</h2>
+<p>Twilio 是一家技术型公司，不是一个传统企业，因此它们的教程和 <a href="https://www.twilio.com/docs">文档</a> 都是由开发人员编写的。</p>
+<h3>关于 Twilio 的更多资源</h3>
 <ul>
 <li>
-<p>Most <a href="https://www.twilio.com/docs/tutorials">Twilio Tutorials</a> have 
-  idiomatic Python versions with entire open source applications in
-  <a href="/django.html">Django</a> and <a href="/flask.html">Flask</a>.</p>
+<p>大部分的 <a href="https://www.twilio.com/docs/tutorials">Twilio 教程</a> 都有相应的 Python 版本，并附有用 <a href="/django.html">Django</a> 和 <a href="/flask.html">Flask</a> 写的完全开源的应用程序。</p>
 </li>
 <li>
-<p><a href="https://automatetheboringstuff.com/">Automate the Boring Stuff with Python</a>
-  includes 
-  <a href="https://automatetheboringstuff.com/chapter16/">a chapter on sending text messages</a> 
-  that uses Twilio to get the job done.</p>
+<p><a href="https://automatetheboringstuff.com/">用 Python 自动化枯燥的事务</a> 中包含有 <a href="https://automatetheboringstuff.com/chapter16/">发送短信的一个章节</a>，它使用 Twilio 来实现。</p>
 </li>
 <li>
-<p>IBM's Bluemix blog contains a nice tutorial on building an 
-  <a href="https://developer.ibm.com/bluemix/2015/04/02/tutorial-using-a-raspberry-pi-python-iot-twilio-bluemix/">IoT Python app with a Raspberry Pi and Bluemix</a>
-  that uses Twilio to interact with the Raspberry Pi.</p>
+<p>IBM Bluemix 博客上有一篇很精彩的教程，讲述了<a href="https://developer.ibm.com/bluemix/2015/04/02/tutorial-using-a-raspberry-pi-python-iot-twilio-bluemix/">使用 Raspberry Pi 和 Bluemix 来创建一个 IoT Python 应用</a>，里面使用 Twilio 与 Raspberry Pi 交互。</p>
 </li>
 <li>
-<p>The <a href="https://www.twilio.com/blog/tag/python">Python tag on the Twilio blog</a>
-  provides walkthroughs for 
-  <a href="https://www.twilio.com/blog/2015/12/city-chat-with-python-django-and-twilio-ip-messaging.html">Django</a>, 
-  <a href="https://www.twilio.com/blog/2015/11/international-space-station-notifications-with-python-redis-queue-and-twilio-copilot.html">Flask</a> 
-  and <a href="https://www.twilio.com/blog/2016/08/getting-started-python-bottle-twilio-sms-mms.html">Bottle</a> 
-  apps to learn from while building your own projects.</p>
+<p><a href="https://www.twilio.com/blog/tag/python">Twilio 博客上的 Python 标签上</a> 提供了当你构建自己的项目时可供学习的 <a href="https://www.twilio.com/blog/2015/12/city-chat-with-python-django-and-twilio-ip-messaging.html">Django</a>、<a href="https://www.twilio.com/blog/2015/11/international-space-station-notifications-with-python-redis-queue-and-twilio-copilot.html">Flask</a> 和 <a href="https://www.twilio.com/blog/2016/08/getting-started-python-bottle-twilio-sms-mms.html">Bottle</a> 应用。</p>
 </li>
 <li>
-<p><a href="https://cloud.google.com/appengine/docs/python/sms/twilio">Google Cloud recommends developers use Twilio</a>
-  for communications in their apps and provides a short walkthrough for
-  Python developers.</p>
+<p><a href="https://cloud.google.com/appengine/docs/python/sms/twilio">Google Cloud 推荐开发人员在他们的应用中使用 Twilio 进行通讯</a> ，并为 Python 开发人员提供了一份简短的演示。</p>
 </li>
 <li>
-<p><a href="https://www.easypost.com/sms-tracking-tutorial">SMS Tracking Notifications</a>
-  is a fun tutorial that combines two APIs together - Twilio and 
-  <a href="https://www.easypost.com">Easypost</a> to track packages sent through the
-  Easypost service.</p>
+<p><a href="https://www.easypost.com/sms-tracking-tutorial">SMS 跟踪提醒</a> 是一个很有趣的教程，它整合了两种 API - Twilio 和 <a href="https://www.easypost.com">Easypost</a> 来跟踪在 Easypost 服务网络上发送的包裹。</p>
 </li>
 </ul>
-<h4>Disclaimer</h4>
-<p>I <a href="/about-author.html">currently work at Twilio</a> as a 
-<a href="https://www.twilio.com/blog/2014/02/introducing-developer-evangelist-matt-makai.html">Developer Evangelist</a>.</p>
+<h4>免责声明</h4>
+<p>我 <a href="/about-author.html">目前在 Twilio 工作</a>, 是一位 <a href="https://www.twilio.com/blog/2014/02/introducing-developer-evangelist-matt-makai.html">开发者布道者</a>。</p>
 <h3>Do you want to know more about integrating or creating APIs?</h3>
 <div class="row">
     <div class="col-md-4">

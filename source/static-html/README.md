@@ -72,7 +72,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/06-web-apis/01-application-programming-interfaces.markdown (2016-07-26)
 - [x] content/pages/06-web-apis/02-api-integration.markdown (2016-07-27)
 - [x] content/pages/06-web-apis/03-api-creation.markdown (2016-08-18)
-- [ ] content/pages/06-web-apis/04-twilio.markdown
+- [x] content/pages/06-web-apis/04-twilio.markdown (2016-09-13)
 
 ### 七、Web 应用部署
 
@@ -108,11 +108,6 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 - [x] content/pages/08-testing/03-integration-testing.markdown (2016-07-06 by [Christopher L](http://blog.chriscabin.com/))
 - [x] content/pages/08-testing/05-code-metrics.markdown (2016-07-07 by [Christopher L](http://blog.chriscabin.com/))
 - [x] content/pages/08-testing/08-debugging.markdown (2016-07-07 by [Christopher L](http://blog.chriscabin.com/))
-
-### 九、Python 机器人
-
-- [ ] content/pages/09-bots/01-bots.markdown
-
 
 
 ## 如何贡献翻译
