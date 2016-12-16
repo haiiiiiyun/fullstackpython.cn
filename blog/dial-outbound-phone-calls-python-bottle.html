@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Matt Makai">
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="author" content="Matt Makai">
     <meta name="description" content="A tutorial that shows how to dial outbound phone calls with a Bottle web application built with Python 3.">
-    <link rel="shortcut icon" href="/img/fsp-fav.png">
-    <title>Dialing Outbound Phone Calls with a Bottle Web App - Full Stack Python 简体中文网站</title>
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    <link href="/theme/css/f.min.css" rel="stylesheet">
+ <title>Dialing Outbound Phone Calls with a Bottle Web App - Full Stack Python</title>
+ <link href="/f.css" rel="stylesheet">
+ <link rel="shortcut icon" href="/img/fsp-fav.png">
 </head>
 <body>
-    <a href="https://github.com/haiiiiiyun/fullstackpython.cn"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/img/fork.png" alt="Fork me on GitHub"></a>
-    <div class="container">
+ <div class="container">
 <div class="row">
     <div class="col-md-12">
         <div class="logo-header-section">
-            <a href="/" style="text-decoration: none; border: none;"><img src="/theme/img/logo.png" height="52" width="52" class="logo-image" style="padding-top: 1px;" alt="Full Stack Python logo"></a>
+            <a href="/" style="text-decoration: none; border: none;"><img src="/img/logo-sm.png" class="logo-image" alt="Full Stack Python logo"></a>
             <span class="logo-title"><a href="https://www.fullstackpython.com/">Full Stack Python</a></span>
         </div>
-<div class="subnav">
-    <!--<a href="/blog.html" class="submenu-item-first">Blog</a> |
-    <a href="/books.html" class="submenu-item">书籍</a> | -->
-    <a href="/table-of-contents.html" class="submenu-item-first">全部主题</a> | 
-    <a href="/blog.html" class="submenu-item">Blog</a> |
-    <a href="/email.html" class="submenu-item">时讯</a> |
-    <a href="https://twitter.com/fullstackpython" class="submenu-item">@fullstackpython</a> |
-    <a href="https://www.facebook.com/fullstackpython" class="submenu-item">Facebook</a> |
-    <a href="https://github.com/mattmakai/fullstackpython.com/tree/gh-pages/source" class="submenu-item">源码</a> 
+<div class="sans-font">
+  <!--<a href="/blog.html" class="submenu-item-first">Blog</a> |
+  <a href="/books.html" class="submenu-item">Books</a> | -->
+  <a href="/table-of-contents.html">全部主题</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="/blog.html">Blog</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="/email.html">时讯</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="https://twitter.com/fullstackpython">@fullstackpython</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="https://www.facebook.com/fullstackpython">Facebook</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="https://github.com/mattmakai/fullstackpython.com">源码</a> 
 </div>    </div>
 </div>  <div class="row">
     <div class="col-md-8">
-      <h1 class="blog-h1">Dialing Outbound Phone Calls with a Bottle Web App</h1>
+      <h1 style="font-size: 36px;">Dialing Outbound Phone Calls with a Bottle Web App</h1>
       <div class="post-byline">
         Posted by <a href="/about-author.html">Matt Makai</a> on 
         八月 30, 2016.
-      </div>
+Last updated
+        十月 27, 2016.      </div>
       <!--<div width="100%" style="margin: 5px 0 10px 0; height: 250px; overflow: hidden; border-radius: 12px;">
           <img src="/source/static/img/160830-phone-calls-bottle/header.jpg" alt="Bottle, Python and Twilio logos. Copyright their respective owners." width="100%" style="height: 500px; margin: -100px 0 -100px 0;">
       </div>-->
       <p>Python web apps built with the <a href="/bottle.html">Bottle web framework</a> can 
 <a href="/blog/send-sms-text-messages-python.html">send</a> and 
-<a href="/blog/reply-sms-text-messages-python-bottle.html">receive SMS text messages</a>,
+<a href="/blog/reply-sms-text-messages-python-bottle.html">receive SMS text messages</a>.
 In this tutorial we will go beyond texting and learn how to dial outbound 
 phone calls. The calls will read a snippet of text then play an MP3 file,
 but they can then be easily modified to create conference lines and many
@@ -76,8 +77,10 @@ if you need help getting your
 configured before continuing on through the remainder of this tutorial.</p>
 <p>You can snag all the open source code for this tutorial in the 
 <a href="https://github.com/mattmakai/python-bottle-phone">python-bottle-phone</a>
-GitHub repository. Use and copy the code however you want - it's all open 
-source under the MIT license.</p>
+GitHub repository under the 
+<a href="https://github.com/mattmakai/python-bottle-phone/tree/master/outbound-calls">outbound directory</a>. 
+Use and copy the code however you want - it's all open source under the 
+MIT license.</p>
 <h2>Installing Our Application Dependencies</h2>
 <p>Our Bottle app needs a helper code library to make it easy to dial outbound
 phone calls. Bottle and the Twilio helper library are installable from 
@@ -105,9 +108,9 @@ into your virtualenv.</p>
 </pre></div>
 
 
-<p>After the installation script finishing, we will have the required 
-dependencies to build our app. Let's write some Python code to dial outbound
-phone calls.</p>
+<p>After the installation script finishes, we will have the required 
+dependencies to build our app. Time to write some Python code to dial 
+outbound phone calls.</p>
 <h2>Bottle and Twilio</h2>
 <p>Our simple Bottle web app will have three routes: </p>
 <ul>
@@ -161,7 +164,7 @@ on the Bottle code library.</p>
 
 
 <p>We should see a successful development server start up like this:</p>
-<div class="highlight"><pre><span></span>(bottlevoice) matt@ubuntu:~/bottlephone$ python app.py 
+<div class="highlight"><pre><span></span>(bottlephone) matt@ubuntu:~/bottlephone$ python app.py 
 Bottle v0.12.9 server starting up (using WSGIRefServer())...
 Listening on http://127.0.0.1:8000/
 Hit Ctrl-C to quit.
@@ -308,10 +311,10 @@ Ngrok.</p>
 outbound phone calls. Not bad!</p>
 <h2>What's next?</h2>
 <p>Sweet, we can now dial outbound phone calls to <em>any</em> phone number from
-our Bottle web app. Next you may want to try one of these tutorials to
-add even more features to your app:</p>
+our Bottle web application. Next you may want to try one of these tutorials 
+to add even more features to your app:</p>
 <ul>
-<li>Upgrade your <a href="/blog/reply-sms-text-messages-python-bottle.html">Bottle app to also send and response to text messages</a></li>
+<li>Upgrade your <a href="/blog/reply-sms-text-messages-python-bottle.html">Bottle app to also send and respond to text messages</a></li>
 <li>Create a <a href="https://www.twilio.com/blog/2016/05/add-phone-calling-slack-python.html">phone-calling Slack bot</a></li>
 <li>Implement <a href="https://www.twilio.com/docs/tutorials/walkthrough/call-tracking/python/django">call tracking</a>
   for both inbound and outbound phone calls made through your app</li>
@@ -341,7 +344,7 @@ or <a href="https://twitter.com/mattmakai">@mattmakai</a>. I'm also on GitHub as
 </div>
     </div>
     <div class="col-md-offset-1 col-md-3">
-<div class="panel panel-success" id="sidebar">
+<div class="panel" id="sidebar">
   <div class="panel-heading">
     <h3 class="panel-head">Learn more about these concepts</h3>
   </div>
@@ -356,38 +359,31 @@ or <a href="https://twitter.com/mattmakai">@mattmakai</a>. I'm also on GitHub as
   </div>
 </div>    </div>
   </div>
-        <hr/>
-    </div> 
-<div style="padding: 0 0 20px 0; margin: 0 0 20px 0; background-color: #22B24C;">
-    <div class="container">
-        <p class="banner"><a href="https://www.gumroad.com/l/python-deployments" style="color: #fff">正在学习 Web 开发吗？ 看下这本 《The Full Stack Python 部署指南》</a>!</p>
+  <hr/>
+ </div> 
+<div class="container">
+    <div class="footer pull-right">
+        <a href="http://www.fullstackpython.com/">Original Version(English) </a>By
+        <a href="http://www.mattmakai.com/" class="underline">Matt Makai</a>
+        2016
     </div>
-</div>    <div class="container">
-        <div class="footer pull-right">
-            <a href="http://www.fullstackpython.com/">Original Version(English) </a>By
-            <a href="http://www.mattmakai.com/" class="underline">Matt Makai</a>
-            2016
-        </div>
+</div>
+<div class="container">
+    <div class="footer pull-right" style="text-align:right; font-size:85%;">
+        <p>此网站由 <a href="https://github.com/haiiiiiyun">@haiiiiiyun</a> 维护，由
+          <a href="https://github.com/haiiiiiyun/fullstackpython.cn/graphs/contributors">开源爱好者们</a> 共同翻译。
+          若发现错误或想贡献翻译，请访问： <a href="https://github.com/haiiiiiyun/fullstackpython.cn/">Github fullstackpython.cn 项目</a>
+        </p>
     </div>
-    <div class="container">
-        <div class="footer pull-right" style="text-align:right; font-size:85%;">
-            <p>此网站由 <a href="https://github.com/haiiiiiyun">@haiiiiiyun</a> 维护，由
-              <a href="https://github.com/haiiiiiyun/fullstackpython.cn/graphs/contributors">开源爱好者们</a> 共同翻译。
-              若发现错误或想贡献翻译，请访问： <a href="https://github.com/haiiiiiyun/fullstackpython.cn/">Github fullstackpython.cn 项目</a>
-            </p>
-        </div>
-    </div>
-<script>
+</div><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-77551377-2', 'auto');
   ga('send', 'pageview');
-</script>
-
-<script type='text/javascript'>
-    var trackOutboundLink = function(url) { ga('send', 'event', 'outbound', 'click', url, {'hitCallback': function () { document.location = url; } }); }
+</script><script type='text/javascript'>
+var trackOutboundLink = function(url) { ga('send', 'event', 'outbound', 'click', url, {'hitCallback': function () { document.location = url; } }); }
 </script>
 </body>
 </html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="author" content="Matt Makai">
+  <meta name="description" content="Lektor is a static website generator with content management system (CMS) and web framework features for creating websites.">
+ <title>Lektor - Full Stack Python</title>
+ <link href="/f.css" rel="stylesheet">
+ <link rel="shortcut icon" href="/img/fsp-fav.png">
+</head>
+<body>
+ <div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <div class="logo-header-section">
+            <a href="/" style="text-decoration: none; border: none;"><img src="/img/logo-sm.png" class="logo-image" alt="Full Stack Python logo"></a>
+            <span class="logo-title"><a href="https://www.fullstackpython.com/">Full Stack Python</a></span>
+        </div>
+<div class="sans-font">
+  <!--<a href="/blog.html" class="submenu-item-first">Blog</a> |
+  <a href="/books.html" class="submenu-item">Books</a> | -->
+  <a href="/table-of-contents.html">全部主题</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="/blog.html">Blog</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="/email.html">时讯</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="https://twitter.com/fullstackpython">@fullstackpython</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="https://www.facebook.com/fullstackpython">Facebook</a>
+  <span style="margin:0 12px 0 12px">|</span>
+  <a href="https://github.com/mattmakai/fullstackpython.com">源码</a> 
+</div>    </div>
+</div><div class="row">
+    <div class="col-md-8">
+          <h1>Lektor</h1>
+<p><a href="https://www.getlektor.com/">Lektor</a> is a static website generator with 
+content management system (CMS) and <a href="/web-frameworks.html">web framework</a> 
+features for creating websites. </p>
+<p>Lektor's
+<a href="https://github.com/lektor/lektor">source code is available on GitHub</a> 
+under the 
+<a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-clause license</a>.</p>
+<p><a href="https://www.getlektor.com/" style="border: none;"><img src="/img/lektor-logo.jpg" width="100%" alt="Lektor static website generator logo." class="technical-diagram" style="border-radius:5px"></a></p>
+<h2>How is Lektor different from other static site generators?</h2>
+<p>Most static site generators such as <a href="/pelican.html">Pelican</a> are built with
+programmers as the primary user. Lektor tries to be more accessible to
+non-programmers by providing an admin panel for creating and updating
+site content similar to Django or Wordpress.</p>
+<div class="well see-also">Lektor is an implementation of the <a href="/static-site-generator.html">static site generators</a> concept. Learn how the parts fit together in the <a href="/web-development.html">web development</a> chapter or view <a href="/table-of-contents.html">all topics</a>.</div>
+
+<h2>Lektor resources</h2>
+<p>Lektor is a young project and therefore has a nascent community compared with
+<a href="/pelican.html">Pelican</a> and Jekyll (the most popular Ruby-based static 
+site generator). However, the official documentation and initial quickstarts 
+for the project are wonderful so getting a basic site up and running is 
+painless.</p>
+<ul>
+<li>
+<p><a href="http://lucumr.pocoo.org/2015/12/21/introducing-lektor/">Introducing Lektor</a>
+  is the background story for what motivated 
+  <a href="https://github.com/mitsuhiko">Armin Ronacher</a> to start hacking on his own
+  static site generator project after jumping around from Django to Wordpress
+  for hosting content. The post also includes details on the differences 
+  in the project compared to other static site generators.</p>
+</li>
+<li>
+<p><a href="https://zerokspot.com/weblog/2016/09/16/hello-lektor/">Hello, Lektor</a> is
+  a wonderful getting started and overview post. The post walks through the
+  files Lektor generates, the admin content management system and pulling
+  data into pages from the Meetup API.</p>
+</li>
+<li>
+<p>The <a href="https://www.getlektor.com/docs/quickstart/">official Lektor quickstart</a>
+  contains the first commands to use to generate a new project scaffold.
+  There is also a getting started screencast that walks through installing
+  and initial steps for getting set up with the project.</p>
+</li>
+<li>
+<p><a href="http://www.dreisbach.us/blog/converting-to-lektor/">Converting to Lektor</a>
+  provides a quick hack for converting exported content in XML from 
+  <a href="https://www.silvrback.com/">Silvrback</a> to a format that Lektor can use
+  to generate a new site.</p>
+</li>
+<li>
+<p><a href="https://blog.liip.ch/archive/2016/09/21/lektor-static-cms-put-fun-back-content-management.html">Lektor Static CMS, put the fun back into Content Management</a>
+  is a short overview as the first part in what aims to be a continuing
+  series on how to use Lektor as a content management system.</p>
+</li>
+<li>
+<p>In 
+  <a href="https://emptysqua.re/blog/experience-migrating-to-lektor/">Experiences Migrating to Lektor</a>
+  the author gives his impression of Lektor after moving his 400+ articles
+  over from a home-grown blogging engine. He talks a bit about how he went
+  from deploying on GitHub Pages to surge.sh and finally over to Netlify.</p>
+</li>
+</ul>
+<h3>关于静态网站生成器还有其它什么要学吗？</h3>
+<div class="row">
+    <div class="col-md-4">
+        <div class="well select-next">
+<a href="/static-site-generator.html" class="btn btn-success btn-full"><svg width="28" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 1632v-1088q0-13-9.5-22.5t-22.5-9.5h-1088q-13 0-22.5 9.5t-9.5 22.5v1088q0 13 9.5 22.5t22.5 9.5h1088q13 0 22.5-9.5t9.5-22.5zm128-1088v1088q0 66-47 113t-113 47h-1088q-66 0-113-47t-47-113v-1088q0-66 47-113t113-47h1088q66 0 113 47t47 113zm-384-384v160h-128v-160q0-13-9.5-22.5t-22.5-9.5h-1088q-13 0-22.5 9.5t-9.5 22.5v1088q0 13 9.5 22.5t22.5 9.5h160v128h-160q-66 0-113-47t-47-113v-1088q0-66 47-113t113-47h1088q66 0 113 47t47 113z" fill="#fff"/></svg></a>
+<p class="under-btn">什么是静态网站生成器?</p>        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="well select-next">
+<a href="/web-frameworks.html" class="btn btn-success btn-full"><svg width="28" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M553 1399l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23t-10 23l-393 393 393 393q10 10 10 23t-10 23zm591-1067l-373 1291q-4 13-15.5 19.5t-23.5 2.5l-62-17q-13-4-19.5-15.5t-2.5-24.5l373-1291q4-13 15.5-19.5t23.5-2.5l62 17q13 4 19.5 15.5t2.5 24.5zm657 651l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23t-10 23z" fill="#fff"/></svg></a>
+<p class="under-btn">我想学习如何用框架创建 Python Web 应用。</p>        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="well select-next">
+<a href="/deployment.html" class="btn btn-success btn-full"><svg width="28" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 640q0 26-19 45l-512 512q-19 19-45 19t-45-19-19-45v-256h-224q-98 0-175.5 6t-154 21.5-133 42.5-105.5 69.5-80 101-48.5 138.5-17.5 181q0 55 5 123 0 6 2.5 23.5t2.5 26.5q0 15-8.5 25t-23.5 10q-16 0-28-17-7-9-13-22t-13.5-30-10.5-24q-127-285-127-451 0-199 53-333 162-403 875-403h224v-256q0-26 19-45t45-19 45 19l512 512q19 19 19 45z" fill="#fff"/></svg></a>
+<p class="under-btn">我已经创建了一个 Python Web 应用，那我如何部署呢？</p>        </div>
+    </div>
+</div><div id="mc_embed_signup">
+<form action="//mattmakai.us2.list-manage.com/subscribe/post?u=b7e774f0c4f05dcebbfee183d&amp;id=b22335388d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+        <h4>在这里注册以便每月能收到一份邮件资料，内容包含本站的主要更新、教程和 Python 书籍的打折码等。</h4>
+        <div class="row">
+            <div class="col-md-9">
+                <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="邮箱地址" required>
+                <div style="position: absolute; left: -5000px;"><input type="text" name="b_b7e774f0c4f05dcebbfee183d_b22335388d" tabindex="-1" value=""></div>
+            </div>
+            <div class="col-md-3">
+                <div class="clear"><input type="submit" value="订阅" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success" style="font-family: 'Helvetica Neue';"></div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+    </div>
+<div class="col-md-offset-1 col-md-3" id="sidebar">
+<div class="panel panel-success">
+  <div class="panel-body">
+    <a href="http://www.deploypython.com/"><img src="/img/sponsored/fsp-deployment-guide.png" alt="The Full Stack Python Guide to Deployments" width="100%"></a>
+    <p style="font-size: .8em; margin-top: 10px;">想找到一个完整的，一步一步的部署方案吗？请看<a href="http://www.deploypython.com/">《The Full Stack Python Guide to Deployments》</a>. 
+    </p>
+  </div>
+</div><div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-head">邮件获取更新</h3>
+  </div>
+  <div class="panel-body">
+    <div id="mc_embed_signup">
+    <form action="//mattmakai.us2.list-manage.com/subscribe/post?u=b7e774f0c4f05dcebbfee183d&amp;id=b22335388d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <h5>注册以便每月能收到一份邮件资料，内容包含本站的主要更新和 Python 教程。</h5>
+            <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="邮箱地址" required>
+            <div style="position: absolute; left: -5000px;"><input type="text" name="b_b7e774f0c4f05dcebbfee183d_b22335388d" tabindex="-1" value=""></div>
+            <input type="submit" value="订阅" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success" style="font-family: 'Helvetica Neue'; margin-top: 5px;">
+        </div>
+    </form>
+    </div>
+  </div>
+</div><div class="panel" id="full-toc">
+  <div class="panel-heading">
+    <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">目录</a></h3>
+  </div>
+  <div class="list-group">
+<a href="/introduction.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/learning-programming.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>学习编程</a><a href="/why-use-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>为什么用 Python？</a><a href="/python-2-or-3.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Python 2 还是 3？</a><a href="/enterprise-python.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>企业 Python</a><a href="/python-community.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Python Community</a><a href="/best-python-podcasts.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Best Python Podcasts</a><a href="/best-python-resources.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>最佳 Python 资源</a><a href="/best-python-videos.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>最佳 Python 视频</a><a href="/development-environments.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/vim.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Vim</a><a href="/emacs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Emacs</a><a href="/python-programming-language.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/generators.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>生成器</a><a href="/comprehensions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>推导式</a><a href="/web-development.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Web 框架</a><a href="/django.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Django</a><a href="/flask.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Flask</a><a href="/bottle.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Bottle</a><a href="/pyramid.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Pyramid</a><a href="/morepath.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Morepath</a><a href="/other-web-frameworks.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>其它 Web 框架</a><a href="/web-design.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Web 设计</a><a href="/cascading-style-sheets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>级联样式表 (CSS)</a><a href="/javascript.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>JavaScript</a><a href="/websockets.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>WebSockets</a><a href="/template-engines.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>模板引擎</a><a href="/web-application-security.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Web 应用安全</a><a href="/static-site-generator.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>静态网站生成器</a><a href="/jinja2.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Jinja2</a><a href="/data.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/databases.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>关系型数据库</a><a href="/no-sql-datastore.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>NoSQL 数据存储</a><a href="/object-relational-mappers-orms.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>对象关系映射器</a><a href="/postgresql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>PostgreSQL</a><a href="/mysql.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>MySQL</a><a href="/sqlite.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>SQLite</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/api-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>API 集成</a><a href="/api-creation.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>API 的创建</a><a href="/twilio.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Twilio</a><a href="/deployment.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a><a href="/servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>服务器</a><a href="/platform-as-a-service.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>平台即服务（PaaS）</a><a href="/operating-systems.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>操作系统</a><a href="/web-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Web 服务器</a><a href="/wsgi-servers.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>WSGI 服务器</a><a href="/source-control.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>源码控制</a><a href="/application-dependencies.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>应用程序依赖</a><a href="/static-content.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>静态内容</a><a href="/task-queues.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>任务队列</a><a href="/configuration-management.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>配置管理</a><a href="/continuous-integration.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>持续集成</a><a href="/logging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>日志</a><a href="/monitoring.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>监控</a><a href="/web-analytics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Web 分析</a><a href="/docker.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Docker</a><a href="/caching.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>缓存</a><a href="/microservices.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>微服务</a><a href="/devops.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>DevOps</a><a href="/nginx.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Nginx</a><a href="/apache-http-server.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Apache HTTP 服务器</a><a href="/caddy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Caddy</a><a href="/green-unicorn-gunicorn.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Green Unicorn (Gunicorn)</a><a href="/ubuntu.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Ubuntu</a><a href="/pelican.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Pelican</a><a href="/lektor.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Lektor</a><a href="/mkdocs.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>MkDocs</a><a href="/testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/unit-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>单元测试</a><a href="/integration-testing.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>集成测试</a><a href="/code-metrics.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>代码度量</a><a href="/debugging.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>调试</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a><a href="/bots.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Bots</a><a href="/change-log.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Change Log</a><a href="/future-directions.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Future Directions</a><a href="/about-author.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>About the Author</a><a href="/sqlalchemy.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>SQLAlchemy</a><a href="/peewee.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",sans-serif; padding-left:27px'>Peewee</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...或者<span style="border-bottom: 1px dotted;">显示全部目录内容</span>.</a>
+  </div>
+</div>  <div class="panel">
+      <div class="panel-heading"><h3 class="panel-head">Lektor</h3></div>
+      <div class="panel-body">
+          重要的更新内容会通过 Twitter 账号<a href="https://twitter.com/fullstackpython">@fullstackpython</a>发布。
+          <hr/>
+          需要更加详细的教程吗？请看
+          <a href="http://www.deploypython.com/">《The Full Stack Python Guide to Deployments》。</a>
+      </div>
+  </div>
+<div class="panel" id="mobile-toc">
+  <div class="panel-heading">
+    <h3 class="panel-head"><a href="/table-of-contents.html" style="color: #fff;">Chapters</a></h3>
+  </div>
+  <div class="list-group">
+<a href="/introduction.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>1. 简介</a><a href="/development-environments.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>2. 开发环境</a><a href="/python-programming-language.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>3. 核心语言</a><a href="/web-development.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>4. Web 开发</a><a href="/data.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>5. 数据</a><a href="/application-programming-interfaces.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>6. Web APIs</a><a href="/deployment.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>7. 部署</a>  <a href="/lektor.html" class="list-group-item smaller-item active" style='font-family: "Helvetica Neue",sans-serif;'>&raquo; Lektor</a>
+<a href="/testing.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>8. 测试</a><a href="/what-full-stack-means.html" class="list-group-item smaller-item " style='font-family: "Helvetica Neue",sans-serif;'>9. Meta</a>    <a href="/table-of-contents.html" class="list-group-item smaller-item" style='font-family: "Helvetica Neue",san-serif;background-color:#22B24C; color: #fff;'>...or <span style="border-bottom: 1px dotted;">view the full table of contents</span>.</a>
+  </div>
+</div></div></div>
+  <hr/>
+ </div> 
+<div class="container">
+    <div class="footer pull-right">
+        <a href="http://www.fullstackpython.com/">Original Version(English) </a>By
+        <a href="http://www.mattmakai.com/" class="underline">Matt Makai</a>
+        2016
+    </div>
+</div>
+<div class="container">
+    <div class="footer pull-right" style="text-align:right; font-size:85%;">
+        <p>此网站由 <a href="https://github.com/haiiiiiyun">@haiiiiiyun</a> 维护，由
+          <a href="https://github.com/haiiiiiyun/fullstackpython.cn/graphs/contributors">开源爱好者们</a> 共同翻译。
+          若发现错误或想贡献翻译，请访问： <a href="https://github.com/haiiiiiyun/fullstackpython.cn/">Github fullstackpython.cn 项目</a>
+        </p>
+    </div>
+</div><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-77551377-2', 'auto');
+  ga('send', 'pageview');
+</script><script type='text/javascript'>
+var trackOutboundLink = function(url) { ga('send', 'event', 'outbound', 'click', url, {'hitCallback': function () { document.location = url; } }); }
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@ toc: True
 sidebartitle: 1. 简介
 translators: haiiiiiyun.github.io
 updated: 2016-05-22 14:28
-meta: Full Stack Python 通过使用朴实的语言阐释概念并提供丰富的资源来帮助你学习 Python 编程。
+meta: Full Stack Python 为 Python 编程概念及实现提供了简洁的阐释。
 
 
 # 简介

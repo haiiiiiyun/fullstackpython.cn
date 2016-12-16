@@ -3,14 +3,14 @@ slug: dial-outbound-phone-calls-python-bottle
 meta: A tutorial that shows how to dial outbound phone calls with a Bottle web application built with Python 3.
 category: post
 date: 2016-08-30
-modified: 2016-08-30
+modified: 2016-10-27
 headerimage: /source/static/img/160830-phone-calls-bottle/header.jpg
 headeralt: Bottle, Python and Twilio logos. Copyright their respective owners.
 
 
 Python web apps built with the [Bottle web framework](/bottle.html) can 
 [send](/blog/send-sms-text-messages-python.html) and 
-[receive SMS text messages](/blog/reply-sms-text-messages-python-bottle.html),
+[receive SMS text messages](/blog/reply-sms-text-messages-python-bottle.html).
 In this tutorial we will go beyond texting and learn how to dial outbound 
 phone calls. The calls will read a snippet of text then play an MP3 file,
 but they can then be easily modified to create conference lines and many
@@ -43,8 +43,10 @@ configured before continuing on through the remainder of this tutorial.
 
 You can snag all the open source code for this tutorial in the 
 [python-bottle-phone](https://github.com/mattmakai/python-bottle-phone)
-GitHub repository. Use and copy the code however you want - it's all open 
-source under the MIT license.
+GitHub repository under the 
+[outbound directory](https://github.com/mattmakai/python-bottle-phone/tree/master/outbound-calls). 
+Use and copy the code however you want - it's all open source under the 
+MIT license.
 
 
 ## Installing Our Application Dependencies
@@ -78,9 +80,9 @@ into your virtualenv.
     pip install bottle twilio
 
 
-After the installation script finishing, we will have the required 
-dependencies to build our app. Let's write some Python code to dial outbound
-phone calls.
+After the installation script finishes, we will have the required 
+dependencies to build our app. Time to write some Python code to dial 
+outbound phone calls.
 
 
 ## Bottle and Twilio
@@ -140,7 +142,7 @@ python app.py
 We should see a successful development server start up like this:
 
 ```
-(bottlevoice) matt@ubuntu:~/bottlephone$ python app.py 
+(bottlephone) matt@ubuntu:~/bottlephone$ python app.py 
 Bottle v0.12.9 server starting up (using WSGIRefServer())...
 Listening on http://127.0.0.1:8000/
 Hit Ctrl-C to quit.
@@ -317,10 +319,10 @@ outbound phone calls. Not bad!
 
 ## What's next?
 Sweet, we can now dial outbound phone calls to *any* phone number from
-our Bottle web app. Next you may want to try one of these tutorials to
-add even more features to your app:
+our Bottle web application. Next you may want to try one of these tutorials 
+to add even more features to your app:
 
-* Upgrade your [Bottle app to also send and response to text messages](/blog/reply-sms-text-messages-python-bottle.html)
+* Upgrade your [Bottle app to also send and respond to text messages](/blog/reply-sms-text-messages-python-bottle.html)
 * Create a [phone-calling Slack bot](https://www.twilio.com/blog/2016/05/add-phone-calling-slack-python.html)
 * Implement [call tracking](https://www.twilio.com/docs/tutorials/walkthrough/call-tracking/python/django)
   for both inbound and outbound phone calls made through your app

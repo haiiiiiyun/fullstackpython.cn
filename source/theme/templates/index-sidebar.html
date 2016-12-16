@@ -1,13 +1,12 @@
 <div class="col-md-offset-1 col-md-3" id="sidebar">
   {% include "rp-advert.html" %}
-  <div class="panel panel-success">
+  <div class="panel">
       <div class="panel-heading"><h3 class="panel-head">{% for p in pages|sort(attribute='sortorder') %}{% if page and p.slug == page.slug %}{{ p.title }}{% endif %}{% endfor %}{% if not page %}Full Stack Python{% endif %}</h3></div>
       <div class="panel-body">
           {% if not page %}
           <a href="/">Full Stack Python</a> 是一本开源图书，它用朴实的语言阐释概念并提供相关主题的最有用资源。
           <hr/>
-          如果你要查找一个特定主题请查看本 
-          <a href="/table-of-contents.html">目录</a>。
+          本 <a href="/table-of-contents.html">目标</a> 列出了所有的 Python 主题。
           {% endif %}
           {% if page %}
           <hr/>
