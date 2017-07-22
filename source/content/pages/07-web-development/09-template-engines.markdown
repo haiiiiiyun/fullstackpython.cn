@@ -15,31 +15,35 @@ updated: 2016-06-22 13:06--2016-06-28
 
 例如，查看当前网页的 HTML 内容的前 10 行源代码：
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Matt Makai">
-        <meta name="description" content="Template engines provide programmatic output of formatted content such as HTML, XML or PDF.">
-        <link rel="shortcut icon" href="//static.fullstackpython.com/fsp-fav.png">
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Matt Makai">
+    <meta name="description" content="Template engines provide programmatic output of formatted content such as HTML, XML or PDF.">
+    <link rel="shortcut icon" href="//static.fullstackpython.com/fsp-fav.png">
+```
 
 除了 `<meta name="description"...` 这行，它是为各个单独页面提供包含哪些内容的简短描述之外， 上面的各行 HTML 代码对于 Full Stack Python 网站的每个页面来说都是一样的。
 
 [base.html](https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/theme/templates/base.html) 是用于创建 Full Stack Python 的 Jinja 模板，它使得网站的每个页面都有一致的 HTML 内容结构，同时又能为每个页面动态生成那些在 [静态网站生成器](/static-site-generator.html) 执行时需要修改的内容。下面的代码来自 `base.html` 模板，可以看到 meta 描述是要求子模板来生成的。
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Matt Makai">
-        {% block meta_header %}{% endblock %}
-        <link rel="shortcut icon" href="//static.fullstackpython.com/fsp-fav.png">
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Matt Makai">
+    {&#37; block meta_header &#37;}{&#37; endblock &#37;}
+    <link rel="shortcut icon" href="//static.fullstackpython.com/fsp-fav.png">
+```
 
 
 在一个典型的 [WSGI 应用中](/wsgi-servers.html)，当某个特定 URL 的 HTTP 请求进来后，模板引擎将生成一个 HTML 文件的应答。
