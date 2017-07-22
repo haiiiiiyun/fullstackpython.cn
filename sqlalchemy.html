@@ -69,7 +69,7 @@ instead of writing bridge code to get data in and out of relational tables.</p>
 <p>Below is an example of a SQLAlchemy model definition from the open source 
 <a href="https://github.com/mattmakai/compare-python-web-frameworks/blob/master/flask_jinja_sqlalchemy/app.py">compare-python-web-frameworks project</a>
 that uses SQLAlchemy with Flask and Flask-SQLAlchemy.</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Contact</span>(<span class="n">db</span>.<span class="n">Model</span>):
+<div class="highlight"><pre><span class="k">class</span> <span class="n">Contact</span>(<span class="n">db</span>.<span class="n">Model</span>):
     <span class="n">__tablename__</span> = <span class="s">&#39;contacts&#39;</span>
     <span class="n">id</span> = <span class="n">db</span>.<span class="n">Column</span>(<span class="n">db</span>.<span class="n">Integer</span>, <span class="n">primary_key</span>=<span class="nb">True</span>)
     <span class="n">first_name</span> = <span class="n">db</span>.<span class="n">Column</span>(<span class="n">db</span>.<span class="n">String</span>(<span class="mi">100</span>))
@@ -85,7 +85,7 @@ that uses SQLAlchemy with Flask and Flask-SQLAlchemy.</p>
 
 <p>SQLAlchemy handles the table creation that otherwise we would have had
 to write a create table statement like this one to do the work:</p>
-<div class="highlight"><pre><span></span>CREATE TABLE CONTACTS(
+<div class="highlight"><pre>CREATE TABLE CONTACTS(
    ID INT PRIMARY KEY        NOT NULL,
    FIRST_NAME     CHAR(100)  NOT NULL,
    LAST_NAME      CHAR(100)  NOT NULL,

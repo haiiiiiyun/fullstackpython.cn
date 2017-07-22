@@ -117,7 +117,7 @@ Python 列为一门 Top10 的编程语言--如果还未进前五的话。</p>
 如果这些价值对你/或者你的组织同样重要，那么 Python 就很适合你。</p>
 <p>Python 非常注重语言哲学，这种哲学甚至被嵌入进了语言本身，例如当解译器执行 "import this"后
 会显示 <a href="https://www.python.org/dev/peps/pep-0020/">Python 之禅</a>的内容。</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">this</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">this</span>
 <span class="n">The</span> <span class="n">Zen</span> <span class="n">of</span> <span class="n">Python</span><span class="p">,</span> <span class="n">by</span> <span class="n">Tim</span> <span class="n">Peters</span>
 
 <span class="n">Beautiful</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">ugly</span><span class="o">.</span>
@@ -662,7 +662,7 @@ podcast presentation.</p>
 <h2>利用 Vimrc 配置 Vim</h2>
 <p>Vimrc 是 Vim 编辑器的配置文件。一个 Vimrc 文件可以是一个空文件，也可以包含成百上千行配置命令。</p>
 <p>下面是我用于 Python 开发的一个简短的 .vimrc 示例文件，并附带注释。从中你可以感受一下它的配置语句：</p>
-<div class="highlight"><pre><span></span>&quot; 开启语法高亮
+<div class="highlight"><pre>&quot; 开启语法高亮
 syntax enable
 
 &quot; 显示行号
@@ -962,20 +962,20 @@ let python_highlight_all = 1
 <p>在 Python 核心数据结构中填充条件式数据，推导式是一种较清晰的语法。如果没有推导式，实现相同的功能通常需要使用嵌套的循环和条件语句，这使得代码阅读者很难进行适当的评估。</p>
 <h2>示例代码</h2>
 <p>列表推导式:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; double_digit_evens = [e*2 for e in range(5, 50)]
+<div class="highlight"><pre>&gt;&gt;&gt; double_digit_evens = [e*2 for e in range(5, 50)]
 &gt;&gt;&gt; double_digit_evens
 [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
 </pre></div>
 
 
 <p>集合推导式:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; double_digit_odds = {e*2+1 for e in range(5, 50)}
+<div class="highlight"><pre>&gt;&gt;&gt; double_digit_odds = {e*2+1 for e in range(5, 50)}
 {11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99}
 </pre></div>
 
 
 <p>字典推导式:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; {e: e*10 for e in range(1, 11)}
+<div class="highlight"><pre>&gt;&gt;&gt; {e: e*10 for e in range(1, 11)}
 {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90, 10: 100}
 </pre></div>
 
@@ -1311,7 +1311,7 @@ let python_highlight_all = 1
 <h2>为什么说 Flask Web 框架是一个不错的选择？</h2>
 <p>人们认为 Flask 相比 Django 更加的 <a href="http://blog.startifact.com/posts/older/what-is-pythonic.html">Pythonic</a>， 因为 Flask Web 应用的代码在多数情况下都会更加清晰明确。 由于创建和运行一个简单的 Flask 应用只需很少的样板文件， Flask 对于初学者来说，更易于上手。</p>
 <p>例如，下面是一个 Flask 版本的 "hello world" 应用(它的 Django 版本将需要更多的代码量）：</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
@@ -1879,7 +1879,7 @@ let python_highlight_all = 1
 <h2>Nginx WebSocket 代理</h2>
 <p>Nginx 从 <a href="http://nginx.com/blog/websocket-nginx/">第 1.3 版</a> 开始就正式支持 WebSocket 代理了，通过配置 Upgrade 和 Connection 头可以确保请求通过 Nginx 并到达你的 WSGI 服务器。第一次设置可能会有一点难度。</p>
 <p>下面是我的 WebSockets 代理的 Nginx 配置。</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">this</span> <span class="nt">is</span> <span class="nt">where</span> <span class="nt">my</span> <span class="nt">WSGI</span> <span class="nt">server</span> <span class="nt">sits</span> <span class="nt">answering</span> <span class="nt">only</span> <span class="nt">on</span> <span class="nt">localhost</span>
+<div class="highlight"><pre><span class="err">#</span> <span class="nt">this</span> <span class="nt">is</span> <span class="nt">where</span> <span class="nt">my</span> <span class="nt">WSGI</span> <span class="nt">server</span> <span class="nt">sits</span> <span class="nt">answering</span> <span class="nt">only</span> <span class="nt">on</span> <span class="nt">localhost</span>
 <span class="err">#</span> <span class="nt">usually</span> <span class="nt">this</span> <span class="nt">is</span> <span class="nt">Gunicorn</span> <span class="nt">monkey</span> <span class="nt">patched</span> <span class="nt">with</span> <span class="nt">gevent</span>
 <span class="nt">upstream</span> <span class="nt">app_server_wsgiapp</span> <span class="p">{</span>
   <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">5000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
@@ -1987,7 +1987,7 @@ let python_highlight_all = 1
 <h2>为什么说模板引擎很重要？</h2>
 <p>模板引擎允许开发人员创建 HTML 等所需的内容形式，同时，它还提供条件判断和 for 循环等编程构件来对输出进行处理。 模板文件由预定义的标记和待插入内容的模板标签段组成， 这些文件由开发人员创建，然后再由模板引擎处理。</p>
 <p>例如，查看当前网页的 HTML 内容的前 10 行源代码：</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="p">&gt;</span>
@@ -2002,7 +2002,7 @@ let python_highlight_all = 1
 
 <p>除了 <code>&lt;meta name="description"...</code> 这行，它是为各个单独页面提供包含哪些内容的简短描述之外， 上面的各行 HTML 代码对于 Full Stack Python 网站的每个页面来说都是一样的。</p>
 <p><a href="https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/theme/templates/base.html">base.html</a> 是用于创建 Full Stack Python 的 Jinja 模板，它使得网站的每个页面都有一致的 HTML 内容结构，同时又能为每个页面动态生成那些在 <a href="/static-site-generator.html">静态网站生成器</a> 执行时需要修改的内容。下面的代码来自 <code>base.html</code> 模板，可以看到 meta 描述是要求子模板来生成的。</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="p">&gt;</span>
@@ -2614,12 +2614,12 @@ let python_highlight_all = 1
 <h2>为什么 ORM 很有用？</h2>
 <p>ORM 为 <a href="/databases.html">关系型数据库</a> 提供了高级的抽象，它使得开发人员不必写 SQL，只需写 Python 代码就能在数据库中创建、读取、更新和删除数据。开发人员能使用他们熟悉的编程语言来处理数据库，而无需编写 SQL 语句或存储过程。</p>
 <p>例如，如果没有 ORM 的话，开发人员需要编写以下的 SQL 语句来读取 USERS 表中的 <code>zip_code</code> 列的值为 94107 的所有行：</p>
-<div class="highlight"><pre><span></span>SELECT * FROM USERS WHERE zip_code=94107;
+<div class="highlight"><pre>SELECT * FROM USERS WHERE zip_code=94107;
 </pre></div>
 
 
 <p>而其相应的 Django ORM 查询语句看起来会如下面的 Python 代码：</p>
-<div class="highlight"><pre><span></span># obtain everyone in the 94107 zip code and assign to users variable
+<div class="highlight"><pre># obtain everyone in the 94107 zip code and assign to users variable
 users = Users.objects.filter(zip_code=94107)
 </pre></div>
 
@@ -3348,7 +3348,7 @@ users = Users.objects.filter(zip_code=94107)
 <p><img src="/img/twilio-logo.png" width="100%" alt="Twilio logo." class="technical-diagram" style="padding: 10px 0 10px 0;"/></p>
 <h2>为什么 Twilio 是一个好的 API 选择？</h2>
 <p>如果你不知道像会话初始化协议（SIP）等的专门通讯协议，不使用 Twilio 与标准电话网络进行交互，并发送和接收电话和短信是极其困难的。Twilio 的 API 对通讯部分进行了抽象，从而作为一个开发者，你只需在你的应用中使用你熟悉的编程语言和框架。例如，这里是如何<a href="https://www.twilio.com/docs/quickstart/python/sms/sending-via-rest">发送短信</a> 的例子，只用了几行 Python 代码：</p>
-<div class="highlight"><pre><span></span><span class="c1"># 导入 Twilio 辅助库 (通过 pip install twilio 进行安装)</span>
+<div class="highlight"><pre><span class="c1"># 导入 Twilio 辅助库 (通过 pip install twilio 进行安装)</span>
 <span class="kn">from</span> <span class="nn">twilio.rest</span> <span class="kn">import</span> <span class="n">TwilioRestClient</span>
 
 <span class="c1"># 将下面代码行中的占位符替换成</span>
@@ -3888,7 +3888,7 @@ WSGI 1.0 版本被
 <h2>Web 服务器配置样例</h2>
 <p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
 <p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
+<div class="highlight"><pre><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -4155,7 +4155,7 @@ WSGI 1.0 版本被
 <h2>requirements.txt</h2>
 <p>Pip 的使用惯例是，可以使用一个<code>requirements.txt</code>文件指定应用程序依赖。当你构建一个 web 应用时，你应当在项目的主目录下包含一个<code>requirements.txt</code>文件。</p>
 <p>Python web 应用的项目依赖库应当指定相应的版本号，如下：</p>
-<div class="highlight"><pre><span></span>django==1.6
+<div class="highlight"><pre>django==1.6
 bpython==0.12
 django-braces==0.2.1
 django-model-utils==1.1.0
@@ -5380,7 +5380,7 @@ Setup.py 是发布并安装 Python 库的标准方法。如果你正在构建一
 <p>Gunicorn 根据在 WSGI 服务器和 WSGI 兼容的 web 应用之间的钩子知道如何运行 web 应用。</p>
 <p>这儿有个例子，它说明了如何通过 Gunicorn 运行一个典型的 Django web 应用。
 我们将以 <a href="https://github.com/mattmakai/compare-python-web-frameworks/tree/master/django_defaults">dango_defaults</a> 为例。在 <a href="https://github.com/makaimc/compare-python-web-frameworks/tree/master/django_defaults/django_defaults">django_defaults</a> 项目目录中，有一个短的 <a href="https://github.com/makaimc/compare-python-web-frameworks/blob/master/django_defaults/django_defaults/wsgi.py">wsgi.py</a> 文件含有下面的内容：</p>
-<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">WSGI config for django_defaults project.</span>
 
 <span class="sd">It exposes the WSGI callable as a module-level variable named ``application``.</span>
@@ -6535,7 +6535,7 @@ instead of writing bridge code to get data in and out of relational tables.</p>
 <p>Below is an example of a SQLAlchemy model definition from the open source 
 <a href="https://github.com/mattmakai/compare-python-web-frameworks/blob/master/flask_jinja_sqlalchemy/app.py">compare-python-web-frameworks project</a>
 that uses SQLAlchemy with Flask and Flask-SQLAlchemy.</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Contact</span>(<span class="n">db</span>.<span class="n">Model</span>):
+<div class="highlight"><pre><span class="k">class</span> <span class="n">Contact</span>(<span class="n">db</span>.<span class="n">Model</span>):
     <span class="n">__tablename__</span> = <span class="s">&#39;contacts&#39;</span>
     <span class="n">id</span> = <span class="n">db</span>.<span class="n">Column</span>(<span class="n">db</span>.<span class="n">Integer</span>, <span class="n">primary_key</span>=<span class="nb">True</span>)
     <span class="n">first_name</span> = <span class="n">db</span>.<span class="n">Column</span>(<span class="n">db</span>.<span class="n">String</span>(<span class="mi">100</span>))
@@ -6551,7 +6551,7 @@ that uses SQLAlchemy with Flask and Flask-SQLAlchemy.</p>
 
 <p>SQLAlchemy handles the table creation that otherwise we would have had
 to write a create table statement like this one to do the work:</p>
-<div class="highlight"><pre><span></span>CREATE TABLE CONTACTS(
+<div class="highlight"><pre>CREATE TABLE CONTACTS(
    ID INT PRIMARY KEY        NOT NULL,
    FIRST_NAME     CHAR(100)  NOT NULL,
    LAST_NAME      CHAR(100)  NOT NULL,

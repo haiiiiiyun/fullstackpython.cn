@@ -4,6 +4,7 @@ run:
 	pelican -t theme -s settings.py -o .. content
 	cp ../pages/* ../
 	cp -R ../theme/img/* ../img/
+	cp -R ../theme/css/* ../
 	rm -rf ../pages/
 
 run-no-static:

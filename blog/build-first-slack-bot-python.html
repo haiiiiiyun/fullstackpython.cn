@@ -78,12 +78,12 @@ environment set up. Go to the terminal (or Command Prompt on Windows) and
 change into the directory where you want to store this project. Within 
 that directory, create a new virtualenv to isolate our application 
 dependencies from other Python projects.</p>
-<div class="highlight"><pre><span></span>virtualenv starterbot
+<div class="highlight"><pre>virtualenv starterbot
 </pre></div>
 
 
 <p>Activate the virtualenv:</p>
-<div class="highlight"><pre><span></span>source starterbot/bin/activate
+<div class="highlight"><pre>source starterbot/bin/activate
 </pre></div>
 
 
@@ -92,7 +92,7 @@ dependencies from other Python projects.</p>
 <p>The official slackclient API helper library built by Slack can send and 
 receive messages from a Slack channel. Install the slackclient library with 
 the <code>pip</code> command:</p>
-<div class="highlight"><pre><span></span>pip install slackclient
+<div class="highlight"><pre>pip install slackclient
 </pre></div>
 
 
@@ -122,7 +122,7 @@ now ready to connect to Slack's API.</p>
 <p>A common practice for Python developers is to export secret tokens as 
 environment variables. Export the Slack token with the name 
 <code>SLACK_BOT_TOKEN</code>:</p>
-<div class="highlight"><pre><span></span>export SLACK_BOT_TOKEN=&#39;your slack token pasted here&#39;
+<div class="highlight"><pre>export SLACK_BOT_TOKEN=&#39;your slack token pasted here&#39;
 </pre></div>
 
 
@@ -138,7 +138,7 @@ parsed from the Slack RTM are directed at StarterBot. Our script also
 tests that our <code>SLACK_BOT_TOKEN</code> environment variable is properly set. </p>
 <p>Create a new file named <code>print_bot_id.py</code> and fill it with the following 
 code.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">slackclient</span> <span class="kn">import</span> <span class="n">SlackClient</span>
 
 
@@ -165,7 +165,7 @@ code.</p>
 script is executed by the <code>python</code> command we call the Slack API to list
 all Slack users and get the ID for the one that matches the name "starterbot".</p>
 <p>We only need to run this script once to obtain our bot’s ID.</p>
-<div class="highlight"><pre><span></span>python print_bot_id.py
+<div class="highlight"><pre>python print_bot_id.py
 </pre></div>
 
 
@@ -174,7 +174,7 @@ us with our bot's ID.</p>
 <p><img src="/source/static/img/160604-simple-python-slack-bot/printed-bot-id.png" width="100%" class="technical-diagram img-rounded" alt="Use the Python script to print the Slack bot's ID in your Slack team."></p>
 <p>Copy the unique ID that your script prints out. Export the ID as an 
 environment variable named <code>BOT_ID</code>.</p>
-<div class="highlight"><pre><span></span>(starterbot)$ export BOT_ID=&#39;bot id returned by script&#39;
+<div class="highlight"><pre>(starterbot)$ export BOT_ID=&#39;bot id returned by script&#39;
 </pre></div>
 
 
@@ -183,7 +183,7 @@ that ID in our Python application that will run StarterBot.</p>
 <h2>Coding Our StarterBot</h2>
 <p>We've got everything we need to write the StarterBot code. Create a new file 
 named <code>starterbot.py</code> and include the following code in it.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">slackclient</span> <span class="kn">import</span> <span class="n">SlackClient</span>
 </pre></div>
@@ -193,7 +193,7 @@ named <code>starterbot.py</code> and include the following code in it.</p>
 in the <code>print_bot_id.py</code> program.</p>
 <p>With our dependencies imported we can use them to obtain the environment 
 variable values and then instantiate the Slack client.</p>
-<div class="highlight"><pre><span></span><span class="cp"># starterbot&#39;s ID as an environment variable</span>
+<div class="highlight"><pre><span class="cp"># starterbot&#39;s ID as an environment variable</span>
 <span class="n">BOT_ID</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;BOT_ID&quot;</span><span class="p">)</span>
 
 <span class="cp"># constants</span>
@@ -207,7 +207,7 @@ variable values and then instantiate the Slack client.</p>
 
 <p>The code instantiates the <code>SlackClient</code> client with our <code>SLACK_BOT_TOKEN</code> 
 exported as an environment variable. </p>
-<div class="highlight"><pre><span></span>if __name__ == &quot;__main__&quot;:
+<div class="highlight"><pre>if __name__ == &quot;__main__&quot;:
     READ_WEBSOCKET_DELAY = 1 # 1 second delay between reading from firehose
     if slack_client.rtm_connect():
         print(&quot;StarterBot connected and running!&quot;)
@@ -226,7 +226,7 @@ loops while parsing messages from the firehose. If any of those messages are
 directed at StarterBot, a function named <code>handle_command</code> determines what 
 to do.</p>
 <p>Next add two new functions to parse Slack output and handle commands.</p>
-<div class="highlight"><pre><span></span>def handle_command(command, channel):
+<div class="highlight"><pre>def handle_command(command, channel):
     &quot;&quot;&quot;
         Receives commands directed at the bot and determines if they
         are valid commands. If so, then acts on the commands. If not,
@@ -265,7 +265,7 @@ some more Python code!</p>
 <p>Here is how the entire program should look when it's all put together
 (you can also 
 <a href="https://github.com/mattmakai/slack-starterbot/blob/master/starterbot.py">view the file in GitHub</a>):</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">slackclient</span> <span class="kn">import</span> <span class="n">SlackClient</span>
 

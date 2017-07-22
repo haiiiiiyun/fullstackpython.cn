@@ -41,7 +41,7 @@
 <h2>为什么说模板引擎很重要？</h2>
 <p>模板引擎允许开发人员创建 HTML 等所需的内容形式，同时，它还提供条件判断和 for 循环等编程构件来对输出进行处理。 模板文件由预定义的标记和待插入内容的模板标签段组成， 这些文件由开发人员创建，然后再由模板引擎处理。</p>
 <p>例如，查看当前网页的 HTML 内容的前 10 行源代码：</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="p">&gt;</span>
@@ -56,7 +56,7 @@
 
 <p>除了 <code>&lt;meta name="description"...</code> 这行，它是为各个单独页面提供包含哪些内容的简短描述之外， 上面的各行 HTML 代码对于 Full Stack Python 网站的每个页面来说都是一样的。</p>
 <p><a href="https://github.com/mattmakai/fullstackpython.com/blob/gh-pages/source/theme/templates/base.html">base.html</a> 是用于创建 Full Stack Python 的 Jinja 模板，它使得网站的每个页面都有一致的 HTML 内容结构，同时又能为每个页面动态生成那些在 <a href="/static-site-generator.html">静态网站生成器</a> 执行时需要修改的内容。下面的代码来自 <code>base.html</code> 模板，可以看到 meta 描述是要求子模板来生成的。</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="p">&gt;</span>

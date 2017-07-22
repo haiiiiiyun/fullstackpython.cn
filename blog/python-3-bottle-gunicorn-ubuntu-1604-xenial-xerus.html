@@ -81,7 +81,7 @@ development.</p>
 <h2>System Packages</h2>
 <p>We can see the python3 system version Ubuntu comes with and where its
 executable is stored using these commands.</p>
-<div class="highlight"><pre><span></span>python3 --version
+<div class="highlight"><pre>python3 --version
 which python3
 </pre></div>
 
@@ -91,7 +91,7 @@ which python3
 for the superuser password because restricted system access is needed 
 to install packages through 
 <a href="https://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a>.</p>
-<div class="highlight"><pre><span></span>sudo apt-get install virtualenv python-pip python3-dev
+<div class="highlight"><pre>sudo apt-get install virtualenv python-pip python3-dev
 </pre></div>
 
 
@@ -106,7 +106,7 @@ and <a href="https://pypi.python.org/pypi/pip">pip</a> were installed to handle 
 <a href="/application-dependencies.html">application dependencies</a>.
 We can now use them to download and install Bottle and Gunicorn.</p>
 <p>Create a directory for the virtualenvs. Then create a new virtualenv.</p>
-<div class="highlight"><pre><span></span># the tilde &quot;~&quot; specifies the user&#39;s home directory, like /home/matt
+<div class="highlight"><pre># the tilde &quot;~&quot; specifies the user&#39;s home directory, like /home/matt
 cd ~
 mkdir venvs
 # specify the system python3 installation
@@ -115,7 +115,7 @@ virtualenv --python=/usr/bin/python3 venvs/bottleproj
 
 
 <p>Activate the virtualenv.</p>
-<div class="highlight"><pre><span></span>source ~/venvs/bottleproj/bin/activate
+<div class="highlight"><pre>source ~/venvs/bottleproj/bin/activate
 </pre></div>
 
 
@@ -125,7 +125,7 @@ virtualenv --python=/usr/bin/python3 venvs/bottleproj
 dependencies we want, in our case Bottle and Gunicorn. </p>
 <h2>Bottle and Gunicorn</h2>
 <p>We can now install Bottle and Green Unicorn via the <code>pip</code> command.</p>
-<div class="highlight"><pre><span></span>pip install bottle gunicorn
+<div class="highlight"><pre>pip install bottle gunicorn
 </pre></div>
 
 
@@ -134,7 +134,7 @@ dependencies we want, in our case Bottle and Gunicorn. </p>
 <p>Use the <code>mkdir</code> command to create a new directory to keep our Bottle 
 project then use the <code>cd</code> (change directory) command to move into the
 new folder.</p>
-<div class="highlight"><pre><span></span>mkdir ~/bottleproj
+<div class="highlight"><pre>mkdir ~/bottleproj
 cd ~/bottleproj
 </pre></div>
 
@@ -145,7 +145,7 @@ we can test to make sure Bottle is working properly. I prefer to use
 <a href="/development-environments.html">development environments</a> work great as
 well.</p>
 <p>Within the new <code>app.py</code> file write the following code.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bottle</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">bottle</span>
 <span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">route</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="n">Response</span>
 
 <span class="c1"># a basic URL route to test whether Bottle is responding properly</span>
@@ -165,7 +165,7 @@ well.</p>
 <p>We could run our app with the Bottle development server using the 
 <code>python app.py</code> command. Let's instead run our Bottle app with
 Gunicorn.</p>
-<div class="highlight"><pre><span></span>gunicorn -w 2 app:app
+<div class="highlight"><pre>gunicorn -w 2 app:app
 </pre></div>
 
 

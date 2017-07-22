@@ -84,7 +84,7 @@ WSGI 1.0 版本被
 <h2>Web 服务器配置样例</h2>
 <p>Web 服务器配置规定了什么样的请求应该交给 WSGI 服务器处理。一旦 WSGI 服务器产生并处理完请求后，响应就会被 web 服务器传送回浏览器。</p>
 <p>例如，这个 Nginx web 服务器配置规定了 Nginx 应当处理在 /static 目录下的静态资源（如图片、JavaScript、和 CSS 文件）访问请求，并且将所有其他的请求传递给运行在 8000 端口上的 WSGI 服务器:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
+<div class="highlight"><pre><span class="err">#</span> <span class="err">这个配置表明有一个运行在</span> <span class="nt">8000</span> <span class="err">端口上的</span> <span class="nt">WSGI</span> <span class="err">服务器</span>
 <span class="nt">upstream</span> <span class="nt">app_server_djangoapp</span> <span class="p">{</span>
     <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">8000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>

@@ -79,7 +79,7 @@ to create an HTTP POST request to Twilio's API. The Twilio helper library is
 installable from <a href="https://pypi.python.org/pypi">PyPI</a> into a virtual 
 environment. Open your terminal and use the <code>virtualenv</code> command to create 
 a new virtualenv:</p>
-<div class="highlight"><pre><span></span>virtualenv phoneapp
+<div class="highlight"><pre>virtualenv phoneapp
 </pre></div>
 
 
@@ -87,7 +87,7 @@ a new virtualenv:</p>
 this virtualenv the active Python executable. Note that you will need to 
 perform this step in every terminal window that you want the virtualenv to 
 be active.</p>
-<div class="highlight"><pre><span></span>source phoneapp/bin/activate
+<div class="highlight"><pre>source phoneapp/bin/activate
 </pre></div>
 
 
@@ -96,7 +96,7 @@ to something like <code>(phoneapp) $</code>. </p>
 <p>Next use the <code>pip</code> command to install the 
 <a href="https://www.twilio.com/docs/libraries/python">Twilio Python</a> package
 into the virtualenv.</p>
-<div class="highlight"><pre><span></span>pip install twilio
+<div class="highlight"><pre>pip install twilio
 </pre></div>
 
 
@@ -106,7 +106,7 @@ dial phone numbers.</p>
 <h2>Our Python Script</h2>
 <p>Create a new file named <code>phone_calls.py</code> and copy or type in the following
 lines of code.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">twilio.rest</span> <span class="kn">import</span> <span class="n">TwilioRestClient</span>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">twilio.rest</span> <span class="kn">import</span> <span class="n">TwilioRestClient</span>
 
 
 <span class="c1"># Twilio phone number goes here. Grab one at https://twilio.com/try-twilio</span>
@@ -185,7 +185,7 @@ If no one else calls the number then hold music should be playing.</p>
 <p>We just handled inbound phone calls to our phone number. Now it's time to 
 dial outbound phone calls. Make sure your <code>phone_calls.py</code> file is saved 
 and that your virtualenv is still activated and then execute the script:</p>
-<div class="highlight"><pre><span></span>python phone_calls.py
+<div class="highlight"><pre>python phone_calls.py
 </pre></div>
 
 

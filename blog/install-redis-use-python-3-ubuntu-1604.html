@@ -79,7 +79,7 @@ However, on Ubuntu we can install a system package through <code>apt</code>. The
 advantage of this method is that the <code>apt</code> process will take care of 
 installing <code>redis-server</code> as a system service. Open the terminal and run 
 the following command:</p>
-<div class="highlight"><pre><span></span>sudo apt-get install redis-server
+<div class="highlight"><pre>sudo apt-get install redis-server
 </pre></div>
 
 
@@ -94,7 +94,7 @@ as a system service. Even though we installed the <code>redis-server</code> pack
 the installation also comes with the Redis command line client. The client
 is useful for connecting directly to the Redis server without any Python
 code. Give <code>redis-cli</code> a try by typing this into the command prompt:</p>
-<div class="highlight"><pre><span></span>redis-cli
+<div class="highlight"><pre>redis-cli
 </pre></div>
 
 
@@ -108,7 +108,7 @@ The full list of Redis commands is provided in the
 <p>We need to figure out our <code>python3</code> location, then create a virtualenv,
 activate the virtualenv and then install redis-py with <code>pip</code>.
 Determine your <code>python3</code> executable location with the <code>which</code> command.</p>
-<div class="highlight"><pre><span></span>which python3
+<div class="highlight"><pre>which python3
 </pre></div>
 
 
@@ -117,19 +117,19 @@ Determine your <code>python3</code> executable location with the <code>which</co
 <p>Create a new virtualenv either in your home directory or wherever you
 store your project virtualenvs. Specify the full path to your <code>python3</code>
 installation. </p>
-<div class="highlight"><pre><span></span># specify the system python3 installation
+<div class="highlight"><pre># specify the system python3 installation
 virtualenv --python=/usr/bin/python3 venvs/redistest
 </pre></div>
 
 
 <p>Activate the virtualenv.</p>
-<div class="highlight"><pre><span></span>source ~/venvs/redistest/bin/activate
+<div class="highlight"><pre>source ~/venvs/redistest/bin/activate
 </pre></div>
 
 
 <p>Next we can install the redis-py Python package from 
 <a href="https://pypi.python.org/pypi">PyPI</a> using the <code>pip</code> command.</p>
-<div class="highlight"><pre><span></span>pip install redis
+<div class="highlight"><pre>pip install redis
 </pre></div>
 
 
@@ -140,7 +140,7 @@ Python code to try out give redis-py!</p>
 <p>Fire up the Python REPL with the <code>python</code> or <code>python3</code> command. You can also 
 write the following code in a Python file such as "testredis.py" then
 execute it with <code>python testredis.py</code>.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">redis</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">redis</span>
 <span class="c1"># create a connection to the localhost Redis server instance, by</span>
 <span class="c1"># default it runs on port 6379</span>
 <span class="n">redis_db</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">StrictRedis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">6379</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>

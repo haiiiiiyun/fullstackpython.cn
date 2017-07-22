@@ -79,14 +79,14 @@ configured.</p>
 Bottle and the helper library are installable from 
 <a href="https://pypi.python.org/pypi">PyPI</a> into a virtualenv. Open your terminal 
 and use the <code>virtualenv</code> command to create a new virtualenv:</p>
-<div class="highlight"><pre><span></span>virtualenv replysms
+<div class="highlight"><pre>virtualenv replysms
 </pre></div>
 
 
 <p>Invoke the virtualenv's <code>activate</code> script, which makes it the "active" 
 Python installation. Note that you need to do this in every terminal window
 that you want this virtualenv to be used.</p>
-<div class="highlight"><pre><span></span>source replysms/bin/activate
+<div class="highlight"><pre>source replysms/bin/activate
 </pre></div>
 
 
@@ -95,7 +95,7 @@ that you want this virtualenv to be used.</p>
 <p>Use the <code>pip</code> command to install the <a href="/bottle.html">Bottle</a> and 
 <a href="https://www.twilio.com/docs/libraries/python">Twilio Python</a> packages
 into your virtualenv.</p>
-<div class="highlight"><pre><span></span>pip install bottle twilio
+<div class="highlight"><pre>pip install bottle twilio
 </pre></div>
 
 
@@ -110,7 +110,7 @@ in the directory where you want to store this Python project.</p>
 <p>Write the following code in the new <code>app.py</code> file. There is also
 <a href="https://gist.github.com/mattmakai/6ec3b46e40a1020a3ea9c772c601199a">a GitHub Gist</a> 
 with the code that you can copy and paste.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="p">)</span>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">twilio</span> <span class="kn">import</span> <span class="n">twiml</span>
 
 
@@ -162,7 +162,7 @@ appropriate for your operating system.</p>
 <p>We can run Ngrok locally and expose our Bottle app that is running on 
 port 5000. Run this command within the directory where the Ngrok executable is
 located.</p>
-<div class="highlight"><pre><span></span>./ngrok http 5000
+<div class="highlight"><pre>./ngrok http 5000
 </pre></div>
 
 

@@ -72,7 +72,7 @@
 <h2>Nginx WebSocket 代理</h2>
 <p>Nginx 从 <a href="http://nginx.com/blog/websocket-nginx/">第 1.3 版</a> 开始就正式支持 WebSocket 代理了，通过配置 Upgrade 和 Connection 头可以确保请求通过 Nginx 并到达你的 WSGI 服务器。第一次设置可能会有一点难度。</p>
 <p>下面是我的 WebSockets 代理的 Nginx 配置。</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nt">this</span> <span class="nt">is</span> <span class="nt">where</span> <span class="nt">my</span> <span class="nt">WSGI</span> <span class="nt">server</span> <span class="nt">sits</span> <span class="nt">answering</span> <span class="nt">only</span> <span class="nt">on</span> <span class="nt">localhost</span>
+<div class="highlight"><pre><span class="err">#</span> <span class="nt">this</span> <span class="nt">is</span> <span class="nt">where</span> <span class="nt">my</span> <span class="nt">WSGI</span> <span class="nt">server</span> <span class="nt">sits</span> <span class="nt">answering</span> <span class="nt">only</span> <span class="nt">on</span> <span class="nt">localhost</span>
 <span class="err">#</span> <span class="nt">usually</span> <span class="nt">this</span> <span class="nt">is</span> <span class="nt">Gunicorn</span> <span class="nt">monkey</span> <span class="nt">patched</span> <span class="nt">with</span> <span class="nt">gevent</span>
 <span class="nt">upstream</span> <span class="nt">app_server_wsgiapp</span> <span class="p">{</span>
   <span class="n">server</span> <span class="n">localhost</span><span class="o">:</span><span class="m">5000</span> <span class="n">fail_timeout</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
@@ -100,7 +100,7 @@
 </pre></div>
 
 
-<p>值得注意的是，如果上面的示例配置不能工作，你应该查看 <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">官方的 HTTP 代理模块文档</a>。</p>
+<p>值得注意的是，如何上面的示例配置不能工作，你应该查看 <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">官方的 HTTP 代理模块文档</a>。</p>
 <p>下面的这些资源对于正确的配置也很有帮助。</p>
 <ul>
 <li>

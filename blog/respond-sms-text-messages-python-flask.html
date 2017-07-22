@@ -77,12 +77,12 @@ messages from Python. The helper library dependency along with the Flask
 code library can be installed from <a href="https://pypi.python.org/pypi">PyPI</a> into 
 a virtualenv. In your terminal use the following command to generate a new 
 virtualenv. </p>
-<div class="highlight"><pre><span></span>virtualenv respondsms
+<div class="highlight"><pre>virtualenv respondsms
 </pre></div>
 
 
 <p>Activate the virtualenv.</p>
-<div class="highlight"><pre><span></span>source respondsms/bin/activate
+<div class="highlight"><pre>source respondsms/bin/activate
 </pre></div>
 
 
@@ -91,7 +91,7 @@ to something like this:</p>
 <p><img src="/source/static/img/160530-respond-sms-python-flask/activate-virtualenv.png" width="100%" class="technical-diagram img-rounded"></p>
 <p>Install Flask and the Twilio Python helper library into the virtualenv with
 the <code>pip</code> command. </p>
-<div class="highlight"><pre><span></span>pip install flask twilio
+<div class="highlight"><pre>pip install flask twilio
 </pre></div>
 
 
@@ -105,7 +105,7 @@ store your Python project files.</p>
 <p>Within <code>app.py</code> write the following code. You can also see 
 <a href="https://gist.github.com/mattmakai/8ab434ccb604d3ba5bde817a183e0bde">this code in a GitHub Gist</a> 
 if that's easier to copy and paste.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">Response</span><span class="p">,</span> <span class="n">request</span>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">Response</span><span class="p">,</span> <span class="n">request</span>
 <span class="kn">from</span> <span class="nn">twilio</span> <span class="kn">import</span> <span class="n">twiml</span>
 
 
@@ -158,7 +158,7 @@ services can connect to a server running in your local development
 environment. Download and install Ngrok.</p>
 <p>We can now run Ngrok locally and connect our Flask app running on port 5000. 
 Within the directory where you extracted Ngrok, run this command.</p>
-<div class="highlight"><pre><span></span>./ngrok http 5000
+<div class="highlight"><pre>./ngrok http 5000
 </pre></div>
 
 

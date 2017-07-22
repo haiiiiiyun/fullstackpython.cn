@@ -41,12 +41,12 @@
 <h2>为什么 ORM 很有用？</h2>
 <p>ORM 为 <a href="/databases.html">关系型数据库</a> 提供了高级的抽象，它使得开发人员不必写 SQL，只需写 Python 代码就能在数据库中创建、读取、更新和删除数据。开发人员能使用他们熟悉的编程语言来处理数据库，而无需编写 SQL 语句或存储过程。</p>
 <p>例如，如果没有 ORM 的话，开发人员需要编写以下的 SQL 语句来读取 USERS 表中的 <code>zip_code</code> 列的值为 94107 的所有行：</p>
-<div class="highlight"><pre><span></span>SELECT * FROM USERS WHERE zip_code=94107;
+<div class="highlight"><pre>SELECT * FROM USERS WHERE zip_code=94107;
 </pre></div>
 
 
 <p>而其相应的 Django ORM 查询语句看起来会如下面的 Python 代码：</p>
-<div class="highlight"><pre><span></span># obtain everyone in the 94107 zip code and assign to users variable
+<div class="highlight"><pre># obtain everyone in the 94107 zip code and assign to users variable
 users = Users.objects.filter(zip_code=94107)
 </pre></div>
 

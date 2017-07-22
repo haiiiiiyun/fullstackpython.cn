@@ -1,20 +1,20 @@
 fullstackpython.cn
 ==================
 
-fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的简体中文翻译项目。
 
-> Forked from [github.com/mattmakai/fullstackpython.com](https://github.com/makaimc/fullstackpython.com).
+先前 fullstackpython.cn 是作为 [Full Stack Python](https://github.com/makaimc/fullstackpython.com) 的简体中文翻译项目进行维护的，在对原项目中的文章内容进行同步翻译的同时，还使文件样式和网站结构也尽可以与原项目保持同步。
 
-> [fullstackpython.atjiang.com](http://fullstackpython.atjiang.com) 是 [www.fullstackpython.com](https://www.fullstackpython.com/) 的中文翻译网站。
+到目前为止，原项目中的绝大部分文章都已翻译完成，因此本项目的初衷也已基本达成。
+
+下阶段，fullstackpython.cn 项目除了继续跟踪翻译 [Full Stack Python](https://github.com/makaimc/fullstackpython.com) 项目中的更新文章以外，还将添加其它一些关于 Python 开发的文章与资料。
+
+除外，本项目的文章样式和网站结构将不再与原项目保持同步。
 
 
-## 公告
+本项目的编译版本可直接查看网页 [fullstackpython.atjiang.com](http://fullstackpython.atjiang.com)。
 
-欢迎大家[参与翻译](https://github.com/haiiiiiyun/fullstackpython.cn#如何贡献翻译)。
 
-中文排版请遵循这里：[写给大家看的中文排版指南](http://zhuanlan.zhihu.com/p/20506092)
-
-## 项目进度
+## 项目先前的翻译进度和译者如下
 
 ### 一、简介
 
@@ -120,7 +120,7 @@ fullstackpython.cn 是 [Full Stack Python](https://www.fullstackpython.com/)的�
 
 ## 如何在本地启动
 
-1. 安装 [Pelican](http://docs.getpelican.com/en/3.6.3/install.html) 运行环境 `cd source && pip install -r requirements.txt`
+1. 安装 [Pelican](http://docs.getpelican.com/en/3.7.1/install.html) 运行环境 `cd source && pip install -r requirements.txt`
 2. 重新生成网页 `make run`
 3. 启动 Pelican HTTP 服务器 `python -m pelican.server`
 4. 在浏览器中访问 `http://127.0.0.1:8000/`
